@@ -1,18 +1,7 @@
-build/default/production/EEPROM.p1:  \
-EEPROM.c  \
-EEPROM.h  \
-CONFIG.h  \
-PORT.h  \
-SCH_CONFIG.h  \
-SCH.h  \
-TIM.h  \
-GPIO.h  \
-LED.h  \
-SW.h  \
-ADC.h  \
-TEMP.h  \
-HCU.h  \
-SSD.h  \
-DISP.h  \
-I2C.h  \
-WH.h 
+build/default/production/Eeprom.p1:  \
+Eeprom.c  \
+Eeprom.h  \
+SchedulerConfig.h  \
+Config.h  \
+I2c.h  \
+Gpio.h 

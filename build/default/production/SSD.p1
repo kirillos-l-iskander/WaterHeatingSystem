@@ -1,28 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"28 ./SSD.h
-[; ;./SSD.h: 28: {
-[s S110 `uc 1 `uc 1 ]
-[n S110 . State Symbol ]
-"34 ./GPIO.h
-[; ;./GPIO.h: 34: {
-[s S108 `uc 1 `uc -> 127 `i `uc 1 ]
-[n S108 . PORT PAD TRIS ]
-"40
-[; ;./GPIO.h: 40: void GPIO_InitPin(GPIO_TypeDef* GPIOx, uint8_t PINx, uint8_t Mode);
-[v _GPIO_InitPin `(v ~T0 @X0 0 ef3`*S108`uc`uc ]
-"340 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 340: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"166
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
-[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
-"41 ./GPIO.h
-[; ;./GPIO.h: 41: void GPIO_SetPinState(GPIO_TypeDef* GPIOx, uint8_t PINx, uint8_t State);
-[v _GPIO_SetPinState `(v ~T0 @X0 0 ef3`*S108`uc`uc ]
-"43
-[; ;./GPIO.h: 43: void GPIO_SetPortState(GPIO_TypeDef* GPIOx, uint8_t PINx, uint8_t State);
-[v _GPIO_SetPortState `(v ~T0 @X0 0 ef3`*S108`uc`uc ]
-"13 ./CONFIG.h
+"4 Ssd.c
+[; ;Ssd.c: 4: {
+[s S102 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S102 . GpioIdCtrl PinCtrl GpioIdD0 PinD0 ]
+"18 ./Gpio.h
+[; ;./Gpio.h: 18: void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+[v _Gpio_InitPin `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"19
+[; ;./Gpio.h: 19: void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+[v _Gpio_SetPinState `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"21
+[; ;./Gpio.h: 21: void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+[v _Gpio_SetPortState `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"13 ./Config.h
 [p x FOSC = HS ]
 "14
 [p x WDTE = OFF ]
@@ -218,13 +208,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"3 SSD.c
-[; ;SSD.c: 3: volatile static SSD_t SSD_G[4];
-[v _SSD_G `VS110 ~T0 @X0 -> 4 `i s ]
-"4
-[; ;SSD.c: 4: volatile static uint8_t SSD_SymbolPattern_G[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
-[v _SSD_SymbolPattern_G `Vuc ~T0 @X0 -> 10 `i s ]
-[i _SSD_SymbolPattern_G
+"11 Ssd.c
+[; ;Ssd.c: 11: static Ssd_t Ssd[ ( 2 ) ];
+[v _Ssd `S102 ~T0 @X0 -> 2 `i s ]
+"12
+[; ;Ssd.c: 12: static uint8_t SsdSymbolPattern[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+[v _SsdSymbolPattern `uc ~T0 @X0 -> 10 `i s ]
+[i _SsdSymbolPattern
 :U ..
 -> -> 63 `i `uc
 -> -> 6 `i `uc
@@ -238,434 +228,155 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 111 `i `uc
 ..
 ]
-"5
-[; ;SSD.c: 5: volatile static uint8_t SSD_Num_G = 0;
-[v _SSD_Num_G `Vuc ~T0 @X0 1 s ]
-[i _SSD_Num_G
--> -> 0 `i `uc
-]
-"7
-[; ;SSD.c: 7: void SSD_Init(void)
-[v _SSD_Init `(v ~T0 @X0 1 ef ]
-"8
-[; ;SSD.c: 8: {
-{
-[e :U _SSD_Init ]
-[f ]
-"9
-[; ;SSD.c: 9:     SSD_G[0].State = 0;
-[e = . *U + &U _SSD_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 -> -> 0 `i `uc ]
-"10
-[; ;SSD.c: 10:     SSD_G[0].Symbol = 0;
-[e = . *U + &U _SSD_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 -> -> 0 `i `uc ]
-"11
-[; ;SSD.c: 11:     SSD_G[1].State = 0;
-[e = . *U + &U _SSD_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 -> -> 0 `i `uc ]
-"12
-[; ;SSD.c: 12:     SSD_G[1].Symbol = 0;
-[e = . *U + &U _SSD_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 -> -> 0 `i `uc ]
-"13
-[; ;SSD.c: 13:     SSD_G[2].State = 0;
-[e = . *U + &U _SSD_G * -> -> -> 2 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 -> -> 0 `i `uc ]
 "14
-[; ;SSD.c: 14:     SSD_G[2].Symbol = 0;
-[e = . *U + &U _SSD_G * -> -> -> 2 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 -> -> 0 `i `uc ]
+[; ;Ssd.c: 14: void Ssd_Init( void )
+[v _Ssd_Init `(v ~T0 @X0 1 ef ]
 "15
-[; ;SSD.c: 15:     SSD_G[3].State = 0;
-[e = . *U + &U _SSD_G * -> -> -> 3 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 -> -> 0 `i `uc ]
+[; ;Ssd.c: 15: {
+{
+[e :U _Ssd_Init ]
+[f ]
 "16
-[; ;SSD.c: 16:     SSD_G[3].Symbol = 0;
-[e = . *U + &U _SSD_G * -> -> -> 3 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 -> -> 0 `i `uc ]
+[; ;Ssd.c: 16:     size_t Id = 0;
+[v _Id `ui ~T0 @X0 1 a ]
+[e = _Id -> -> 0 `i `ui ]
 "17
-[; ;SSD.c: 17:     GPIO_InitPin((((GPIO_TypeDef*)&PORTD)), (0), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTD `*S108 -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 17:     size_t Pin = 0;
+[v _Pin `ui ~T0 @X0 1 a ]
+[e = _Pin -> -> 0 `i `ui ]
 "18
-[; ;SSD.c: 18:     GPIO_InitPin((((GPIO_TypeDef*)&PORTD)), (1), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTD `*S108 -> -> 1 `i `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 18:  for ( Id = 0; Id < ( 2 ); Id++ )
+{
+[e = _Id -> -> 0 `i `ui ]
+[e $ < _Id -> -> 2 `i `ui 104  ]
+[e $U 105  ]
+[e :U 104 ]
 "19
-[; ;SSD.c: 19:     GPIO_InitPin((((GPIO_TypeDef*)&PORTD)), (2), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTD `*S108 -> -> 2 `i `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 19:     {
+{
 "20
-[; ;SSD.c: 20:     GPIO_InitPin((((GPIO_TypeDef*)&PORTD)), (3), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTD `*S108 -> -> 3 `i `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 20:         Gpio_InitPin( Ssd[ Id ].GpioIdCtrl, Ssd[ Id ].PinCtrl, ( 0 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 0 . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 1 -> -> 0 `i `uc ]
 "21
-[; ;SSD.c: 21:     GPIO_InitPin((((GPIO_TypeDef*)&PORTD)), (4), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTD `*S108 -> -> 4 `i `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 21:      for ( Pin = Ssd[ Id ].PinD0; Pin < ( Ssd[ Id ].PinD0 + 8 ); Pin++ )
+{
+[e = _Pin -> . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 `ui ]
+[e $U 110  ]
+[e :U 107 ]
 "22
-[; ;SSD.c: 22:     GPIO_InitPin((((GPIO_TypeDef*)&PORTD)), (5), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTD `*S108 -> -> 5 `i `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 22:         {
+{
 "23
-[; ;SSD.c: 23:     GPIO_InitPin((((GPIO_TypeDef*)&PORTD)), (6), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTD `*S108 -> -> 6 `i `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 23:             Gpio_InitPin( Ssd[ Id ].GpioIdD0, Pin, ( 0 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 2 -> _Pin `uc -> -> 0 `i `uc ]
 "24
-[; ;SSD.c: 24:     GPIO_InitPin((((GPIO_TypeDef*)&PORTD)), (7), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTD `*S108 -> -> 7 `i `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 24:         }
+}
+[e ++ _Pin -> -> 1 `i `ui ]
+[e :U 110 ]
+[e $ < _Pin -> + -> . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 `i -> 8 `i `ui 107  ]
+[e :U 108 ]
+}
 "25
-[; ;SSD.c: 25:     GPIO_InitPin((((GPIO_TypeDef*)&PORTA)), (5), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTA `*S108 -> -> 5 `i `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 25:     }
+}
+[e ++ _Id -> -> 1 `i `ui ]
+[e $ < _Id -> -> 2 `i `ui 104  ]
+[e :U 105 ]
+}
 "26
-[; ;SSD.c: 26:     GPIO_InitPin((((GPIO_TypeDef*)&PORTA)), (4), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTA `*S108 -> -> 4 `i `uc -> -> 0 `i `uc ]
-"27
-[; ;SSD.c: 27: }
+[; ;Ssd.c: 26: }
+[e :UE 103 ]
+}
+"28
+[; ;Ssd.c: 28: void Ssd_SetState( Id_t Id, uint8_t State )
+[v _Ssd_SetState `(v ~T0 @X0 1 ef2`uc`uc ]
+"29
+[; ;Ssd.c: 29: {
+{
+[e :U _Ssd_SetState ]
+"28
+[; ;Ssd.c: 28: void Ssd_SetState( Id_t Id, uint8_t State )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _State `uc ~T0 @X0 1 r2 ]
+"29
+[; ;Ssd.c: 29: {
+[f ]
+"30
+[; ;Ssd.c: 30:     Gpio_SetPinState( Ssd[ Id ].GpioIdCtrl, Ssd[ Id ].PinCtrl, State );
+[e ( _Gpio_SetPinState (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 0 . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 1 _State ]
+"31
+[; ;Ssd.c: 31: }
 [e :UE 111 ]
 }
-"29
-[; ;SSD.c: 29: void SSD_Update(void)
-[v _SSD_Update `(v ~T0 @X0 1 ef ]
-"30
-[; ;SSD.c: 30: {
-{
-[e :U _SSD_Update ]
-[f ]
-"31
-[; ;SSD.c: 31:     GPIO_SetPinState((((GPIO_TypeDef*)&PORTA)), (5), (0));
-[e ( _GPIO_SetPinState (3 , , -> &U _PORTA `*S108 -> -> 5 `i `uc -> -> 0 `i `uc ]
-"32
-[; ;SSD.c: 32:     GPIO_SetPinState((((GPIO_TypeDef*)&PORTA)), (4), (0));
-[e ( _GPIO_SetPinState (3 , , -> &U _PORTA `*S108 -> -> 4 `i `uc -> -> 0 `i `uc ]
 "33
-[; ;SSD.c: 33:     GPIO_SetPortState((((GPIO_TypeDef*)&PORTD)), 0xFF, SSD_SymbolPattern_G[SSD_G[SSD_Num_G].Symbol]);
-[e ( _GPIO_SetPortState (3 , , -> &U _PORTD `*S108 -> -> 255 `i `uc *U + &U _SSD_SymbolPattern_G * -> . *U + &U _SSD_G * -> _SSD_Num_G `ux -> -> # *U &U _SSD_G `ui `ux 1 `ux -> -> # *U &U _SSD_SymbolPattern_G `ui `ux ]
+[; ;Ssd.c: 33: void Ssd_SetSymbol( Id_t Id, uint8_t Symbol )
+[v _Ssd_SetSymbol `(v ~T0 @X0 1 ef2`uc`uc ]
 "34
-[; ;SSD.c: 34:     if(SSD_Num_G == 0)
-[e $ ! == -> _SSD_Num_G `i -> 0 `i 113  ]
+[; ;Ssd.c: 34: {
+{
+[e :U _Ssd_SetSymbol ]
+"33
+[; ;Ssd.c: 33: void Ssd_SetSymbol( Id_t Id, uint8_t Symbol )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _Symbol `uc ~T0 @X0 1 r2 ]
+"34
+[; ;Ssd.c: 34: {
+[f ]
 "35
-[; ;SSD.c: 35:     {
-{
+[; ;Ssd.c: 35:  Gpio_SetPortState( Ssd[ Id ].GpioIdD0, ( 0xFF << Ssd[ Id ].PinD0 ), SsdSymbolPattern[ Symbol ] );
+[e ( _Gpio_SetPortState (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 2 -> << -> 255 `i -> . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 `i `uc *U + &U _SsdSymbolPattern * -> _Symbol `ux -> -> # *U &U _SsdSymbolPattern `ui `ux ]
 "36
-[; ;SSD.c: 36:         GPIO_SetPinState((((GPIO_TypeDef*)&PORTA)), (5), SSD_G[0].State);
-[e ( _GPIO_SetPinState (3 , , -> &U _PORTA `*S108 -> -> 5 `i `uc . *U + &U _SSD_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 ]
-"37
-[; ;SSD.c: 37:     }
-}
-[e :U 113 ]
-"38
-[; ;SSD.c: 38:     if(SSD_Num_G == 1)
-[e $ ! == -> _SSD_Num_G `i -> 1 `i 114  ]
-"39
-[; ;SSD.c: 39:     {
-{
-"40
-[; ;SSD.c: 40:         GPIO_SetPinState((((GPIO_TypeDef*)&PORTA)), (4), SSD_G[1].State);
-[e ( _GPIO_SetPinState (3 , , -> &U _PORTA `*S108 -> -> 4 `i `uc . *U + &U _SSD_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 ]
-"41
-[; ;SSD.c: 41:     }
-}
-[e :U 114 ]
-"42
-[; ;SSD.c: 42:     SSD_Num_G++;
-[e ++ _SSD_Num_G -> -> 1 `i `Vuc ]
-"43
-[; ;SSD.c: 43:     if(SSD_Num_G == 2)
-[e $ ! == -> _SSD_Num_G `i -> 2 `i 115  ]
-"44
-[; ;SSD.c: 44:     {
-{
-"45
-[; ;SSD.c: 45:         SSD_Num_G = 0;
-[e = _SSD_Num_G -> -> 0 `i `uc ]
-"46
-[; ;SSD.c: 46:     }
-}
-[e :U 115 ]
-"47
-[; ;SSD.c: 47: }
+[; ;Ssd.c: 36: }
 [e :UE 112 ]
 }
-"49
-[; ;SSD.c: 49: void SSD_SetState(uint8_t SSDx, uint8_t State)
-[v _SSD_SetState `(v ~T0 @X0 1 ef2`uc`uc ]
-"50
-[; ;SSD.c: 50: {
+"38
+[; ;Ssd.c: 38: void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Ssd_SetGpioCtrl `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+"39
+[; ;Ssd.c: 39: {
 {
-[e :U _SSD_SetState ]
-"49
-[; ;SSD.c: 49: void SSD_SetState(uint8_t SSDx, uint8_t State)
-[v _SSDx `uc ~T0 @X0 1 r1 ]
-[v _State `uc ~T0 @X0 1 r2 ]
-"50
-[; ;SSD.c: 50: {
+[e :U _Ssd_SetGpioCtrl ]
+"38
+[; ;Ssd.c: 38: void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _GpioId `uc ~T0 @X0 1 r2 ]
+[v _Pin `uc ~T0 @X0 1 r3 ]
+"39
+[; ;Ssd.c: 39: {
 [f ]
-"51
-[; ;SSD.c: 51:     switch(SSDx)
-[e $U 118  ]
-"52
-[; ;SSD.c: 52:     {
-{
-"53
-[; ;SSD.c: 53:         case (5):
-[e :U 119 ]
-"54
-[; ;SSD.c: 54:             SSD_G[0].State = State;
-[e = . *U + &U _SSD_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 _State ]
-"55
-[; ;SSD.c: 55:             break;
-[e $U 117  ]
-"56
-[; ;SSD.c: 56:         case (4):
-[e :U 120 ]
-"57
-[; ;SSD.c: 57:             SSD_G[1].State = State;
-[e = . *U + &U _SSD_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 _State ]
-"58
-[; ;SSD.c: 58:             break;
-[e $U 117  ]
-"59
-[; ;SSD.c: 59:         case (3):
-[e :U 121 ]
-"60
-[; ;SSD.c: 60:             SSD_G[2].State = State;
-[e = . *U + &U _SSD_G * -> -> -> 2 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 _State ]
-"61
-[; ;SSD.c: 61:             break;
-[e $U 117  ]
-"62
-[; ;SSD.c: 62:         case (2):
-[e :U 122 ]
-"63
-[; ;SSD.c: 63:             SSD_G[3].State = State;
-[e = . *U + &U _SSD_G * -> -> -> 3 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 _State ]
-"64
-[; ;SSD.c: 64:             break;
-[e $U 117  ]
-"65
-[; ;SSD.c: 65:     }
+"40
+[; ;Ssd.c: 40:     Ssd[ Id ].GpioIdCtrl = GpioId;
+[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 0 _GpioId ]
+"41
+[; ;Ssd.c: 41:     Ssd[ Id ].PinCtrl = Pin;
+[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 1 _Pin ]
+"42
+[; ;Ssd.c: 42: }
+[e :UE 113 ]
 }
-[e $U 117  ]
-[e :U 118 ]
-[e [\ -> _SSDx `i , $ -> 5 `i 119
- , $ -> 4 `i 120
- , $ -> 3 `i 121
- , $ -> 2 `i 122
- 117 ]
-[e :U 117 ]
-"66
-[; ;SSD.c: 66: }
-[e :UE 116 ]
-}
-"68
-[; ;SSD.c: 68: uint8_t SSD_GetState(uint8_t SSDx)
-[v _SSD_GetState `(uc ~T0 @X0 1 ef1`uc ]
-"69
-[; ;SSD.c: 69: {
+"44
+[; ;Ssd.c: 44: void Ssd_SetGpioD0( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Ssd_SetGpioD0 `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+"45
+[; ;Ssd.c: 45: {
 {
-[e :U _SSD_GetState ]
-"68
-[; ;SSD.c: 68: uint8_t SSD_GetState(uint8_t SSDx)
-[v _SSDx `uc ~T0 @X0 1 r1 ]
-"69
-[; ;SSD.c: 69: {
+[e :U _Ssd_SetGpioD0 ]
+"44
+[; ;Ssd.c: 44: void Ssd_SetGpioD0( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _GpioId `uc ~T0 @X0 1 r2 ]
+[v _Pin `uc ~T0 @X0 1 r3 ]
+"45
+[; ;Ssd.c: 45: {
 [f ]
-"70
-[; ;SSD.c: 70:     uint8_t State;
-[v _State `uc ~T0 @X0 1 a ]
-"71
-[; ;SSD.c: 71:     switch(SSDx)
-[e $U 125  ]
-"72
-[; ;SSD.c: 72:     {
-{
-"73
-[; ;SSD.c: 73:         case (5):
-[e :U 126 ]
-"74
-[; ;SSD.c: 74:             State = SSD_G[0].State;
-[e = _State . *U + &U _SSD_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 ]
-"75
-[; ;SSD.c: 75:             break;
-[e $U 124  ]
-"76
-[; ;SSD.c: 76:         case (4):
-[e :U 127 ]
-"77
-[; ;SSD.c: 77:             State = SSD_G[1].State;
-[e = _State . *U + &U _SSD_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 ]
-"78
-[; ;SSD.c: 78:             break;
-[e $U 124  ]
-"79
-[; ;SSD.c: 79:         case (3):
-[e :U 128 ]
-"80
-[; ;SSD.c: 80:             State = SSD_G[2].State;
-[e = _State . *U + &U _SSD_G * -> -> -> 2 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 ]
-"81
-[; ;SSD.c: 81:             break;
-[e $U 124  ]
-"82
-[; ;SSD.c: 82:         case (2):
-[e :U 129 ]
-"83
-[; ;SSD.c: 83:             State = SSD_G[3].State;
-[e = _State . *U + &U _SSD_G * -> -> -> 3 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 0 ]
-"84
-[; ;SSD.c: 84:             break;
-[e $U 124  ]
-"85
-[; ;SSD.c: 85:     }
-}
-[e $U 124  ]
-[e :U 125 ]
-[e [\ -> _SSDx `i , $ -> 5 `i 126
- , $ -> 4 `i 127
- , $ -> 3 `i 128
- , $ -> 2 `i 129
- 124 ]
-[e :U 124 ]
-"86
-[; ;SSD.c: 86:     return State;
-[e ) _State ]
-[e $UE 123  ]
-"87
-[; ;SSD.c: 87: }
-[e :UE 123 ]
-}
-"89
-[; ;SSD.c: 89: void SSD_SetSymbol(uint8_t SSDx, uint8_t Symbol)
-[v _SSD_SetSymbol `(v ~T0 @X0 1 ef2`uc`uc ]
-"90
-[; ;SSD.c: 90: {
-{
-[e :U _SSD_SetSymbol ]
-"89
-[; ;SSD.c: 89: void SSD_SetSymbol(uint8_t SSDx, uint8_t Symbol)
-[v _SSDx `uc ~T0 @X0 1 r1 ]
-[v _Symbol `uc ~T0 @X0 1 r2 ]
-"90
-[; ;SSD.c: 90: {
-[f ]
-"91
-[; ;SSD.c: 91:     switch(SSDx)
-[e $U 132  ]
-"92
-[; ;SSD.c: 92:     {
-{
-"93
-[; ;SSD.c: 93:         case (5):
-[e :U 133 ]
-"94
-[; ;SSD.c: 94:             SSD_G[0].Symbol = Symbol;
-[e = . *U + &U _SSD_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 _Symbol ]
-"95
-[; ;SSD.c: 95:             break;
-[e $U 131  ]
-"96
-[; ;SSD.c: 96:         case (4):
-[e :U 134 ]
-"97
-[; ;SSD.c: 97:             SSD_G[1].Symbol = Symbol;
-[e = . *U + &U _SSD_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 _Symbol ]
-"98
-[; ;SSD.c: 98:             break;
-[e $U 131  ]
-"99
-[; ;SSD.c: 99:         case (3):
-[e :U 135 ]
-"100
-[; ;SSD.c: 100:             SSD_G[2].Symbol = Symbol;
-[e = . *U + &U _SSD_G * -> -> -> 2 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 _Symbol ]
-"101
-[; ;SSD.c: 101:             break;
-[e $U 131  ]
-"102
-[; ;SSD.c: 102:         case (2):
-[e :U 136 ]
-"103
-[; ;SSD.c: 103:             SSD_G[3].Symbol = Symbol;
-[e = . *U + &U _SSD_G * -> -> -> 3 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 _Symbol ]
-"104
-[; ;SSD.c: 104:             break;
-[e $U 131  ]
-"105
-[; ;SSD.c: 105:     }
-}
-[e $U 131  ]
-[e :U 132 ]
-[e [\ -> _SSDx `i , $ -> 5 `i 133
- , $ -> 4 `i 134
- , $ -> 3 `i 135
- , $ -> 2 `i 136
- 131 ]
-[e :U 131 ]
-"106
-[; ;SSD.c: 106: }
-[e :UE 130 ]
-}
-"108
-[; ;SSD.c: 108: uint8_t SSD_GetSymbol(uint8_t SSDx)
-[v _SSD_GetSymbol `(uc ~T0 @X0 1 ef1`uc ]
-"109
-[; ;SSD.c: 109: {
-{
-[e :U _SSD_GetSymbol ]
-"108
-[; ;SSD.c: 108: uint8_t SSD_GetSymbol(uint8_t SSDx)
-[v _SSDx `uc ~T0 @X0 1 r1 ]
-"109
-[; ;SSD.c: 109: {
-[f ]
-"110
-[; ;SSD.c: 110:     uint8_t Symbol;
-[v _Symbol `uc ~T0 @X0 1 a ]
-"111
-[; ;SSD.c: 111:     switch(SSDx)
-[e $U 139  ]
-"112
-[; ;SSD.c: 112:     {
-{
-"113
-[; ;SSD.c: 113:         case (5):
-[e :U 140 ]
-"114
-[; ;SSD.c: 114:             Symbol = SSD_G[0].Symbol;
-[e = _Symbol . *U + &U _SSD_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 ]
-"115
-[; ;SSD.c: 115:             break;
-[e $U 138  ]
-"116
-[; ;SSD.c: 116:         case (4):
-[e :U 141 ]
-"117
-[; ;SSD.c: 117:             Symbol = SSD_G[1].Symbol;
-[e = _Symbol . *U + &U _SSD_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 ]
-"118
-[; ;SSD.c: 118:             break;
-[e $U 138  ]
-"119
-[; ;SSD.c: 119:         case (3):
-[e :U 142 ]
-"120
-[; ;SSD.c: 120:             Symbol = SSD_G[2].Symbol;
-[e = _Symbol . *U + &U _SSD_G * -> -> -> 2 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 ]
-"121
-[; ;SSD.c: 121:             break;
-[e $U 138  ]
-"122
-[; ;SSD.c: 122:         case (2):
-[e :U 143 ]
-"123
-[; ;SSD.c: 123:             Symbol = SSD_G[3].Symbol;
-[e = _Symbol . *U + &U _SSD_G * -> -> -> 3 `i `ui `ux -> -> # *U &U _SSD_G `ui `ux 1 ]
-"124
-[; ;SSD.c: 124:             break;
-[e $U 138  ]
-"125
-[; ;SSD.c: 125:     }
-}
-[e $U 138  ]
-[e :U 139 ]
-[e [\ -> _SSDx `i , $ -> 5 `i 140
- , $ -> 4 `i 141
- , $ -> 3 `i 142
- , $ -> 2 `i 143
- 138 ]
-[e :U 138 ]
-"126
-[; ;SSD.c: 126:     return Symbol;
-[e ) _Symbol ]
-[e $UE 137  ]
-"127
-[; ;SSD.c: 127: }
-[e :UE 137 ]
+"46
+[; ;Ssd.c: 46:     Ssd[ Id ].GpioIdD0 = GpioId;
+[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 2 _GpioId ]
+"47
+[; ;Ssd.c: 47:     Ssd[ Id ].PinD0 = Pin;
+[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 _Pin ]
+"48
+[; ;Ssd.c: 48: }
+[e :UE 114 ]
 }

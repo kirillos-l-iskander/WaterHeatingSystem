@@ -1,0 +1,20 @@
+build/default/production/WaterHeater.p1:  \
+WaterHeater.c  \
+WaterHeater.h  \
+SchedulerConfig.h  \
+Config.h  \
+Gpio.h  \
+Adc.h  \
+Timer.h  \
+Switch.h  \
+SwitchTask.h  \
+TempSensor.h  \
+TempSensorTask.h  \
+TempControl.h  \
+TempControlTask.h  \
+Led.h  \
+LedTask.h  \
+Ssd.h  \
+SsdTask.h  \
+I2c.h  \
+Eeprom.h 

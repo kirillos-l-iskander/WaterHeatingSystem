@@ -1,22 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"26 ./LED.h
-[; ;./LED.h: 26: {
-[s S110 `uc 1 ]
-[n S110 . State ]
-"34 ./GPIO.h
-[; ;./GPIO.h: 34: {
-[s S108 `uc 1 `uc -> 127 `i `uc 1 ]
-[n S108 . PORT PAD TRIS ]
-"40
-[; ;./GPIO.h: 40: void GPIO_InitPin(GPIO_TypeDef* GPIOx, uint8_t PINx, uint8_t Mode);
-[v _GPIO_InitPin `(v ~T0 @X0 0 ef3`*S108`uc`uc ]
-"216 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"41 ./GPIO.h
-[; ;./GPIO.h: 41: void GPIO_SetPinState(GPIO_TypeDef* GPIOx, uint8_t PINx, uint8_t State);
-[v _GPIO_SetPinState `(v ~T0 @X0 0 ef3`*S108`uc`uc ]
-"13 ./CONFIG.h
+"4 Led.c
+[; ;Led.c: 4: {
+[s S102 `uc 1 `uc 1 `uc 1 ]
+[n S102 . GpioId Pin State ]
+"18 ./Gpio.h
+[; ;./Gpio.h: 18: void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+[v _Gpio_InitPin `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"19
+[; ;./Gpio.h: 19: void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+[v _Gpio_SetPinState `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"13 ./Config.h
 [p x FOSC = HS ]
 "14
 [p x WDTE = OFF ]
@@ -212,99 +205,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"3 LED.c
-[; ;LED.c: 3: volatile static LED_t LED_G[2];
-[v _LED_G `VS110 ~T0 @X0 -> 2 `i s ]
-"5
-[; ;LED.c: 5: void LED_Init(void)
-[v _LED_Init `(v ~T0 @X0 1 ef ]
-"6
-[; ;LED.c: 6: {
-{
-[e :U _LED_Init ]
-[f ]
-"7
-[; ;LED.c: 7:     LED_G[0].State = 0;
-[e = . *U + &U _LED_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_G `ui `ux 0 -> -> 0 `i `uc ]
-"8
-[; ;LED.c: 8:     LED_G[1].State = 0;
-[e = . *U + &U _LED_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_G `ui `ux 0 -> -> 0 `i `uc ]
-"9
-[; ;LED.c: 9:     GPIO_InitPin((((GPIO_TypeDef*)&PORTB)), (7), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTB `*S108 -> -> 7 `i `uc -> -> 0 `i `uc ]
-"10
-[; ;LED.c: 10:     GPIO_InitPin((((GPIO_TypeDef*)&PORTB)), (6), (0));
-[e ( _GPIO_InitPin (3 , , -> &U _PORTB `*S108 -> -> 6 `i `uc -> -> 0 `i `uc ]
-"11
-[; ;LED.c: 11: }
-[e :UE 111 ]
-}
+"10 Led.c
+[; ;Led.c: 10: static Led_t Led[ ( 2 ) ];
+[v _Led `S102 ~T0 @X0 -> 2 `i s ]
+"12
+[; ;Led.c: 12: void Led_Init( void )
+[v _Led_Init `(v ~T0 @X0 1 ef ]
 "13
-[; ;LED.c: 13: void LED_Update(void)
-[v _LED_Update `(v ~T0 @X0 1 ef ]
+[; ;Led.c: 13: {
+{
+[e :U _Led_Init ]
+[f ]
 "14
-[; ;LED.c: 14: {
-{
-[e :U _LED_Update ]
-[f ]
+[; ;Led.c: 14:  size_t Id = 0;
+[v _Id `ui ~T0 @X0 1 a ]
+[e = _Id -> -> 0 `i `ui ]
 "15
-[; ;LED.c: 15:     GPIO_SetPinState((((GPIO_TypeDef*)&PORTB)), (7), LED_G[0].State);
-[e ( _GPIO_SetPinState (3 , , -> &U _PORTB `*S108 -> -> 7 `i `uc . *U + &U _LED_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_G `ui `ux 0 ]
+[; ;Led.c: 15:  for ( Id = 0; Id < ( 2 ); Id++ )
+{
+[e = _Id -> -> 0 `i `ui ]
+[e $ < _Id -> -> 2 `i `ui 104  ]
+[e $U 105  ]
+[e :U 104 ]
 "16
-[; ;LED.c: 16:     GPIO_SetPinState((((GPIO_TypeDef*)&PORTB)), (6), LED_G[1].State);
-[e ( _GPIO_SetPinState (3 , , -> &U _PORTB `*S108 -> -> 6 `i `uc . *U + &U _LED_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_G `ui `ux 0 ]
+[; ;Led.c: 16:  {
+{
 "17
-[; ;LED.c: 17: }
-[e :UE 112 ]
+[; ;Led.c: 17:   Led[ Id ].State = ( 0 );
+[e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 2 -> -> 0 `i `uc ]
+"18
+[; ;Led.c: 18:   Gpio_InitPin( Led[ Id ].GpioId, Led[ Id ].Pin, ( 0 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 0 . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 1 -> -> 0 `i `uc ]
+"19
+[; ;Led.c: 19:  }
 }
-"19
-[; ;LED.c: 19: void LED_SetState(uint8_t LEDx, uint8_t State)
-[v _LED_SetState `(v ~T0 @X0 1 ef2`uc`uc ]
+[e ++ _Id -> -> 1 `i `ui ]
+[e $ < _Id -> -> 2 `i `ui 104  ]
+[e :U 105 ]
+}
 "20
-[; ;LED.c: 20: {
-{
-[e :U _LED_SetState ]
-"19
-[; ;LED.c: 19: void LED_SetState(uint8_t LEDx, uint8_t State)
-[v _LEDx `uc ~T0 @X0 1 r1 ]
-[v _State `uc ~T0 @X0 1 r2 ]
-"20
-[; ;LED.c: 20: {
-[f ]
-"21
-[; ;LED.c: 21:     switch(LEDx)
-[e $U 115  ]
+[; ;Led.c: 20: }
+[e :UE 103 ]
+}
 "22
-[; ;LED.c: 22:     {
-{
+[; ;Led.c: 22: void Led_SetState( uint8_t Id, uint8_t State )
+[v _Led_SetState `(v ~T0 @X0 1 ef2`uc`uc ]
 "23
-[; ;LED.c: 23:         case (7):
-[e :U 116 ]
+[; ;Led.c: 23: {
+{
+[e :U _Led_SetState ]
+"22
+[; ;Led.c: 22: void Led_SetState( uint8_t Id, uint8_t State )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _State `uc ~T0 @X0 1 r2 ]
+"23
+[; ;Led.c: 23: {
+[f ]
 "24
-[; ;LED.c: 24:             LED_G[0].State = State;
-[e = . *U + &U _LED_G * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_G `ui `ux 0 _State ]
+[; ;Led.c: 24:     Led[ Id ].State = State;
+[e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 2 _State ]
 "25
-[; ;LED.c: 25:             break;
-[e $U 114  ]
+[; ;Led.c: 25:  Gpio_SetPinState( Led[ Id ].GpioId, Led[ Id ].Pin, Led[ Id ].State );
+[e ( _Gpio_SetPinState (3 , , . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 0 . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 1 . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 2 ]
 "26
-[; ;LED.c: 26:         case (6):
-[e :U 117 ]
-"27
-[; ;LED.c: 27:             LED_G[1].State = State;
-[e = . *U + &U _LED_G * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_G `ui `ux 0 _State ]
-"28
-[; ;LED.c: 28:             break;
-[e $U 114  ]
-"29
-[; ;LED.c: 29:     }
+[; ;Led.c: 26: }
+[e :UE 107 ]
 }
-[e $U 114  ]
-[e :U 115 ]
-[e [\ -> _LEDx `i , $ -> 7 `i 116
- , $ -> 6 `i 117
- 114 ]
-[e :U 114 ]
+"28
+[; ;Led.c: 28: void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Led_SetGpio `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+"29
+[; ;Led.c: 29: {
+{
+[e :U _Led_SetGpio ]
+"28
+[; ;Led.c: 28: void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _GpioId `uc ~T0 @X0 1 r2 ]
+[v _Pin `uc ~T0 @X0 1 r3 ]
+"29
+[; ;Led.c: 29: {
+[f ]
 "30
-[; ;LED.c: 30: }
-[e :UE 113 ]
+[; ;Led.c: 30:  Led[ Id ].GpioId = GpioId;
+[e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 0 _GpioId ]
+"31
+[; ;Led.c: 31:  Led[ Id ].Pin = Pin;
+[e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 1 _Pin ]
+"32
+[; ;Led.c: 32: }
+[e :UE 108 ]
 }

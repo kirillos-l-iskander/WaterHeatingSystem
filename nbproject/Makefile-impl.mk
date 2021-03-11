@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Water_Heating_System.X
+PROJECTNAME=WaterHeatingSystem.X
 
 # Active Configuration
 DEFAULTCONF=default

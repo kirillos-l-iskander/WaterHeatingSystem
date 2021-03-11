@@ -7,8 +7,380 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 1 "./CONFIG.h" 1
-# 13 "./CONFIG.h"
+# 1 "./SchedulerConfig.h" 1
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 2 3
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdarg.h" 1 3
+
+
+
+
+
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 8 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 6 "./SchedulerConfig.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
+
+
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 7 "./SchedulerConfig.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 1 3
+
+
+
+
+
+
+typedef unsigned short wchar_t;
+
+
+
+
+
+
+
+typedef struct {
+ int rem;
+ int quot;
+} div_t;
+typedef struct {
+ unsigned rem;
+ unsigned quot;
+} udiv_t;
+typedef struct {
+ long quot;
+ long rem;
+} ldiv_t;
+typedef struct {
+ unsigned long quot;
+ unsigned long rem;
+} uldiv_t;
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 3
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+
+
+
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+
+
+
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\xc8debug.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\xc8debug.h" 3
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+# 99 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 2 3
+
+
+
+
+
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+# 8 "./SchedulerConfig.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 1 3
+# 14 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 3
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 9 "./SchedulerConfig.h" 2
+
+
+# 1 "./Config.h" 1
+# 13 "./Config.h"
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -30,11 +402,7 @@ extern double __fpnormalize(double);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\xc8debug.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\xc8debug.h" 3
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 24 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
+
 
 
 
@@ -1731,841 +2099,333 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 25 "./CONFIG.h" 2
-# 34 "./CONFIG.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 1 3
+# 25 "./Config.h" 2
 
 
 
-# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 29 "./Config.h" 2
 
 
-typedef unsigned size_t;
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 2 3
 
-# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 2 3
+# 1 "./SchedulerConfig.h" 1
+# 32 "./Config.h" 2
 
 
 
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdarg.h" 1 3
 
-
-
-
-
-
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-# 11 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 2 3
-# 43 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 3
-struct __prbuf
-{
- char * ptr;
- void (* func)(char);
-};
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\conio.h" 1 3
-
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\errno.h" 1 3
-# 29 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\errno.h" 3
-extern int errno;
-# 8 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\conio.h" 2 3
-
-
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-
-
-extern char * cgets(char *);
-extern void cputs(const char *);
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-# 180 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdio.h" 3
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-# 34 "./CONFIG.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 1 3
-
-
-
-
-
-
-typedef unsigned short wchar_t;
-
-
-
-
-
-
-
-typedef struct {
- int rem;
- int quot;
-} div_t;
-typedef struct {
- unsigned rem;
- unsigned quot;
-} udiv_t;
-typedef struct {
- long quot;
- long rem;
-} ldiv_t;
-typedef struct {
- unsigned long quot;
- unsigned long rem;
-} uldiv_t;
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 3
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-
-
-
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-
-
-
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-# 104 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 3
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-# 35 "./CONFIG.h" 2
-# 79 "./CONFIG.h"
-typedef signed char int8_t;
-typedef signed short int16_t;
-typedef signed long int32_t;
-typedef signed long long int64_t;
-typedef unsigned char uint8_t;
-typedef unsigned short uint16_t;
-typedef unsigned long uint32_t;
-typedef unsigned long long uint64_t;
+typedef uint8_t Id_t;
+# 11 "./SchedulerConfig.h" 2
+# 58 "./SchedulerConfig.h"
+typedef int8_t BaseType_t;
+typedef uint8_t UBaseType_t;
+typedef uint16_t TickType_t;
 
 typedef union
 {
     struct
     {
-        uint8_t BIT0:1;
-        uint8_t BIT1:1;
-        uint8_t BIT2:1;
-        uint8_t BIT3:1;
-        uint8_t BIT4:1;
-        uint8_t BIT5:1;
-        uint8_t BIT6:1;
-        uint8_t BIT7:1;
-    }BITS_t;
-    uint8_t BYTE:8;
-}REG_t;
+        UBaseType_t bit0:1;
+        UBaseType_t bit1:1;
+        UBaseType_t bit2:1;
+        UBaseType_t bit3:1;
+        UBaseType_t bit4:1;
+        UBaseType_t bit5:1;
+        UBaseType_t bit6:1;
+        UBaseType_t bit7:1;
+    }Bits_t;
+    UBaseType_t reg:8;
+}Reg_t;
+
+
+
+void Scheduler_initSysTick( TickType_t msTicksPeriod );
+void Scheduler_displayError( UBaseType_t errorCode );
+void Scheduler_sleepHardware( void );
+void Scheduler_delayHardwareMs( volatile uint32_t msDelay );
+void Scheduler_delayHardwareUs( volatile uint32_t usDelay );
+void Scheduler_delaySoftwareMs( volatile uint32_t msDelay );
+void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 # 1 "main.c" 2
 
-# 1 "./PORT.h" 1
+# 1 "./Scheduler.h" 1
+
+
+
+
+
+void Scheduler_init( void );
+UBaseType_t Scheduler_addTask( void (*task)( void *paramter ), void *paramter, UBaseType_t delay, UBaseType_t period );
+UBaseType_t Scheduler_deleteTask( UBaseType_t index );
+void Scheduler_start( void );
+void Scheduler_update( void );
+void Scheduler_dispatchTasks( void );
+void Scheduler_reportStatus( void );
+void Scheduler_goToSleep( void );
 # 2 "main.c" 2
 
-# 1 "./SCH_CONFIG.h" 1
 
+# 1 "./Gpio.h" 1
+# 18 "./Gpio.h"
+void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 4 "main.c" 2
 
+# 1 "./Adc.h" 1
 
 
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./SCH_CONFIG.h" 2
 
-# 1 "./SCH.h" 1
 
+void Adc_Init( Id_t Id );
+uint16_t Adc_GetState( Id_t Id );
+# 5 "main.c" 2
 
+# 1 "./Timer.h" 1
+# 12 "./Timer.h"
+void Timer0Init( void );
+void Timer1Init( uint16_t TicksNumber );
+# 6 "main.c" 2
 
+# 1 "./Switch.h" 1
 
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./SCH.h" 2
 
-# 1 "./SCH.h" 1
-# 7 "./SCH.h" 2
 
-# 1 "./TIM.h" 1
 
 
+void Switch_Init( void );
+uint8_t Switch_GetState( Id_t Id );
+void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+# 7 "main.c" 2
 
+# 1 "./SwitchTask.h" 1
 
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./TIM.h" 2
 
-# 1 "./SCH.h" 1
-# 7 "./TIM.h" 2
 
-# 1 "./TIM.h" 1
-# 8 "./TIM.h" 2
 
-# 1 "./GPIO.h" 1
 
+void SwitchTask_Init( void );
+uint8_t SwitchTask_GetState( Id_t Id );
+void SwitchTask_Update( void *Paramter );
+# 8 "main.c" 2
 
+# 1 "./TempSensor.h" 1
 
 
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./GPIO.h" 2
 
-# 1 "./SCH.h" 1
-# 7 "./GPIO.h" 2
 
-# 1 "./TIM.h" 1
-# 8 "./GPIO.h" 2
 
-# 1 "./GPIO.h" 1
-# 9 "./GPIO.h" 2
 
-# 1 "./LED.h" 1
+void TempSensor_Init( void );
+uint8_t TempSensor_GetState( Id_t Id );
+void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
+# 9 "main.c" 2
 
+# 1 "./TempSensorTask.h" 1
 
 
 
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./LED.h" 2
 
-# 1 "./SCH.h" 1
-# 7 "./LED.h" 2
 
-# 1 "./TIM.h" 1
-# 8 "./LED.h" 2
+void TempSensorTask_Init( void );
+uint8_t TempSensorTask_GetAverage( Id_t Id );
+void TempSensorTask_Update( void *Paramter );
+# 10 "main.c" 2
 
-# 1 "./GPIO.h" 1
-# 9 "./LED.h" 2
+# 1 "./TempControl.h" 1
 
-# 1 "./LED.h" 1
-# 10 "./LED.h" 2
 
 
-# 1 "./SW.h" 1
 
 
 
+void TempControl_Init( void );
+void TempControl_SetState( Id_t Id, uint8_t State );
+void TempControl_SetGpioH( Id_t Id, Id_t GpioId, uint8_t Pin );
+void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
+# 11 "main.c" 2
 
+# 1 "./TempControlTask.h" 1
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./SW.h" 2
 
-# 1 "./SCH.h" 1
-# 7 "./SW.h" 2
 
-# 1 "./TIM.h" 1
-# 8 "./SW.h" 2
 
-# 1 "./GPIO.h" 1
-# 9 "./SW.h" 2
 
-# 1 "./LED.h" 1
-# 10 "./SW.h" 2
 
+void TempControlTask_Init( void );
+void TempControlTask_SetState( Id_t Id, uint8_t State );
+void TempControlTask_Update( void *Paramter );
+# 12 "main.c" 2
 
-# 1 "./SW.h" 1
-# 12 "./SW.h" 2
+# 1 "./Led.h" 1
 
-# 1 "./ADC.h" 1
 
 
 
 
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./ADC.h" 2
+void Led_Init( void );
+void Led_SetState( Id_t Id, uint8_t State );
+void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+# 13 "main.c" 2
 
-# 1 "./SCH.h" 1
-# 7 "./ADC.h" 2
+# 1 "./LedTask.h" 1
 
-# 1 "./TIM.h" 1
-# 8 "./ADC.h" 2
 
-# 1 "./GPIO.h" 1
-# 9 "./ADC.h" 2
 
-# 1 "./LED.h" 1
-# 10 "./ADC.h" 2
 
 
-# 1 "./SW.h" 1
-# 12 "./ADC.h" 2
 
-# 1 "./ADC.h" 1
-# 13 "./ADC.h" 2
 
-# 1 "./TEMP.h" 1
 
+void LedTask_Init( void );
+void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
+void LedTask_Update( void *Paramter );
+# 14 "main.c" 2
 
+# 1 "./Ssd.h" 1
 
 
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./TEMP.h" 2
 
-# 1 "./SCH.h" 1
-# 7 "./TEMP.h" 2
 
-# 1 "./TIM.h" 1
-# 8 "./TEMP.h" 2
 
-# 1 "./GPIO.h" 1
-# 9 "./TEMP.h" 2
+void Ssd_Init( void );
+void Ssd_SetState( Id_t Id, uint8_t State );
+void Ssd_SetSymbol( Id_t Id, uint8_t Symbol );
+void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin );
+void Ssd_SetGpioD0( Id_t Id, Id_t GpioId, uint8_t Pin );
+void Ssd_SetGpioD1( Id_t Id, Id_t GpioId, uint8_t Pin );
+void Ssd_SetGpioD2( Id_t Id, Id_t GpioId, uint8_t Pin );
+void Ssd_SetGpioD3( Id_t Id, Id_t GpioId, uint8_t Pin );
+void Ssd_SetGpioD4( Id_t Id, Id_t GpioId, uint8_t Pin );
+void Ssd_SetGpioD5( Id_t Id, Id_t GpioId, uint8_t Pin );
+void Ssd_SetGpioD6( Id_t Id, Id_t GpioId, uint8_t Pin );
+void Ssd_SetGpioD7( Id_t Id, Id_t GpioId, uint8_t Pin );
+# 15 "main.c" 2
 
-# 1 "./LED.h" 1
-# 10 "./TEMP.h" 2
+# 1 "./SsdTask.h" 1
 
 
-# 1 "./SW.h" 1
-# 12 "./TEMP.h" 2
 
-# 1 "./ADC.h" 1
-# 13 "./TEMP.h" 2
 
-# 1 "./TEMP.h" 1
-# 14 "./TEMP.h" 2
 
-# 1 "./HCU.h" 1
 
+void SsdTask_Init( void );
+void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
+void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol );
+void SsdTask_Update( void *Paramter );
+# 16 "main.c" 2
 
 
+# 1 "./I2c.h" 1
 
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./HCU.h" 2
 
-# 1 "./SCH.h" 1
-# 7 "./HCU.h" 2
 
-# 1 "./TIM.h" 1
-# 8 "./HCU.h" 2
 
-# 1 "./GPIO.h" 1
-# 9 "./HCU.h" 2
 
-# 1 "./LED.h" 1
-# 10 "./HCU.h" 2
+void I2c_MasterInit( uint32_t BaudRate );
+void I2c_MasterWait( void );
+void I2c_MasterStart( void );
+void I2c_MasterRepeatedStart( void );
+void I2c_MasterStop( void );
+void I2c_ACK( void );
+void I2c_NACK( void );
+uint8_t I2c_MasterWrite( uint8_t Buffer );
+uint8_t I2c_Read( void );
+# 18 "main.c" 2
 
+# 1 "./Eeprom.h" 1
 
-# 1 "./SW.h" 1
-# 12 "./HCU.h" 2
 
-# 1 "./ADC.h" 1
-# 13 "./HCU.h" 2
 
-# 1 "./TEMP.h" 1
-# 14 "./HCU.h" 2
 
-# 1 "./HCU.h" 1
-# 15 "./HCU.h" 2
 
-# 1 "./SSD.h" 1
 
+void Eeprom_Init( void );
+void Eeprom_Write( uint8_t Address, uint8_t Buffer );
+void Eeprom_WritePage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
+uint8_t Eeprom_Read( uint8_t Address );
+void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
+# 19 "main.c" 2
 
+# 1 "./WaterHeater.h" 1
+# 22 "./WaterHeater.h"
+# 1 "./WaterHeater.h" 1
+# 22 "./WaterHeater.h" 2
+# 33 "./WaterHeater.h"
+void HeaterTask_Init( void );
+void HeaterTask_Update( void *Paramter );
+# 20 "main.c" 2
 
 
 
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./SSD.h" 2
 
-# 1 "./SCH.h" 1
-# 7 "./SSD.h" 2
-
-# 1 "./TIM.h" 1
-# 8 "./SSD.h" 2
-
-# 1 "./GPIO.h" 1
-# 9 "./SSD.h" 2
-
-# 1 "./LED.h" 1
-# 10 "./SSD.h" 2
-
-
-# 1 "./SW.h" 1
-# 12 "./SSD.h" 2
-
-# 1 "./ADC.h" 1
-# 13 "./SSD.h" 2
-
-# 1 "./TEMP.h" 1
-# 14 "./SSD.h" 2
-
-# 1 "./HCU.h" 1
-# 15 "./SSD.h" 2
-
-# 1 "./SSD.h" 1
-# 16 "./SSD.h" 2
-
-# 1 "./DISP.h" 1
-
-
-
-
-
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./DISP.h" 2
-
-# 1 "./SCH.h" 1
-# 7 "./DISP.h" 2
-
-# 1 "./TIM.h" 1
-# 8 "./DISP.h" 2
-
-# 1 "./GPIO.h" 1
-# 9 "./DISP.h" 2
-
-# 1 "./LED.h" 1
-# 10 "./DISP.h" 2
-
-
-# 1 "./SW.h" 1
-# 12 "./DISP.h" 2
-
-# 1 "./ADC.h" 1
-# 13 "./DISP.h" 2
-
-# 1 "./TEMP.h" 1
-# 14 "./DISP.h" 2
-
-# 1 "./HCU.h" 1
-# 15 "./DISP.h" 2
-
-# 1 "./SSD.h" 1
-# 16 "./DISP.h" 2
-
-# 1 "./DISP.h" 1
-# 17 "./DISP.h" 2
-
-# 1 "./I2C.h" 1
-
-
-
-
-
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./I2C.h" 2
-
-# 1 "./SCH.h" 1
-# 7 "./I2C.h" 2
-
-# 1 "./TIM.h" 1
-# 8 "./I2C.h" 2
-
-# 1 "./GPIO.h" 1
-# 9 "./I2C.h" 2
-
-# 1 "./LED.h" 1
-# 10 "./I2C.h" 2
-
-
-# 1 "./SW.h" 1
-# 12 "./I2C.h" 2
-
-# 1 "./ADC.h" 1
-# 13 "./I2C.h" 2
-
-# 1 "./TEMP.h" 1
-# 14 "./I2C.h" 2
-
-# 1 "./HCU.h" 1
-# 15 "./I2C.h" 2
-
-# 1 "./SSD.h" 1
-# 16 "./I2C.h" 2
-
-# 1 "./DISP.h" 1
-# 17 "./I2C.h" 2
-
-# 1 "./I2C.h" 1
-# 18 "./I2C.h" 2
-
-# 1 "./EEPROM.h" 1
-
-
-
-
-
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./EEPROM.h" 2
-
-# 1 "./SCH.h" 1
-# 7 "./EEPROM.h" 2
-
-# 1 "./TIM.h" 1
-# 8 "./EEPROM.h" 2
-
-# 1 "./GPIO.h" 1
-# 9 "./EEPROM.h" 2
-
-# 1 "./LED.h" 1
-# 10 "./EEPROM.h" 2
-
-
-# 1 "./SW.h" 1
-# 12 "./EEPROM.h" 2
-
-# 1 "./ADC.h" 1
-# 13 "./EEPROM.h" 2
-
-# 1 "./TEMP.h" 1
-# 14 "./EEPROM.h" 2
-
-# 1 "./HCU.h" 1
-# 15 "./EEPROM.h" 2
-
-# 1 "./SSD.h" 1
-# 16 "./EEPROM.h" 2
-
-# 1 "./DISP.h" 1
-# 17 "./EEPROM.h" 2
-
-# 1 "./I2C.h" 1
-# 18 "./EEPROM.h" 2
-
-# 1 "./EEPROM.h" 1
-# 19 "./EEPROM.h" 2
-
-# 1 "./WH.h" 1
-
-
-
-
-
-# 1 "./SCH_CONFIG.h" 1
-# 6 "./WH.h" 2
-
-# 1 "./SCH.h" 1
-# 7 "./WH.h" 2
-
-# 1 "./TIM.h" 1
-# 8 "./WH.h" 2
-
-# 1 "./GPIO.h" 1
-# 9 "./WH.h" 2
-
-# 1 "./LED.h" 1
-# 10 "./WH.h" 2
-
-
-# 1 "./SW.h" 1
-# 12 "./WH.h" 2
-
-# 1 "./ADC.h" 1
-# 13 "./WH.h" 2
-
-# 1 "./TEMP.h" 1
-# 14 "./WH.h" 2
-
-# 1 "./HCU.h" 1
-# 15 "./WH.h" 2
-
-# 1 "./SSD.h" 1
-# 16 "./WH.h" 2
-
-# 1 "./DISP.h" 1
-# 17 "./WH.h" 2
-
-# 1 "./I2C.h" 1
-# 18 "./WH.h" 2
-
-# 1 "./EEPROM.h" 1
-# 19 "./WH.h" 2
-
-# 1 "./WH.h" 1
-# 20 "./WH.h" 2
-# 31 "./WH.h"
-typedef enum
+void SysTick_Handler( void ) __attribute__((picinterrupt((""))))
 {
-    OffMode,
-    OperationMode,
-    NormalMode,
-    TempSetMode,
-    ResetMode
-}WH_t;
+    ( PIR1 = PIR1 & ~0x04 );
+    Scheduler_update();
 
-void WH_Init(void);
-void WH_Task(void);
-void WH_OffMode(void);
-void WH_OperationMode(void);
-void WH_NormalMode(void);
-void WH_TempSetMode(void);
-void WH_PostTempSetMode(void);
-void WH_ResetMode(void);
-# 20 "./EEPROM.h" 2
+}
 
-
-void EEPROM_Init(void);
-void EEPROM_Write(uint8_t Address, uint8_t Data);
-void EEPROM_WritePage(uint8_t Address, uint8_t* Data_P, uint8_t Length);
-uint8_t EEPROM_Read(uint8_t Address);
-void EEPROM_ReadPage(uint8_t Address, uint8_t* Data_P, uint8_t Length);
-# 19 "./I2C.h" 2
-
-
-
-void I2C_Master_Init(const uint32_t BaudRate);
-void I2C_Master_Wait(void);
-void I2C_Master_Start(void);
-void I2C_Master_RepeatedStart(void);
-void I2C_Master_Stop(void);
-void I2C_ACK(void);
-void I2C_NACK(void);
-uint8_t I2C_Master_Write(uint8_t Data);
-uint8_t I2C_Read(void);
-# 18 "./DISP.h" 2
-# 29 "./DISP.h"
-typedef struct
+int main( void )
 {
-    uint8_t State;
-    uint8_t Blink;
-    uint16_t Counter;
-}DISP_t;
+    Switch_SetGpio( 0, ( 1 ), 0 );
+    Switch_SetGpio( 1, ( 1 ), 1 );
+    Switch_SetGpio( 2, ( 1 ), 2 );
+    Switch_Init();
+    SwitchTask_Init();
 
-void DISP_Init(void);
-void DISP_Update(void);
-void DISP_SetState(uint8_t DISPx, uint8_t State);
-uint8_t DISP_GetState(uint8_t DISPx);
-# 17 "./SSD.h" 2
-# 27 "./SSD.h"
-typedef struct
-{
-    uint8_t State;
-    uint8_t Symbol;
-}SSD_t;
+    TempSensor_SetGpio( 0, ( 0 ), 2 );
+    TempSensor_Init();
+    TempSensorTask_Init();
 
-void SSD_Init(void);
-void SSD_Update(void);
-void SSD_SetState(uint8_t SSDx, uint8_t State);
-uint8_t SSD_GetState(uint8_t SSDx);
-void SSD_SetSymbol(uint8_t SSDx, uint8_t Symbol);
-uint8_t SSD_GetSymbol(uint8_t SSDx);
-# 16 "./HCU.h" 2
-# 25 "./HCU.h"
-typedef struct
-{
-    uint8_t State;
-}HCU_t;
+    TempControl_SetGpioH( 0, ( 2 ), 5 );
+    TempControl_SetGpioC( 0, ( 2 ), 2 );
+    TempControl_Init();
+    TempControlTask_Init();
 
-void HCU_Init(void);
-void HCU_Update(void);
-void HCU_SetState(uint8_t HCUx, uint8_t State);
-# 15 "./TEMP.h" 2
+    Led_SetGpio( 0, ( 1 ), 6 );
+    Led_SetGpio( 1, ( 1 ), 7 );
+    Led_Init();
+    LedTask_Init();
 
+    Ssd_SetGpioCtrl( 0, ( 0 ), 5 );
+    Ssd_SetGpioD0( 0, ( 3 ), 0 );
+    Ssd_SetGpioCtrl( 1, ( 0 ), 4 );
+    Ssd_SetGpioD0( 1, ( 3 ), 0 );
+    Ssd_Init();
+    SsdTask_Init();
 
+    HeaterTask_Init();
 
+    Scheduler_delaySoftwareUs( 1000 );
 
+    Scheduler_init();
+    Scheduler_addTask( SwitchTask_Update, (0), 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( TempSensorTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( TempControlTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( LedTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SsdTask_Update, (0), 0, ( 5 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( HeaterTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
 
-
-
-typedef struct
-{
-    uint8_t Array[10];
-    uint8_t Index;
-    uint8_t AvgFlag;
-}TEMP_t;
-
-void TEMP_Init(void);
-void TEMP_Update(void);
-uint8_t TEMP_GetAverage(void);
-# 14 "./ADC.h" 2
-
-
-
-
-
-
-
-
-typedef struct
-{
-    uint8_t Channel;
-    uint32_t VoltMulti;
-    uint32_t VoltDivide;
-    uint8_t Result;
-}ADC_t;
-
-void ADC_Init(void);
-void ADC_Update(void);
-uint8_t ADC_GetState(void);
-# 13 "./SW.h" 2
-# 24 "./SW.h"
-typedef struct
-{
-    uint8_t State;
-    uint8_t Counter;
-    uint8_t Lock;
-}SW_t;
-
-void SW_Init(void);
-void SW_Update(void);
-uint8_t SW_GetState(uint8_t SWx);
-# 12 "./LED.h" 2
-# 25 "./LED.h"
-typedef struct
-{
-    uint8_t State;
-}LED_t;
-
-void LED_Init(void);
-void LED_Update(void);
-void LED_SetState(uint8_t LEDx, uint8_t State);
-# 10 "./GPIO.h" 2
-# 33 "./GPIO.h"
-typedef struct
-{
- uint8_t PORT;
- uint8_t PAD[127];
- uint8_t TRIS;
-}GPIO_TypeDef;
-
-void GPIO_InitPin(GPIO_TypeDef* GPIOx, uint8_t PINx, uint8_t Mode);
-void GPIO_SetPinState(GPIO_TypeDef* GPIOx, uint8_t PINx, uint8_t State);
-uint8_t GPIO_GetPinState(GPIO_TypeDef* GPIOx, uint8_t PINx);
-void GPIO_SetPortState(GPIO_TypeDef* GPIOx, uint8_t PINx, uint8_t State);
-uint8_t GPIO_GetPortState(GPIO_TypeDef* GPIOx);
-# 9 "./TIM.h" 2
-# 28 "./TIM.h"
-void TIM0_Init(void);
-void TIM1_Init(uint16_t Ticks_N);
-# 8 "./SCH.h" 2
-
-
-
-
-typedef struct
-{
- void (*Task_P)(void);
- uint16_t Delay;
- uint16_t Period;
- uint8_t RunMe;
-}Task_t;
-
-void SCH_Init(void);
-void SCH_Start(void);
-uint8_t SCH_Add_Task(void (*Task_P)(void), volatile const uint16_t Delay, volatile const uint16_t Period);
-uint8_t SCH_Delete_Task(volatile const uint8_t Index);
-void SCH_Report_Status(void);
-void SCH_Go_To_Sleep(void);
-void SCH_Update(void);
-void SCH_Dispatch_Tasks(void);
-# 7 "./SCH_CONFIG.h" 2
-
-
-
-
-
-uint8_t SysTick_Init(volatile const uint32_t TicksPeriod_ms);
-void SysTick_Handler(void);
-void HW_Delay_ms(volatile uint32_t Delay_ms);
-void HW_Delay_us(volatile uint32_t Delay_us);
-void SW_Delay_ms(volatile uint32_t Delay_ms);
-void SW_Delay_us(volatile uint32_t Delay_us);
-# 3 "main.c" 2
-# 19 "main.c"
-int main(void)
-{
-    SCH_Init();
-    LED_Init();
-    SW_Init();
-    ADC_Init();
-    TEMP_Init();
-    HCU_Init();
-    DISP_Init();
-    SSD_Init();
-    WH_Init();
-    SCH_Add_Task(LED_Update, 0/(5), 5/(5));
-    SCH_Add_Task(SW_Update, 0/(5), 10/(5));
-    SCH_Add_Task(ADC_Update, 0/(5), 100/(5));
-    SCH_Add_Task(TEMP_Update, 0/(5), 100/(5));
-    SCH_Add_Task(HCU_Update, 0/(5), 100/(5));
-    SCH_Add_Task(DISP_Update, 0/(5), 100/(5));
-    SCH_Add_Task(SSD_Update, 0/(5), 5/(5));
-    SCH_Add_Task(WH_Task, 0/(5), 100/(5));
-    SCH_Start();
-    while(1)
+    Scheduler_start();
+    while( 1 )
     {
-        SCH_Dispatch_Tasks();
+        Scheduler_dispatchTasks();
     }
-    return (!(0));
+    return ( !( 0 ) );
 }

@@ -1,44 +1,78 @@
-#include "CONFIG.h"
-#include "PORT.h"
-#include "SCH_CONFIG.h"
-#include "SCH.h"
-#include "TIM.h"
-#include "GPIO.h"
-#include "LED.h"
+#include "SchedulerConfig.h"
+#include "Scheduler.h"
 
-#include "SW.h"
-#include "ADC.h"
-#include "TEMP.h"
-#include "HCU.h"
-#include "SSD.h"
-#include "DISP.h"
-#include "I2C.h"
-#include "EEPROM.h"
-#include "WH.h"
+#include "Gpio.h"
+#include "Adc.h"
+#include "Timer.h"
+#include "Switch.h"
+#include "SwitchTask.h"
+#include "TempSensor.h"
+#include "TempSensorTask.h"
+#include "TempControl.h"
+#include "TempControlTask.h"
+#include "Led.h"
+#include "LedTask.h"
+#include "Ssd.h"
+#include "SsdTask.h"
 
-int main(void)
+#include "I2c.h"
+#include "Eeprom.h"
+#include "WaterHeater.h"
+
+//static void (*systickInterrupt)( void );
+
+void SysTick_Handler( void ) __interrupt()
 {
-    SCH_Init();
-    LED_Init();
-    SW_Init();
-    ADC_Init();
-    TEMP_Init();
-    HCU_Init();
-    DISP_Init();
-    SSD_Init();
-    WH_Init();
-    SCH_Add_Task(LED_Update, 0/SCH_TICK_PERIOD_MS, LED_UPDATE/SCH_TICK_PERIOD_MS);
-    SCH_Add_Task(SW_Update, 0/SCH_TICK_PERIOD_MS, SW_UPDATE/SCH_TICK_PERIOD_MS);
-    SCH_Add_Task(ADC_Update, 0/SCH_TICK_PERIOD_MS, ADC_UPDATE/SCH_TICK_PERIOD_MS);
-    SCH_Add_Task(TEMP_Update, 0/SCH_TICK_PERIOD_MS, TEMP_UPDATE/SCH_TICK_PERIOD_MS);
-    SCH_Add_Task(HCU_Update, 0/SCH_TICK_PERIOD_MS, HCU_UPDATE/SCH_TICK_PERIOD_MS);
-    SCH_Add_Task(DISP_Update, 0/SCH_TICK_PERIOD_MS, DISP_UPDATE/SCH_TICK_PERIOD_MS);
-    SCH_Add_Task(SSD_Update, 0/SCH_TICK_PERIOD_MS, SSD_UPDATE/SCH_TICK_PERIOD_MS);
-    SCH_Add_Task(WH_Task, 0/SCH_TICK_PERIOD_MS, WH_UPDATE/SCH_TICK_PERIOD_MS);
-    SCH_Start();
-    while(1)
+    TIM1_CLR_INT_FLAG();
+    Scheduler_update();
+    //(*systickInterrupt)();
+}
+
+int main( void )
+{
+    Switch_SetGpio( 0, GPIOB_ID, 0 );
+    Switch_SetGpio( 1, GPIOB_ID, 1 );
+    Switch_SetGpio( 2, GPIOB_ID, 2 );
+    Switch_Init();
+    SwitchTask_Init();
+    
+    TempSensor_SetGpio( 0, GPIOA_ID, 2 );
+    TempSensor_Init();
+    TempSensorTask_Init();
+
+    TempControl_SetGpioH( 0, GPIOC_ID, 5 );
+    TempControl_SetGpioC( 0, GPIOC_ID, 2 );
+    TempControl_Init();
+    TempControlTask_Init();
+    
+    Led_SetGpio( 0, GPIOB_ID, 6 );
+    Led_SetGpio( 1, GPIOB_ID, 7 );
+    Led_Init();
+    LedTask_Init();
+   
+    Ssd_SetGpioCtrl( 0, GPIOA_ID, 5 );
+    Ssd_SetGpioD0( 0, GPIOD_ID, 0 );
+    Ssd_SetGpioCtrl( 1, GPIOA_ID, 4 );
+    Ssd_SetGpioD0( 1, GPIOD_ID, 0 );
+    Ssd_Init();
+    SsdTask_Init();
+    
+    HeaterTask_Init();
+    
+    DELAY_US(1000);
+    
+    Scheduler_init();
+    Scheduler_addTask( SwitchTask_Update, NULL, 0, C_MS_TO_TICKS( 10 ) );
+    Scheduler_addTask( TempSensorTask_Update, NULL, 0, C_MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( TempControlTask_Update, NULL, 0, C_MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( LedTask_Update, NULL, 0, C_MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( SsdTask_Update, NULL, 0, C_MS_TO_TICKS( 5 ) );
+    Scheduler_addTask( HeaterTask_Update, NULL, 0, C_MS_TO_TICKS( 100 ) );
+    //systickInterrupt = Scheduler_update;
+    Scheduler_start();
+    while( 1 )
     {
-        SCH_Dispatch_Tasks();
+        Scheduler_dispatchTasks();
     }
-    return RETURN_NORMAL;
+    return SCH_RETURN_NORMAL;
 }
