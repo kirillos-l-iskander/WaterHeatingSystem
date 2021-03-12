@@ -4,8 +4,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S102 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 ]
 [n S102 . Counter Symbol State Blink Period Delay ]
 "7 ./Ssd.h
-[; ;./Ssd.h: 7: void Ssd_Init( void );
-[v _Ssd_Init `(v ~T0 @X0 0 ef ]
+[; ;./Ssd.h: 7: void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
+[v _Ssd_Init `(v ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
 "8
 [; ;./Ssd.h: 8: void Ssd_SetState( Id_t Id, uint8_t State );
 [v _Ssd_SetState `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -212,215 +212,186 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;SsdTask.c: 13: static SsdTask_t SsdTask[ ( 2 ) ];
 [v _SsdTask `S102 ~T0 @X0 -> 2 `i s ]
 "15
-[; ;SsdTask.c: 15: void SsdTask_Init( void )
-[v _SsdTask_Init `(v ~T0 @X0 1 ef ]
+[; ;SsdTask.c: 15: void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin )
+[v _SsdTask_Init `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
 "16
 [; ;SsdTask.c: 16: {
 {
 [e :U _SsdTask_Init ]
+"15
+[; ;SsdTask.c: 15: void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _ctrlGpioId `uc ~T0 @X0 1 r2 ]
+[v _ctrlPin `uc ~T0 @X0 1 r3 ]
+[v _dataGpioId `uc ~T0 @X0 1 r4 ]
+[v _dataPin `uc ~T0 @X0 1 r5 ]
+"16
+[; ;SsdTask.c: 16: {
 [f ]
 "17
-[; ;SsdTask.c: 17:     size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
+[; ;SsdTask.c: 17:     SsdTask[ Id ].Counter = Id;
+[e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 0 _Id ]
 "18
-[; ;SsdTask.c: 18:  for ( Id = 0; Id < ( 2 ); Id++ )
-{
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 104  ]
-[e $U 105  ]
-[e :U 104 ]
-"19
-[; ;SsdTask.c: 19:     {
-{
-"20
-[; ;SsdTask.c: 20:         SsdTask[ Id ].Counter = Id;
-[e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 0 -> _Id `uc ]
-"21
-[; ;SsdTask.c: 21:         SsdTask[ Id ].Symbol = 0;
+[; ;SsdTask.c: 18:     SsdTask[ Id ].Symbol = 0;
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 1 -> -> 0 `i `uc ]
-"22
-[; ;SsdTask.c: 22:         SsdTask[ Id ].State = ( 0 );
+"19
+[; ;SsdTask.c: 19:     SsdTask[ Id ].State = ( 0 );
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 2 -> -> 0 `i `uc ]
-"23
-[; ;SsdTask.c: 23:         SsdTask[ Id ].Blink = 0;
+"20
+[; ;SsdTask.c: 20:     SsdTask[ Id ].Blink = 0;
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 3 -> -> 0 `i `uc ]
-"24
-[; ;SsdTask.c: 24:         SsdTask[ Id ].Period = 0;
+"21
+[; ;SsdTask.c: 21:     SsdTask[ Id ].Period = 0;
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 4 -> -> 0 `i `ui ]
-"25
-[; ;SsdTask.c: 25:         SsdTask[ Id ].Delay = 0;
+"22
+[; ;SsdTask.c: 22:     SsdTask[ Id ].Delay = 0;
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 5 -> -> 0 `i `ui ]
-"26
-[; ;SsdTask.c: 26:     }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 104  ]
-[e :U 105 ]
-}
-"27
-[; ;SsdTask.c: 27:     Ssd_Init();
-[e ( _Ssd_Init ..  ]
-"28
-[; ;SsdTask.c: 28: }
+"23
+[; ;SsdTask.c: 23:     Ssd_Init( Id, ctrlGpioId, ctrlPin, dataGpioId, dataPin );
+[e ( _Ssd_Init (4 , , , , _Id _ctrlGpioId _ctrlPin _dataGpioId _dataPin ]
+"24
+[; ;SsdTask.c: 24: }
 [e :UE 103 ]
 }
-"30
-[; ;SsdTask.c: 30: void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
+"26
+[; ;SsdTask.c: 26: void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
 [v _SsdTask_SetState `(v ~T0 @X0 1 ef3`uc`uc`ui ]
-"31
-[; ;SsdTask.c: 31: {
+"27
+[; ;SsdTask.c: 27: {
 {
 [e :U _SsdTask_SetState ]
-"30
-[; ;SsdTask.c: 30: void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
+"26
+[; ;SsdTask.c: 26: void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
 [v _Id `uc ~T0 @X0 1 r1 ]
 [v _State `uc ~T0 @X0 1 r2 ]
 [v _Period `ui ~T0 @X0 1 r3 ]
-"31
-[; ;SsdTask.c: 31: {
+"27
+[; ;SsdTask.c: 27: {
 [f ]
-"32
-[; ;SsdTask.c: 32:     SsdTask[ Id ].State = State;
+"28
+[; ;SsdTask.c: 28:     SsdTask[ Id ].State = State;
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 2 _State ]
-"33
-[; ;SsdTask.c: 33:  SsdTask[ Id ].Period = ( Period / ( ( TickType_t ) 5 ) ) / ( 5 / ( ( TickType_t ) 5 ) );
+"29
+[; ;SsdTask.c: 29:  SsdTask[ Id ].Period = ( Period / ( ( TickType_t ) 5 ) ) / ( 5 / ( ( TickType_t ) 5 ) );
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 4 / / _Period -> -> 5 `i `ui / -> -> 5 `i `ui -> -> 5 `i `ui ]
-"34
-[; ;SsdTask.c: 34: }
-[e :UE 107 ]
+"30
+[; ;SsdTask.c: 30: }
+[e :UE 104 ]
 }
-"36
-[; ;SsdTask.c: 36: void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol )
+"32
+[; ;SsdTask.c: 32: void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol )
 [v _SsdTask_SetSymbol `(v ~T0 @X0 1 ef2`uc`uc ]
-"37
-[; ;SsdTask.c: 37: {
+"33
+[; ;SsdTask.c: 33: {
 {
 [e :U _SsdTask_SetSymbol ]
-"36
-[; ;SsdTask.c: 36: void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol )
+"32
+[; ;SsdTask.c: 32: void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol )
 [v _Id `uc ~T0 @X0 1 r1 ]
 [v _Symbol `uc ~T0 @X0 1 r2 ]
-"37
-[; ;SsdTask.c: 37: {
+"33
+[; ;SsdTask.c: 33: {
 [f ]
-"38
-[; ;SsdTask.c: 38:     SsdTask[ Id ].Symbol = Symbol;
+"34
+[; ;SsdTask.c: 34:     SsdTask[ Id ].Symbol = Symbol;
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 1 _Symbol ]
-"39
-[; ;SsdTask.c: 39: }
-[e :UE 108 ]
+"35
+[; ;SsdTask.c: 35: }
+[e :UE 105 ]
 }
-"41
-[; ;SsdTask.c: 41: void SsdTask_Update( void *Paramter )
+"37
+[; ;SsdTask.c: 37: void SsdTask_Update( void *Paramter )
 [v _SsdTask_Update `(v ~T0 @X0 1 ef1`*v ]
-"42
-[; ;SsdTask.c: 42: {
+"38
+[; ;SsdTask.c: 38: {
 {
 [e :U _SsdTask_Update ]
-"41
-[; ;SsdTask.c: 41: void SsdTask_Update( void *Paramter )
+"37
+[; ;SsdTask.c: 37: void SsdTask_Update( void *Paramter )
 [v _Paramter `*v ~T0 @X0 1 r1 ]
-"42
-[; ;SsdTask.c: 42: {
+"38
+[; ;SsdTask.c: 38: {
 [f ]
-"43
-[; ;SsdTask.c: 43:     size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
-"44
-[; ;SsdTask.c: 44:  for ( Id = 0; Id < ( 2 ); Id++ )
+"39
+[; ;SsdTask.c: 39:     Id_t Id = (Id_t) Paramter;
+[v _Id `uc ~T0 @X0 1 a ]
+[e = _Id -> _Paramter `uc ]
+"40
+[; ;SsdTask.c: 40:     if( SsdTask[ Id ].Delay )
+[e $ ! != . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 5 -> -> 0 `i `ui 107  ]
+"41
+[; ;SsdTask.c: 41:     {
 {
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 110  ]
-[e $U 111  ]
-[e :U 110 ]
-"45
-[; ;SsdTask.c: 45:     {
-{
-"46
-[; ;SsdTask.c: 46:         if( SsdTask[ Id ].Delay )
-[e $ ! != . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 5 -> -> 0 `i `ui 113  ]
-"47
-[; ;SsdTask.c: 47:         {
-{
-"48
-[; ;SsdTask.c: 48:             SsdTask[ Id ].Delay--;
+"42
+[; ;SsdTask.c: 42:         SsdTask[ Id ].Delay--;
 [e -- . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 5 -> -> 1 `i `ui ]
-"49
-[; ;SsdTask.c: 49:         }else if( SsdTask[ Id ].Period )
+"43
+[; ;SsdTask.c: 43:     }else if( SsdTask[ Id ].Period )
 }
-[e $U 114  ]
-[e :U 113 ]
-[e $ ! != . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 4 -> -> 0 `i `ui 115  ]
-"50
-[; ;SsdTask.c: 50:         {
+[e $U 108  ]
+[e :U 107 ]
+[e $ ! != . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 4 -> -> 0 `i `ui 109  ]
+"44
+[; ;SsdTask.c: 44:     {
 {
-"51
-[; ;SsdTask.c: 51:             SsdTask[ Id ].Blink ^= SsdTask[ Id ].State;
+"45
+[; ;SsdTask.c: 45:         SsdTask[ Id ].Blink ^= SsdTask[ Id ].State;
 [e =^ . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 3 -> . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 2 `uc ]
-"52
-[; ;SsdTask.c: 52:             SsdTask[ Id ].Delay = SsdTask[ Id ].Period;
+"46
+[; ;SsdTask.c: 46:         SsdTask[ Id ].Delay = SsdTask[ Id ].Period;
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 5 . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 4 ]
-"53
-[; ;SsdTask.c: 53:         }else
+"47
+[; ;SsdTask.c: 47:     }else
 }
-[e $U 116  ]
-[e :U 115 ]
-"54
-[; ;SsdTask.c: 54:         {
+[e $U 110  ]
+[e :U 109 ]
+"48
+[; ;SsdTask.c: 48:     {
 {
-"55
-[; ;SsdTask.c: 55:             SsdTask[ Id ].Blink = 0;
+"49
+[; ;SsdTask.c: 49:         SsdTask[ Id ].Blink = 0;
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 3 -> -> 0 `i `uc ]
-"56
-[; ;SsdTask.c: 56:         }
+"50
+[; ;SsdTask.c: 50:     }
 }
-[e :U 116 ]
-[e :U 114 ]
+[e :U 110 ]
+[e :U 108 ]
+"51
+[; ;SsdTask.c: 51:     Ssd_SetState( Id, ( 0 ) );
+[e ( _Ssd_SetState (2 , _Id -> -> 0 `i `uc ]
+"52
+[; ;SsdTask.c: 52:     if( SsdTask[ Id ].Counter == 0 )
+[e $ ! == -> . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 0 `i -> 0 `i 111  ]
+"53
+[; ;SsdTask.c: 53:     {
+{
+"54
+[; ;SsdTask.c: 54:         Ssd_SetSymbol( Id, SsdTask[ Id ].Symbol );
+[e ( _Ssd_SetSymbol (2 , _Id . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 1 ]
+"55
+[; ;SsdTask.c: 55:         Ssd_SetState( Id, SsdTask[ Id ].State & !SsdTask[ Id ].Blink );
+[e ( _Ssd_SetState (2 , _Id -> & -> . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 2 `i -> ! != -> . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 3 `i -> 0 `i `i `uc ]
+"56
+[; ;SsdTask.c: 56:     }
+}
+[e :U 111 ]
 "57
-[; ;SsdTask.c: 57:         Ssd_SetState( Id, ( 0 ) );
-[e ( _Ssd_SetState (2 , -> _Id `uc -> -> 0 `i `uc ]
+[; ;SsdTask.c: 57:     SsdTask[ Id ].Counter++;
+[e ++ . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 0 -> -> 1 `i `uc ]
 "58
-[; ;SsdTask.c: 58:         if( SsdTask[ Id ].Counter == 0 )
-[e $ ! == -> . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 0 `i -> 0 `i 117  ]
+[; ;SsdTask.c: 58:     if( SsdTask[ Id ].Counter == ( 2 ) )
+[e $ ! == -> . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 0 `i -> 2 `i 112  ]
 "59
-[; ;SsdTask.c: 59:         {
+[; ;SsdTask.c: 59:     {
 {
 "60
-[; ;SsdTask.c: 60:             Ssd_SetSymbol( Id, SsdTask[ Id ].Symbol );
-[e ( _Ssd_SetSymbol (2 , -> _Id `uc . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 1 ]
-"61
-[; ;SsdTask.c: 61:             Ssd_SetState( Id, SsdTask[ Id ].State & !SsdTask[ Id ].Blink );
-[e ( _Ssd_SetState (2 , -> _Id `uc -> & -> . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 2 `i -> ! != -> . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 3 `i -> 0 `i `i `uc ]
-"62
-[; ;SsdTask.c: 62:         }
-}
-[e :U 117 ]
-"63
-[; ;SsdTask.c: 63:         SsdTask[ Id ].Counter++;
-[e ++ . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 0 -> -> 1 `i `uc ]
-"64
-[; ;SsdTask.c: 64:         if( SsdTask[ Id ].Counter == ( 2 ) )
-[e $ ! == -> . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 0 `i -> 2 `i 118  ]
-"65
-[; ;SsdTask.c: 65:         {
-{
-"66
-[; ;SsdTask.c: 66:             SsdTask[ Id ].Counter = 0;
+[; ;SsdTask.c: 60:         SsdTask[ Id ].Counter = 0;
 [e = . *U + &U _SsdTask * -> _Id `ux -> -> # *U &U _SsdTask `ui `ux 0 -> -> 0 `i `uc ]
-"67
-[; ;SsdTask.c: 67:         }
+"61
+[; ;SsdTask.c: 61:     }
 }
-[e :U 118 ]
-"68
-[; ;SsdTask.c: 68:     }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 110  ]
-[e :U 111 ]
-}
-"69
-[; ;SsdTask.c: 69: }
-[e :UE 109 ]
+[e :U 112 ]
+"62
+[; ;SsdTask.c: 62: }
+[e :UE 106 ]
 }

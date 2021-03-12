@@ -229,59 +229,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "14
-[; ;Ssd.c: 14: void Ssd_Init( void )
-[v _Ssd_Init `(v ~T0 @X0 1 ef ]
+[; ;Ssd.c: 14: void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin )
+[v _Ssd_Init `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
 "15
 [; ;Ssd.c: 15: {
 {
 [e :U _Ssd_Init ]
+"14
+[; ;Ssd.c: 14: void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _ctrlGpioId `uc ~T0 @X0 1 r2 ]
+[v _ctrlPin `uc ~T0 @X0 1 r3 ]
+[v _dataGpioId `uc ~T0 @X0 1 r4 ]
+[v _dataPin `uc ~T0 @X0 1 r5 ]
+"15
+[; ;Ssd.c: 15: {
 [f ]
 "16
-[; ;Ssd.c: 16:     size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
-"17
-[; ;Ssd.c: 17:     size_t Pin = 0;
+[; ;Ssd.c: 16:     size_t Pin = 0;
 [v _Pin `ui ~T0 @X0 1 a ]
 [e = _Pin -> -> 0 `i `ui ]
+"17
+[; ;Ssd.c: 17:     Ssd[ Id ].GpioIdCtrl = ctrlGpioId;
+[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 0 _ctrlGpioId ]
 "18
-[; ;Ssd.c: 18:  for ( Id = 0; Id < ( 2 ); Id++ )
-{
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 104  ]
-[e $U 105  ]
-[e :U 104 ]
+[; ;Ssd.c: 18:     Ssd[ Id ].PinCtrl = ctrlPin;
+[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 1 _ctrlPin ]
 "19
-[; ;Ssd.c: 19:     {
-{
+[; ;Ssd.c: 19:     Ssd[ Id ].GpioIdD0 = dataGpioId;
+[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 2 _dataGpioId ]
 "20
-[; ;Ssd.c: 20:         Gpio_InitPin( Ssd[ Id ].GpioIdCtrl, Ssd[ Id ].PinCtrl, ( 0 ) );
-[e ( _Gpio_InitPin (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 0 . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 1 -> -> 0 `i `uc ]
+[; ;Ssd.c: 20:     Ssd[ Id ].PinD0 = dataPin;
+[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 _dataPin ]
 "21
-[; ;Ssd.c: 21:      for ( Pin = Ssd[ Id ].PinD0; Pin < ( Ssd[ Id ].PinD0 + 8 ); Pin++ )
+[; ;Ssd.c: 21:     Gpio_InitPin( Ssd[ Id ].GpioIdCtrl, Ssd[ Id ].PinCtrl, ( 0 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 0 . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 1 -> -> 0 `i `uc ]
+"22
+[; ;Ssd.c: 22:     for ( Pin = Ssd[ Id ].PinD0; Pin < ( Ssd[ Id ].PinD0 + 8 ); Pin++ )
 {
 [e = _Pin -> . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 `ui ]
-[e $U 110  ]
-[e :U 107 ]
-"22
-[; ;Ssd.c: 22:         {
-{
+[e $U 107  ]
+[e :U 104 ]
 "23
-[; ;Ssd.c: 23:             Gpio_InitPin( Ssd[ Id ].GpioIdD0, Pin, ( 0 ) );
-[e ( _Gpio_InitPin (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 2 -> _Pin `uc -> -> 0 `i `uc ]
+[; ;Ssd.c: 23:     {
+{
 "24
-[; ;Ssd.c: 24:         }
-}
-[e ++ _Pin -> -> 1 `i `ui ]
-[e :U 110 ]
-[e $ < _Pin -> + -> . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 `i -> 8 `i `ui 107  ]
-[e :U 108 ]
-}
+[; ;Ssd.c: 24:         Gpio_InitPin( Ssd[ Id ].GpioIdD0, Pin, ( 0 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 2 -> _Pin `uc -> -> 0 `i `uc ]
 "25
 [; ;Ssd.c: 25:     }
 }
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 104  ]
+[e ++ _Pin -> -> 1 `i `ui ]
+[e :U 107 ]
+[e $ < _Pin -> + -> . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 `i -> 8 `i `ui 104  ]
 [e :U 105 ]
 }
 "26
@@ -307,7 +307,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Gpio_SetPinState (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 0 . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 1 _State ]
 "31
 [; ;Ssd.c: 31: }
-[e :UE 111 ]
+[e :UE 108 ]
 }
 "33
 [; ;Ssd.c: 33: void Ssd_SetSymbol( Id_t Id, uint8_t Symbol )
@@ -328,55 +328,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Gpio_SetPortState (3 , , . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 2 -> << -> 255 `i -> . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 `i `uc *U + &U _SsdSymbolPattern * -> _Symbol `ux -> -> # *U &U _SsdSymbolPattern `ui `ux ]
 "36
 [; ;Ssd.c: 36: }
-[e :UE 112 ]
-}
-"38
-[; ;Ssd.c: 38: void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _Ssd_SetGpioCtrl `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"39
-[; ;Ssd.c: 39: {
-{
-[e :U _Ssd_SetGpioCtrl ]
-"38
-[; ;Ssd.c: 38: void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _GpioId `uc ~T0 @X0 1 r2 ]
-[v _Pin `uc ~T0 @X0 1 r3 ]
-"39
-[; ;Ssd.c: 39: {
-[f ]
-"40
-[; ;Ssd.c: 40:     Ssd[ Id ].GpioIdCtrl = GpioId;
-[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 0 _GpioId ]
-"41
-[; ;Ssd.c: 41:     Ssd[ Id ].PinCtrl = Pin;
-[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 1 _Pin ]
-"42
-[; ;Ssd.c: 42: }
-[e :UE 113 ]
-}
-"44
-[; ;Ssd.c: 44: void Ssd_SetGpioD0( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _Ssd_SetGpioD0 `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"45
-[; ;Ssd.c: 45: {
-{
-[e :U _Ssd_SetGpioD0 ]
-"44
-[; ;Ssd.c: 44: void Ssd_SetGpioD0( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _GpioId `uc ~T0 @X0 1 r2 ]
-[v _Pin `uc ~T0 @X0 1 r3 ]
-"45
-[; ;Ssd.c: 45: {
-[f ]
-"46
-[; ;Ssd.c: 46:     Ssd[ Id ].GpioIdD0 = GpioId;
-[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 2 _GpioId ]
-"47
-[; ;Ssd.c: 47:     Ssd[ Id ].PinD0 = Pin;
-[e = . *U + &U _Ssd * -> _Id `ux -> -> # *U &U _Ssd `ui `ux 3 _Pin ]
-"48
-[; ;Ssd.c: 48: }
-[e :UE 114 ]
+[e :UE 109 ]
 }

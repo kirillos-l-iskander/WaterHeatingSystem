@@ -2178,7 +2178,7 @@ UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Led.h" 2
 
 
-void Led_Init( void );
+void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 void Led_SetState( Id_t Id, uint8_t State );
 void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 5 "./LedTask.h" 2
@@ -2186,7 +2186,7 @@ void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void LedTask_Init( void );
+void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
 void LedTask_Update( void *Paramter );
 # 3 "SchedulerConfig.c" 2
@@ -2203,10 +2203,10 @@ void Scheduler_displayError( UBaseType_t errorCode )
 {
  if( errorCode )
  {
-  LedTask_SetState( 0, ( 0 ), ( 0 ) );
+  LedTask_SetState( 1, ( 0 ), ( 0 ) );
  }else
  {
-  LedTask_SetState( 0, ( 1 ), ( 0 ) );
+  LedTask_SetState( 1, ( 1 ), ( 0 ) );
  }
 }
 

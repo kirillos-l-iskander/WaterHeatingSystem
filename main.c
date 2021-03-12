@@ -30,44 +30,35 @@ void SysTick_Handler( void ) __interrupt()
 
 int main( void )
 {
-    Switch_SetGpio( 0, GPIOB_ID, 0 );
-    Switch_SetGpio( 1, GPIOB_ID, 1 );
-    Switch_SetGpio( 2, GPIOB_ID, 2 );
-    Switch_Init();
-    SwitchTask_Init();
+    SwitchTask_Init( 0, GPIOB_ID, 0 );
+    SwitchTask_Init( 1, GPIOB_ID, 1 );
+    SwitchTask_Init( 2, GPIOB_ID, 2 );
     
-    TempSensor_SetGpio( 0, GPIOA_ID, 2 );
-    TempSensor_Init();
-    TempSensorTask_Init();
+    TempSensorTask_Init( 0, GPIOA_ID, 2, 0 );
 
-    TempControl_SetGpioH( 0, GPIOC_ID, 5 );
-    TempControl_SetGpioC( 0, GPIOC_ID, 2 );
-    TempControl_Init();
-    TempControlTask_Init();
+    TempControlTask_Init( 0, GPIOC_ID, 5, GPIOC_ID, 2 );
     
-    Led_SetGpio( 0, GPIOB_ID, 6 );
-    Led_SetGpio( 1, GPIOB_ID, 7 );
-    Led_Init();
-    LedTask_Init();
+    LedTask_Init( 0, GPIOB_ID, 6 );
+    LedTask_Init( 1, GPIOB_ID, 7 );
    
-    Ssd_SetGpioCtrl( 0, GPIOA_ID, 5 );
-    Ssd_SetGpioD0( 0, GPIOD_ID, 0 );
-    Ssd_SetGpioCtrl( 1, GPIOA_ID, 4 );
-    Ssd_SetGpioD0( 1, GPIOD_ID, 0 );
-    Ssd_Init();
-    SsdTask_Init();
+    SsdTask_Init( 0, GPIOA_ID, 5, GPIOD_ID, 0 );
+    SsdTask_Init( 1, GPIOA_ID, 4, GPIOD_ID, 0 );
     
-    HeaterTask_Init();
+    HeaterTask_Init( 0 );
     
     DELAY_US(1000);
     
     Scheduler_init();
-    Scheduler_addTask( SwitchTask_Update, NULL, 0, C_MS_TO_TICKS( 10 ) );
-    Scheduler_addTask( TempSensorTask_Update, NULL, 0, C_MS_TO_TICKS( 100 ) );
-    Scheduler_addTask( TempControlTask_Update, NULL, 0, C_MS_TO_TICKS( 100 ) );
-    Scheduler_addTask( LedTask_Update, NULL, 0, C_MS_TO_TICKS( 100 ) );
-    Scheduler_addTask( SsdTask_Update, NULL, 0, C_MS_TO_TICKS( 5 ) );
-    Scheduler_addTask( HeaterTask_Update, NULL, 0, C_MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( SwitchTask_Update, (void *) 0, 0, C_MS_TO_TICKS( 10 ) );
+    Scheduler_addTask( SwitchTask_Update, (void *) 1, 0, C_MS_TO_TICKS( 10 ) );
+    Scheduler_addTask( SwitchTask_Update, (void *) 2, 0, C_MS_TO_TICKS( 10 ) );
+    Scheduler_addTask( TempSensorTask_Update, (void *) 0, 0, C_MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( HeaterTask_Update, (void *) 0, 0, C_MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( TempControlTask_Update, (void *) 0, 0, C_MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( LedTask_Update, (void *) 0, 0, C_MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( LedTask_Update, (void *) 1, 0, C_MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( SsdTask_Update, (void *) 0, 0, C_MS_TO_TICKS( 5 ) );
+    Scheduler_addTask( SsdTask_Update, (void *) 1, 0, C_MS_TO_TICKS( 5 ) );
     //systickInterrupt = Scheduler_update;
     Scheduler_start();
     while( 1 )

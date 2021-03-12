@@ -2171,14 +2171,14 @@ UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./TempControl.h" 2
 
 
-void TempControl_Init( void );
+void TempControl_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
 void TempControl_SetState( Id_t Id, uint8_t State );
 void TempControl_SetGpioH( Id_t Id, Id_t GpioId, uint8_t Pin );
 void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 5 "./TempControlTask.h" 2
 
 
-void TempControlTask_Init( void );
+void TempControlTask_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
 void TempControlTask_SetState( Id_t Id, uint8_t State );
 void TempControlTask_Update( void *Paramter );
 # 1 "TempControlTask.c" 2
@@ -2191,14 +2191,10 @@ typedef struct
 
 static TempControlTask_t TempControlTask[ ( 1 ) ];
 
-void TempControlTask_Init( void )
+void TempControlTask_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
 {
-    size_t Id = 0;
-    for( Id = 0; Id < ( 1 ); Id++ )
-    {
-        TempControlTask[ Id ].State = 0;
-    }
-    TempControl_Init();
+    TempControlTask[ Id ].State = 0;
+    TempControl_Init( Id, hGpioId, hPin, cGpioId, cPin );
 }
 
 void TempControlTask_SetState( Id_t Id, uint8_t State )
@@ -2208,9 +2204,6 @@ void TempControlTask_SetState( Id_t Id, uint8_t State )
 
 void TempControlTask_Update( void *Paramter )
 {
-    size_t Id = 0;
-    for( Id = 0; Id < ( 1 ); Id++ )
-    {
-        TempControl_SetState( Id, TempControlTask[ Id ].State );
-    }
+    Id_t Id = (Id_t) Paramter;
+    TempControl_SetState( Id, TempControlTask[ Id ].State );
 }

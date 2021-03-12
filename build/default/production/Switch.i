@@ -2166,7 +2166,7 @@ UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Switch.h" 2
 
 
-void Switch_Init( void );
+void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 uint8_t Switch_GetState( Id_t Id );
 void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 1 "Switch.c" 2
@@ -2180,22 +2180,14 @@ typedef struct
 
 static Switch_t Switch[ ( 3 ) ];
 
-void Switch_Init( void )
+void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
 {
-    size_t Id = 0;
-    for( Id = 0; Id < ( 3 ); Id++ )
-    {
-        Gpio_InitPin( Switch[ Id ].GpioId, Switch[ Id ].Pin, ( 1 ) );
-    }
+    Switch[ Id ].GpioId = GpioId;
+    Switch[ Id ].Pin = Pin;
+    Gpio_InitPin( Switch[ Id ].GpioId, Switch[ Id ].Pin, ( 1 ) );
 }
 
 uint8_t Switch_GetState( Id_t Id )
 {
     return Gpio_GetPinState( Switch[ Id ].GpioId, Switch[ Id ].Pin );
-}
-
-void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
-{
-    Switch[ Id ].GpioId = GpioId;
-    Switch[ Id ].Pin = Pin;
 }

@@ -3,18 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/TempControl.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/SsdTask.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/SchedulerConfig.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Ssd.c</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Switch.h</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Config.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/WaterHeater.h</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/LedTask.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Scheduler.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Ssd.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/TempSensorTask.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/main.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/WaterHeater.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/I2c.c</file>
-            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Scheduler.c</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Led.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/LedTask.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/TempSensor.c</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Led.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/SsdTask.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/TempControl.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/TempSensor.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Adc.c</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Eeprom.c</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Gpio.c</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/TempSensorTask.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/TempControlTask.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Scheduler.c</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/TempControlTask.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/SchedulerConfig.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/SwitchTask.h</file>
+            <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/Switch.c</file>
             <file>file:/E:/Programs/ProgramsData/MPLABXProjects/WaterHeatingSystem.X/SwitchTask.c</file>
         </group>
     </open-files>

@@ -2201,7 +2201,7 @@ void Timer1Init( uint16_t TicksNumber );
 
 
 
-void Switch_Init( void );
+void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 uint8_t Switch_GetState( Id_t Id );
 void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 7 "main.c" 2
@@ -2213,7 +2213,7 @@ void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void SwitchTask_Init( void );
+void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 uint8_t SwitchTask_GetState( Id_t Id );
 void SwitchTask_Update( void *Paramter );
 # 8 "main.c" 2
@@ -2226,7 +2226,7 @@ void SwitchTask_Update( void *Paramter );
 
 
 
-void TempSensor_Init( void );
+void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
 uint8_t TempSensor_GetState( Id_t Id );
 void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
@@ -2239,7 +2239,7 @@ void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
 
 
 
-void TempSensorTask_Init( void );
+void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
 uint8_t TempSensorTask_GetAverage( Id_t Id );
 void TempSensorTask_Update( void *Paramter );
 # 10 "main.c" 2
@@ -2251,7 +2251,7 @@ void TempSensorTask_Update( void *Paramter );
 
 
 
-void TempControl_Init( void );
+void TempControl_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
 void TempControl_SetState( Id_t Id, uint8_t State );
 void TempControl_SetGpioH( Id_t Id, Id_t GpioId, uint8_t Pin );
 void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
@@ -2264,7 +2264,7 @@ void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void TempControlTask_Init( void );
+void TempControlTask_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
 void TempControlTask_SetState( Id_t Id, uint8_t State );
 void TempControlTask_Update( void *Paramter );
 # 12 "main.c" 2
@@ -2276,7 +2276,7 @@ void TempControlTask_Update( void *Paramter );
 
 
 
-void Led_Init( void );
+void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 void Led_SetState( Id_t Id, uint8_t State );
 void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 13 "main.c" 2
@@ -2290,7 +2290,7 @@ void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void LedTask_Init( void );
+void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
 void LedTask_Update( void *Paramter );
 # 14 "main.c" 2
@@ -2302,7 +2302,7 @@ void LedTask_Update( void *Paramter );
 
 
 
-void Ssd_Init( void );
+void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
 void Ssd_SetState( Id_t Id, uint8_t State );
 void Ssd_SetSymbol( Id_t Id, uint8_t Symbol );
 void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin );
@@ -2323,7 +2323,7 @@ void Ssd_SetGpioD7( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void SsdTask_Init( void );
+void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
 void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
 void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol );
 void SsdTask_Update( void *Paramter );
@@ -2367,7 +2367,7 @@ void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
 # 1 "./WaterHeater.h" 1
 # 22 "./WaterHeater.h" 2
 # 33 "./WaterHeater.h"
-void HeaterTask_Init( void );
+void HeaterTask_Init( Id_t Id );
 void HeaterTask_Update( void *Paramter );
 # 20 "main.c" 2
 
@@ -2383,44 +2383,35 @@ void SysTick_Handler( void ) __attribute__((picinterrupt((""))))
 
 int main( void )
 {
-    Switch_SetGpio( 0, ( 1 ), 0 );
-    Switch_SetGpio( 1, ( 1 ), 1 );
-    Switch_SetGpio( 2, ( 1 ), 2 );
-    Switch_Init();
-    SwitchTask_Init();
+    SwitchTask_Init( 0, ( 1 ), 0 );
+    SwitchTask_Init( 1, ( 1 ), 1 );
+    SwitchTask_Init( 2, ( 1 ), 2 );
 
-    TempSensor_SetGpio( 0, ( 0 ), 2 );
-    TempSensor_Init();
-    TempSensorTask_Init();
+    TempSensorTask_Init( 0, ( 0 ), 2, 0 );
 
-    TempControl_SetGpioH( 0, ( 2 ), 5 );
-    TempControl_SetGpioC( 0, ( 2 ), 2 );
-    TempControl_Init();
-    TempControlTask_Init();
+    TempControlTask_Init( 0, ( 2 ), 5, ( 2 ), 2 );
 
-    Led_SetGpio( 0, ( 1 ), 6 );
-    Led_SetGpio( 1, ( 1 ), 7 );
-    Led_Init();
-    LedTask_Init();
+    LedTask_Init( 0, ( 1 ), 6 );
+    LedTask_Init( 1, ( 1 ), 7 );
 
-    Ssd_SetGpioCtrl( 0, ( 0 ), 5 );
-    Ssd_SetGpioD0( 0, ( 3 ), 0 );
-    Ssd_SetGpioCtrl( 1, ( 0 ), 4 );
-    Ssd_SetGpioD0( 1, ( 3 ), 0 );
-    Ssd_Init();
-    SsdTask_Init();
+    SsdTask_Init( 0, ( 0 ), 5, ( 3 ), 0 );
+    SsdTask_Init( 1, ( 0 ), 4, ( 3 ), 0 );
 
-    HeaterTask_Init();
+    HeaterTask_Init( 0 );
 
     Scheduler_delaySoftwareUs( 1000 );
 
     Scheduler_init();
-    Scheduler_addTask( SwitchTask_Update, (0), 0, ( 10 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( TempSensorTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( TempControlTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( LedTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( SsdTask_Update, (0), 0, ( 5 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( HeaterTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SwitchTask_Update, (void *) 0, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SwitchTask_Update, (void *) 1, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SwitchTask_Update, (void *) 2, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( TempSensorTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( HeaterTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( TempControlTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( LedTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( LedTask_Update, (void *) 1, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SsdTask_Update, (void *) 0, 0, ( 5 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SsdTask_Update, (void *) 1, 0, ( 5 / ( ( TickType_t ) 5 ) ) );
 
     Scheduler_start();
     while( 1 )

@@ -209,84 +209,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Switch.c: 9: static Switch_t Switch[ ( 3 ) ];
 [v _Switch `S102 ~T0 @X0 -> 3 `i s ]
 "11
-[; ;Switch.c: 11: void Switch_Init( void )
-[v _Switch_Init `(v ~T0 @X0 1 ef ]
+[; ;Switch.c: 11: void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Switch_Init `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 "12
 [; ;Switch.c: 12: {
 {
 [e :U _Switch_Init ]
-[f ]
-"13
-[; ;Switch.c: 13:     size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
-"14
-[; ;Switch.c: 14:     for( Id = 0; Id < ( 3 ); Id++ )
-{
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 3 `i `ui 104  ]
-[e $U 105  ]
-[e :U 104 ]
-"15
-[; ;Switch.c: 15:     {
-{
-"16
-[; ;Switch.c: 16:         Gpio_InitPin( Switch[ Id ].GpioId, Switch[ Id ].Pin, ( 1 ) );
-[e ( _Gpio_InitPin (3 , , . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 0 . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 1 -> -> 1 `i `uc ]
-"17
-[; ;Switch.c: 17:     }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 3 `i `ui 104  ]
-[e :U 105 ]
-}
-"18
-[; ;Switch.c: 18: }
-[e :UE 103 ]
-}
-"20
-[; ;Switch.c: 20: uint8_t Switch_GetState( Id_t Id )
-[v _Switch_GetState `(uc ~T0 @X0 1 ef1`uc ]
-"21
-[; ;Switch.c: 21: {
-{
-[e :U _Switch_GetState ]
-"20
-[; ;Switch.c: 20: uint8_t Switch_GetState( Id_t Id )
-[v _Id `uc ~T0 @X0 1 r1 ]
-"21
-[; ;Switch.c: 21: {
-[f ]
-"22
-[; ;Switch.c: 22:     return Gpio_GetPinState( Switch[ Id ].GpioId, Switch[ Id ].Pin );
-[e ) ( _Gpio_GetPinState (2 , . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 0 . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 1 ]
-[e $UE 107  ]
-"23
-[; ;Switch.c: 23: }
-[e :UE 107 ]
-}
-"25
-[; ;Switch.c: 25: void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _Switch_SetGpio `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"26
-[; ;Switch.c: 26: {
-{
-[e :U _Switch_SetGpio ]
-"25
-[; ;Switch.c: 25: void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
+"11
+[; ;Switch.c: 11: void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
 [v _Id `uc ~T0 @X0 1 r1 ]
 [v _GpioId `uc ~T0 @X0 1 r2 ]
 [v _Pin `uc ~T0 @X0 1 r3 ]
-"26
-[; ;Switch.c: 26: {
+"12
+[; ;Switch.c: 12: {
 [f ]
-"27
-[; ;Switch.c: 27:     Switch[ Id ].GpioId = GpioId;
+"13
+[; ;Switch.c: 13:     Switch[ Id ].GpioId = GpioId;
 [e = . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 0 _GpioId ]
-"28
-[; ;Switch.c: 28:     Switch[ Id ].Pin = Pin;
+"14
+[; ;Switch.c: 14:     Switch[ Id ].Pin = Pin;
 [e = . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 1 _Pin ]
-"29
-[; ;Switch.c: 29: }
-[e :UE 108 ]
+"15
+[; ;Switch.c: 15:     Gpio_InitPin( Switch[ Id ].GpioId, Switch[ Id ].Pin, ( 1 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 0 . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 1 -> -> 1 `i `uc ]
+"16
+[; ;Switch.c: 16: }
+[e :UE 103 ]
+}
+"18
+[; ;Switch.c: 18: uint8_t Switch_GetState( Id_t Id )
+[v _Switch_GetState `(uc ~T0 @X0 1 ef1`uc ]
+"19
+[; ;Switch.c: 19: {
+{
+[e :U _Switch_GetState ]
+"18
+[; ;Switch.c: 18: uint8_t Switch_GetState( Id_t Id )
+[v _Id `uc ~T0 @X0 1 r1 ]
+"19
+[; ;Switch.c: 19: {
+[f ]
+"20
+[; ;Switch.c: 20:     return Gpio_GetPinState( Switch[ Id ].GpioId, Switch[ Id ].Pin );
+[e ) ( _Gpio_GetPinState (2 , . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 0 . *U + &U _Switch * -> _Id `ux -> -> # *U &U _Switch `ui `ux 1 ]
+[e $UE 104  ]
+"21
+[; ;Switch.c: 21: }
+[e :UE 104 ]
 }

@@ -12,19 +12,15 @@ typedef struct
 
 static SsdTask_t SsdTask[ SSD_TASK_NUMBER ];
 
-void SsdTask_Init( void )
+void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin )
 {
-    size_t Id = 0;
-	for ( Id = 0; Id < SSD_TASK_NUMBER; Id++ )
-    {
-        SsdTask[ Id ].Counter = Id;
-        SsdTask[ Id ].Symbol = 0;
-        SsdTask[ Id ].State = LOW;
-        SsdTask[ Id ].Blink = 0;
-        SsdTask[ Id ].Period = 0;
-        SsdTask[ Id ].Delay = 0;
-    }
-    Ssd_Init();
+    SsdTask[ Id ].Counter = Id;
+    SsdTask[ Id ].Symbol = 0;
+    SsdTask[ Id ].State = LOW;
+    SsdTask[ Id ].Blink = 0;
+    SsdTask[ Id ].Period = 0;
+    SsdTask[ Id ].Delay = 0;
+    Ssd_Init( Id, ctrlGpioId, ctrlPin, dataGpioId, dataPin );
 }
 
 void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
@@ -40,30 +36,27 @@ void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol )
 
 void SsdTask_Update( void *Paramter )
 {
-    size_t Id = 0;
-	for ( Id = 0; Id < SSD_TASK_NUMBER; Id++ )
+    Id_t Id = (Id_t) Paramter;
+    if( SsdTask[ Id ].Delay )
     {
-        if( SsdTask[ Id ].Delay )
-        {
-            SsdTask[ Id ].Delay--;
-        }else if( SsdTask[ Id ].Period )
-        {
-            SsdTask[ Id ].Blink ^= SsdTask[ Id ].State;
-            SsdTask[ Id ].Delay = SsdTask[ Id ].Period;
-        }else
-        {
-            SsdTask[ Id ].Blink = 0;
-        }
-        Ssd_SetState( Id, LOW );
-        if( SsdTask[ Id ].Counter == 0 )
-        {
-            Ssd_SetSymbol( Id, SsdTask[ Id ].Symbol );
-            Ssd_SetState( Id, SsdTask[ Id ].State & !SsdTask[ Id ].Blink );
-        }
-        SsdTask[ Id ].Counter++;
-        if( SsdTask[ Id ].Counter == SSD_NUMBER )
-        {
-            SsdTask[ Id ].Counter = 0;
-        }
+        SsdTask[ Id ].Delay--;
+    }else if( SsdTask[ Id ].Period )
+    {
+        SsdTask[ Id ].Blink ^= SsdTask[ Id ].State;
+        SsdTask[ Id ].Delay = SsdTask[ Id ].Period;
+    }else
+    {
+        SsdTask[ Id ].Blink = 0;
+    }
+    Ssd_SetState( Id, LOW );
+    if( SsdTask[ Id ].Counter == 0 )
+    {
+        Ssd_SetSymbol( Id, SsdTask[ Id ].Symbol );
+        Ssd_SetState( Id, SsdTask[ Id ].State & !SsdTask[ Id ].Blink );
+    }
+    SsdTask[ Id ].Counter++;
+    if( SsdTask[ Id ].Counter == SSD_NUMBER )
+    {
+        SsdTask[ Id ].Counter = 0;
     }
 }

@@ -4,8 +4,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S102 `uc 1 `uc 1 `ui 1 `ui 1 ]
 [n S102 . State Blink Period Delay ]
 "7 ./Led.h
-[; ;./Led.h: 7: void Led_Init( void );
-[v _Led_Init `(v ~T0 @X0 0 ef ]
+[; ;./Led.h: 7: void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
+[v _Led_Init `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "8
 [; ;./Led.h: 8: void Led_SetState( Id_t Id, uint8_t State );
 [v _Led_SetState `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -209,156 +209,125 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LedTask.c: 11: static LedTask_t LedTask[ ( 2 ) ];
 [v _LedTask `S102 ~T0 @X0 -> 2 `i s ]
 "13
-[; ;LedTask.c: 13: void LedTask_Init( void )
-[v _LedTask_Init `(v ~T0 @X0 1 ef ]
+[; ;LedTask.c: 13: void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _LedTask_Init `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 "14
 [; ;LedTask.c: 14: {
 {
 [e :U _LedTask_Init ]
+"13
+[; ;LedTask.c: 13: void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _GpioId `uc ~T0 @X0 1 r2 ]
+[v _Pin `uc ~T0 @X0 1 r3 ]
+"14
+[; ;LedTask.c: 14: {
 [f ]
 "15
-[; ;LedTask.c: 15:  size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
-"16
-[; ;LedTask.c: 16:  for ( Id = 0; Id < ( 2 ); Id++ )
-{
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 104  ]
-[e $U 105  ]
-[e :U 104 ]
-"17
-[; ;LedTask.c: 17:  {
-{
-"18
-[; ;LedTask.c: 18:   LedTask[ Id ].State = ( 0 );
+[; ;LedTask.c: 15:     LedTask[ Id ].State = ( 0 );
 [e = . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 0 -> -> 0 `i `uc ]
-"19
-[; ;LedTask.c: 19:   LedTask[ Id ].Blink = 0;
+"16
+[; ;LedTask.c: 16:     LedTask[ Id ].Blink = 0;
 [e = . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 1 -> -> 0 `i `uc ]
-"20
-[; ;LedTask.c: 20:   LedTask[ Id ].Period = 0;
+"17
+[; ;LedTask.c: 17:     LedTask[ Id ].Period = 0;
 [e = . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 2 -> -> 0 `i `ui ]
-"21
-[; ;LedTask.c: 21:   LedTask[ Id ].Delay = 0;
+"18
+[; ;LedTask.c: 18:     LedTask[ Id ].Delay = 0;
 [e = . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 3 -> -> 0 `i `ui ]
-"22
-[; ;LedTask.c: 22:  }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 104  ]
-[e :U 105 ]
-}
-"23
-[; ;LedTask.c: 23:  Led_Init();
-[e ( _Led_Init ..  ]
-"24
-[; ;LedTask.c: 24: }
+"19
+[; ;LedTask.c: 19:  Led_Init( Id, GpioId, Pin );
+[e ( _Led_Init (3 , , _Id _GpioId _Pin ]
+"20
+[; ;LedTask.c: 20: }
 [e :UE 103 ]
 }
-"26
-[; ;LedTask.c: 26: void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
+"22
+[; ;LedTask.c: 22: void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
 [v _LedTask_SetState `(v ~T0 @X0 1 ef3`uc`uc`ui ]
-"27
-[; ;LedTask.c: 27: {
+"23
+[; ;LedTask.c: 23: {
 {
 [e :U _LedTask_SetState ]
-"26
-[; ;LedTask.c: 26: void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
+"22
+[; ;LedTask.c: 22: void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
 [v _Id `uc ~T0 @X0 1 r1 ]
 [v _State `uc ~T0 @X0 1 r2 ]
 [v _Period `ui ~T0 @X0 1 r3 ]
-"27
-[; ;LedTask.c: 27: {
+"23
+[; ;LedTask.c: 23: {
 [f ]
-"28
-[; ;LedTask.c: 28:  LedTask[ Id ].State = State;
+"24
+[; ;LedTask.c: 24:  LedTask[ Id ].State = State;
 [e = . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 0 _State ]
-"29
-[; ;LedTask.c: 29:  LedTask[ Id ].Period = ( Period / ( ( TickType_t ) 5 ) ) / ( 100 / ( ( TickType_t ) 5 ) );
+"25
+[; ;LedTask.c: 25:  LedTask[ Id ].Period = ( Period / ( ( TickType_t ) 5 ) ) / ( 100 / ( ( TickType_t ) 5 ) );
 [e = . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 2 / / _Period -> -> 5 `i `ui / -> -> 100 `i `ui -> -> 5 `i `ui ]
-"30
-[; ;LedTask.c: 30: }
-[e :UE 107 ]
+"26
+[; ;LedTask.c: 26: }
+[e :UE 104 ]
 }
-"32
-[; ;LedTask.c: 32: void LedTask_Update( void *Paramter )
+"28
+[; ;LedTask.c: 28: void LedTask_Update( void *Paramter )
 [v _LedTask_Update `(v ~T0 @X0 1 ef1`*v ]
-"33
-[; ;LedTask.c: 33: {
+"29
+[; ;LedTask.c: 29: {
 {
 [e :U _LedTask_Update ]
-"32
-[; ;LedTask.c: 32: void LedTask_Update( void *Paramter )
+"28
+[; ;LedTask.c: 28: void LedTask_Update( void *Paramter )
 [v _Paramter `*v ~T0 @X0 1 r1 ]
-"33
-[; ;LedTask.c: 33: {
+"29
+[; ;LedTask.c: 29: {
 [f ]
-"34
-[; ;LedTask.c: 34:  size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
-"35
-[; ;LedTask.c: 35:  for ( Id = 0; Id < ( 2 ); Id++ )
+"30
+[; ;LedTask.c: 30:     Id_t Id = (Id_t) Paramter;
+[v _Id `uc ~T0 @X0 1 a ]
+[e = _Id -> _Paramter `uc ]
+"31
+[; ;LedTask.c: 31:     if( LedTask[ Id ].Delay )
+[e $ ! != . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 3 -> -> 0 `i `ui 106  ]
+"32
+[; ;LedTask.c: 32:     {
 {
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 109  ]
-[e $U 110  ]
-[e :U 109 ]
-"36
-[; ;LedTask.c: 36:  {
-{
-"37
-[; ;LedTask.c: 37:   if( LedTask[ Id ].Delay )
-[e $ ! != . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 3 -> -> 0 `i `ui 112  ]
-"38
-[; ;LedTask.c: 38:   {
-{
-"39
-[; ;LedTask.c: 39:    LedTask[ Id ].Delay--;
+"33
+[; ;LedTask.c: 33:         LedTask[ Id ].Delay--;
 [e -- . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 3 -> -> 1 `i `ui ]
-"40
-[; ;LedTask.c: 40:   }else if( LedTask[ Id ].Period )
+"34
+[; ;LedTask.c: 34:     }else if( LedTask[ Id ].Period )
 }
-[e $U 113  ]
-[e :U 112 ]
-[e $ ! != . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 2 -> -> 0 `i `ui 114  ]
-"41
-[; ;LedTask.c: 41:   {
+[e $U 107  ]
+[e :U 106 ]
+[e $ ! != . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 2 -> -> 0 `i `ui 108  ]
+"35
+[; ;LedTask.c: 35:     {
 {
-"42
-[; ;LedTask.c: 42:    LedTask[ Id ].Blink ^= LedTask[ Id ].State;
+"36
+[; ;LedTask.c: 36:         LedTask[ Id ].Blink ^= LedTask[ Id ].State;
 [e =^ . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 1 -> . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 0 `uc ]
-"43
-[; ;LedTask.c: 43:    LedTask[ Id ].Delay = LedTask[ Id ].Period;
+"37
+[; ;LedTask.c: 37:         LedTask[ Id ].Delay = LedTask[ Id ].Period;
 [e = . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 3 . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 2 ]
-"44
-[; ;LedTask.c: 44:   }else
+"38
+[; ;LedTask.c: 38:     }else
 }
-[e $U 115  ]
-[e :U 114 ]
-"45
-[; ;LedTask.c: 45:   {
+[e $U 109  ]
+[e :U 108 ]
+"39
+[; ;LedTask.c: 39:     {
 {
-"46
-[; ;LedTask.c: 46:    LedTask[ Id ].Blink = 0;
+"40
+[; ;LedTask.c: 40:         LedTask[ Id ].Blink = 0;
 [e = . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 1 -> -> 0 `i `uc ]
-"47
-[; ;LedTask.c: 47:   }
+"41
+[; ;LedTask.c: 41:     }
 }
-[e :U 115 ]
-[e :U 113 ]
-"48
-[; ;LedTask.c: 48:   Led_SetState( Id, ( LedTask[ Id ].State & !LedTask[ Id ].Blink ) );
-[e ( _Led_SetState (2 , -> _Id `uc -> & -> . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 0 `i -> ! != -> . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 1 `i -> 0 `i `i `uc ]
-"49
-[; ;LedTask.c: 49:  }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 109  ]
-[e :U 110 ]
-}
-"50
-[; ;LedTask.c: 50: }
-[e :UE 108 ]
+[e :U 109 ]
+[e :U 107 ]
+"42
+[; ;LedTask.c: 42:     Led_SetState( Id, ( LedTask[ Id ].State & !LedTask[ Id ].Blink ) );
+[e ( _Led_SetState (2 , _Id -> & -> . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 0 `i -> ! != -> . *U + &U _LedTask * -> _Id `ux -> -> # *U &U _LedTask `ui `ux 1 `i -> 0 `i `i `uc ]
+"43
+[; ;LedTask.c: 43: }
+[e :UE 105 ]
 }

@@ -13,10 +13,10 @@ void Scheduler_displayError( UBaseType_t errorCode )
 {
 	if( errorCode )
 	{
-		LedTask_SetState( 0, LOW, BLINK_Period );
+		LedTask_SetState( 1, LOW, BLINK_Period );
 	}else
 	{
-		LedTask_SetState( 0, HIGH, BLINK_Period );
+		LedTask_SetState( 1, HIGH, BLINK_Period );
 	}
 }
 

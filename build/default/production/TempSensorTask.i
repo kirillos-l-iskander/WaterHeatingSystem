@@ -2181,14 +2181,14 @@ uint16_t Adc_GetState( Id_t Id );
 # 6 "./TempSensor.h" 2
 
 
-void TempSensor_Init( void );
+void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
 uint8_t TempSensor_GetState( Id_t Id );
 void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
 # 5 "./TempSensorTask.h" 2
 
 
-void TempSensorTask_Init( void );
+void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
 uint8_t TempSensorTask_GetAverage( Id_t Id );
 void TempSensorTask_Update( void *Paramter );
 # 1 "TempSensorTask.c" 2
@@ -2204,21 +2204,17 @@ typedef struct
 
 static TempSensorTask_t TempSensorTask[ ( 1 ) ];
 
-void TempSensorTask_Init( void )
+void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId )
 {
-    size_t Id = 0;
-    for( Id = 0; Id < ( 1 ); Id++ )
+    size_t Index = 0;
+    for( Index = 0; Index < 10; Index++ )
     {
-        size_t Index = 0;
-        for( Index = 0; Index < 10; Index++ )
-        {
-            TempSensorTask[ Id ].Array[ Index ] = 0;
-        }
-        TempSensorTask[ Id ].Index = 0;
-        TempSensorTask[ Id ].AvgFlag = 0;
-        TempSensorTask[ Id ].AvgTemp = 0;
+        TempSensorTask[ Id ].Array[ Index ] = 0;
     }
-    TempSensor_Init();
+    TempSensorTask[ Id ].Index = 0;
+    TempSensorTask[ Id ].AvgFlag = 0;
+    TempSensorTask[ Id ].AvgTemp = 0;
+    TempSensor_Init( Id, GpioId, Pin, AdcId );
 }
 
 uint8_t TempSensorTask_GetAverage( Id_t Id )
@@ -2228,23 +2224,20 @@ uint8_t TempSensorTask_GetAverage( Id_t Id )
 
 void TempSensorTask_Update( void *Paramter )
 {
-    size_t Id = 0;
-    for( Id = 0; Id < ( 1 ); Id++ )
+    Id_t Id = (Id_t) Paramter;
+    size_t Index = 0;
+    TempSensorTask[ Id ].Array[ TempSensorTask[ Id ].Index++ ] = TempSensor_GetState( Id );
+    if( TempSensorTask[ Id ].Index == 10 )
     {
-        size_t Index = 0;
-        TempSensorTask[ Id ].Array[ TempSensorTask[ Id ].Index++ ] = TempSensor_GetState( Id );
-        if( TempSensorTask[ Id ].Index == 10 )
+        TempSensorTask[ Id ].Index = 0;
+        TempSensorTask[ Id ].AvgFlag = 1;
+    }
+    if( TempSensorTask[ Id ].AvgFlag )
+    {
+        for( Index = 0; Index < 10; Index++ )
         {
-            TempSensorTask[ Id ].Index = 0;
-            TempSensorTask[ Id ].AvgFlag = 1;
+            TempSensorTask[ Id ].AvgTemp += TempSensorTask[ Id ].Array[ Index ];
         }
-        if( TempSensorTask[ Id ].AvgFlag )
-        {
-            for( Index = 0; Index < 10; Index++ )
-            {
-                TempSensorTask[ Id ].AvgTemp += TempSensorTask[ Id ].Array[ Index ];
-            }
-            TempSensorTask[ Id ].AvgTemp /= 10;
-        }
+        TempSensorTask[ Id ].AvgTemp /= 10;
     }
 }

@@ -8,60 +8,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./Scheduler.h: 10: void Scheduler_update( void );
 [v _Scheduler_update `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"9 ./Switch.h
-[; ;./Switch.h: 9: void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
-[v _Switch_SetGpio `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"7
-[; ;./Switch.h: 7: void Switch_Init( void );
-[v _Switch_Init `(v ~T0 @X0 0 ef ]
 "7 ./SwitchTask.h
-[; ;./SwitchTask.h: 7: void SwitchTask_Init( void );
-[v _SwitchTask_Init `(v ~T0 @X0 0 ef ]
-"10 ./TempSensor.h
-[; ;./TempSensor.h: 10: void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
-[v _TempSensor_SetGpio `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"8
-[; ;./TempSensor.h: 8: void TempSensor_Init( void );
-[v _TempSensor_Init `(v ~T0 @X0 0 ef ]
+[; ;./SwitchTask.h: 7: void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
+[v _SwitchTask_Init `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "7 ./TempSensorTask.h
-[; ;./TempSensorTask.h: 7: void TempSensorTask_Init( void );
-[v _TempSensorTask_Init `(v ~T0 @X0 0 ef ]
-"9 ./TempControl.h
-[; ;./TempControl.h: 9: void TempControl_SetGpioH( Id_t Id, Id_t GpioId, uint8_t Pin );
-[v _TempControl_SetGpioH `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"10
-[; ;./TempControl.h: 10: void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
-[v _TempControl_SetGpioC `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"7
-[; ;./TempControl.h: 7: void TempControl_Init( void );
-[v _TempControl_Init `(v ~T0 @X0 0 ef ]
+[; ;./TempSensorTask.h: 7: void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
+[v _TempSensorTask_Init `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
 "7 ./TempControlTask.h
-[; ;./TempControlTask.h: 7: void TempControlTask_Init( void );
-[v _TempControlTask_Init `(v ~T0 @X0 0 ef ]
-"9 ./Led.h
-[; ;./Led.h: 9: void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
-[v _Led_SetGpio `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"7
-[; ;./Led.h: 7: void Led_Init( void );
-[v _Led_Init `(v ~T0 @X0 0 ef ]
+[; ;./TempControlTask.h: 7: void TempControlTask_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
+[v _TempControlTask_Init `(v ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
 "9 ./LedTask.h
-[; ;./LedTask.h: 9: void LedTask_Init( void );
-[v _LedTask_Init `(v ~T0 @X0 0 ef ]
-"10 ./Ssd.h
-[; ;./Ssd.h: 10: void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin );
-[v _Ssd_SetGpioCtrl `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"11
-[; ;./Ssd.h: 11: void Ssd_SetGpioD0( Id_t Id, Id_t GpioId, uint8_t Pin );
-[v _Ssd_SetGpioD0 `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"7
-[; ;./Ssd.h: 7: void Ssd_Init( void );
-[v _Ssd_Init `(v ~T0 @X0 0 ef ]
+[; ;./LedTask.h: 9: void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
+[v _LedTask_Init `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "7 ./SsdTask.h
-[; ;./SsdTask.h: 7: void SsdTask_Init( void );
-[v _SsdTask_Init `(v ~T0 @X0 0 ef ]
+[; ;./SsdTask.h: 7: void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
+[v _SsdTask_Init `(v ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
 "33 ./WaterHeater.h
-[; ;./WaterHeater.h: 33: void HeaterTask_Init( void );
-[v _HeaterTask_Init `(v ~T0 @X0 0 ef ]
+[; ;./WaterHeater.h: 33: void HeaterTask_Init( Id_t Id );
+[v _HeaterTask_Init `(v ~T0 @X0 0 ef1`uc ]
 "86 ./SchedulerConfig.h
 [; ;./SchedulerConfig.h: 86: void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 [v _Scheduler_delaySoftwareUs `(v ~T0 @X0 0 ef1`Vul ]
@@ -78,6 +42,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./TempSensorTask.h
 [; ;./TempSensorTask.h: 9: void TempSensorTask_Update( void *Paramter );
 [v _TempSensorTask_Update `(v ~T0 @X0 0 ef1`*v ]
+"34 ./WaterHeater.h
+[; ;./WaterHeater.h: 34: void HeaterTask_Update( void *Paramter );
+[v _HeaterTask_Update `(v ~T0 @X0 0 ef1`*v ]
 "9 ./TempControlTask.h
 [; ;./TempControlTask.h: 9: void TempControlTask_Update( void *Paramter );
 [v _TempControlTask_Update `(v ~T0 @X0 0 ef1`*v ]
@@ -87,9 +54,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10 ./SsdTask.h
 [; ;./SsdTask.h: 10: void SsdTask_Update( void *Paramter );
 [v _SsdTask_Update `(v ~T0 @X0 0 ef1`*v ]
-"34 ./WaterHeater.h
-[; ;./WaterHeater.h: 34: void HeaterTask_Update( void *Paramter );
-[v _HeaterTask_Update `(v ~T0 @X0 0 ef1`*v ]
 "9 ./Scheduler.h
 [; ;./Scheduler.h: 9: void Scheduler_start( void );
 [v _Scheduler_start `(v ~T0 @X0 0 ef ]
@@ -321,121 +285,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "33
-[; ;main.c: 33:     Switch_SetGpio( 0, ( 1 ), 0 );
-[e ( _Switch_SetGpio (3 , , -> -> 0 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 33:     SwitchTask_Init( 0, ( 1 ), 0 );
+[e ( _SwitchTask_Init (3 , , -> -> 0 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
 "34
-[; ;main.c: 34:     Switch_SetGpio( 1, ( 1 ), 1 );
-[e ( _Switch_SetGpio (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 34:     SwitchTask_Init( 1, ( 1 ), 1 );
+[e ( _SwitchTask_Init (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 1 `i `uc ]
 "35
-[; ;main.c: 35:     Switch_SetGpio( 2, ( 1 ), 2 );
-[e ( _Switch_SetGpio (3 , , -> -> 2 `i `uc -> -> 1 `i `uc -> -> 2 `i `uc ]
-"36
-[; ;main.c: 36:     Switch_Init();
-[e ( _Switch_Init ..  ]
+[; ;main.c: 35:     SwitchTask_Init( 2, ( 1 ), 2 );
+[e ( _SwitchTask_Init (3 , , -> -> 2 `i `uc -> -> 1 `i `uc -> -> 2 `i `uc ]
 "37
-[; ;main.c: 37:     SwitchTask_Init();
-[e ( _SwitchTask_Init ..  ]
+[; ;main.c: 37:     TempSensorTask_Init( 0, ( 0 ), 2, 0 );
+[e ( _TempSensorTask_Init (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 2 `i `uc -> -> 0 `i `uc ]
 "39
-[; ;main.c: 39:     TempSensor_SetGpio( 0, ( 0 ), 2 );
-[e ( _TempSensor_SetGpio (3 , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 2 `i `uc ]
-"40
-[; ;main.c: 40:     TempSensor_Init();
-[e ( _TempSensor_Init ..  ]
+[; ;main.c: 39:     TempControlTask_Init( 0, ( 2 ), 5, ( 2 ), 2 );
+[e ( _TempControlTask_Init (4 , , , , -> -> 0 `i `uc -> -> 2 `i `uc -> -> 5 `i `uc -> -> 2 `i `uc -> -> 2 `i `uc ]
 "41
-[; ;main.c: 41:     TempSensorTask_Init();
-[e ( _TempSensorTask_Init ..  ]
-"43
-[; ;main.c: 43:     TempControl_SetGpioH( 0, ( 2 ), 5 );
-[e ( _TempControl_SetGpioH (3 , , -> -> 0 `i `uc -> -> 2 `i `uc -> -> 5 `i `uc ]
+[; ;main.c: 41:     LedTask_Init( 0, ( 1 ), 6 );
+[e ( _LedTask_Init (3 , , -> -> 0 `i `uc -> -> 1 `i `uc -> -> 6 `i `uc ]
+"42
+[; ;main.c: 42:     LedTask_Init( 1, ( 1 ), 7 );
+[e ( _LedTask_Init (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 7 `i `uc ]
 "44
-[; ;main.c: 44:     TempControl_SetGpioC( 0, ( 2 ), 2 );
-[e ( _TempControl_SetGpioC (3 , , -> -> 0 `i `uc -> -> 2 `i `uc -> -> 2 `i `uc ]
+[; ;main.c: 44:     SsdTask_Init( 0, ( 0 ), 5, ( 3 ), 0 );
+[e ( _SsdTask_Init (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 5 `i `uc -> -> 3 `i `uc -> -> 0 `i `uc ]
 "45
-[; ;main.c: 45:     TempControl_Init();
-[e ( _TempControl_Init ..  ]
-"46
-[; ;main.c: 46:     TempControlTask_Init();
-[e ( _TempControlTask_Init ..  ]
-"48
-[; ;main.c: 48:     Led_SetGpio( 0, ( 1 ), 6 );
-[e ( _Led_SetGpio (3 , , -> -> 0 `i `uc -> -> 1 `i `uc -> -> 6 `i `uc ]
+[; ;main.c: 45:     SsdTask_Init( 1, ( 0 ), 4, ( 3 ), 0 );
+[e ( _SsdTask_Init (4 , , , , -> -> 1 `i `uc -> -> 0 `i `uc -> -> 4 `i `uc -> -> 3 `i `uc -> -> 0 `i `uc ]
+"47
+[; ;main.c: 47:     HeaterTask_Init( 0 );
+[e ( _HeaterTask_Init (1 -> -> 0 `i `uc ]
 "49
-[; ;main.c: 49:     Led_SetGpio( 1, ( 1 ), 7 );
-[e ( _Led_SetGpio (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 7 `i `uc ]
-"50
-[; ;main.c: 50:     Led_Init();
-[e ( _Led_Init ..  ]
-"51
-[; ;main.c: 51:     LedTask_Init();
-[e ( _LedTask_Init ..  ]
-"53
-[; ;main.c: 53:     Ssd_SetGpioCtrl( 0, ( 0 ), 5 );
-[e ( _Ssd_SetGpioCtrl (3 , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 5 `i `uc ]
-"54
-[; ;main.c: 54:     Ssd_SetGpioD0( 0, ( 3 ), 0 );
-[e ( _Ssd_SetGpioD0 (3 , , -> -> 0 `i `uc -> -> 3 `i `uc -> -> 0 `i `uc ]
-"55
-[; ;main.c: 55:     Ssd_SetGpioCtrl( 1, ( 0 ), 4 );
-[e ( _Ssd_SetGpioCtrl (3 , , -> -> 1 `i `uc -> -> 0 `i `uc -> -> 4 `i `uc ]
-"56
-[; ;main.c: 56:     Ssd_SetGpioD0( 1, ( 3 ), 0 );
-[e ( _Ssd_SetGpioD0 (3 , , -> -> 1 `i `uc -> -> 3 `i `uc -> -> 0 `i `uc ]
-"57
-[; ;main.c: 57:     Ssd_Init();
-[e ( _Ssd_Init ..  ]
-"58
-[; ;main.c: 58:     SsdTask_Init();
-[e ( _SsdTask_Init ..  ]
-"60
-[; ;main.c: 60:     HeaterTask_Init();
-[e ( _HeaterTask_Init ..  ]
-"62
-[; ;main.c: 62:     Scheduler_delaySoftwareUs( 1000 );
+[; ;main.c: 49:     Scheduler_delaySoftwareUs( 1000 );
 [e ( _Scheduler_delaySoftwareUs (1 -> -> -> 1000 `i `l `ul ]
-"64
-[; ;main.c: 64:     Scheduler_init();
+"51
+[; ;main.c: 51:     Scheduler_init();
 [e ( _Scheduler_init ..  ]
-"65
-[; ;main.c: 65:     Scheduler_addTask( SwitchTask_Update, (0), 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+"52
+[; ;main.c: 52:     Scheduler_addTask( SwitchTask_Update, (void *) 0, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
 [e ( _Scheduler_addTask (4 , , , &U _SwitchTask_Update -> -> 0 `i `*v -> -> 0 `i `uc -> / -> -> 10 `i `ui -> -> 5 `i `ui `uc ]
-"66
-[; ;main.c: 66:     Scheduler_addTask( TempSensorTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+"53
+[; ;main.c: 53:     Scheduler_addTask( SwitchTask_Update, (void *) 1, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+[e ( _Scheduler_addTask (4 , , , &U _SwitchTask_Update -> -> 1 `i `*v -> -> 0 `i `uc -> / -> -> 10 `i `ui -> -> 5 `i `ui `uc ]
+"54
+[; ;main.c: 54:     Scheduler_addTask( SwitchTask_Update, (void *) 2, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+[e ( _Scheduler_addTask (4 , , , &U _SwitchTask_Update -> -> 2 `i `*v -> -> 0 `i `uc -> / -> -> 10 `i `ui -> -> 5 `i `ui `uc ]
+"55
+[; ;main.c: 55:     Scheduler_addTask( TempSensorTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
 [e ( _Scheduler_addTask (4 , , , &U _TempSensorTask_Update -> -> 0 `i `*v -> -> 0 `i `uc -> / -> -> 100 `i `ui -> -> 5 `i `ui `uc ]
-"67
-[; ;main.c: 67:     Scheduler_addTask( TempControlTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-[e ( _Scheduler_addTask (4 , , , &U _TempControlTask_Update -> -> 0 `i `*v -> -> 0 `i `uc -> / -> -> 100 `i `ui -> -> 5 `i `ui `uc ]
-"68
-[; ;main.c: 68:     Scheduler_addTask( LedTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-[e ( _Scheduler_addTask (4 , , , &U _LedTask_Update -> -> 0 `i `*v -> -> 0 `i `uc -> / -> -> 100 `i `ui -> -> 5 `i `ui `uc ]
-"69
-[; ;main.c: 69:     Scheduler_addTask( SsdTask_Update, (0), 0, ( 5 / ( ( TickType_t ) 5 ) ) );
-[e ( _Scheduler_addTask (4 , , , &U _SsdTask_Update -> -> 0 `i `*v -> -> 0 `i `uc -> / -> -> 5 `i `ui -> -> 5 `i `ui `uc ]
-"70
-[; ;main.c: 70:     Scheduler_addTask( HeaterTask_Update, (0), 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+"56
+[; ;main.c: 56:     Scheduler_addTask( HeaterTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
 [e ( _Scheduler_addTask (4 , , , &U _HeaterTask_Update -> -> 0 `i `*v -> -> 0 `i `uc -> / -> -> 100 `i `ui -> -> 5 `i `ui `uc ]
-"72
-[; ;main.c: 72:     Scheduler_start();
+"57
+[; ;main.c: 57:     Scheduler_addTask( TempControlTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+[e ( _Scheduler_addTask (4 , , , &U _TempControlTask_Update -> -> 0 `i `*v -> -> 0 `i `uc -> / -> -> 100 `i `ui -> -> 5 `i `ui `uc ]
+"58
+[; ;main.c: 58:     Scheduler_addTask( LedTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+[e ( _Scheduler_addTask (4 , , , &U _LedTask_Update -> -> 0 `i `*v -> -> 0 `i `uc -> / -> -> 100 `i `ui -> -> 5 `i `ui `uc ]
+"59
+[; ;main.c: 59:     Scheduler_addTask( LedTask_Update, (void *) 1, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+[e ( _Scheduler_addTask (4 , , , &U _LedTask_Update -> -> 1 `i `*v -> -> 0 `i `uc -> / -> -> 100 `i `ui -> -> 5 `i `ui `uc ]
+"60
+[; ;main.c: 60:     Scheduler_addTask( SsdTask_Update, (void *) 0, 0, ( 5 / ( ( TickType_t ) 5 ) ) );
+[e ( _Scheduler_addTask (4 , , , &U _SsdTask_Update -> -> 0 `i `*v -> -> 0 `i `uc -> / -> -> 5 `i `ui -> -> 5 `i `ui `uc ]
+"61
+[; ;main.c: 61:     Scheduler_addTask( SsdTask_Update, (void *) 1, 0, ( 5 / ( ( TickType_t ) 5 ) ) );
+[e ( _Scheduler_addTask (4 , , , &U _SsdTask_Update -> -> 1 `i `*v -> -> 0 `i `uc -> / -> -> 5 `i `ui -> -> 5 `i `ui `uc ]
+"63
+[; ;main.c: 63:     Scheduler_start();
 [e ( _Scheduler_start ..  ]
-"73
-[; ;main.c: 73:     while( 1 )
+"64
+[; ;main.c: 64:     while( 1 )
 [e :U 105 ]
-"74
-[; ;main.c: 74:     {
+"65
+[; ;main.c: 65:     {
 {
-"75
-[; ;main.c: 75:         Scheduler_dispatchTasks();
+"66
+[; ;main.c: 66:         Scheduler_dispatchTasks();
 [e ( _Scheduler_dispatchTasks ..  ]
-"76
-[; ;main.c: 76:     }
+"67
+[; ;main.c: 67:     }
 }
 [e :U 104 ]
 [e $U 105  ]
 [e :U 106 ]
-"77
-[; ;main.c: 77:     return ( !( 0 ) );
+"68
+[; ;main.c: 68:     return ( !( 0 ) );
 [e ) -> ! != -> 0 `i -> 0 `i `i ]
 [e $UE 103  ]
-"78
-[; ;main.c: 78: }
+"69
+[; ;main.c: 69: }
 [e :UE 103 ]
 }

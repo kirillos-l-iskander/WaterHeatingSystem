@@ -2179,7 +2179,7 @@ typedef struct
 
 typedef struct
 {
- Task_t task[ ( ( UBaseType_t ) 8 ) ];
+ Task_t task[ ( ( UBaseType_t ) 10 ) ];
  UBaseType_t errorCode;
  UBaseType_t interruptFlag;
 }Scheduler_t;
@@ -2189,7 +2189,7 @@ volatile static Scheduler_t scheduler;
 void Scheduler_init( void )
 {
  size_t index = 0;
- for( index = 0; index < ( ( UBaseType_t ) 8 ); index++ )
+ for( index = 0; index < ( ( UBaseType_t ) 10 ); index++ )
  {
   Scheduler_deleteTask( index );
  }
@@ -2200,16 +2200,16 @@ void Scheduler_init( void )
 UBaseType_t Scheduler_addTask( void (*task)( void *paramter ), void *paramter, UBaseType_t delay, UBaseType_t period )
 {
  size_t index = 0;
- for( index = 0; index < ( ( UBaseType_t ) 8 ); index++ )
+ for( index = 0; index < ( ( UBaseType_t ) 10 ); index++ )
  {
   if( scheduler.task[ index ].pointer == 0 )
   {
    break;
   }
  }
- if( index == ( ( UBaseType_t ) 8 ) )
+ if( index == ( ( UBaseType_t ) 10 ) )
  {
-  return ( ( UBaseType_t ) 8 );
+  return ( ( UBaseType_t ) 10 );
  }
  scheduler.task[ index ].pointer = task;
  scheduler.task[ index ].paramter = paramter;
@@ -2263,7 +2263,7 @@ void Scheduler_goToSleep( void )
 void Scheduler_update( void )
 {
  size_t index = 0;
- for( index = 0; index < ( ( UBaseType_t ) 8 ); index++ )
+ for( index = 0; index < ( ( UBaseType_t ) 10 ); index++ )
  {
   if( scheduler.task[ index ].pointer != 0 )
   {
@@ -2284,7 +2284,7 @@ void Scheduler_update( void )
 void Scheduler_dispatchTasks( void )
 {
  size_t index = 0;
- for( index = 0; index < ( ( UBaseType_t ) 8 ); index++ )
+ for( index = 0; index < ( ( UBaseType_t ) 10 ); index++ )
  {
   if( scheduler.task[ index ].runMe != 0 )
   {

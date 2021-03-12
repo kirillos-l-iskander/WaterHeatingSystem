@@ -209,90 +209,57 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Led.c: 10: static Led_t Led[ ( 2 ) ];
 [v _Led `S102 ~T0 @X0 -> 2 `i s ]
 "12
-[; ;Led.c: 12: void Led_Init( void )
-[v _Led_Init `(v ~T0 @X0 1 ef ]
+[; ;Led.c: 12: void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Led_Init `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 "13
 [; ;Led.c: 13: {
 {
 [e :U _Led_Init ]
-[f ]
-"14
-[; ;Led.c: 14:  size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
-"15
-[; ;Led.c: 15:  for ( Id = 0; Id < ( 2 ); Id++ )
-{
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 104  ]
-[e $U 105  ]
-[e :U 104 ]
-"16
-[; ;Led.c: 16:  {
-{
-"17
-[; ;Led.c: 17:   Led[ Id ].State = ( 0 );
-[e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 2 -> -> 0 `i `uc ]
-"18
-[; ;Led.c: 18:   Gpio_InitPin( Led[ Id ].GpioId, Led[ Id ].Pin, ( 0 ) );
-[e ( _Gpio_InitPin (3 , , . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 0 . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 1 -> -> 0 `i `uc ]
-"19
-[; ;Led.c: 19:  }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 2 `i `ui 104  ]
-[e :U 105 ]
-}
-"20
-[; ;Led.c: 20: }
-[e :UE 103 ]
-}
-"22
-[; ;Led.c: 22: void Led_SetState( uint8_t Id, uint8_t State )
-[v _Led_SetState `(v ~T0 @X0 1 ef2`uc`uc ]
-"23
-[; ;Led.c: 23: {
-{
-[e :U _Led_SetState ]
-"22
-[; ;Led.c: 22: void Led_SetState( uint8_t Id, uint8_t State )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _State `uc ~T0 @X0 1 r2 ]
-"23
-[; ;Led.c: 23: {
-[f ]
-"24
-[; ;Led.c: 24:     Led[ Id ].State = State;
-[e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 2 _State ]
-"25
-[; ;Led.c: 25:  Gpio_SetPinState( Led[ Id ].GpioId, Led[ Id ].Pin, Led[ Id ].State );
-[e ( _Gpio_SetPinState (3 , , . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 0 . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 1 . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 2 ]
-"26
-[; ;Led.c: 26: }
-[e :UE 107 ]
-}
-"28
-[; ;Led.c: 28: void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _Led_SetGpio `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"29
-[; ;Led.c: 29: {
-{
-[e :U _Led_SetGpio ]
-"28
-[; ;Led.c: 28: void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
+"12
+[; ;Led.c: 12: void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
 [v _Id `uc ~T0 @X0 1 r1 ]
 [v _GpioId `uc ~T0 @X0 1 r2 ]
 [v _Pin `uc ~T0 @X0 1 r3 ]
-"29
-[; ;Led.c: 29: {
+"13
+[; ;Led.c: 13: {
 [f ]
-"30
-[; ;Led.c: 30:  Led[ Id ].GpioId = GpioId;
+"14
+[; ;Led.c: 14:  Led[ Id ].GpioId = GpioId;
 [e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 0 _GpioId ]
-"31
-[; ;Led.c: 31:  Led[ Id ].Pin = Pin;
+"15
+[; ;Led.c: 15:  Led[ Id ].Pin = Pin;
 [e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 1 _Pin ]
-"32
-[; ;Led.c: 32: }
-[e :UE 108 ]
+"16
+[; ;Led.c: 16:     Led[ Id ].State = ( 0 );
+[e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 2 -> -> 0 `i `uc ]
+"17
+[; ;Led.c: 17:     Gpio_InitPin( Led[ Id ].GpioId, Led[ Id ].Pin, ( 0 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 0 . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 1 -> -> 0 `i `uc ]
+"18
+[; ;Led.c: 18: }
+[e :UE 103 ]
+}
+"20
+[; ;Led.c: 20: void Led_SetState( uint8_t Id, uint8_t State )
+[v _Led_SetState `(v ~T0 @X0 1 ef2`uc`uc ]
+"21
+[; ;Led.c: 21: {
+{
+[e :U _Led_SetState ]
+"20
+[; ;Led.c: 20: void Led_SetState( uint8_t Id, uint8_t State )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _State `uc ~T0 @X0 1 r2 ]
+"21
+[; ;Led.c: 21: {
+[f ]
+"22
+[; ;Led.c: 22:     Led[ Id ].State = State;
+[e = . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 2 _State ]
+"23
+[; ;Led.c: 23:  Gpio_SetPinState( Led[ Id ].GpioId, Led[ Id ].Pin, Led[ Id ].State );
+[e ( _Gpio_SetPinState (3 , , . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 0 . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 1 . *U + &U _Led * -> _Id `ux -> -> # *U &U _Led `ui `ux 2 ]
+"24
+[; ;Led.c: 24: }
+[e :UE 104 ]
 }

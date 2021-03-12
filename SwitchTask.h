@@ -4,7 +4,7 @@
 #include "SchedulerConfig.h"
 #include "Switch.h"
 
-void SwitchTask_Init( void );
+void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 uint8_t SwitchTask_GetState( Id_t Id );
 void SwitchTask_Update( void *Paramter );
 

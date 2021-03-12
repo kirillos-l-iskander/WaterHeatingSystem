@@ -2171,13 +2171,13 @@ UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Switch.h" 2
 
 
-void Switch_Init( void );
+void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 uint8_t Switch_GetState( Id_t Id );
 void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 5 "./SwitchTask.h" 2
 
 
-void SwitchTask_Init( void );
+void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 uint8_t SwitchTask_GetState( Id_t Id );
 void SwitchTask_Update( void *Paramter );
 # 1 "SwitchTask.c" 2
@@ -2192,16 +2192,12 @@ typedef struct
 
 static SwitchTask_t SwitchTask[ ( 3 ) ];
 
-void SwitchTask_Init( void )
+void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
 {
-    size_t Id = 0;
-    for( Id = 0; Id < ( 3 ); Id++ )
-    {
-        SwitchTask[ Id ].Lock = 0;
-        SwitchTask[ Id ].Counter = 0;
-        SwitchTask[ Id ].State = ( 0 );
-    }
-    Switch_Init();
+    SwitchTask[ Id ].Lock = 0;
+    SwitchTask[ Id ].Counter = 0;
+    SwitchTask[ Id ].State = ( 0 );
+    Switch_Init( Id, GpioId, Pin );
 }
 
 uint8_t SwitchTask_GetState( Id_t Id )
@@ -2213,24 +2209,21 @@ uint8_t SwitchTask_GetState( Id_t Id )
 
 void SwitchTask_Update( void *Paramter )
 {
-    size_t Id = 0;
-    for( Id = 0; Id < ( 3 ); Id++ )
+    Id_t Id = (Id_t) Paramter;
+    if( SwitchTask[ Id ].Lock )
     {
-        if( SwitchTask[ Id ].Lock )
+        SwitchTask[ Id ].Lock--;
+    }else if( !Switch_GetState( Id ) )
+    {
+        SwitchTask[ Id ].Counter++;
+        if( SwitchTask[ Id ].Counter == ( 20 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) ) )
         {
-            SwitchTask[ Id ].Lock--;
-        }else if( !Switch_GetState( Id ) )
-        {
-            SwitchTask[ Id ].Counter++;
-            if( SwitchTask[ Id ].Counter == ( 20 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) ) )
-            {
-                SwitchTask[ Id ].Lock = ( 500 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) );
-                SwitchTask[ Id ].Counter = 0;
-                SwitchTask[ Id ].State = ( 1 );
-            }
-        }else
-        {
+            SwitchTask[ Id ].Lock = ( 500 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) );
             SwitchTask[ Id ].Counter = 0;
+            SwitchTask[ Id ].State = ( 1 );
         }
+    }else
+    {
+        SwitchTask[ Id ].Counter = 0;
     }
 }

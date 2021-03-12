@@ -209,40 +209,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TempControl.c: 11: static TempControl_t TempControl[ ( 1 ) ];
 [v _TempControl `S102 ~T0 @X0 -> -> 1 `i `ux s ]
 "13
-[; ;TempControl.c: 13: void TempControl_Init( void )
-[v _TempControl_Init `(v ~T0 @X0 1 ef ]
+[; ;TempControl.c: 13: void TempControl_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
+[v _TempControl_Init `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
 "14
 [; ;TempControl.c: 14: {
 {
 [e :U _TempControl_Init ]
+"13
+[; ;TempControl.c: 13: void TempControl_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _hGpioId `uc ~T0 @X0 1 r2 ]
+[v _hPin `uc ~T0 @X0 1 r3 ]
+[v _cGpioId `uc ~T0 @X0 1 r4 ]
+[v _cPin `uc ~T0 @X0 1 r5 ]
+"14
+[; ;TempControl.c: 14: {
 [f ]
 "15
-[; ;TempControl.c: 15:     size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
+[; ;TempControl.c: 15:     TempControl[ Id ].GpioIdH = hGpioId;
+[e = . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 0 _hGpioId ]
 "16
-[; ;TempControl.c: 16:     for( Id = 0; Id < ( 1 ); Id++ )
-{
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 1 `i `ui 104  ]
-[e $U 105  ]
-[e :U 104 ]
+[; ;TempControl.c: 16:     TempControl[ Id ].PinH = hPin;
+[e = . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 1 _hPin ]
 "17
-[; ;TempControl.c: 17:     {
-{
+[; ;TempControl.c: 17:     TempControl[ Id ].GpioIdC = cGpioId;
+[e = . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 2 _cGpioId ]
 "18
-[; ;TempControl.c: 18:         Gpio_InitPin( TempControl[ Id ].GpioIdH, TempControl[ Id ].PinH, ( 0 ) );
-[e ( _Gpio_InitPin (3 , , . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 0 . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 1 -> -> 0 `i `uc ]
+[; ;TempControl.c: 18:     TempControl[ Id ].PinC = cPin;
+[e = . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 3 _cPin ]
 "19
-[; ;TempControl.c: 19:         Gpio_InitPin( TempControl[ Id ].GpioIdC, TempControl[ Id ].PinC, ( 0 ) );
-[e ( _Gpio_InitPin (3 , , . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 2 . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 3 -> -> 0 `i `uc ]
+[; ;TempControl.c: 19:     Gpio_InitPin( TempControl[ Id ].GpioIdH, TempControl[ Id ].PinH, ( 0 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 0 . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 1 -> -> 0 `i `uc ]
 "20
-[; ;TempControl.c: 20:     }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 1 `i `ui 104  ]
-[e :U 105 ]
-}
+[; ;TempControl.c: 20:     Gpio_InitPin( TempControl[ Id ].GpioIdC, TempControl[ Id ].PinC, ( 0 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 2 . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 3 -> -> 0 `i `uc ]
 "21
 [; ;TempControl.c: 21: }
 [e :UE 103 ]
@@ -269,55 +269,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Gpio_SetPinState (3 , , . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 2 . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 3 -> >> & -> _State `i -> 2 `i -> 1 `i `uc ]
 "27
 [; ;TempControl.c: 27: }
-[e :UE 107 ]
-}
-"29
-[; ;TempControl.c: 29: void TempControl_SetGpioH( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _TempControl_SetGpioH `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"30
-[; ;TempControl.c: 30: {
-{
-[e :U _TempControl_SetGpioH ]
-"29
-[; ;TempControl.c: 29: void TempControl_SetGpioH( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _GpioId `uc ~T0 @X0 1 r2 ]
-[v _Pin `uc ~T0 @X0 1 r3 ]
-"30
-[; ;TempControl.c: 30: {
-[f ]
-"31
-[; ;TempControl.c: 31:     TempControl[ Id ].GpioIdH = GpioId;
-[e = . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 0 _GpioId ]
-"32
-[; ;TempControl.c: 32:     TempControl[ Id ].PinH = Pin;
-[e = . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 1 _Pin ]
-"33
-[; ;TempControl.c: 33: }
-[e :UE 108 ]
-}
-"35
-[; ;TempControl.c: 35: void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _TempControl_SetGpioC `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"36
-[; ;TempControl.c: 36: {
-{
-[e :U _TempControl_SetGpioC ]
-"35
-[; ;TempControl.c: 35: void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _GpioId `uc ~T0 @X0 1 r2 ]
-[v _Pin `uc ~T0 @X0 1 r3 ]
-"36
-[; ;TempControl.c: 36: {
-[f ]
-"37
-[; ;TempControl.c: 37:     TempControl[ Id ].GpioIdC = GpioId;
-[e = . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 2 _GpioId ]
-"38
-[; ;TempControl.c: 38:     TempControl[ Id ].PinC = Pin;
-[e = . *U + &U _TempControl * -> _Id `ux -> -> # *U &U _TempControl `ui `ux 3 _Pin ]
-"39
-[; ;TempControl.c: 39: }
-[e :UE 109 ]
+[e :UE 104 ]
 }

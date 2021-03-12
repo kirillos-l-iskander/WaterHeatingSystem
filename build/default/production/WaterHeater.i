@@ -2189,7 +2189,7 @@ void Timer1Init( uint16_t TicksNumber );
 
 
 
-void Switch_Init( void );
+void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 uint8_t Switch_GetState( Id_t Id );
 void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 9 "./WaterHeater.h" 2
@@ -2201,7 +2201,7 @@ void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void SwitchTask_Init( void );
+void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 uint8_t SwitchTask_GetState( Id_t Id );
 void SwitchTask_Update( void *Paramter );
 # 10 "./WaterHeater.h" 2
@@ -2214,7 +2214,7 @@ void SwitchTask_Update( void *Paramter );
 
 
 
-void TempSensor_Init( void );
+void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
 uint8_t TempSensor_GetState( Id_t Id );
 void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
@@ -2227,7 +2227,7 @@ void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
 
 
 
-void TempSensorTask_Init( void );
+void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
 uint8_t TempSensorTask_GetAverage( Id_t Id );
 void TempSensorTask_Update( void *Paramter );
 # 12 "./WaterHeater.h" 2
@@ -2239,7 +2239,7 @@ void TempSensorTask_Update( void *Paramter );
 
 
 
-void TempControl_Init( void );
+void TempControl_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
 void TempControl_SetState( Id_t Id, uint8_t State );
 void TempControl_SetGpioH( Id_t Id, Id_t GpioId, uint8_t Pin );
 void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
@@ -2252,7 +2252,7 @@ void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void TempControlTask_Init( void );
+void TempControlTask_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
 void TempControlTask_SetState( Id_t Id, uint8_t State );
 void TempControlTask_Update( void *Paramter );
 # 14 "./WaterHeater.h" 2
@@ -2264,7 +2264,7 @@ void TempControlTask_Update( void *Paramter );
 
 
 
-void Led_Init( void );
+void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 void Led_SetState( Id_t Id, uint8_t State );
 void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 15 "./WaterHeater.h" 2
@@ -2278,7 +2278,7 @@ void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void LedTask_Init( void );
+void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
 void LedTask_Update( void *Paramter );
 # 16 "./WaterHeater.h" 2
@@ -2290,7 +2290,7 @@ void LedTask_Update( void *Paramter );
 
 
 
-void Ssd_Init( void );
+void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
 void Ssd_SetState( Id_t Id, uint8_t State );
 void Ssd_SetSymbol( Id_t Id, uint8_t Symbol );
 void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin );
@@ -2311,7 +2311,7 @@ void Ssd_SetGpioD7( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void SsdTask_Init( void );
+void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
 void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
 void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol );
 void SsdTask_Update( void *Paramter );
@@ -2353,7 +2353,7 @@ void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
 # 1 "./WaterHeater.h" 1
 # 22 "./WaterHeater.h" 2
 # 33 "./WaterHeater.h"
-void HeaterTask_Init( void );
+void HeaterTask_Init( Id_t Id );
 void HeaterTask_Update( void *Paramter );
 # 1 "WaterHeater.c" 2
 
@@ -2381,158 +2381,151 @@ typedef struct
 
 static Heater_t Heater[ ( 1 ) ];
 
-void HeaterTask_Init( void )
+void HeaterTask_Init( Id_t Id )
 {
-    size_t Id = 0;
- for ( Id = 0; Id < ( 1 ); Id++ )
+    size_t Index = 0;
+    Eeprom_Init();
+    Heater[ Id ].State = OffMode;
+    Heater[ Id ].PreState = Heater[ Id ].State;
+    Heater[ Id ].AvgTemp = 0;
+    Heater[ Id ].TargetTemp = 60;
+    Heater[ Id ].Counter = 0;
+    Heater[ Id ].PasswordFlag = 1;
+    Heater[ Id ].PasswordWrite[ 0 ] = '#';
+    Heater[ Id ].PasswordWrite[ 1 ] = 'P';
+    Heater[ Id ].PasswordWrite[ 2 ] = 'w';
+    Heater[ Id ].PasswordWrite[ 3 ] = 'r';
+    Heater[ Id ].PasswordWrite[ 4 ] = 'U';
+    Heater[ Id ].PasswordWrite[ 5 ] = 'p';
+    Heater[ Id ].PasswordWrite[ 6 ] = '_';
+    Heater[ Id ].PasswordWrite[ 7 ] = '1';
+    Heater[ Id ].PasswordRead[ 0 ] = 0;
+    Heater[ Id ].PasswordRead[ 1 ] = 0;
+    Heater[ Id ].PasswordRead[ 2 ] = 0;
+    Heater[ Id ].PasswordRead[ 3 ] = 0;
+    Heater[ Id ].PasswordRead[ 4 ] = 0;
+    Heater[ Id ].PasswordRead[ 5 ] = 0;
+    Heater[ Id ].PasswordRead[ 6 ] = 0;
+    Heater[ Id ].PasswordRead[ 7 ] = 0;
+
+
+    Eeprom_ReadPage( 0, Heater[ Id ].PasswordRead, 8 );
+    for( Index = 0; Index < 8; Index++)
     {
-        size_t Index = 0;
-        Eeprom_Init();
-        Heater[ Id ].State = OffMode;
-        Heater[ Id ].PreState = Heater[ Id ].State;
-        Heater[ Id ].AvgTemp = 0;
-        Heater[ Id ].TargetTemp = 60;
-        Heater[ Id ].Counter = 0;
-        Heater[ Id ].PasswordFlag = 1;
-        Heater[ Id ].PasswordWrite[ 0 ] = '#';
-        Heater[ Id ].PasswordWrite[ 1 ] = 'P';
-        Heater[ Id ].PasswordWrite[ 2 ] = 'w';
-        Heater[ Id ].PasswordWrite[ 3 ] = 'r';
-        Heater[ Id ].PasswordWrite[ 4 ] = 'U';
-        Heater[ Id ].PasswordWrite[ 5 ] = 'p';
-        Heater[ Id ].PasswordWrite[ 6 ] = '_';
-        Heater[ Id ].PasswordWrite[ 7 ] = '1';
-        Heater[ Id ].PasswordRead[ 0 ] = 0;
-        Heater[ Id ].PasswordRead[ 1 ] = 0;
-        Heater[ Id ].PasswordRead[ 2 ] = 0;
-        Heater[ Id ].PasswordRead[ 3 ] = 0;
-        Heater[ Id ].PasswordRead[ 4 ] = 0;
-        Heater[ Id ].PasswordRead[ 5 ] = 0;
-        Heater[ Id ].PasswordRead[ 6 ] = 0;
-        Heater[ Id ].PasswordRead[ 7 ] = 0;
-
-
-        Eeprom_ReadPage( 0, Heater[ Id ].PasswordRead, 8 );
-        for( Index = 0; Index < 8; Index++)
+        if( Heater[ Id ].PasswordWrite[ Index ] != Heater[ Id ].PasswordRead[ Index ] )
         {
-            if( Heater[ Id ].PasswordWrite[ Index ] != Heater[ Id ].PasswordRead[ Index ] )
-            {
-                Heater[ Id ].PasswordFlag = 0;
-                break;
-            }
+            Heater[ Id ].PasswordFlag = 0;
+            break;
         }
+    }
 
-        if( Heater[ Id ].PasswordFlag )
-        {
-            Heater[ Id ].TargetTemp = Eeprom_Read( 8 );
-        }else
-        {
-            Eeprom_WritePage( 0, Heater[ Id ].PasswordWrite, 8 );
-            Scheduler_delaySoftwareMs( 10 );
-            Eeprom_Write( 8, Heater[ Id ].TargetTemp );
-        }
+    if( Heater[ Id ].PasswordFlag )
+    {
+        Heater[ Id ].TargetTemp = Eeprom_Read( 8 );
+    }else
+    {
+        Eeprom_WritePage( 0, Heater[ Id ].PasswordWrite, 8 );
+        Scheduler_delaySoftwareMs( 10 );
+        Eeprom_Write( 8, Heater[ Id ].TargetTemp );
     }
 }
 
 void HeaterTask_Update( void *Paramter )
 {
-    size_t Id = 0;
- for ( Id = 0; Id < ( 1 ); Id++ )
+    Id_t Id = (Id_t) Paramter;
+    switch( Heater[ Id ].State )
     {
-        switch( Heater[ Id ].State )
+        case OffMode:
         {
-            case OffMode:
+            if( SwitchTask_GetState( Id*3 ) )
             {
-                if( SwitchTask_GetState( Id*3 ) )
-                {
-                    Heater[ Id ].State = OperationMode;
-                }
-                break;
+                Heater[ Id ].State = OperationMode;
             }
-            case OperationMode:
+            break;
+        }
+        case OperationMode:
+        {
+            Heater[ Id ].AvgTemp = TempSensorTask_GetAverage( Id );
+            if( Heater[ Id ].AvgTemp <= ( Heater[ Id ].TargetTemp - 5 ) )
             {
-                Heater[ Id ].AvgTemp = TempSensorTask_GetAverage( Id );
-                if( Heater[ Id ].AvgTemp <= ( Heater[ Id ].TargetTemp - 5 ) )
-                {
-                    TempControlTask_SetState( Id, 1 );
-                    LedTask_SetState( Id, ( 1 ), 1000 );
-                }else if( Heater[ Id ].AvgTemp >= ( Heater[ Id ].TargetTemp + 5 ) )
-                {
-                    TempControlTask_SetState( Id, 2 );
-                    LedTask_SetState( Id, ( 1 ), 0 );
-                }
-                if( Heater[ Id ].PreState == TempSetMode )
-                {
-                    Heater[ Id ].State = TempSetMode;
-                }else
-                {
-                    Heater[ Id ].State = NormalMode;
-                }
-                break;
+                TempControlTask_SetState( Id, 1 );
+                LedTask_SetState( Id, ( 1 ), 1000 );
+            }else if( Heater[ Id ].AvgTemp >= ( Heater[ Id ].TargetTemp + 5 ) )
+            {
+                TempControlTask_SetState( Id, 2 );
+                LedTask_SetState( Id, ( 1 ), 0 );
             }
-            case NormalMode:
+            if( Heater[ Id ].PreState == TempSetMode )
             {
-                Heater[ Id ].PreState = Heater[ Id ].State;
-                SsdTask_SetState( Id*2, ( 1 ), 0 );
-                SsdTask_SetState( Id*2 + 1, ( 1 ), 0 );
-                SsdTask_SetSymbol( Id*2, Heater[ Id ].AvgTemp % 10 );
-                SsdTask_SetSymbol( Id*2 + 1, ( Heater[ Id ].AvgTemp / 10 ) % 10 );
-                if( SwitchTask_GetState( Id*3 + 2 ) || SwitchTask_GetState( Id*3 + 1 ) )
-                {
-                    Heater[ Id ].State = TempSetMode;
-                }else if( SwitchTask_GetState( Id*3 ) )
-                {
-                    Heater[ Id ].State = ResetMode;
-                }else
-                {
-                    Heater[ Id ].State = OperationMode;
-                }
-                break;
+                Heater[ Id ].State = TempSetMode;
+            }else
+            {
+                Heater[ Id ].State = NormalMode;
             }
-            case TempSetMode:
+            break;
+        }
+        case NormalMode:
+        {
+            Heater[ Id ].PreState = Heater[ Id ].State;
+            SsdTask_SetState( Id*2, ( 1 ), 0 );
+            SsdTask_SetState( Id*2 + 1, ( 1 ), 0 );
+            SsdTask_SetSymbol( Id*2, Heater[ Id ].AvgTemp % 10 );
+            SsdTask_SetSymbol( Id*2 + 1, ( Heater[ Id ].AvgTemp / 10 ) % 10 );
+            if( SwitchTask_GetState( Id*3 + 2 ) || SwitchTask_GetState( Id*3 + 1 ) )
             {
-                Heater[ Id ].PreState = Heater[ Id ].State;
-                SsdTask_SetState( Id*2, ( 1 ), 1000 );
-                SsdTask_SetState( Id*2 + 1, ( 1 ), 1000 );
-                SsdTask_SetSymbol( Id*2, Heater[ Id ].TargetTemp % 10 );
-                SsdTask_SetSymbol( Id*2 + 1, ( Heater[ Id ].TargetTemp / 10 ) % 10 );
-                if( SwitchTask_GetState( Id*3 + 2 ) && Heater[ Id ].TargetTemp <= 70 )
-                {
-                    Heater[ Id ].TargetTemp += 5;
-                    Heater[ Id ].Counter = 0;
-                }
-                if( SwitchTask_GetState( Id*3 + 1 ) && Heater[ Id ].TargetTemp >= 40 )
-                {
-                    Heater[ Id ].TargetTemp -= 5;
-                    Heater[ Id ].Counter = 0;
-                }
-                if( SwitchTask_GetState( Id*3 ) )
-                {
-                    Heater[ Id ].State = ResetMode;
-                }else
-                {
-                    Heater[ Id ].State = OperationMode;
-                }
-                if( Heater[ Id ].Counter++ >= ( ( 5000 / ( ( TickType_t ) 5 ) ) / ( 200 / ( ( TickType_t ) 5 ) ) ) )
-                {
-                    Heater[ Id ].Counter = 0;
-                    Eeprom_Write( 8, Heater[ Id ].TargetTemp );
-                    Heater[ Id ].State = NormalMode;
-                }
-                break;
+                Heater[ Id ].State = TempSetMode;
+            }else if( SwitchTask_GetState( Id*3 ) )
+            {
+                Heater[ Id ].State = ResetMode;
+            }else
+            {
+                Heater[ Id ].State = OperationMode;
             }
-            case ResetMode:
+            break;
+        }
+        case TempSetMode:
+        {
+            Heater[ Id ].PreState = Heater[ Id ].State;
+            SsdTask_SetState( Id*2, ( 1 ), 1000 );
+            SsdTask_SetState( Id*2 + 1, ( 1 ), 1000 );
+            SsdTask_SetSymbol( Id*2, Heater[ Id ].TargetTemp % 10 );
+            SsdTask_SetSymbol( Id*2 + 1, ( Heater[ Id ].TargetTemp / 10 ) % 10 );
+            if( SwitchTask_GetState( Id*3 + 2 ) && Heater[ Id ].TargetTemp <= 70 )
             {
-                TempControlTask_SetState( Id, 0 );
-                LedTask_SetState( Id, ( 0 ), 0 );
-                SsdTask_SetState( Id*2, 0x00, 0 );
-                SsdTask_SetState( Id*2 + 1, 0x00, 0 );
-                Eeprom_Write( 8, Heater[ Id ].TargetTemp );
+                Heater[ Id ].TargetTemp += 5;
                 Heater[ Id ].Counter = 0;
-                Heater[ Id ].State = OffMode;
-                Heater[ Id ].PreState = Heater[ Id ].State;
-                break;
             }
+            if( SwitchTask_GetState( Id*3 + 1 ) && Heater[ Id ].TargetTemp >= 40 )
+            {
+                Heater[ Id ].TargetTemp -= 5;
+                Heater[ Id ].Counter = 0;
+            }
+            if( SwitchTask_GetState( Id*3 ) )
+            {
+                Heater[ Id ].State = ResetMode;
+            }else
+            {
+                Heater[ Id ].State = OperationMode;
+            }
+            if( Heater[ Id ].Counter++ >= ( ( 5000 / ( ( TickType_t ) 5 ) ) / ( 200 / ( ( TickType_t ) 5 ) ) ) )
+            {
+                Heater[ Id ].Counter = 0;
+                Eeprom_Write( 8, Heater[ Id ].TargetTemp );
+                Heater[ Id ].State = NormalMode;
+            }
+            break;
+        }
+        case ResetMode:
+        {
+            TempControlTask_SetState( Id, 0 );
+            LedTask_SetState( Id, ( 0 ), 0 );
+            SsdTask_SetState( Id*2, 0x00, 0 );
+            SsdTask_SetState( Id*2 + 1, 0x00, 0 );
+            Eeprom_Write( 8, Heater[ Id ].TargetTemp );
+            Heater[ Id ].Counter = 0;
+            Heater[ Id ].State = OffMode;
+            Heater[ Id ].PreState = Heater[ Id ].State;
+            break;
         }
     }
 }

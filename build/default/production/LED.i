@@ -2166,7 +2166,7 @@ UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Led.h" 2
 
 
-void Led_Init( void );
+void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
 void Led_SetState( Id_t Id, uint8_t State );
 void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 1 "Led.c" 2
@@ -2181,24 +2181,16 @@ typedef struct
 
 static Led_t Led[ ( 2 ) ];
 
-void Led_Init( void )
+void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
 {
- size_t Id = 0;
- for ( Id = 0; Id < ( 2 ); Id++ )
- {
-  Led[ Id ].State = ( 0 );
-  Gpio_InitPin( Led[ Id ].GpioId, Led[ Id ].Pin, ( 0 ) );
- }
+ Led[ Id ].GpioId = GpioId;
+ Led[ Id ].Pin = Pin;
+    Led[ Id ].State = ( 0 );
+    Gpio_InitPin( Led[ Id ].GpioId, Led[ Id ].Pin, ( 0 ) );
 }
 
 void Led_SetState( uint8_t Id, uint8_t State )
 {
     Led[ Id ].State = State;
  Gpio_SetPinState( Led[ Id ].GpioId, Led[ Id ].Pin, Led[ Id ].State );
-}
-
-void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
-{
- Led[ Id ].GpioId = GpioId;
- Led[ Id ].Pin = Pin;
 }

@@ -19,7 +19,7 @@
 #define SCH_TIMER_PRESCALER										( ( TickType_t ) 1 )
 #define SCH_SYSTICK_MAX                                         ( ( TickType_t ) 65535 )
 
-#define SCH_MAX_TASKS											( ( UBaseType_t ) 8 )
+#define SCH_MAX_TASKS											( ( UBaseType_t ) 10 )
 
 #ifndef SCH_TRUE
 #define SCH_FALSE												( 0 )

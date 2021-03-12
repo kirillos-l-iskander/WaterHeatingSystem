@@ -212,120 +212,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TempSensor.c: 14: static TempSensor_t TempSensor[ ( 1 ) ];
 [v _TempSensor `S102 ~T0 @X0 -> -> 1 `i `ux s ]
 "16
-[; ;TempSensor.c: 16: void TempSensor_Init( void )
-[v _TempSensor_Init `(v ~T0 @X0 1 ef ]
+[; ;TempSensor.c: 16: void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId )
+[v _TempSensor_Init `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
 "17
 [; ;TempSensor.c: 17: {
 {
 [e :U _TempSensor_Init ]
-[f ]
-"18
-[; ;TempSensor.c: 18:     size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
-"19
-[; ;TempSensor.c: 19:     for( Id = 0; Id < ( 1 ); Id++ )
-{
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 1 `i `ui 104  ]
-[e $U 105  ]
-[e :U 104 ]
-"20
-[; ;TempSensor.c: 20:     {
-{
-"21
-[; ;TempSensor.c: 21:         TempSensor[ Id ].Channel = 2;
-[e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 3 -> -> 2 `i `uc ]
-"22
-[; ;TempSensor.c: 22:         TempSensor[ Id ].VoltMulti = 488281;
-[e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 4 -> -> 488281 `l `ul ]
-"23
-[; ;TempSensor.c: 23:         TempSensor[ Id ].VoltDivide = 1000000;
-[e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 5 -> -> 1000000 `l `ul ]
-"24
-[; ;TempSensor.c: 24:         TempSensor[ Id ].Result = 0;
-[e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 6 -> -> 0 `i `uc ]
-"25
-[; ;TempSensor.c: 25:         Gpio_InitPin( TempSensor[ Id ].GpioId, TempSensor[ Id ].Pin, ( 1 ) );
-[e ( _Gpio_InitPin (3 , , . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 0 . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 1 -> -> 1 `i `uc ]
-"26
-[; ;TempSensor.c: 26:         Adc_Init( TempSensor[ Id ].AdcId );
-[e ( _Adc_Init (1 . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 2 ]
-"27
-[; ;TempSensor.c: 27:     }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 1 `i `ui 104  ]
-[e :U 105 ]
-}
-"28
-[; ;TempSensor.c: 28: }
-[e :UE 103 ]
-}
-"30
-[; ;TempSensor.c: 30: uint8_t TempSensor_GetState( Id_t Id )
-[v _TempSensor_GetState `(uc ~T0 @X0 1 ef1`uc ]
-"31
-[; ;TempSensor.c: 31: {
-{
-[e :U _TempSensor_GetState ]
-"30
-[; ;TempSensor.c: 30: uint8_t TempSensor_GetState( Id_t Id )
-[v _Id `uc ~T0 @X0 1 r1 ]
-"31
-[; ;TempSensor.c: 31: {
-[f ]
-"32
-[; ;TempSensor.c: 32:     return ( ( Adc_GetState( TempSensor[ Id ].AdcId ) * TempSensor[ Id ].VoltMulti ) / TempSensor[ Id ].VoltDivide );
-[e ) -> / * -> ( _Adc_GetState (1 . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 2 `ul . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 4 . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 5 `uc ]
-[e $UE 107  ]
-"33
-[; ;TempSensor.c: 33: }
-[e :UE 107 ]
-}
-"35
-[; ;TempSensor.c: 35: void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
-[v _TempSensor_SetGpio `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"36
-[; ;TempSensor.c: 36: {
-{
-[e :U _TempSensor_SetGpio ]
-"35
-[; ;TempSensor.c: 35: void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin )
+"16
+[; ;TempSensor.c: 16: void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId )
 [v _Id `uc ~T0 @X0 1 r1 ]
 [v _GpioId `uc ~T0 @X0 1 r2 ]
 [v _Pin `uc ~T0 @X0 1 r3 ]
-"36
-[; ;TempSensor.c: 36: {
+[v _AdcId `uc ~T0 @X0 1 r4 ]
+"17
+[; ;TempSensor.c: 17: {
 [f ]
-"37
-[; ;TempSensor.c: 37:     TempSensor[ Id ].GpioId = GpioId;
+"18
+[; ;TempSensor.c: 18:     TempSensor[ Id ].GpioId = GpioId;
 [e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 0 _GpioId ]
-"38
-[; ;TempSensor.c: 38:     TempSensor[ Id ].Pin = Pin;
+"19
+[; ;TempSensor.c: 19:     TempSensor[ Id ].Pin = Pin;
 [e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 1 _Pin ]
-"39
-[; ;TempSensor.c: 39: }
-[e :UE 108 ]
-}
-"41
-[; ;TempSensor.c: 41: void TempSensor_SetAdc( Id_t Id, Id_t AdcId )
-[v _TempSensor_SetAdc `(v ~T0 @X0 1 ef2`uc`uc ]
-"42
-[; ;TempSensor.c: 42: {
-{
-[e :U _TempSensor_SetAdc ]
-"41
-[; ;TempSensor.c: 41: void TempSensor_SetAdc( Id_t Id, Id_t AdcId )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _AdcId `uc ~T0 @X0 1 r2 ]
-"42
-[; ;TempSensor.c: 42: {
-[f ]
-"43
-[; ;TempSensor.c: 43:     TempSensor[ Id ].AdcId = AdcId;
+"20
+[; ;TempSensor.c: 20:     TempSensor[ Id ].AdcId = AdcId;
 [e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 2 _AdcId ]
-"44
-[; ;TempSensor.c: 44: }
-[e :UE 109 ]
+"21
+[; ;TempSensor.c: 21:     TempSensor[ Id ].Channel = 2;
+[e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 3 -> -> 2 `i `uc ]
+"22
+[; ;TempSensor.c: 22:     TempSensor[ Id ].VoltMulti = 488281;
+[e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 4 -> -> 488281 `l `ul ]
+"23
+[; ;TempSensor.c: 23:     TempSensor[ Id ].VoltDivide = 1000000;
+[e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 5 -> -> 1000000 `l `ul ]
+"24
+[; ;TempSensor.c: 24:     TempSensor[ Id ].Result = 0;
+[e = . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 6 -> -> 0 `i `uc ]
+"25
+[; ;TempSensor.c: 25:     Gpio_InitPin( TempSensor[ Id ].GpioId, TempSensor[ Id ].Pin, ( 1 ) );
+[e ( _Gpio_InitPin (3 , , . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 0 . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 1 -> -> 1 `i `uc ]
+"26
+[; ;TempSensor.c: 26:     Adc_Init( TempSensor[ Id ].AdcId );
+[e ( _Adc_Init (1 . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 2 ]
+"27
+[; ;TempSensor.c: 27: }
+[e :UE 103 ]
+}
+"29
+[; ;TempSensor.c: 29: uint8_t TempSensor_GetState( Id_t Id )
+[v _TempSensor_GetState `(uc ~T0 @X0 1 ef1`uc ]
+"30
+[; ;TempSensor.c: 30: {
+{
+[e :U _TempSensor_GetState ]
+"29
+[; ;TempSensor.c: 29: uint8_t TempSensor_GetState( Id_t Id )
+[v _Id `uc ~T0 @X0 1 r1 ]
+"30
+[; ;TempSensor.c: 30: {
+[f ]
+"31
+[; ;TempSensor.c: 31:     return ( ( Adc_GetState( TempSensor[ Id ].AdcId ) * TempSensor[ Id ].VoltMulti ) / TempSensor[ Id ].VoltDivide );
+[e ) -> / * -> ( _Adc_GetState (1 . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 2 `ul . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 4 . *U + &U _TempSensor * -> _Id `ux -> -> # *U &U _TempSensor `ui `ux 5 `uc ]
+[e $UE 104  ]
+"32
+[; ;TempSensor.c: 32: }
+[e :UE 104 ]
 }

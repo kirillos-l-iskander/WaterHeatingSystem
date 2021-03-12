@@ -4,7 +4,7 @@
 #include "SchedulerConfig.h"
 #include "Gpio.h"
 
-void Ssd_Init( void );
+void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
 void Ssd_SetState( Id_t Id, uint8_t State );
 void Ssd_SetSymbol( Id_t Id, uint8_t Symbol );
 void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin );

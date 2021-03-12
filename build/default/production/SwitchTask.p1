@@ -4,8 +4,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S102 `uc 1 `uc 1 `uc 1 ]
 [n S102 . Lock Counter State ]
 "7 ./Switch.h
-[; ;./Switch.h: 7: void Switch_Init( void );
-[v _Switch_Init `(v ~T0 @X0 0 ef ]
+[; ;./Switch.h: 7: void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
+[v _Switch_Init `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "8
 [; ;./Switch.h: 8: uint8_t Switch_GetState( Id_t Id );
 [v _Switch_GetState `(uc ~T0 @X0 0 ef1`uc ]
@@ -209,169 +209,138 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;SwitchTask.c: 10: static SwitchTask_t SwitchTask[ ( 3 ) ];
 [v _SwitchTask `S102 ~T0 @X0 -> 3 `i s ]
 "12
-[; ;SwitchTask.c: 12: void SwitchTask_Init( void )
-[v _SwitchTask_Init `(v ~T0 @X0 1 ef ]
+[; ;SwitchTask.c: 12: void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _SwitchTask_Init `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 "13
 [; ;SwitchTask.c: 13: {
 {
 [e :U _SwitchTask_Init ]
+"12
+[; ;SwitchTask.c: 12: void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+[v _Id `uc ~T0 @X0 1 r1 ]
+[v _GpioId `uc ~T0 @X0 1 r2 ]
+[v _Pin `uc ~T0 @X0 1 r3 ]
+"13
+[; ;SwitchTask.c: 13: {
 [f ]
 "14
-[; ;SwitchTask.c: 14:     size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
-"15
-[; ;SwitchTask.c: 15:     for( Id = 0; Id < ( 3 ); Id++ )
-{
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 3 `i `ui 104  ]
-[e $U 105  ]
-[e :U 104 ]
-"16
-[; ;SwitchTask.c: 16:     {
-{
-"17
-[; ;SwitchTask.c: 17:         SwitchTask[ Id ].Lock = 0;
+[; ;SwitchTask.c: 14:     SwitchTask[ Id ].Lock = 0;
 [e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 0 -> -> 0 `i `uc ]
-"18
-[; ;SwitchTask.c: 18:         SwitchTask[ Id ].Counter = 0;
+"15
+[; ;SwitchTask.c: 15:     SwitchTask[ Id ].Counter = 0;
 [e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 1 -> -> 0 `i `uc ]
-"19
-[; ;SwitchTask.c: 19:         SwitchTask[ Id ].State = ( 0 );
+"16
+[; ;SwitchTask.c: 16:     SwitchTask[ Id ].State = ( 0 );
 [e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 2 -> -> 0 `i `uc ]
-"20
-[; ;SwitchTask.c: 20:     }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 3 `i `ui 104  ]
-[e :U 105 ]
-}
-"21
-[; ;SwitchTask.c: 21:     Switch_Init();
-[e ( _Switch_Init ..  ]
-"22
-[; ;SwitchTask.c: 22: }
+"17
+[; ;SwitchTask.c: 17:     Switch_Init( Id, GpioId, Pin );
+[e ( _Switch_Init (3 , , _Id _GpioId _Pin ]
+"18
+[; ;SwitchTask.c: 18: }
 [e :UE 103 ]
 }
-"24
-[; ;SwitchTask.c: 24: uint8_t SwitchTask_GetState( Id_t Id )
+"20
+[; ;SwitchTask.c: 20: uint8_t SwitchTask_GetState( Id_t Id )
 [v _SwitchTask_GetState `(uc ~T0 @X0 1 ef1`uc ]
-"25
-[; ;SwitchTask.c: 25: {
+"21
+[; ;SwitchTask.c: 21: {
 {
 [e :U _SwitchTask_GetState ]
-"24
-[; ;SwitchTask.c: 24: uint8_t SwitchTask_GetState( Id_t Id )
+"20
+[; ;SwitchTask.c: 20: uint8_t SwitchTask_GetState( Id_t Id )
 [v _Id `uc ~T0 @X0 1 r1 ]
-"25
-[; ;SwitchTask.c: 25: {
+"21
+[; ;SwitchTask.c: 21: {
 [f ]
-"26
-[; ;SwitchTask.c: 26:     uint8_t Buffer = SwitchTask[ Id ].State;
+"22
+[; ;SwitchTask.c: 22:     uint8_t Buffer = SwitchTask[ Id ].State;
 [v _Buffer `uc ~T0 @X0 1 a ]
 [e = _Buffer . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 2 ]
-"27
-[; ;SwitchTask.c: 27:     SwitchTask[ Id ].State = ( 0 );
+"23
+[; ;SwitchTask.c: 23:     SwitchTask[ Id ].State = ( 0 );
 [e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 2 -> -> 0 `i `uc ]
-"28
-[; ;SwitchTask.c: 28:     return Buffer;
+"24
+[; ;SwitchTask.c: 24:     return Buffer;
 [e ) _Buffer ]
-[e $UE 107  ]
-"29
-[; ;SwitchTask.c: 29: }
-[e :UE 107 ]
+[e $UE 104  ]
+"25
+[; ;SwitchTask.c: 25: }
+[e :UE 104 ]
 }
-"31
-[; ;SwitchTask.c: 31: void SwitchTask_Update( void *Paramter )
+"27
+[; ;SwitchTask.c: 27: void SwitchTask_Update( void *Paramter )
 [v _SwitchTask_Update `(v ~T0 @X0 1 ef1`*v ]
-"32
-[; ;SwitchTask.c: 32: {
+"28
+[; ;SwitchTask.c: 28: {
 {
 [e :U _SwitchTask_Update ]
-"31
-[; ;SwitchTask.c: 31: void SwitchTask_Update( void *Paramter )
+"27
+[; ;SwitchTask.c: 27: void SwitchTask_Update( void *Paramter )
 [v _Paramter `*v ~T0 @X0 1 r1 ]
-"32
-[; ;SwitchTask.c: 32: {
+"28
+[; ;SwitchTask.c: 28: {
 [f ]
+"29
+[; ;SwitchTask.c: 29:     Id_t Id = (Id_t) Paramter;
+[v _Id `uc ~T0 @X0 1 a ]
+[e = _Id -> _Paramter `uc ]
+"30
+[; ;SwitchTask.c: 30:     if( SwitchTask[ Id ].Lock )
+[e $ ! != -> . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 0 `i -> 0 `i 106  ]
+"31
+[; ;SwitchTask.c: 31:     {
+{
+"32
+[; ;SwitchTask.c: 32:         SwitchTask[ Id ].Lock--;
+[e -- . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 0 -> -> 1 `i `uc ]
 "33
-[; ;SwitchTask.c: 33:     size_t Id = 0;
-[v _Id `ui ~T0 @X0 1 a ]
-[e = _Id -> -> 0 `i `ui ]
+[; ;SwitchTask.c: 33:     }else if( !Switch_GetState( Id ) )
+}
+[e $U 107  ]
+[e :U 106 ]
+[e $ ! ! != -> ( _Switch_GetState (1 _Id `i -> 0 `i 108  ]
 "34
-[; ;SwitchTask.c: 34:     for( Id = 0; Id < ( 3 ); Id++ )
+[; ;SwitchTask.c: 34:     {
 {
-[e = _Id -> -> 0 `i `ui ]
-[e $ < _Id -> -> 3 `i `ui 109  ]
-[e $U 110  ]
-[e :U 109 ]
 "35
-[; ;SwitchTask.c: 35:     {
-{
+[; ;SwitchTask.c: 35:         SwitchTask[ Id ].Counter++;
+[e ++ . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 1 -> -> 1 `i `uc ]
 "36
-[; ;SwitchTask.c: 36:         if( SwitchTask[ Id ].Lock )
-[e $ ! != -> . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 0 `i -> 0 `i 112  ]
+[; ;SwitchTask.c: 36:         if( SwitchTask[ Id ].Counter == ( 20 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) ) )
+[e $ ! == -> . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 1 `ui / / -> -> 20 `i `ui -> -> 5 `i `ui / -> -> 10 `i `ui -> -> 5 `i `ui 109  ]
 "37
 [; ;SwitchTask.c: 37:         {
 {
 "38
-[; ;SwitchTask.c: 38:             SwitchTask[ Id ].Lock--;
-[e -- . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 0 -> -> 1 `i `uc ]
+[; ;SwitchTask.c: 38:             SwitchTask[ Id ].Lock = ( 500 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) );
+[e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 0 -> / / -> -> 500 `i `ui -> -> 5 `i `ui / -> -> 10 `i `ui -> -> 5 `i `ui `uc ]
 "39
-[; ;SwitchTask.c: 39:         }else if( !Switch_GetState( Id ) )
-}
-[e $U 113  ]
-[e :U 112 ]
-[e $ ! ! != -> ( _Switch_GetState (1 -> _Id `uc `i -> 0 `i 114  ]
+[; ;SwitchTask.c: 39:             SwitchTask[ Id ].Counter = 0;
+[e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 1 -> -> 0 `i `uc ]
 "40
-[; ;SwitchTask.c: 40:         {
-{
+[; ;SwitchTask.c: 40:             SwitchTask[ Id ].State = ( 1 );
+[e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 2 -> -> 1 `i `uc ]
 "41
-[; ;SwitchTask.c: 41:             SwitchTask[ Id ].Counter++;
-[e ++ . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 1 -> -> 1 `i `uc ]
+[; ;SwitchTask.c: 41:         }
+}
+[e :U 109 ]
 "42
-[; ;SwitchTask.c: 42:             if( SwitchTask[ Id ].Counter == ( 20 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) ) )
-[e $ ! == -> . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 1 `ui / / -> -> 20 `i `ui -> -> 5 `i `ui / -> -> 10 `i `ui -> -> 5 `i `ui 115  ]
+[; ;SwitchTask.c: 42:     }else
+}
+[e $U 110  ]
+[e :U 108 ]
 "43
-[; ;SwitchTask.c: 43:             {
+[; ;SwitchTask.c: 43:     {
 {
 "44
-[; ;SwitchTask.c: 44:                 SwitchTask[ Id ].Lock = ( 500 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) );
-[e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 0 -> / / -> -> 500 `i `ui -> -> 5 `i `ui / -> -> 10 `i `ui -> -> 5 `i `ui `uc ]
+[; ;SwitchTask.c: 44:         SwitchTask[ Id ].Counter = 0;
+[e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 1 -> -> 0 `i `uc ]
 "45
-[; ;SwitchTask.c: 45:                 SwitchTask[ Id ].Counter = 0;
-[e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 1 -> -> 0 `i `uc ]
-"46
-[; ;SwitchTask.c: 46:                 SwitchTask[ Id ].State = ( 1 );
-[e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 2 -> -> 1 `i `uc ]
-"47
-[; ;SwitchTask.c: 47:             }
+[; ;SwitchTask.c: 45:     }
 }
-[e :U 115 ]
-"48
-[; ;SwitchTask.c: 48:         }else
-}
-[e $U 116  ]
-[e :U 114 ]
-"49
-[; ;SwitchTask.c: 49:         {
-{
-"50
-[; ;SwitchTask.c: 50:             SwitchTask[ Id ].Counter = 0;
-[e = . *U + &U _SwitchTask * -> _Id `ux -> -> # *U &U _SwitchTask `ui `ux 1 -> -> 0 `i `uc ]
-"51
-[; ;SwitchTask.c: 51:         }
-}
-[e :U 116 ]
-[e :U 113 ]
-"52
-[; ;SwitchTask.c: 52:     }
-}
-[e ++ _Id -> -> 1 `i `ui ]
-[e $ < _Id -> -> 3 `i `ui 109  ]
 [e :U 110 ]
-}
-"53
-[; ;SwitchTask.c: 53: }
-[e :UE 108 ]
+[e :U 107 ]
+"46
+[; ;SwitchTask.c: 46: }
+[e :UE 105 ]
 }

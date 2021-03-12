@@ -2171,7 +2171,7 @@ UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Ssd.h" 2
 
 
-void Ssd_Init( void );
+void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
 void Ssd_SetState( Id_t Id, uint8_t State );
 void Ssd_SetSymbol( Id_t Id, uint8_t Symbol );
 void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin );
@@ -2186,7 +2186,7 @@ void Ssd_SetGpioD7( Id_t Id, Id_t GpioId, uint8_t Pin );
 # 5 "./SsdTask.h" 2
 
 
-void SsdTask_Init( void );
+void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
 void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
 void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol );
 void SsdTask_Update( void *Paramter );
@@ -2205,19 +2205,15 @@ typedef struct
 
 static SsdTask_t SsdTask[ ( 2 ) ];
 
-void SsdTask_Init( void )
+void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin )
 {
-    size_t Id = 0;
- for ( Id = 0; Id < ( 2 ); Id++ )
-    {
-        SsdTask[ Id ].Counter = Id;
-        SsdTask[ Id ].Symbol = 0;
-        SsdTask[ Id ].State = ( 0 );
-        SsdTask[ Id ].Blink = 0;
-        SsdTask[ Id ].Period = 0;
-        SsdTask[ Id ].Delay = 0;
-    }
-    Ssd_Init();
+    SsdTask[ Id ].Counter = Id;
+    SsdTask[ Id ].Symbol = 0;
+    SsdTask[ Id ].State = ( 0 );
+    SsdTask[ Id ].Blink = 0;
+    SsdTask[ Id ].Period = 0;
+    SsdTask[ Id ].Delay = 0;
+    Ssd_Init( Id, ctrlGpioId, ctrlPin, dataGpioId, dataPin );
 }
 
 void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
@@ -2233,30 +2229,27 @@ void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol )
 
 void SsdTask_Update( void *Paramter )
 {
-    size_t Id = 0;
- for ( Id = 0; Id < ( 2 ); Id++ )
+    Id_t Id = (Id_t) Paramter;
+    if( SsdTask[ Id ].Delay )
     {
-        if( SsdTask[ Id ].Delay )
-        {
-            SsdTask[ Id ].Delay--;
-        }else if( SsdTask[ Id ].Period )
-        {
-            SsdTask[ Id ].Blink ^= SsdTask[ Id ].State;
-            SsdTask[ Id ].Delay = SsdTask[ Id ].Period;
-        }else
-        {
-            SsdTask[ Id ].Blink = 0;
-        }
-        Ssd_SetState( Id, ( 0 ) );
-        if( SsdTask[ Id ].Counter == 0 )
-        {
-            Ssd_SetSymbol( Id, SsdTask[ Id ].Symbol );
-            Ssd_SetState( Id, SsdTask[ Id ].State & !SsdTask[ Id ].Blink );
-        }
-        SsdTask[ Id ].Counter++;
-        if( SsdTask[ Id ].Counter == ( 2 ) )
-        {
-            SsdTask[ Id ].Counter = 0;
-        }
+        SsdTask[ Id ].Delay--;
+    }else if( SsdTask[ Id ].Period )
+    {
+        SsdTask[ Id ].Blink ^= SsdTask[ Id ].State;
+        SsdTask[ Id ].Delay = SsdTask[ Id ].Period;
+    }else
+    {
+        SsdTask[ Id ].Blink = 0;
+    }
+    Ssd_SetState( Id, ( 0 ) );
+    if( SsdTask[ Id ].Counter == 0 )
+    {
+        Ssd_SetSymbol( Id, SsdTask[ Id ].Symbol );
+        Ssd_SetState( Id, SsdTask[ Id ].State & !SsdTask[ Id ].Blink );
+    }
+    SsdTask[ Id ].Counter++;
+    if( SsdTask[ Id ].Counter == ( 2 ) )
+    {
+        SsdTask[ Id ].Counter = 0;
     }
 }

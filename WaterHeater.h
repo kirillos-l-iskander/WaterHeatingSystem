@@ -30,7 +30,7 @@
 #define SSD_UPDATE 5
 #define WH_UPDATE 100
 
-void HeaterTask_Init( void );
+void HeaterTask_Init( Id_t Id );
 void HeaterTask_Update( void *Paramter );
 
 #endif	/* WH_H */
