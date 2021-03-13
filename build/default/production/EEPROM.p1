@@ -1,31 +1,35 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"7 ./I2c.h
-[; ;./I2c.h: 7: void I2c_MasterInit( uint32_t BaudRate );
-[v _I2c_MasterInit `(v ~T0 @X0 0 ef1`ul ]
-"18 ./Gpio.h
-[; ;./Gpio.h: 18: void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-[v _Gpio_InitPin `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"9 ./I2c.h
-[; ;./I2c.h: 9: void I2c_MasterStart( void );
-[v _I2c_MasterStart `(v ~T0 @X0 0 ef ]
-"10
-[; ;./I2c.h: 10: void I2c_MasterRepeatedStart( void );
-[v _I2c_MasterRepeatedStart `(v ~T0 @X0 0 ef ]
-"14
-[; ;./I2c.h: 14: uint8_t I2c_MasterWrite( uint8_t Buffer );
-[v _I2c_MasterWrite `(uc ~T0 @X0 0 ef1`uc ]
-"11
-[; ;./I2c.h: 11: void I2c_MasterStop( void );
-[v _I2c_MasterStop `(v ~T0 @X0 0 ef ]
+"12 ./I2c.h
+[; ;./I2c.h: 12: void I2c_initMaster( uint32_t baudrate );
+[v _I2c_initMaster `(v ~T0 @X0 0 ef1`ul ]
+"21 ./Gpio.h
+[; ;./Gpio.h: 21: void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+[v _Gpio_initPin `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"9 Eeprom.c
+[; ;Eeprom.c: 9:     Gpio_initPin(( GPIOC_ID ), ( 4 ), ( 1 ));
+[c E1173 0 1 2 3 4 .. ]
+[n E1173 . GPIOA_ID GPIOB_ID GPIOC_ID GPIOD_ID GPIOE_ID  ]
+"14 ./I2c.h
+[; ;./I2c.h: 14: void I2c_startMaster( void );
+[v _I2c_startMaster `(v ~T0 @X0 0 ef ]
 "15
-[; ;./I2c.h: 15: uint8_t I2c_Read( void );
-[v _I2c_Read `(uc ~T0 @X0 0 ef ]
-"13
-[; ;./I2c.h: 13: void I2c_NACK( void );
-[v _I2c_NACK `(v ~T0 @X0 0 ef ]
-"12
-[; ;./I2c.h: 12: void I2c_ACK( void );
-[v _I2c_ACK `(v ~T0 @X0 0 ef ]
+[; ;./I2c.h: 15: void I2c_repeatedStartMaster( void );
+[v _I2c_repeatedStartMaster `(v ~T0 @X0 0 ef ]
+"19
+[; ;./I2c.h: 19: uint8_t I2c_writeMaster( uint8_t buffer );
+[v _I2c_writeMaster `(uc ~T0 @X0 0 ef1`uc ]
+"16
+[; ;./I2c.h: 16: void I2c_stopMaster( void );
+[v _I2c_stopMaster `(v ~T0 @X0 0 ef ]
+"20
+[; ;./I2c.h: 20: uint8_t I2c_read( void );
+[v _I2c_read `(uc ~T0 @X0 0 ef ]
+"18
+[; ;./I2c.h: 18: void I2c_nack( void );
+[v _I2c_nack `(v ~T0 @X0 0 ef ]
+"17
+[; ;./I2c.h: 17: void I2c_ack( void );
+[v _I2c_ack `(v ~T0 @X0 0 ef ]
 "13 ./Config.h
 [p x FOSC = HS ]
 "14
@@ -223,115 +227,115 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "6 Eeprom.c
-[; ;Eeprom.c: 6: void Eeprom_Init( void )
-[v _Eeprom_Init `(v ~T0 @X0 1 ef ]
+[; ;Eeprom.c: 6: void Eeprom_init( void )
+[v _Eeprom_init `(v ~T0 @X0 1 ef ]
 "7
 [; ;Eeprom.c: 7: {
 {
-[e :U _Eeprom_Init ]
+[e :U _Eeprom_init ]
 [f ]
 "8
-[; ;Eeprom.c: 8:     I2c_MasterInit( 100000 );
-[e ( _I2c_MasterInit (1 -> -> 100000 `l `ul ]
+[; ;Eeprom.c: 8:     I2c_initMaster( 100000 );
+[e ( _I2c_initMaster (1 -> -> 100000 `l `ul ]
 "9
-[; ;Eeprom.c: 9:     Gpio_InitPin(( ( 2 ) ), ( 4 ), ( 1 ));
-[e ( _Gpio_InitPin (3 , , -> -> 2 `i `uc -> -> 4 `i `uc -> -> 1 `i `uc ]
+[; ;Eeprom.c: 9:     Gpio_initPin(( GPIOC_ID ), ( 4 ), ( 1 ));
+[e ( _Gpio_initPin (3 , , -> . `E1173 2 `uc -> -> 4 `i `uc -> -> 1 `i `uc ]
 "10
-[; ;Eeprom.c: 10:     Gpio_InitPin(( ( 2 ) ), ( 3 ), ( 1 ));
-[e ( _Gpio_InitPin (3 , , -> -> 2 `i `uc -> -> 3 `i `uc -> -> 1 `i `uc ]
+[; ;Eeprom.c: 10:     Gpio_initPin(( GPIOC_ID ), ( 3 ), ( 1 ));
+[e ( _Gpio_initPin (3 , , -> . `E1173 2 `uc -> -> 3 `i `uc -> -> 1 `i `uc ]
 "11
 [; ;Eeprom.c: 11: }
 [e :UE 102 ]
 }
 "13
-[; ;Eeprom.c: 13: void Eeprom_Write( uint8_t Address, uint8_t Buffer )
-[v _Eeprom_Write `(v ~T0 @X0 1 ef2`uc`uc ]
+[; ;Eeprom.c: 13: void Eeprom_write( uint8_t address, uint8_t buffer )
+[v _Eeprom_write `(v ~T0 @X0 1 ef2`uc`uc ]
 "14
 [; ;Eeprom.c: 14: {
 {
-[e :U _Eeprom_Write ]
+[e :U _Eeprom_write ]
 "13
-[; ;Eeprom.c: 13: void Eeprom_Write( uint8_t Address, uint8_t Buffer )
-[v _Address `uc ~T0 @X0 1 r1 ]
-[v _Buffer `uc ~T0 @X0 1 r2 ]
+[; ;Eeprom.c: 13: void Eeprom_write( uint8_t address, uint8_t buffer )
+[v _address `uc ~T0 @X0 1 r1 ]
+[v _buffer `uc ~T0 @X0 1 r2 ]
 "14
 [; ;Eeprom.c: 14: {
 [f ]
 "15
-[; ;Eeprom.c: 15:     I2c_MasterStart();
-[e ( _I2c_MasterStart ..  ]
+[; ;Eeprom.c: 15:     I2c_startMaster();
+[e ( _I2c_startMaster ..  ]
 "17
-[; ;Eeprom.c: 17:     while( I2c_MasterWrite( 0xA0 ) )
+[; ;Eeprom.c: 17:     while( I2c_writeMaster( 0xA0 ) )
 [e $U 104  ]
 [e :U 105 ]
 "18
 [; ;Eeprom.c: 18:     {
 {
 "19
-[; ;Eeprom.c: 19:         I2c_MasterRepeatedStart();
-[e ( _I2c_MasterRepeatedStart ..  ]
+[; ;Eeprom.c: 19:         I2c_repeatedStartMaster();
+[e ( _I2c_repeatedStartMaster ..  ]
 "20
 [; ;Eeprom.c: 20:     }
 }
 [e :U 104 ]
 "17
-[; ;Eeprom.c: 17:     while( I2c_MasterWrite( 0xA0 ) )
-[e $ != -> ( _I2c_MasterWrite (1 -> -> 160 `i `uc `i -> 0 `i 105  ]
+[; ;Eeprom.c: 17:     while( I2c_writeMaster( 0xA0 ) )
+[e $ != -> ( _I2c_writeMaster (1 -> -> 160 `i `uc `i -> 0 `i 105  ]
 [e :U 106 ]
 "21
-[; ;Eeprom.c: 21:     I2c_MasterWrite( Address );
-[e ( _I2c_MasterWrite (1 _Address ]
+[; ;Eeprom.c: 21:     I2c_writeMaster( address );
+[e ( _I2c_writeMaster (1 _address ]
 "22
-[; ;Eeprom.c: 22:     I2c_MasterWrite( Buffer );
-[e ( _I2c_MasterWrite (1 _Buffer ]
+[; ;Eeprom.c: 22:     I2c_writeMaster( buffer );
+[e ( _I2c_writeMaster (1 _buffer ]
 "23
-[; ;Eeprom.c: 23:     I2c_MasterStop();
-[e ( _I2c_MasterStop ..  ]
+[; ;Eeprom.c: 23:     I2c_stopMaster();
+[e ( _I2c_stopMaster ..  ]
 "24
 [; ;Eeprom.c: 24: }
 [e :UE 103 ]
 }
 "26
-[; ;Eeprom.c: 26: void Eeprom_WritePage( uint8_t Address, uint8_t *Buffer, uint8_t Length )
-[v _Eeprom_WritePage `(v ~T0 @X0 1 ef3`uc`*uc`uc ]
+[; ;Eeprom.c: 26: void Eeprom_writePage( uint8_t address, uint8_t *buffer, uint8_t length )
+[v _Eeprom_writePage `(v ~T0 @X0 1 ef3`uc`*uc`uc ]
 "27
 [; ;Eeprom.c: 27: {
 {
-[e :U _Eeprom_WritePage ]
+[e :U _Eeprom_writePage ]
 "26
-[; ;Eeprom.c: 26: void Eeprom_WritePage( uint8_t Address, uint8_t *Buffer, uint8_t Length )
-[v _Address `uc ~T0 @X0 1 r1 ]
-[v _Buffer `*uc ~T0 @X0 1 r2 ]
-[v _Length `uc ~T0 @X0 1 r3 ]
+[; ;Eeprom.c: 26: void Eeprom_writePage( uint8_t address, uint8_t *buffer, uint8_t length )
+[v _address `uc ~T0 @X0 1 r1 ]
+[v _buffer `*uc ~T0 @X0 1 r2 ]
+[v _length `uc ~T0 @X0 1 r3 ]
 "27
 [; ;Eeprom.c: 27: {
 [f ]
 "28
-[; ;Eeprom.c: 28:     I2c_MasterStart();
-[e ( _I2c_MasterStart ..  ]
+[; ;Eeprom.c: 28:     I2c_startMaster();
+[e ( _I2c_startMaster ..  ]
 "30
-[; ;Eeprom.c: 30:     while( I2c_MasterWrite( 0xA0 ) )
+[; ;Eeprom.c: 30:     while( I2c_writeMaster( 0xA0 ) )
 [e $U 108  ]
 [e :U 109 ]
 "31
 [; ;Eeprom.c: 31:     {
 {
 "32
-[; ;Eeprom.c: 32:         I2c_MasterRepeatedStart();
-[e ( _I2c_MasterRepeatedStart ..  ]
+[; ;Eeprom.c: 32:         I2c_repeatedStartMaster();
+[e ( _I2c_repeatedStartMaster ..  ]
 "33
 [; ;Eeprom.c: 33:     }
 }
 [e :U 108 ]
 "30
-[; ;Eeprom.c: 30:     while( I2c_MasterWrite( 0xA0 ) )
-[e $ != -> ( _I2c_MasterWrite (1 -> -> 160 `i `uc `i -> 0 `i 109  ]
+[; ;Eeprom.c: 30:     while( I2c_writeMaster( 0xA0 ) )
+[e $ != -> ( _I2c_writeMaster (1 -> -> 160 `i `uc `i -> 0 `i 109  ]
 [e :U 110 ]
 "34
-[; ;Eeprom.c: 34:     I2c_MasterWrite( Address );
-[e ( _I2c_MasterWrite (1 _Address ]
+[; ;Eeprom.c: 34:     I2c_writeMaster( address );
+[e ( _I2c_writeMaster (1 _address ]
 "35
-[; ;Eeprom.c: 35:     for( unsigned int i = 0; i< Length; i++ )
+[; ;Eeprom.c: 35:     for( size_t i = 0; i< length; i++ )
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
@@ -341,133 +345,133 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Eeprom.c: 36:     {
 {
 "37
-[; ;Eeprom.c: 37:         I2c_MasterWrite( Buffer[ i ] );
-[e ( _I2c_MasterWrite (1 *U + _Buffer * -> _i `ux -> -> # *U _Buffer `ui `ux ]
+[; ;Eeprom.c: 37:         I2c_writeMaster( buffer[ i ] );
+[e ( _I2c_writeMaster (1 *U + _buffer * -> _i `ux -> -> # *U _buffer `ui `ux ]
 "38
 [; ;Eeprom.c: 38:     }
 }
 [e ++ _i -> -> 1 `i `ui ]
 [e :U 114 ]
-[e $ < _i -> _Length `ui 111  ]
+[e $ < _i -> _length `ui 111  ]
 [e :U 112 ]
 }
 "39
-[; ;Eeprom.c: 39:     I2c_MasterStop();
-[e ( _I2c_MasterStop ..  ]
+[; ;Eeprom.c: 39:     I2c_stopMaster();
+[e ( _I2c_stopMaster ..  ]
 "40
 [; ;Eeprom.c: 40: }
 [e :UE 107 ]
 }
 "42
-[; ;Eeprom.c: 42: uint8_t Eeprom_Read( uint8_t Address )
-[v _Eeprom_Read `(uc ~T0 @X0 1 ef1`uc ]
+[; ;Eeprom.c: 42: uint8_t Eeprom_read( uint8_t address )
+[v _Eeprom_read `(uc ~T0 @X0 1 ef1`uc ]
 "43
 [; ;Eeprom.c: 43: {
 {
-[e :U _Eeprom_Read ]
+[e :U _Eeprom_read ]
 "42
-[; ;Eeprom.c: 42: uint8_t Eeprom_Read( uint8_t Address )
-[v _Address `uc ~T0 @X0 1 r1 ]
+[; ;Eeprom.c: 42: uint8_t Eeprom_read( uint8_t address )
+[v _address `uc ~T0 @X0 1 r1 ]
 "43
 [; ;Eeprom.c: 43: {
 [f ]
 "44
-[; ;Eeprom.c: 44:     uint8_t Buffer;
-[v _Buffer `uc ~T0 @X0 1 a ]
+[; ;Eeprom.c: 44:     uint8_t buffer;
+[v _buffer `uc ~T0 @X0 1 a ]
 "45
-[; ;Eeprom.c: 45:     I2c_MasterStart();
-[e ( _I2c_MasterStart ..  ]
+[; ;Eeprom.c: 45:     I2c_startMaster();
+[e ( _I2c_startMaster ..  ]
 "47
-[; ;Eeprom.c: 47:     while( I2c_MasterWrite( 0xA0 ) )
+[; ;Eeprom.c: 47:     while( I2c_writeMaster( 0xA0 ) )
 [e $U 116  ]
 [e :U 117 ]
 "48
 [; ;Eeprom.c: 48:     {
 {
 "49
-[; ;Eeprom.c: 49:         I2c_MasterRepeatedStart();
-[e ( _I2c_MasterRepeatedStart ..  ]
+[; ;Eeprom.c: 49:         I2c_repeatedStartMaster();
+[e ( _I2c_repeatedStartMaster ..  ]
 "50
 [; ;Eeprom.c: 50:     }
 }
 [e :U 116 ]
 "47
-[; ;Eeprom.c: 47:     while( I2c_MasterWrite( 0xA0 ) )
-[e $ != -> ( _I2c_MasterWrite (1 -> -> 160 `i `uc `i -> 0 `i 117  ]
+[; ;Eeprom.c: 47:     while( I2c_writeMaster( 0xA0 ) )
+[e $ != -> ( _I2c_writeMaster (1 -> -> 160 `i `uc `i -> 0 `i 117  ]
 [e :U 118 ]
 "51
-[; ;Eeprom.c: 51:     I2c_MasterWrite( Address );
-[e ( _I2c_MasterWrite (1 _Address ]
+[; ;Eeprom.c: 51:     I2c_writeMaster( address );
+[e ( _I2c_writeMaster (1 _address ]
 "52
-[; ;Eeprom.c: 52:     I2c_MasterStart();
-[e ( _I2c_MasterStart ..  ]
+[; ;Eeprom.c: 52:     I2c_startMaster();
+[e ( _I2c_startMaster ..  ]
 "53
-[; ;Eeprom.c: 53:     I2c_MasterWrite( 0xA1 );
-[e ( _I2c_MasterWrite (1 -> -> 161 `i `uc ]
+[; ;Eeprom.c: 53:     I2c_writeMaster( 0xA1 );
+[e ( _I2c_writeMaster (1 -> -> 161 `i `uc ]
 "54
-[; ;Eeprom.c: 54:     Buffer = I2c_Read();
-[e = _Buffer ( _I2c_Read ..  ]
+[; ;Eeprom.c: 54:     buffer = I2c_read();
+[e = _buffer ( _I2c_read ..  ]
 "55
-[; ;Eeprom.c: 55:     I2c_NACK();
-[e ( _I2c_NACK ..  ]
+[; ;Eeprom.c: 55:     I2c_nack();
+[e ( _I2c_nack ..  ]
 "56
-[; ;Eeprom.c: 56:     I2c_MasterStop();
-[e ( _I2c_MasterStop ..  ]
+[; ;Eeprom.c: 56:     I2c_stopMaster();
+[e ( _I2c_stopMaster ..  ]
 "57
-[; ;Eeprom.c: 57:     return Buffer;
-[e ) _Buffer ]
+[; ;Eeprom.c: 57:     return buffer;
+[e ) _buffer ]
 [e $UE 115  ]
 "58
 [; ;Eeprom.c: 58: }
 [e :UE 115 ]
 }
 "60
-[; ;Eeprom.c: 60: void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length )
-[v _Eeprom_ReadPage `(v ~T0 @X0 1 ef3`uc`*uc`uc ]
+[; ;Eeprom.c: 60: void Eeprom_readPage( uint8_t address, uint8_t *buffer, uint8_t length )
+[v _Eeprom_readPage `(v ~T0 @X0 1 ef3`uc`*uc`uc ]
 "61
 [; ;Eeprom.c: 61: {
 {
-[e :U _Eeprom_ReadPage ]
+[e :U _Eeprom_readPage ]
 "60
-[; ;Eeprom.c: 60: void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length )
-[v _Address `uc ~T0 @X0 1 r1 ]
-[v _Buffer `*uc ~T0 @X0 1 r2 ]
-[v _Length `uc ~T0 @X0 1 r3 ]
+[; ;Eeprom.c: 60: void Eeprom_readPage( uint8_t address, uint8_t *buffer, uint8_t length )
+[v _address `uc ~T0 @X0 1 r1 ]
+[v _buffer `*uc ~T0 @X0 1 r2 ]
+[v _length `uc ~T0 @X0 1 r3 ]
 "61
 [; ;Eeprom.c: 61: {
 [f ]
 "62
-[; ;Eeprom.c: 62:     I2c_MasterStart();
-[e ( _I2c_MasterStart ..  ]
+[; ;Eeprom.c: 62:     I2c_startMaster();
+[e ( _I2c_startMaster ..  ]
 "64
-[; ;Eeprom.c: 64:     while( I2c_MasterWrite( 0xA0 ) )
+[; ;Eeprom.c: 64:     while( I2c_writeMaster( 0xA0 ) )
 [e $U 120  ]
 [e :U 121 ]
 "65
 [; ;Eeprom.c: 65:     {
 {
 "66
-[; ;Eeprom.c: 66:         I2c_MasterRepeatedStart();
-[e ( _I2c_MasterRepeatedStart ..  ]
+[; ;Eeprom.c: 66:         I2c_repeatedStartMaster();
+[e ( _I2c_repeatedStartMaster ..  ]
 "67
 [; ;Eeprom.c: 67:     }
 }
 [e :U 120 ]
 "64
-[; ;Eeprom.c: 64:     while( I2c_MasterWrite( 0xA0 ) )
-[e $ != -> ( _I2c_MasterWrite (1 -> -> 160 `i `uc `i -> 0 `i 121  ]
+[; ;Eeprom.c: 64:     while( I2c_writeMaster( 0xA0 ) )
+[e $ != -> ( _I2c_writeMaster (1 -> -> 160 `i `uc `i -> 0 `i 121  ]
 [e :U 122 ]
 "68
-[; ;Eeprom.c: 68:     I2c_MasterWrite( Address );
-[e ( _I2c_MasterWrite (1 _Address ]
+[; ;Eeprom.c: 68:     I2c_writeMaster( address );
+[e ( _I2c_writeMaster (1 _address ]
 "69
-[; ;Eeprom.c: 69:     I2c_MasterStart();
-[e ( _I2c_MasterStart ..  ]
+[; ;Eeprom.c: 69:     I2c_startMaster();
+[e ( _I2c_startMaster ..  ]
 "70
-[; ;Eeprom.c: 70:     I2c_MasterWrite( 0xA1 );
-[e ( _I2c_MasterWrite (1 -> -> 161 `i `uc ]
+[; ;Eeprom.c: 70:     I2c_writeMaster( 0xA1 );
+[e ( _I2c_writeMaster (1 -> -> 161 `i `uc ]
 "71
-[; ;Eeprom.c: 71:     for( unsigned int i = 0; i < Length; i++ )
+[; ;Eeprom.c: 71:     for( size_t i = 0; i < length; i++ )
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
@@ -477,22 +481,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Eeprom.c: 72:     {
 {
 "73
-[; ;Eeprom.c: 73:         Buffer[i] = I2c_Read();
-[e = *U + _Buffer * -> _i `ux -> -> # *U _Buffer `ui `ux ( _I2c_Read ..  ]
+[; ;Eeprom.c: 73:         buffer[i] = I2c_read();
+[e = *U + _buffer * -> _i `ux -> -> # *U _buffer `ui `ux ( _I2c_read ..  ]
 "74
-[; ;Eeprom.c: 74:         I2c_ACK();
-[e ( _I2c_ACK ..  ]
+[; ;Eeprom.c: 74:         I2c_ack();
+[e ( _I2c_ack ..  ]
 "75
 [; ;Eeprom.c: 75:     }
 }
 [e ++ _i -> -> 1 `i `ui ]
 [e :U 126 ]
-[e $ < _i -> _Length `ui 123  ]
+[e $ < _i -> _length `ui 123  ]
 [e :U 124 ]
 }
 "76
-[; ;Eeprom.c: 76:     I2c_MasterStop();
-[e ( _I2c_MasterStop ..  ]
+[; ;Eeprom.c: 76:     I2c_stopMaster();
+[e ( _I2c_stopMaster ..  ]
 "77
 [; ;Eeprom.c: 77: }
 [e :UE 119 ]

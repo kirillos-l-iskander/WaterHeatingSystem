@@ -1,6 +1,6 @@
 #include "Timer.h"
 
-void Timer0Init( void )
+void Timer0_init( void )
 {
 	//TIM0 Normal mode
 	//OC0 Normal Port Operation
@@ -13,7 +13,7 @@ void Timer0Init( void )
     INTCON = 0x60;
 }
 
-void Timer1Init( uint16_t TicksNumber )
+void Timer1_init( uint16_t tickNumber )
 {
 	//Counter Value
     TMR1H = 0;
@@ -23,8 +23,8 @@ void Timer1Init( uint16_t TicksNumber )
     T1CON = 0x01;
     
 	//Compare Match Value
-    CCPR1H = TicksNumber >> 8;
-    CCPR1L = TicksNumber;
+    CCPR1H = tickNumber >> 8;
+    CCPR1L = tickNumber;
     //TIM1 Compare Match Mode, Reset TIM1
     CCP1CON = 0x0B;
 

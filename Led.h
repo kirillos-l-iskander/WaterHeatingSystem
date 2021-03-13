@@ -4,8 +4,13 @@
 #include "SchedulerConfig.h"
 #include "Gpio.h"
 
-void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Led_SetState( Id_t Id, uint8_t State );
-void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+	LED1_ID,
+	LED2_ID
+}LED_t;
+
+void Led_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+void Led_setState( Id_t id, uint8_t state );
 
 #endif	/* LED_H */

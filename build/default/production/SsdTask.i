@@ -2162,94 +2162,100 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Ssd.h" 2
 
 
-void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
-void Ssd_SetState( Id_t Id, uint8_t State );
-void Ssd_SetSymbol( Id_t Id, uint8_t Symbol );
-void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD0( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD1( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD2( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD3( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD4( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD5( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD6( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD7( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ SSD1_ID,
+ SSD2_ID
+}SSD_t;
+
+void Ssd_init( Id_t id, Id_t cGpioId, uint8_t cPin, Id_t dGpioId, uint8_t dPin );
+void Ssd_setState( Id_t id, uint8_t state );
+void Ssd_setSymbol( Id_t id, uint8_t symbol );
 # 5 "./SsdTask.h" 2
 
 
-void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
-void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
-void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol );
-void SsdTask_Update( void *Paramter );
+void SsdTask_init( Id_t id, Id_t cGpioId, uint8_t cPin, Id_t dGpioId, uint8_t dPin );
+void SsdTask_setState( Id_t id, uint8_t state, uint16_t period );
+void SsdTask_setSymbol( Id_t id, uint8_t symbol );
+void SsdTask_update( void *paramter );
 # 1 "SsdTask.c" 2
 
 
 typedef struct
 {
- uint8_t Counter;
-    uint8_t Symbol;
-    uint8_t State;
- uint8_t Blink;
- uint16_t Period;
- uint16_t Delay;
+ uint8_t counter;
+    uint8_t symbol;
+    uint8_t state;
+ uint8_t blink;
+ uint16_t period;
+ uint16_t delay;
 }SsdTask_t;
 
-static SsdTask_t SsdTask[ ( 2 ) ];
+static SsdTask_t ssdTask[ ( 2 ) ];
 
-void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin )
+void SsdTask_init( Id_t id, Id_t cGpioId, uint8_t cPin, Id_t dGpioId, uint8_t dPin )
 {
-    SsdTask[ Id ].Counter = Id;
-    SsdTask[ Id ].Symbol = 0;
-    SsdTask[ Id ].State = ( 0 );
-    SsdTask[ Id ].Blink = 0;
-    SsdTask[ Id ].Period = 0;
-    SsdTask[ Id ].Delay = 0;
-    Ssd_Init( Id, ctrlGpioId, ctrlPin, dataGpioId, dataPin );
+    ssdTask[ id ].counter = id;
+    ssdTask[ id ].symbol = 0;
+    ssdTask[ id ].state = ( 0 );
+    ssdTask[ id ].blink = 0;
+    ssdTask[ id ].period = 0;
+    ssdTask[ id ].delay = 0;
+    Ssd_init( id, cGpioId, cPin, dGpioId, dPin );
 }
 
-void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
+void SsdTask_setState( Id_t id, uint8_t state, uint16_t period )
 {
-    SsdTask[ Id ].State = State;
- SsdTask[ Id ].Period = ( Period / ( ( TickType_t ) 5 ) ) / ( 5 / ( ( TickType_t ) 5 ) );
+    ssdTask[ id ].state = state;
+ ssdTask[ id ].period = ( period / ( ( TickType_t ) 5 ) ) / ( 5 / ( ( TickType_t ) 5 ) );
 }
 
-void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol )
+void SsdTask_setSymbol( Id_t id, uint8_t symbol )
 {
-    SsdTask[ Id ].Symbol = Symbol;
+    ssdTask[ id ].symbol = symbol;
 }
 
-void SsdTask_Update( void *Paramter )
+void SsdTask_update( void *paramter )
 {
-    Id_t Id = (Id_t) Paramter;
-    if( SsdTask[ Id ].Delay )
+    Id_t id = (Id_t) paramter;
+    if( ssdTask[ id ].delay )
     {
-        SsdTask[ Id ].Delay--;
-    }else if( SsdTask[ Id ].Period )
+        ssdTask[ id ].delay--;
+    }else if( ssdTask[ id ].period )
     {
-        SsdTask[ Id ].Blink ^= SsdTask[ Id ].State;
-        SsdTask[ Id ].Delay = SsdTask[ Id ].Period;
+        ssdTask[ id ].blink ^= ssdTask[ id ].state;
+        ssdTask[ id ].delay = ssdTask[ id ].period;
     }else
     {
-        SsdTask[ Id ].Blink = 0;
+        ssdTask[ id ].blink = 0;
     }
-    Ssd_SetState( Id, ( 0 ) );
-    if( SsdTask[ Id ].Counter == 0 )
+    Ssd_setState( id, ( 0 ) );
+    if( ssdTask[ id ].counter == 0 )
     {
-        Ssd_SetSymbol( Id, SsdTask[ Id ].Symbol );
-        Ssd_SetState( Id, SsdTask[ Id ].State & !SsdTask[ Id ].Blink );
+        Ssd_setSymbol( id, ssdTask[ id ].symbol );
+        Ssd_setState( id, ssdTask[ id ].state & !ssdTask[ id ].blink );
     }
-    SsdTask[ Id ].Counter++;
-    if( SsdTask[ Id ].Counter == ( 2 ) )
+    ssdTask[ id ].counter++;
+    if( ssdTask[ id ].counter == ( 2 ) )
     {
-        SsdTask[ Id ].Counter = 0;
+        ssdTask[ id ].counter = 0;
     }
 }

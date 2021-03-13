@@ -5,9 +5,12 @@
 #include "Gpio.h"
 #include "Adc.h"
 
-void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
-uint8_t TempSensor_GetState( Id_t Id );
-void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
-void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
+typedef enum
+{
+	TEMP_SENSOR1_ID
+}TEMP_SENSOR_t;
+
+void TempSensor_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId );
+uint8_t TempSensor_getState( Id_t id );
 
 #endif	/* TEMP_SENSOR_H */

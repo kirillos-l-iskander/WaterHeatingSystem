@@ -4,8 +4,14 @@
 #include "SchedulerConfig.h"
 #include "Gpio.h"
 
-void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-uint8_t Switch_GetState( Id_t Id );
-void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+	SWITCH1_ID,
+	SWITCH2_ID,
+	SWITCH3_ID
+}SWITCH_t;
+
+void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+uint8_t Switch_getState( Id_t id );
 
 #endif	/* SWITCH_H */

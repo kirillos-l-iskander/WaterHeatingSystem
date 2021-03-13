@@ -2162,12 +2162,21 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./TempSensor.h" 2
 
 # 1 "./Adc.h" 1
@@ -2176,68 +2185,76 @@ UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
 
 
 
-void Adc_Init( Id_t Id );
-uint16_t Adc_GetState( Id_t Id );
+typedef enum
+{
+ ADC0_ID
+}ADC_t;
+
+void Adc_init( Id_t id );
+uint16_t Adc_getState( Id_t id );
 # 6 "./TempSensor.h" 2
 
 
-void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
-uint8_t TempSensor_GetState( Id_t Id );
-void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
-void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
+typedef enum
+{
+ TEMP_SENSOR1_ID
+}TEMP_SENSOR_t;
+
+void TempSensor_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId );
+uint8_t TempSensor_getState( Id_t id );
 # 5 "./TempSensorTask.h" 2
 
 
-void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
-uint8_t TempSensorTask_GetAverage( Id_t Id );
-void TempSensorTask_Update( void *Paramter );
+void TempSensorTask_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId );
+uint8_t TempSensorTask_getAverage( Id_t id );
+void TempSensorTask_update( void *paramter );
 # 1 "TempSensorTask.c" 2
 
 
 typedef struct
 {
-    uint8_t Array[ 10 ];
-    uint8_t Index;
-    uint8_t AvgFlag;
-    uint16_t AvgTemp;
+    uint8_t array[ 10 ];
+    uint8_t index;
+    uint8_t avgFlag;
+    uint16_t avgTemp;
 }TempSensorTask_t;
 
-static TempSensorTask_t TempSensorTask[ ( 1 ) ];
+static TempSensorTask_t tempSensorTask[ ( 1 ) ];
 
-void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId )
+void TempSensorTask_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId )
 {
-    size_t Index = 0;
-    for( Index = 0; Index < 10; Index++ )
+    size_t index = 0;
+    for( index = 0; index < 10; index++ )
     {
-        TempSensorTask[ Id ].Array[ Index ] = 0;
+        tempSensorTask[ id ].array[ index ] = 0;
     }
-    TempSensorTask[ Id ].Index = 0;
-    TempSensorTask[ Id ].AvgFlag = 0;
-    TempSensorTask[ Id ].AvgTemp = 0;
-    TempSensor_Init( Id, GpioId, Pin, AdcId );
+    tempSensorTask[ id ].index = 0;
+    tempSensorTask[ id ].avgFlag = 0;
+    tempSensorTask[ id ].avgTemp = 0;
+    TempSensor_init( id, xGpioId, xPin, xAdcId );
 }
 
-uint8_t TempSensorTask_GetAverage( Id_t Id )
+uint8_t TempSensorTask_getAverage( Id_t id )
 {
-    return ( uint8_t ) TempSensorTask[ Id ].AvgTemp;
+    return ( uint8_t ) tempSensorTask[ id ].avgTemp;
 }
 
-void TempSensorTask_Update( void *Paramter )
+void TempSensorTask_update( void *paramter )
 {
-    Id_t Id = (Id_t) Paramter;
-    size_t Index = 0;
-    TempSensorTask[ Id ].Array[ TempSensorTask[ Id ].Index++ ] = TempSensor_GetState( Id );
-    if( TempSensorTask[ Id ].Index == 10 )
+    Id_t id = (Id_t) paramter;
+    size_t index = 0;
+    tempSensorTask[ id ].array[ tempSensorTask[ id ].index++ ] = TempSensor_getState( id );
+    if( tempSensorTask[ id ].index == 10 )
     {
-        TempSensorTask[ Id ].Index = 0;
-        TempSensorTask[ Id ].AvgFlag = 1;
+        tempSensorTask[ id ].index = 0;
+        tempSensorTask[ id ].avgFlag = 1;
     }
-    if( TempSensorTask[ Id ].AvgFlag )
+    if( tempSensorTask[ id ].avgFlag )
     {
-        for( Index = 0; Index < 10; Index++ )
+        for( index = 0; index < 10; index++ )
         {
-            TempSensorTask[ Id ].AvgTemp += TempSensorTask[ Id ].Array[ Index ];
+            tempSensorTask[ id ].avgTemp += tempSensorTask[ id ].array[ index ];
         }
-        TempSensorTask[ Id ].AvgTemp /= 10;
+        tempSensorTask[ id ].avgTemp /= 10;
     }
 }

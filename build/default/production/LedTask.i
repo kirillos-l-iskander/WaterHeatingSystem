@@ -2162,67 +2162,79 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Led.h" 2
 
 
-void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Led_SetState( Id_t Id, uint8_t State );
-void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ LED1_ID,
+ LED2_ID
+}LED_t;
+
+void Led_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+void Led_setState( Id_t id, uint8_t state );
 # 5 "./LedTask.h" 2
 
 
-
-
-void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
-void LedTask_Update( void *Paramter );
+void LedTask_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+void LedTask_setState( Id_t id, uint8_t state, uint16_t period );
+void LedTask_update( void *paramter );
 # 1 "LedTask.c" 2
 
 
 typedef struct
 {
- uint8_t State;
- uint8_t Blink;
- uint16_t Period;
- uint16_t Delay;
+ uint8_t state;
+ uint8_t blink;
+ uint16_t period;
+ uint16_t delay;
 }LedTask_t;
 
-static LedTask_t LedTask[ ( 2 ) ];
+static LedTask_t ledTask[ ( 2 ) ];
 
-void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+void LedTask_init( Id_t id, Id_t xGpioId, uint8_t xPin )
 {
-    LedTask[ Id ].State = ( 0 );
-    LedTask[ Id ].Blink = 0;
-    LedTask[ Id ].Period = 0;
-    LedTask[ Id ].Delay = 0;
- Led_Init( Id, GpioId, Pin );
+ ledTask[ id ].state = ( 0 );
+ ledTask[ id ].blink = 0;
+ ledTask[ id ].period = 0;
+ ledTask[ id ].delay = 0;
+ Led_init( id, xGpioId, xPin );
 }
 
-void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period )
+void LedTask_setState( Id_t id, uint8_t state, uint16_t period )
 {
- LedTask[ Id ].State = State;
- LedTask[ Id ].Period = ( Period / ( ( TickType_t ) 5 ) ) / ( 100 / ( ( TickType_t ) 5 ) );
+ ledTask[ id ].state = state;
+ ledTask[ id ].period = ( period / ( ( TickType_t ) 5 ) ) / ( 100 / ( ( TickType_t ) 5 ) );
 }
 
-void LedTask_Update( void *Paramter )
+void LedTask_update( void *paramter )
 {
-    Id_t Id = (Id_t) Paramter;
-    if( LedTask[ Id ].Delay )
-    {
-        LedTask[ Id ].Delay--;
-    }else if( LedTask[ Id ].Period )
-    {
-        LedTask[ Id ].Blink ^= LedTask[ Id ].State;
-        LedTask[ Id ].Delay = LedTask[ Id ].Period;
-    }else
-    {
-        LedTask[ Id ].Blink = 0;
-    }
-    Led_SetState( Id, ( LedTask[ Id ].State & !LedTask[ Id ].Blink ) );
+ Id_t id = (Id_t) paramter;
+ if( ledTask[ id ].delay )
+ {
+  ledTask[ id ].delay--;
+ }else if( ledTask[ id ].period )
+ {
+  ledTask[ id ].blink ^= ledTask[ id ].state;
+  ledTask[ id ].delay = ledTask[ id ].period;
+ }else
+ {
+  ledTask[ id ].blink = 0;
+ }
+ Led_setState( id, ( ledTask[ id ].state & !ledTask[ id ].blink ) );
 }

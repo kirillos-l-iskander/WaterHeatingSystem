@@ -71,12 +71,12 @@ text55 CODE 0 1F62 1F62 2F 2
 text56 CODE 0 1398 1398 61 2
 text57 CODE 0 1C4F 1C4F 10 2
 text58 CODE 0 1085 1085 44 2
-text59 CODE 0 1D71 1D71 1B 2
-text60 CODE 0 1C3F 1C3F 10 2
-text61 CODE 0 1D40 1D40 18 2
-text62 CODE 0 1C04 1C04 B 2
-text63 CODE 0 1BF9 1BF9 B 2
-text64 CODE 0 1BEE 1BEE B 2
+text59 CODE 0 1D40 1D40 18 2
+text60 CODE 0 1C04 1C04 B 2
+text61 CODE 0 1BF9 1BF9 B 2
+text62 CODE 0 1BEE 1BEE B 2
+text63 CODE 0 1D71 1D71 1B 2
+text64 CODE 0 1C3F 1C3F 10 2
 text65 CODE 0 1C32 1C32 D 2
 text66 CODE 0 1EDC 1EDC 2C 2
 text67 CODE 0 1E87 1E87 2A 2
@@ -90,17 +90,17 @@ cstackCOMMON COMMON 1 70 70 A 1
 cstackBANK0 BANK0 1 20 20 31 1
 inittext CODE 0 1C96 1C96 13 2
 intentry CODE 0 4 4 E 2
-bssBANK0 BANK0 1 51 51 1C 1
-bssBANK1 BANK1 1 A0 A0 46 1
+bssBANK0 BANK0 1 51 51 1F 1
+bssBANK1 BANK1 1 A0 A0 43 1
 bssBANK3 BANK3 1 190 190 4C 1
 idataBANK1 CODE 0 1000 1000 A 2
 idataBANK3 CODE 0 1BE4 1BE4 A 2
-dataBANK1 BANK1 1 E6 E6 A 1
+dataBANK1 BANK1 1 E3 E3 A 1
 dataBANK3 BANK3 1 1DC 1DC A 1
 functab ENTRY 0 4F 4F 18 2
 clrtext CODE 0 1BDC 1BDC 8 2
 config CONFIG 4 2007 2007 1 2
-$C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
+$C:\Users\Lenovo\AppData\Local\Temp\skfk.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 12 12 3 2
 config CONFIG 4 2007 2007 1 2
@@ -110,10 +110,10 @@ config CONFIG 4 2007 2007 1 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 6D-6F 1
+RAM ED-EF 1
 RAM 110-16F 1
 RAM 1E6-1EF 1
-BANK0 6D-6F 1
+BANK1 ED-EF 1
 BANK2 110-16F 1
 BANK3 1E6-1EF 1
 CONST 3-3 2
@@ -153,67 +153,67 @@ STRING 1800-1BDB 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\WaterHeatingSystem.X.production.o
-15 cinit CODE >2736:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-15 cinit CODE >2739:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-15 cinit CODE >2833:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-16 cinit CODE >2834:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-17 cinit CODE >2835:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-18 cinit CODE >2836:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-19 cinit CODE >2837:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1A cinit CODE >2838:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1B cinit CODE >2839:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1C cinit CODE >2840:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1D cinit CODE >2841:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1E cinit CODE >2842:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-23 cinit CODE >2846:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-24 cinit CODE >2847:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-25 cinit CODE >2848:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-26 cinit CODE >2849:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-27 cinit CODE >2850:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-28 cinit CODE >2851:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-29 cinit CODE >2852:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-2A cinit CODE >2853:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-2B cinit CODE >2854:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-2C cinit CODE >2855:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-31 cinit CODE >2874:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-32 cinit CODE >2875:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-33 cinit CODE >2876:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-34 cinit CODE >2877:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-35 cinit CODE >2878:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-3A cinit CODE >2881:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-3B cinit CODE >2882:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-3C cinit CODE >2883:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-3D cinit CODE >2884:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-3E cinit CODE >2885:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-43 cinit CODE >2888:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-44 cinit CODE >2889:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-45 cinit CODE >2890:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-46 cinit CODE >2891:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-4B cinit CODE >2897:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-4B cinit CODE >2899:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-4C cinit CODE >2900:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-4F functab ENTRY >16129:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-4F functab ENTRY >16131:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-4F functab ENTRY >16132:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-4F functab ENTRY >16133:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-50 functab ENTRY >16134:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-51 functab ENTRY >16135:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-52 functab ENTRY >16136:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-53 functab ENTRY >16137:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-54 functab ENTRY >16139:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-54 functab ENTRY >16140:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-55 functab ENTRY >16143:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-55 functab ENTRY >16144:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-58 functab ENTRY >16147:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-58 functab ENTRY >16148:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-5B functab ENTRY >16151:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-5B functab ENTRY >16152:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-5E functab ENTRY >16155:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-5E functab ENTRY >16156:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-61 functab ENTRY >16159:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-61 functab ENTRY >16160:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-64 functab ENTRY >16163:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-64 functab ENTRY >16164:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
+15 cinit CODE >2736:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+15 cinit CODE >2739:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+15 cinit CODE >2833:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+16 cinit CODE >2834:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+17 cinit CODE >2835:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+18 cinit CODE >2836:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+19 cinit CODE >2837:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1A cinit CODE >2838:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1B cinit CODE >2839:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1C cinit CODE >2840:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1D cinit CODE >2841:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1E cinit CODE >2842:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+23 cinit CODE >2846:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+24 cinit CODE >2847:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+25 cinit CODE >2848:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+26 cinit CODE >2849:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+27 cinit CODE >2850:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+28 cinit CODE >2851:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+29 cinit CODE >2852:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+2A cinit CODE >2853:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+2B cinit CODE >2854:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+2C cinit CODE >2855:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+31 cinit CODE >2874:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+32 cinit CODE >2875:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+33 cinit CODE >2876:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+34 cinit CODE >2877:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+35 cinit CODE >2878:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+3A cinit CODE >2881:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+3B cinit CODE >2882:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+3C cinit CODE >2883:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+3D cinit CODE >2884:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+3E cinit CODE >2885:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+43 cinit CODE >2888:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+44 cinit CODE >2889:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+45 cinit CODE >2890:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+46 cinit CODE >2891:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+4B cinit CODE >2897:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+4B cinit CODE >2899:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+4C cinit CODE >2900:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+4F functab ENTRY >16129:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+4F functab ENTRY >16131:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+4F functab ENTRY >16132:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+4F functab ENTRY >16133:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+50 functab ENTRY >16134:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+51 functab ENTRY >16135:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+52 functab ENTRY >16136:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+53 functab ENTRY >16137:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+54 functab ENTRY >16139:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+54 functab ENTRY >16140:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+55 functab ENTRY >16143:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+55 functab ENTRY >16144:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+58 functab ENTRY >16147:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+58 functab ENTRY >16148:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+5B functab ENTRY >16151:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+5B functab ENTRY >16152:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+5E functab ENTRY >16155:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+5E functab ENTRY >16156:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+61 functab ENTRY >16159:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+61 functab ENTRY >16160:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+64 functab ENTRY >16163:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+64 functab ENTRY >16164:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
 4 intentry CODE >24:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
 1CA9 text72 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
 1CAA text72 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
@@ -274,38 +274,38 @@ $dist/default/production\WaterHeatingSystem.X.production.o
 1C32 text65 CODE >11:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
 1C32 text65 CODE >13:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
 1C3E text65 CODE >14:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1BEE text64 CODE >22:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1BEE text64 CODE >24:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1BF3 text64 CODE >25:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1BF8 text64 CODE >26:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1BF9 text63 CODE >16:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1BF9 text63 CODE >18:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1BFE text63 CODE >19:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C03 text63 CODE >20:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C04 text62 CODE >28:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C04 text62 CODE >30:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C09 text62 CODE >31:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C0E text62 CODE >32:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D40 text61 CODE >34:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D43 text61 CODE >36:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D48 text61 CODE >37:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D4C text61 CODE >38:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D50 text61 CODE >39:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D53 text61 CODE >40:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D57 text61 CODE >41:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C3F text60 CODE >60:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C3F text60 CODE >62:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C44 text60 CODE >63:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C49 text60 CODE >64:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1C4E text60 CODE >65:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D71 text59 CODE >43:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D71 text59 CODE >45:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D76 text59 CODE >46:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D7B text59 CODE >47:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D80 text59 CODE >48:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D83 text59 CODE >49:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D88 text59 CODE >50:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
-1D8B text59 CODE >51:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C3F text64 CODE >60:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C3F text64 CODE >62:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C44 text64 CODE >63:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C49 text64 CODE >64:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C4E text64 CODE >65:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D71 text63 CODE >43:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D71 text63 CODE >45:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D76 text63 CODE >46:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D7B text63 CODE >47:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D80 text63 CODE >48:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D83 text63 CODE >49:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D88 text63 CODE >50:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D8B text63 CODE >51:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1BEE text62 CODE >22:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1BEE text62 CODE >24:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1BF3 text62 CODE >25:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1BF8 text62 CODE >26:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1BF9 text61 CODE >16:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1BF9 text61 CODE >18:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1BFE text61 CODE >19:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C03 text61 CODE >20:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C04 text60 CODE >28:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C04 text60 CODE >30:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C09 text60 CODE >31:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1C0E text60 CODE >32:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D40 text59 CODE >34:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D43 text59 CODE >36:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D48 text59 CODE >37:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D4C text59 CODE >38:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D50 text59 CODE >39:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D53 text59 CODE >40:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
+1D57 text59 CODE >41:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
 1085 text58 CODE >42:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Eeprom.c
 1088 text58 CODE >45:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Eeprom.c
 108D text58 CODE >47:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Eeprom.c
@@ -407,19 +407,19 @@ $dist/default/production\WaterHeatingSystem.X.production.o
 6B3 text50 CODE >49:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
 6C3 text50 CODE >50:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
 6D3 text50 CODE >51:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-6E3 text50 CODE >54:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-6FF text50 CODE >55:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-703 text50 CODE >57:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-72F text50 CODE >59:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-73D text50 CODE >60:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-73E text50 CODE >62:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-74D text50 CODE >64:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-761 text50 CODE >66:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-779 text50 CODE >67:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-77A text50 CODE >69:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-796 text50 CODE >70:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-7A5 text50 CODE >71:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-7C0 text50 CODE >73:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+6E3 text50 CODE >53:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+6FF text50 CODE >54:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+703 text50 CODE >56:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+72F text50 CODE >58:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+73D text50 CODE >59:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+73E text50 CODE >61:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+74D text50 CODE >63:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+761 text50 CODE >65:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+779 text50 CODE >66:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+77A text50 CODE >68:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+796 text50 CODE >69:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+7A5 text50 CODE >70:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+7C0 text50 CODE >72:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
 13F9 text49 CODE >12:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
 13FC text49 CODE >14:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
 140F text49 CODE >15:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
@@ -627,67 +627,67 @@ D7E text21 CODE >49:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X
 9E8 text20 CODE >40:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SwitchTask.c
 9FA text20 CODE >44:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SwitchTask.c
 A0A text20 CODE >46:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SwitchTask.c
-67 text19 CODE >75:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-67 text19 CODE >77:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-6D text19 CODE >78:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-6E text19 CODE >82:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-82 text19 CODE >84:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-94 text19 CODE >90:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-AE text19 CODE >91:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-E0 text19 CODE >93:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-EA text19 CODE >94:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-F8 text19 CODE >95:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-12B text19 CODE >97:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-137 text19 CODE >98:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+67 text19 CODE >74:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+67 text19 CODE >76:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+6D text19 CODE >77:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+6E text19 CODE >81:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+82 text19 CODE >83:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+94 text19 CODE >89:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+AE text19 CODE >90:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+E0 text19 CODE >92:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+EA text19 CODE >93:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+F8 text19 CODE >94:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+12B text19 CODE >96:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+137 text19 CODE >97:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+144 text19 CODE >98:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
 144 text19 CODE >99:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-144 text19 CODE >100:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-159 text19 CODE >102:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-16C text19 CODE >103:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-16D text19 CODE >105:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-181 text19 CODE >111:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-1A3 text19 CODE >112:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-1B0 text19 CODE >113:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-1BE text19 CODE >114:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-1ED text19 CODE >115:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-22A text19 CODE >116:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-258 text19 CODE >118:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-26B text19 CODE >119:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-282 text19 CODE >121:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-295 text19 CODE >122:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-296 text19 CODE >124:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-2A8 text19 CODE >130:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-2CA text19 CODE >131:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-2D8 text19 CODE >132:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-2E7 text19 CODE >133:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-316 text19 CODE >134:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-353 text19 CODE >135:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-37F text19 CODE >137:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-392 text19 CODE >138:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+159 text19 CODE >101:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+16C text19 CODE >102:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+16D text19 CODE >104:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+181 text19 CODE >110:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+1A3 text19 CODE >111:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+1B0 text19 CODE >112:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+1BE text19 CODE >113:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+1ED text19 CODE >114:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+22A text19 CODE >115:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+258 text19 CODE >117:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+26B text19 CODE >118:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+282 text19 CODE >120:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+295 text19 CODE >121:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+296 text19 CODE >123:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+2A8 text19 CODE >129:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+2CA text19 CODE >130:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+2D8 text19 CODE >131:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+2E7 text19 CODE >132:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+316 text19 CODE >133:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+353 text19 CODE >134:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+37F text19 CODE >136:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+392 text19 CODE >137:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+3A4 text19 CODE >138:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
 3A4 text19 CODE >139:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-3A4 text19 CODE >140:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-3D0 text19 CODE >142:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-3E1 text19 CODE >143:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+3D0 text19 CODE >141:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+3E1 text19 CODE >142:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+3F3 text19 CODE >143:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
 3F3 text19 CODE >144:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-3F3 text19 CODE >145:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-409 text19 CODE >147:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-41C text19 CODE >148:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-41D text19 CODE >150:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+409 text19 CODE >146:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+41C text19 CODE >147:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+41D text19 CODE >149:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+42E text19 CODE >150:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
 42E text19 CODE >151:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-42E text19 CODE >152:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-453 text19 CODE >154:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-463 text19 CODE >155:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-47E text19 CODE >156:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-492 text19 CODE >162:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-499 text19 CODE >163:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-4A5 text19 CODE >164:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-4B3 text19 CODE >165:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-4C0 text19 CODE >166:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-4DB text19 CODE >167:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-4ED text19 CODE >168:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-4FD text19 CODE >169:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-521 text19 CODE >170:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-522 text19 CODE >172:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-54A text19 CODE >173:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+453 text19 CODE >153:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+463 text19 CODE >154:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+47E text19 CODE >155:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+492 text19 CODE >161:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+499 text19 CODE >162:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+4A5 text19 CODE >163:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+4B3 text19 CODE >164:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+4C0 text19 CODE >165:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+4DB text19 CODE >166:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+4ED text19 CODE >167:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+4FD text19 CODE >168:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+521 text19 CODE >169:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+522 text19 CODE >171:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+54A text19 CODE >172:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
 1CFD text18 CODE >21:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControlTask.c
 1CFD text18 CODE >23:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControlTask.c
 1D03 text18 CODE >24:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControlTask.c
@@ -840,54 +840,54 @@ EA7 maintext CODE >31:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem
 EA7 maintext CODE >33:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
 EB2 maintext CODE >34:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
 EBE maintext CODE >35:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-ECC maintext CODE >37:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-EDA maintext CODE >39:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-EF2 maintext CODE >41:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F00 maintext CODE >42:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F0E maintext CODE >44:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F20 maintext CODE >45:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F32 maintext CODE >47:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F38 maintext CODE >49:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F47 maintext CODE >51:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F4C maintext CODE >52:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F5D maintext CODE >53:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F6E maintext CODE >54:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F7F maintext CODE >55:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-F90 maintext CODE >56:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-FA1 maintext CODE >57:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-FB2 maintext CODE >58:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-FC3 maintext CODE >59:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-FD4 maintext CODE >60:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-FE3 maintext CODE >61:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-FF2 maintext CODE >63:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-FF7 maintext CODE >66:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-1BDC clrtext CODE >2861:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1BDC clrtext CODE >2862:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1BDD clrtext CODE >2863:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1BDD clrtext CODE >2864:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1BDE clrtext CODE >2865:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1BDF clrtext CODE >2866:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1BE0 clrtext CODE >2867:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1BE1 clrtext CODE >2868:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1BE2 clrtext CODE >2869:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1BE3 clrtext CODE >2870:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1C96 inittext CODE >2807:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1C96 inittext CODE >2808:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1C97 inittext CODE >2809:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1C98 inittext CODE >2810:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1C99 inittext CODE >2811:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1C9A inittext CODE >2818:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1C9A inittext CODE >2819:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1C9F inittext CODE >2820:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1CA0 inittext CODE >2821:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1CA1 inittext CODE >2822:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1CA2 inittext CODE >2823:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1CA3 inittext CODE >2824:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1CA4 inittext CODE >2825:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1CA5 inittext CODE >2826:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1CA6 inittext CODE >2827:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1CA7 inittext CODE >2828:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
-1CA8 inittext CODE >2829:C:\Users\Lenovo\AppData\Local\Temp\sc1s.s
+ECC maintext CODE >36:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+EDA maintext CODE >37:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+EF2 maintext CODE >38:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F00 maintext CODE >39:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F0E maintext CODE >40:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F20 maintext CODE >41:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F32 maintext CODE >42:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F38 maintext CODE >44:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F47 maintext CODE >46:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F4C maintext CODE >47:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F5D maintext CODE >48:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F6E maintext CODE >49:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F7F maintext CODE >50:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+F90 maintext CODE >51:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+FA1 maintext CODE >52:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+FB2 maintext CODE >53:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+FC3 maintext CODE >54:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+FD4 maintext CODE >55:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+FE3 maintext CODE >56:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+FF2 maintext CODE >58:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+FF7 maintext CODE >61:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+1BDC clrtext CODE >2861:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1BDC clrtext CODE >2862:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1BDD clrtext CODE >2863:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1BDD clrtext CODE >2864:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1BDE clrtext CODE >2865:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1BDF clrtext CODE >2866:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1BE0 clrtext CODE >2867:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1BE1 clrtext CODE >2868:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1BE2 clrtext CODE >2869:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1BE3 clrtext CODE >2870:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1C96 inittext CODE >2807:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1C96 inittext CODE >2808:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1C97 inittext CODE >2809:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1C98 inittext CODE >2810:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1C99 inittext CODE >2811:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1C9A inittext CODE >2818:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1C9A inittext CODE >2819:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1C9F inittext CODE >2820:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1CA0 inittext CODE >2821:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1CA1 inittext CODE >2822:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1CA2 inittext CODE >2823:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1CA3 inittext CODE >2824:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1CA4 inittext CODE >2825:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1CA5 inittext CODE >2826:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1CA6 inittext CODE >2827:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1CA7 inittext CODE >2828:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
+1CA8 inittext CODE >2829:C:\Users\Lenovo\AppData\Local\Temp\skfk.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -901,50 +901,51 @@ FF7 maintext CODE >66:E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+TempControl_init@hGpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ___awdiv@counter 27 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Ssd_SetSymbol 2014 0 CODE 0 text28 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_I2c_stopMaster 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_SysTick_Handler 39A6 0 CODE 0 text70 dist/default/production\WaterHeatingSystem.X.production.o
+Ssd_setState@id 31 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_TempSensor_getState 2CE4 0 CODE 0 text22 dist/default/production\WaterHeatingSystem.X.production.o
 __LdataBANK1 0 0 ABS 0 dataBANK1 -
 __LdataBANK3 0 0 ABS 0 dataBANK3 -
-Eeprom_WritePage@Length 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Gpio_SetPortState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __Hspace_0 2000 0 ABS 0 - -
 __Hspace_1 1E6 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
-_TempControl 51 0 BANK0 1 bssBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __HidataBANK1 0 0 ABS 0 idataBANK1 -
 __HidataBANK3 0 0 ABS 0 idataBANK3 -
-Gpio_SetPinState@Id 2D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Eeprom_Init 3E10 0 CODE 0 text66 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Eeprom_Read 2192 0 CODE 0 text58 dist/default/production\WaterHeatingSystem.X.production.o
-_SwitchTask_Init 2086 0 CODE 0 text6 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_LedTask_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_ReadPage@i 28 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_SsdTask_Update 1D4E 0 CODE 0 text16 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_TempSensorTask_Update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Eeprom_init 3E10 0 CODE 0 text66 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Eeprom_read 2192 0 CODE 0 text58 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_SwitchTask_update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_SwitchTask_init 2086 0 CODE 0 text6 dist/default/production\WaterHeatingSystem.X.production.o
+SwitchTask_getState@id 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_LedTask_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+I2c_initMaster@baudrate 3E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Led_init@xGpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_init@cPin 3D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_init@dPin 3F 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_setSymbol@symbol 31 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__size_of_Adc_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_Update@Paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Adc_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_start 3864 0 CODE 0 text10 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_I2c_ACK 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-SwitchTask_Init@Pin 38 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Led_SetState 251C 0 CODE 0 text36 dist/default/production\WaterHeatingSystem.X.production.o
+TempControlTask_setState@id 21 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_I2c_ack 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_sw C6 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
+_Ssd_setState 3D62 0 CODE 0 text30 dist/default/production\WaterHeatingSystem.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _Scheduler_update 2DC8 0 CODE 0 text71 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_SsdTask_SetState 3F8E 0 CODE 0 text44 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_initSysTick@tickNumber 28 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Gpio E6 0 BANK1 1 dataBANK1 dist/default/production\WaterHeatingSystem.X.production.o
 _PIE1 8C 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _PIR1 C 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
+___sp 0 0 STACK 2 stack C:\Users\Lenovo\AppData\Local\Temp\skfk.o
+_gpio E3 0 BANK1 1 dataBANK1 dist/default/production\WaterHeatingSystem.X.production.o
 _main 1D4E 0 CODE 0 maintext dist/default/production\WaterHeatingSystem.X.production.o
+LedTask_init@xGpioId 35 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-start 24 0 CODE 0 init C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-Eeprom_ReadPage@Address 27 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-SwitchTask_Update@Id 45 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+start 24 0 CODE 0 init C:\Users\Lenovo\AppData\Local\Temp\skfk.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __size_of___awmod 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __pfunctab 9E 0 ENTRY 0 functab dist/default/production\WaterHeatingSystem.X.production.o
@@ -952,204 +953,217 @@ __size_of_main 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.producti
 __size_of___lldiv 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __size_of___lwdiv 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_LedTask_Update 18F2 0 CODE 0 text17 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Eeprom_WritePage 23E2 0 CODE 0 text54 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_SsdTask_SetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_TempSensor_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempSensor_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+TempControlTask_init@cGpioId 3B 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ?___lmul 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ?___wmul 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Gpio_InitPin@Pin 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_LedTask_Init 25C8 0 CODE 0 text48 dist/default/production\WaterHeatingSystem.X.production.o
-_TempControl_Init 2EE4 0 CODE 0 text5 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Switch_GetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Gpio_SetPinState@State 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Eeprom_WritePage 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Ssd_Init@dataGpioId 34 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Eeprom_ReadPage 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Ssd_SetSymbol@Id 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_switchTask BD 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_I2c_waitMaster 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_TempControlTask_update 39FA 0 CODE 0 text18 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_LedTask_init 25C8 0 CODE 0 text48 dist/default/production\WaterHeatingSystem.X.production.o
+_TempControl_init 2EE4 0 CODE 0 text5 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensor_init@xGpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensorTask_update@id 4A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __LidataBANK1 0 0 ABS 0 idataBANK1 -
 __LidataBANK3 0 0 ABS 0 idataBANK3 -
-__end_of_TempControlTask_Update 3A24 0 CODE 0 text18 dist/default/production\WaterHeatingSystem.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-__size_of_I2c_MasterRepeatedStart 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 i1___bmul@multiplier 72 0 COMMON 1 cstackCOMMON dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_displayError 3B56 0 CODE 0 text32 dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_Update@Id 49 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ___awmod@sign 30 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-SwitchTask_Init@GpioId 37 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_SetSymbol@Id 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_TempSensorTask_getAverage 38BE 0 CODE 0 text40 dist/default/production\WaterHeatingSystem.X.production.o
 _SysTick_Handler 397C 0 CODE 0 text70 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_reportStatus 3906 0 CODE 0 text31 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_deleteTask@index 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Ssd_Init@Id 3B 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-intlevel0 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-intlevel1 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-intlevel2 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-intlevel3 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-intlevel4 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-intlevel5 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-Led_Init@GpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_Gpio_getPinState 3CBE 0 CODE 0 text27 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Gpio_setPortState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+intlevel0 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\skfk.o
+intlevel1 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\skfk.o
+intlevel2 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\skfk.o
+intlevel3 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\skfk.o
+intlevel4 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\skfk.o
+intlevel5 9E 0 ENTRY 0 functab C:\Users\Lenovo\AppData\Local\Temp\skfk.o
 ___bmul@multiplicand 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_SwitchTask_Update 12CC 0 CODE 0 text20 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_SsdTask_setSymbol 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Ssd_setState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_I2c_startMaster 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_LedTask_setState 23E2 0 CODE 0 text45 dist/default/production\WaterHeatingSystem.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+TempControlTask_init@cPin 3C 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempControlTask_init@hPin 3A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_I2c_repeatedStartMaster 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __Hfunctab CE 0 ENTRY 0 functab -
 _Scheduler_start 384C 0 CODE 0 text10 dist/default/production\WaterHeatingSystem.X.production.o
-_Adc_Init 381E 0 CODE 0 text3 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Ssd_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-TempControl_SetState@Id 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SwitchTask_update@paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_Adc_init 381E 0 CODE 0 text3 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Timer1_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_write@address 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Ssd_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 ___awdiv@sign 28 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Adc_GetState 39D0 0 CODE 0 text24 dist/default/production\WaterHeatingSystem.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_Adc_Init 3834 0 CODE 0 text3 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_I2c_writeMaster 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+TempControl_setState@state 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_setPortState@State 21 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ___wmul@multiplicand 22 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Ssd_Init@ctrlGpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_SsdTask A0 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Adc_init 3834 0 CODE 0 text3 dist/default/production\WaterHeatingSystem.X.production.o
 _ADCON0 1F 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _ADCON1 9F 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _ADRESH 1E 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _ADRESL 9E 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 ___awdiv@dividend 25 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Ssd_SetSymbol 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Switch_Init@Id 36 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Switch_Init 3E6A 0 CODE 0 text7 dist/default/production\WaterHeatingSystem.X.production.o
-HeaterTask_Init@Index 45 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-LedTask_Init@Id 37 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+LedTask_setState@period 2B 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_Switch_init 3E6A 0 CODE 0 text7 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_TempSensor_getState 2DC8 0 CODE 0 text22 dist/default/production\WaterHeatingSystem.X.production.o
+_SsdTask_update 1AFE 0 CODE 0 text16 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Ssd_setState 3DB8 0 CODE 0 text30 dist/default/production\WaterHeatingSystem.X.production.o
 _CCPR1H 16 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _CCPR1L 15 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-SwitchTask_Update@Paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_SwitchTask_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_SetSymbol@Symbol 31 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_readPage@address 27 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_SwitchTask_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_SwitchTask_getState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+Ssd_setSymbol@id 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempControlTask_setState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __end_of___bmul 3A52 0 CODE 0 text51 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of___lmul 22AE 0 CODE 0 text23 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of___wmul 3C6E 0 CODE 0 text12 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_HeaterTask_Update A96 0 CODE 0 text19 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_I2c_ACK 38BE 0 CODE 0 text57 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_I2c_ack 38BE 0 CODE 0 text57 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_update 2EE4 0 CODE 0 text71 dist/default/production\WaterHeatingSystem.X.production.o
-TempControlTask_Update@Id 45 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_I2c_initMaster 3D0E 0 CODE 0 text67 dist/default/production\WaterHeatingSystem.X.production.o
+LedTask_update@paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_addTask 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_TempSensorTask_GetAverage 38E2 0 CODE 0 text40 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_setSymbol@id 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Ssd_setSymbol@symbol 2A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-Gpio_GetPinState@Id 26 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Gpio_SetPortState 3E6A 0 CODE 0 text29 dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_SetState@Period 2B 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_Gpio_initPin 22AE 0 CODE 0 text69 dist/default/production\WaterHeatingSystem.X.production.o
 ___bmul@multiplier 22 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_LedTask_update 1730 0 CODE 0 text17 dist/default/production\WaterHeatingSystem.X.production.o
 ___awdiv@divisor 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempSensorTask_Update@Index 48 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Ssd_setState@state 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_SwitchTask_update 1416 0 CODE 0 text20 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of___awdiv 2A56 0 CODE 0 text39 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of___awmod 2730 0 CODE 0 text38 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_tempSensor B0 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of___lldiv 2984 0 CODE 0 text68 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of___lwdiv 221E 0 CODE 0 text46 dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_WritePage@i 28 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_dispatchTasks@index 4F 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Led_Init@Id 34 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Heater 56 0 BANK0 1 bssBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Adc_GetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_TempControl_Init 3000 0 CODE 0 text5 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_TempControl_init 3000 0 CODE 0 text5 dist/default/production\WaterHeatingSystem.X.production.o
 _INTCON B 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Ssd_Init@ctrlPin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 _OPTION_REG 81 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-___stacklo 0 0 ABS 0 - C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-__end_of_Ssd_SetSymbol 2086 0 CODE 0 text28 dist/default/production\WaterHeatingSystem.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\Lenovo\AppData\Local\Temp\skfk.o
+___stacklo 0 0 ABS 0 - C:\Users\Lenovo\AppData\Local\Temp\skfk.o
 __size_ofi1___bmul 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Eeprom_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Eeprom_Read 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_Init@ctrlPin 3D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_TempControl_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_Ssd_Init 1416 0 CODE 0 text9 dist/default/production\WaterHeatingSystem.X.production.o
+Ssd_init@dGpioId 34 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_HeaterTask_update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_setPortState@Id 29 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Eeprom_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Eeprom_read 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_ssdSymbolPattern 1DC 0 BANK3 1 dataBANK3 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempControl_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_Ssd_init 1416 0 CODE 0 text9 dist/default/production\WaterHeatingSystem.X.production.o
 ___lwdiv@quotient 27 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-LedTask_Update@Paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Led_SetState@State 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Switch_init@xGpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_readPage@buffer 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_init@dGpioId 3E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Led_setState@id 2F 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SwitchTask_init@xGpioId 37 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempControl_init@id 38 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Gpio_getPinState 3D0E 0 CODE 0 text27 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_SysTick_Handler 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 ___lldiv@counter 3D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 start_initialization 2A 0 CODE 0 cinit dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Ssd_Init 158E 0 CODE 0 text9 dist/default/production\WaterHeatingSystem.X.production.o
-_I2c_MasterInit 3D0E 0 CODE 0 text67 dist/default/production\WaterHeatingSystem.X.production.o
-_I2c_MasterStop 3808 0 CODE 0 text62 dist/default/production\WaterHeatingSystem.X.production.o
-_I2c_MasterWait 3864 0 CODE 0 text65 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Adc_GetState 39FA 0 CODE 0 text24 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Ssd_init 158E 0 CODE 0 text9 dist/default/production\WaterHeatingSystem.X.production.o
+_SwitchTask_getState 3C6E 0 CODE 0 text42 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Switch_getState 3AE2 0 CODE 0 text26 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_LedTask_setState 247C 0 CODE 0 text45 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_SsdTask_update 1D4E 0 CODE 0 text16 dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_initPin@Id 31 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempSensorTask_update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Gpio_getPinState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Eeprom_readPage 27F2 0 CODE 0 text56 dist/default/production\WaterHeatingSystem.X.production.o
+TempControlTask_setState@state 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_goToSleep 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Ssd_SetState@Id 31 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ___lldiv@dividend 34 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_getPinState@Pin 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+LedTask_setState@state 2A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_start 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Gpio_SetPortState@Pins 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Gpio_initPin 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+SwitchTask_getState@buffer 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensorTask_init@id 3C 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_deleteTask 2A56 0 CODE 0 text35 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_LedTask_setState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_I2c_initMaster 3D62 0 CODE 0 text67 dist/default/production\WaterHeatingSystem.X.production.o
+LedTask_init@xPin 36 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 i1___bmul@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\WaterHeatingSystem.X.production.o
-LedTask_Init@GpioId 35 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-HeaterTask_Init@Id 47 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SwitchTask_init@id 39 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+I2c_writeMaster@buffer 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_initSysTick 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-SwitchTask_GetState@Id 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 clear_ram0 37B8 0 CODE 0 clrtext dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Gpio_setPortState 3E6A 0 CODE 0 text29 dist/default/production\WaterHeatingSystem.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 _SSPADD 93 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Ssd_Init@Pin 39 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempControlTask_SetState@Id 21 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_TempSensor_GetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_Switch D2 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
-?_Adc_GetState 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempControl_Init@cGpioId 34 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_TempControl_SetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-TempSensorTask_Init@AdcId 38 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_I2c_NACK 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_I2c_Read 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-TempSensorTask_Init@Index 3A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_LedTask_update 18F2 0 CODE 0 text17 dist/default/production\WaterHeatingSystem.X.production.o
+TempControlTask_init@id 3D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_setState@id 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_SsdTask_setSymbol 39D0 0 CODE 0 text43 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensorTask_update@index 48 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_Gpio_setPinState F82 0 CODE 0 text37 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_readPage@length 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_I2c_nack 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_I2c_read 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_TempControl_setState 25C8 0 CODE 0 text25 dist/default/production\WaterHeatingSystem.X.production.o
 i1___bmul@product 71 0 COMMON 1 cstackCOMMON dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_TempControlTask_update 3A24 0 CODE 0 text18 dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_sleepHardware FFC 0 CODE 0 text34 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_TempSensorTask_GetAverage 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Ssd_Init@dataPin 35 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
+__end_of_TempControlTask_setState 384C 0 CODE 0 text41 dist/default/production\WaterHeatingSystem.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\Lenovo\AppData\Local\Temp\skfk.o
 i1___bmul 3952 0 CODE 0 text72 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Gpio_initPin 2348 0 CODE 0 text69 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_sleepHardware FFE 0 CODE 0 text34 dist/default/production\WaterHeatingSystem.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 9E 0 CODE 0 cinit -
-_HeaterTask_Update CE 0 CODE 0 text19 dist/default/production\WaterHeatingSystem.X.production.o
+_SsdTask_setState 3F22 0 CODE 0 text44 dist/default/production\WaterHeatingSystem.X.production.o
 __Hstack 0 0 STACK 2 stack -
 ___lwdiv@counter 29 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_dispatchTasks 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-I2c_MasterWrite@Buffer 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_Init@dataPin 3F 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_TempControlTask_Update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_Led_setState 247C 0 CODE 0 text36 dist/default/production\WaterHeatingSystem.X.production.o
+Switch_init@xPin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
-Ssd_SetSymbol@Symbol 2A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_delaySoftwareMs 1082 0 CODE 0 text52 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_delaySoftwareUs 4000 0 CODE 0 text53 dist/default/production\WaterHeatingSystem.X.production.o
-Gpio_SetPortState@State 21 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempControl_Init@cPin 35 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempControl_Init@hPin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Gpio_SetPortState 3E10 0 CODE 0 text29 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_TempControlTask_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_TempControl_SetState 267A 0 CODE 0 text25 dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_setPinState@Id 2D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempControlTask_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_displayError 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4010 0 CONFIG 4 config -
-LedTask_Update@Id 48 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __end_ofi1___bmul 397C 0 CODE 0 text72 dist/default/production\WaterHeatingSystem.X.production.o
-_Eeprom_Write 3EC4 0 CODE 0 text55 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensor_init@id 35 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_SwitchTask_update 12CC 0 CODE 0 text20 dist/default/production\WaterHeatingSystem.X.production.o
+_Switch_getState 3AB0 0 CODE 0 text26 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_reportStatus 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_goToSleep 3A52 0 CODE 0 text33 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_I2c_MasterInit 3D62 0 CODE 0 text67 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_I2c_MasterStop 381E 0 CODE 0 text62 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_I2c_MasterWait 387E 0 CODE 0 text65 dist/default/production\WaterHeatingSystem.X.production.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
+_Eeprom_readPage 2730 0 CODE 0 text56 dist/default/production\WaterHeatingSystem.X.production.o
 __Lcinit 2A 0 CODE 0 cinit -
-__end_of_HeaterTask_Init F82 0 CODE 0 text50 dist/default/production\WaterHeatingSystem.X.production.o
+_Eeprom_write 3EC4 0 CODE 0 text55 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_HeaterTask_init F82 0 CODE 0 text50 dist/default/production\WaterHeatingSystem.X.production.o
 __Lstack 0 0 STACK 2 stack -
 __size_of__fptable 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_TempControlTask_SetState 3834 0 CODE 0 text41 dist/default/production\WaterHeatingSystem.X.production.o
-_Gpio_GetPinState 3CBE 0 CODE 0 text27 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensorTask_init@xPin 37 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_I2c_stopMaster 3808 0 CODE 0 text60 dist/default/production\WaterHeatingSystem.X.production.o
+HeaterTask_update@id 48 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_setPinState@State 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __Linittext 0 0 ABS 0 inittext -
+_Eeprom_writePage 2348 0 CODE 0 text54 dist/default/production\WaterHeatingSystem.X.production.o
 _INTCONbits B 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_addTask 11A4 0 CODE 0 text47 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_SsdTask_Update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 24 0 CODE 0 init -
@@ -1158,7 +1172,6 @@ __Hsfr1 0 0 ABS 0 sfr1 -
 __Hsfr2 0 0 ABS 0 sfr2 -
 __Hsfr3 0 0 ABS 0 sfr3 -
 __Htext 0 0 ABS 0 text -
-TempControlTask_Init@hGpioId 39 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __Labs1 0 0 ABS 0 abs1 -
 __Lcode 0 0 ABS 0 code -
 __Linit 24 0 CODE 0 init -
@@ -1167,73 +1180,79 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-TempSensor_Init@AdcId 34 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ___bmul 3A24 0 CODE 0 text51 dist/default/production\WaterHeatingSystem.X.production.o
 ___lmul 221E 0 CODE 0 text23 dist/default/production\WaterHeatingSystem.X.production.o
 ___wmul 3C20 0 CODE 0 text12 dist/default/production\WaterHeatingSystem.X.production.o
-_TempSensor_GetState 2CE4 0 CODE 0 text22 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_TempControlTask_Init 3B94 0 CODE 0 text4 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_TempControlTask_init 3B94 0 CODE 0 text4 dist/default/production\WaterHeatingSystem.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_Led D8 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
-_Ssd DE 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
 __S0 2000 0 ABS 0 - -
 __S1 1E6 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-__size_of_TempSensorTask_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_SetState@State 2A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Led_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-LedTask_SetState@Period 2B 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_led 5D 0 BANK0 1 bssBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_ssd 68 0 BANK0 1 bssBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempSensorTask_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_Timer1_init 3906 0 CODE 0 text13 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Led_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+TempControl_init@cGpioId 34 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_delaySoftwareUs@usDelay 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_LedTask_Update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_I2c_NACK 387E 0 CODE 0 text60 dist/default/production\WaterHeatingSystem.X.production.o
-_I2c_Read 3AE2 0 CODE 0 text59 dist/default/production\WaterHeatingSystem.X.production.o
+_I2c_nack 387E 0 CODE 0 text64 dist/default/production\WaterHeatingSystem.X.production.o
+_I2c_read 3AE2 0 CODE 0 text63 dist/default/production\WaterHeatingSystem.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_Ssd_SetState 3D62 0 CODE 0 text30 dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_Write@Buffer 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_TempControlTask 55 0 BANK0 1 bssBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Led_setState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+LedTask_setState@id 2F 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_HeaterTask_update A96 0 CODE 0 text19 dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_init 3B94 0 CODE 0 text14 dist/default/production\WaterHeatingSystem.X.production.o
-_Timer1Init 3906 0 CODE 0 text13 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Eeprom_Write 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-TempSensorTask_Update@Id 4A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_I2c_NACK 389E 0 CODE 0 text60 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_I2c_Read 3B18 0 CODE 0 text59 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_SwitchTask_getState 3CBE 0 CODE 0 text42 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_readPage@i 28 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_init@id 41 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_I2c_nack 389E 0 CODE 0 text64 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_I2c_read 3B18 0 CODE 0 text63 dist/default/production\WaterHeatingSystem.X.production.o
+_I2c_waitMaster 3864 0 CODE 0 text65 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_update@index 74 0 COMMON 1 cstackCOMMON dist/default/production\WaterHeatingSystem.X.production.o
-_TempSensorTask 1CE 0 BANK3 1 bssBANK3 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Eeprom_write 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_Gpio_setPortState 3E10 0 CODE 0 text29 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensorTask_init@xGpioId 36 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_SsdTask_setSymbol 39A6 0 CODE 0 text43 dist/default/production\WaterHeatingSystem.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
+__end_of_Gpio_setPinState FFC 0 CODE 0 text37 dist/default/production\WaterHeatingSystem.X.production.o
 ___lldiv@divisor 30 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_SsdTask_Init 2C04 0 CODE 0 text8 dist/default/production\WaterHeatingSystem.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
-_HeaterTask_Init A96 0 CODE 0 text50 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_TempSensorTask_Update 1AFE 0 CODE 0 text21 dist/default/production\WaterHeatingSystem.X.production.o
+_heater CC 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
+_SsdTask_init 2C04 0 CODE 0 text8 dist/default/production\WaterHeatingSystem.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Lenovo\AppData\Local\Temp\skfk.o
+_Ssd_setSymbol 2014 0 CODE 0 text28 dist/default/production\WaterHeatingSystem.X.production.o
+_HeaterTask_init A96 0 CODE 0 text50 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensor_getState@id 42 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_I2c_stopMaster 381E 0 CODE 0 text60 dist/default/production\WaterHeatingSystem.X.production.o
 __fptable 9E 0 ENTRY 0 functab dist/default/production\WaterHeatingSystem.X.production.o
-__pdataBANK1 E6 0 BANK1 1 dataBANK1 dist/default/production\WaterHeatingSystem.X.production.o
+Switch_getState@id 29 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__pdataBANK1 E3 0 BANK1 1 dataBANK1 dist/default/production\WaterHeatingSystem.X.production.o
 __pdataBANK3 1DC 0 BANK3 1 dataBANK3 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Led_setState 251C 0 CODE 0 text36 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensor_init@xPin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of___bmul 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __size_of___lmul 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __size_of___wmul 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Gpio_setPinState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __LbssBANK1 0 0 ABS 0 bssBANK1 -
 __LbssBANK3 0 0 ABS 0 bssBANK3 -
+_ledTask 51 0 BANK0 1 bssBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_delaySoftwareMs 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_delaySoftwareUs 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_SsdTask_SetSymbol 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_SwitchTask C9 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
-Gpio_SetPinState@Pin 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempControlTask_Init@cPin 3C 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempControlTask_Init@hPin 3A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_I2c_ACK 389E 0 CODE 0 text57 dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_ReadPage@Buffer 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_TempSensorTask_Init 2B28 0 CODE 0 text1 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_read@address 21 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempControlTask_init@hGpioId 39 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_SsdTask_setState 3F8E 0 CODE 0 text44 dist/default/production\WaterHeatingSystem.X.production.o
+_LedTask_update$1464 47 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_I2c_ack 389E 0 CODE 0 text57 dist/default/production\WaterHeatingSystem.X.production.o
+_TempSensorTask_init 2B28 0 CODE 0 text1 dist/default/production\WaterHeatingSystem.X.production.o
 ___awmod@counter 2F 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_delaySoftwareUs@delay 28 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Eeprom_Write 3F22 0 CODE 0 text55 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of__fptable CE 0 ENTRY 0 functab dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Switch_Init 3EC4 0 CODE 0 text7 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Switch_init 3EC4 0 CODE 0 text7 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Eeprom_write 3F22 0 CODE 0 text55 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_addTask@task 27 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_I2c_MasterStart 3808 0 CODE 0 text63 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_I2c_MasterWrite 3AB0 0 CODE 0 text61 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext10 384C 0 CODE 0 text10 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext11 3BD8 0 CODE 0 text11 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext12 3C20 0 CODE 0 text12 dist/default/production\WaterHeatingSystem.X.production.o
@@ -1283,12 +1302,12 @@ __ptext55 3EC4 0 CODE 0 text55 dist/default/production\WaterHeatingSystem.X.prod
 __ptext56 2730 0 CODE 0 text56 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext57 389E 0 CODE 0 text57 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext58 210A 0 CODE 0 text58 dist/default/production\WaterHeatingSystem.X.production.o
-__ptext59 3AE2 0 CODE 0 text59 dist/default/production\WaterHeatingSystem.X.production.o
-__ptext60 387E 0 CODE 0 text60 dist/default/production\WaterHeatingSystem.X.production.o
-__ptext61 3A80 0 CODE 0 text61 dist/default/production\WaterHeatingSystem.X.production.o
-__ptext62 3808 0 CODE 0 text62 dist/default/production\WaterHeatingSystem.X.production.o
-__ptext63 37F2 0 CODE 0 text63 dist/default/production\WaterHeatingSystem.X.production.o
-__ptext64 37DC 0 CODE 0 text64 dist/default/production\WaterHeatingSystem.X.production.o
+__ptext59 3A80 0 CODE 0 text59 dist/default/production\WaterHeatingSystem.X.production.o
+__ptext60 3808 0 CODE 0 text60 dist/default/production\WaterHeatingSystem.X.production.o
+__ptext61 37F2 0 CODE 0 text61 dist/default/production\WaterHeatingSystem.X.production.o
+__ptext62 37DC 0 CODE 0 text62 dist/default/production\WaterHeatingSystem.X.production.o
+__ptext63 3AE2 0 CODE 0 text63 dist/default/production\WaterHeatingSystem.X.production.o
+__ptext64 387E 0 CODE 0 text64 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext65 3864 0 CODE 0 text65 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext66 3DB8 0 CODE 0 text66 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext67 3D0E 0 CODE 0 text67 dist/default/production\WaterHeatingSystem.X.production.o
@@ -1297,81 +1316,69 @@ __ptext69 22AE 0 CODE 0 text69 dist/default/production\WaterHeatingSystem.X.prod
 __ptext70 397C 0 CODE 0 text70 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext71 2DC8 0 CODE 0 text71 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext72 3952 0 CODE 0 text72 dist/default/production\WaterHeatingSystem.X.production.o
-_TempSensorTask_GetAverage 38BE 0 CODE 0 text40 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Ssd_SetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_I2c_MasterRepeatedStart 37DC 0 CODE 0 text64 dist/default/production\WaterHeatingSystem.X.production.o
-_LedTask_SetState 23E2 0 CODE 0 text45 dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_Write@Address 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_SsdTask_setState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 ___awdiv 2984 0 CODE 0 text39 dist/default/production\WaterHeatingSystem.X.production.o
 ___awmod 267A 0 CODE 0 text38 dist/default/production\WaterHeatingSystem.X.production.o
 ___lldiv 28B4 0 CODE 0 text68 dist/default/production\WaterHeatingSystem.X.production.o
 ___lwdiv 2192 0 CODE 0 text46 dist/default/production\WaterHeatingSystem.X.production.o
-_Eeprom_Init 3DB8 0 CODE 0 text66 dist/default/production\WaterHeatingSystem.X.production.o
-_Eeprom_Read 210A 0 CODE 0 text58 dist/default/production\WaterHeatingSystem.X.production.o
-_Led_Init 27F2 0 CODE 0 text49 dist/default/production\WaterHeatingSystem.X.production.o
+_Eeprom_init 3DB8 0 CODE 0 text66 dist/default/production\WaterHeatingSystem.X.production.o
+_Eeprom_read 210A 0 CODE 0 text58 dist/default/production\WaterHeatingSystem.X.production.o
+_Led_init 27F2 0 CODE 0 text49 dist/default/production\WaterHeatingSystem.X.production.o
 __pmaintext 1D4E 0 CODE 0 maintext dist/default/production\WaterHeatingSystem.X.production.o
-_TempSensorTask_Update 18F2 0 CODE 0 text21 dist/default/production\WaterHeatingSystem.X.production.o
+HeaterTask_update@paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 _scheduler 190 0 BANK3 1 bssBANK3 dist/default/production\WaterHeatingSystem.X.production.o
-_Gpio_InitPin 22AE 0 CODE 0 text69 dist/default/production\WaterHeatingSystem.X.production.o
 ___lmul@multiplier 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_I2c_MasterRepeatedStart 37F2 0 CODE 0 text64 dist/default/production\WaterHeatingSystem.X.production.o
-Led_SetState@Id 2F 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Switch_getState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+SwitchTask_update@id 45 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Eeprom_readPage 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-__end_of_Gpio_GetPinState 3D0E 0 CODE 0 text27 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Eeprom_writePage 23E2 0 CODE 0 text54 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_init 3BD8 0 CODE 0 text14 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_goToSleep 3A80 0 CODE 0 text33 dist/default/production\WaterHeatingSystem.X.production.o
 __Hinittext 0 0 ABS 0 inittext -
 ___wmul@multiplier 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-SwitchTask_GetState@Buffer 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_getPinState@Id 26 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_addTask@period 26 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Led_Init 28B4 0 CODE 0 text49 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Led_init 28B4 0 CODE 0 text49 dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_addTask 1082 0 CODE 0 text47 dist/default/production\WaterHeatingSystem.X.production.o
-TempSensor_Init@GpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Gpio_GetPinState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_SsdTask_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_I2c_waitMaster 387E 0 CODE 0 text65 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_SsdTask_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 ___lwdiv@divisor 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Switch_Init@GpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Timer1Init 392C 0 CODE 0 text13 dist/default/production\WaterHeatingSystem.X.production.o
-TempSensorTask_Init@GpioId 36 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_TempSensor_GetState 2DC8 0 CODE 0 text22 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Ssd_SetState 3DB8 0 CODE 0 text30 dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_ReadPage@Length 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempControl_Init@Id 38 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-HeaterTask_Update@Paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Scheduler_dispatchTasks$1428 4E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Scheduler_dispatchTasks$1433 4C 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_SwitchTask_GetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_TempControlTask_SetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-Timer1Init@TicksNumber 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Eeprom_writePage 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_I2c_repeatedStartMaster 37DC 0 CODE 0 text62 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_I2c_repeatedStartMaster 37F2 0 CODE 0 text62 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_update@id 49 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_Scheduler_dispatchTasks$1458 4E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_Scheduler_dispatchTasks$1463 4C 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensorTask_getAverage@id 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_tempControl 63 0 BANK0 1 bssBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Ssd_init@cPin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Ssd_init@dPin 35 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensorTask_update@paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_initSysTick@msTickPeriod 26 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Switch_Init@Pin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_SetState@Id 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_HeaterTask_update CE 0 CODE 0 text19 dist/default/production\WaterHeatingSystem.X.production.o
+_Adc_getState 39D0 0 CODE 0 text24 dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_setPortState@Pins 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-_Gpio_SetPinState F82 0 CODE 0 text37 dist/default/production\WaterHeatingSystem.X.production.o
+Led_setState@state 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempControlTask_update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 init_fetch0 392C 0 CODE 0 inittext dist/default/production\WaterHeatingSystem.X.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Lend_init 24 0 CODE 0 end_init -
-__size_of_Gpio_InitPin 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+HeaterTask_init@index 45 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__end_of_SsdTask_Init 2CE4 0 CODE 0 text8 dist/default/production\WaterHeatingSystem.X.production.o
-_I2c_MasterStart 37F2 0 CODE 0 text63 dist/default/production\WaterHeatingSystem.X.production.o
-TempSensorTask_Init@Id 3C 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_I2c_MasterWrite 3A80 0 CODE 0 text61 dist/default/production\WaterHeatingSystem.X.production.o
-TempSensor_Init@Pin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-SwitchTask_Init@Id 39 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_SsdTask_init 2CE4 0 CODE 0 text8 dist/default/production\WaterHeatingSystem.X.production.o
 end_of_initialization 96 0 CODE 0 cinit dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_SwitchTask_Update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __Hintentry 24 0 CODE 0 intentry -
-Led_Init@Pin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 fptable 9E 0 ENTRY 0 functab dist/default/production\WaterHeatingSystem.X.production.o
 fptotal 10 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-TempSensorTask_Update@Paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempControlTask_Init@Id 3D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_writePage@buffer 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_TempSensorTask_getAverage 38E2 0 CODE 0 text40 dist/default/production\WaterHeatingSystem.X.production.o
 __Lstrings 0 0 ABS 0 strings -
 ___awdiv@quotient 29 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ?___awdiv 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
@@ -1379,16 +1386,19 @@ ___awdiv@quotient 29 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingS
 ___lwdiv@dividend 25 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ?___lldiv 30 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ?___lwdiv 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_TempSensor B0 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_HeaterTask_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_HeaterTask_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_initPin@Pin 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
+Ssd_init@id 3B 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_SsdTask_update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+TempSensor_init@xAdcId 34 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_read@buffer 22 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __HbssBANK1 0 0 ABS 0 bssBANK1 -
 __HbssBANK3 0 0 ABS 0 bssBANK3 -
+__size_of_Ssd_setSymbol 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 ___awmod@dividend 2D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempSensorTask_GetAverage@Id 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-TempControl_SetState@State 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_SsdSymbolPattern 1DC 0 BANK3 1 dataBANK3 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensorTask_init@xAdcId 38 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext1 2B28 0 CODE 0 text1 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext2 158E 0 CODE 0 text2 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext3 381E 0 CODE 0 text3 dist/default/production\WaterHeatingSystem.X.production.o
@@ -1398,81 +1408,67 @@ __ptext6 2086 0 CODE 0 text6 dist/default/production\WaterHeatingSystem.X.produc
 __ptext7 3E6A 0 CODE 0 text7 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext8 2C04 0 CODE 0 text8 dist/default/production\WaterHeatingSystem.X.production.o
 __ptext9 1416 0 CODE 0 text9 dist/default/production\WaterHeatingSystem.X.production.o
-Gpio_InitPin@Mode 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_TempSensor_Init 1730 0 CODE 0 text2 dist/default/production\WaterHeatingSystem.X.production.o
-LedTask_Init@Pin 36 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Gpio_InitPin 2348 0 CODE 0 text69 dist/default/production\WaterHeatingSystem.X.production.o
-_SwitchTask_GetState 3C6E 0 CODE 0 text42 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Switch_GetState 3AE2 0 CODE 0 text26 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_LedTask_SetState 247C 0 CODE 0 text45 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_TempSensorTask_Init 2C04 0 CODE 0 text1 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Eeprom_ReadPage 27F2 0 CODE 0 text56 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_TempSensor_init 1730 0 CODE 0 text2 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_I2c_initMaster 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_TempSensorTask_init 2C04 0 CODE 0 text1 dist/default/production\WaterHeatingSystem.X.production.o
+TempControlTask_update@id 45 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_delaySoftwareMs 100C 0 CODE 0 text52 dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_delaySoftwareUs 3F8E 0 CODE 0 text53 dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_Read@Buffer 22 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_TempControlTask_Update 39FA 0 CODE 0 text18 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_LedTask_update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Adc_getState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 Scheduler_displayError@errorCode 30 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_displayError 3B18 0 CODE 0 text32 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_SsdTask_SetSymbol 39D0 0 CODE 0 text43 dist/default/production\WaterHeatingSystem.X.production.o
-TempSensor_Init@Id 35 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_LedTask_SetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+_ssdTask A0 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_reportStatus 38E2 0 CODE 0 text31 dist/default/production\WaterHeatingSystem.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-Gpio_InitPin@Id 31 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Ssd_SetState@State 2E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Switch_init@id 36 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_writePage@length 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+LedTask_init@id 37 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Led_init@xPin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempControl_setState@id 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Ssd_setSymbol 2086 0 CODE 0 text28 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of__initialization 96 0 CODE 0 cinit dist/default/production\WaterHeatingSystem.X.production.o
 ___awmod@divisor 2B 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_Read@Address 21 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-LedTask_SetState@Id 2F 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_I2c_startMaster 3808 0 CODE 0 text61 dist/default/production\WaterHeatingSystem.X.production.o
 __Lfunctab 9E 0 ENTRY 0 functab -
-TempSensorTask_Init@Pin 37 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_Init@dataGpioId 3E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __pidataBANK1 2000 0 CODE 0 idataBANK1 dist/default/production\WaterHeatingSystem.X.production.o
 __pidataBANK3 37C8 0 CODE 0 idataBANK3 dist/default/production\WaterHeatingSystem.X.production.o
-_TempControl_SetState 25C8 0 CODE 0 text25 dist/default/production\WaterHeatingSystem.X.production.o
+_LedTask_setState$1428 2D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempControlTask_update@paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-__end_of_TempControlTask_SetState 384C 0 CODE 0 text41 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Adc_getState 39FA 0 CODE 0 text24 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_TempSensorTask_update 1AFE 0 CODE 0 text21 dist/default/production\WaterHeatingSystem.X.production.o
 ___lmul@product 2C 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Switch_Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_I2c_writeMaster 3AB0 0 CODE 0 text59 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_Switch_init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_deleteTask 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_I2c_MasterInit 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_I2c_MasterStop 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_I2c_MasterWait 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 ___lmul@multiplicand 27 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Gpio_SetPortState@Id 29 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_SsdTask_SetState 3F22 0 CODE 0 text44 dist/default/production\WaterHeatingSystem.X.production.o
 ___lldiv@quotient 39 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\WaterHeatingSystem.X.production.o
-TempControl_Init@hGpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Led_SetState 247C 0 CODE 0 text36 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_Gpio_SetPinState FFC 0 CODE 0 text37 dist/default/production\WaterHeatingSystem.X.production.o
 __size_of_Scheduler_sleepHardware 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+Led_init@id 34 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_Timer1_init 392C 0 CODE 0 text13 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_initSysTick 3C20 0 CODE 0 text11 dist/default/production\WaterHeatingSystem.X.production.o
-HeaterTask_Update@Id 48 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 _SSPCON2 91 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_TempSensor_Init 158E 0 CODE 0 text2 dist/default/production\WaterHeatingSystem.X.production.o
-TempSensor_GetState@Id 42 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_TempSensor_init 158E 0 CODE 0 text2 dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_initPin@Mode 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __Hend_init 2A 0 CODE 0 end_init -
 init_ram0 3934 0 CODE 0 inittext dist/default/production\WaterHeatingSystem.X.production.o
-_Eeprom_WritePage 2348 0 CODE 0 text54 dist/default/production\WaterHeatingSystem.X.production.o
-_TempControlTask_Init 3B56 0 CODE 0 text4 dist/default/production\WaterHeatingSystem.X.production.o
-Switch_GetState@Id 29 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_Switch_GetState 3AB0 0 CODE 0 text26 dist/default/production\WaterHeatingSystem.X.production.o
+TempSensorTask_init@index 3A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Ssd_init@pin 39 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_TempControlTask_init 3B56 0 CODE 0 text4 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempSensor_getState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempSensorTask_getAverage 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+?_Adc_getState 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_main 2000 0 CODE 0 maintext dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Gpio_SetPinState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_setState@state 2A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_addTask@paramter 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_SwitchTask_Init 210A 0 CODE 0 text6 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_I2c_MasterStart 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_Init@Id 41 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_I2c_MasterWrite 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_Eeprom_ReadPage 2730 0 CODE 0 text56 dist/default/production\WaterHeatingSystem.X.production.o
-TempControlTask_SetState@State 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_SsdTask_Update 1AFE 0 CODE 0 text16 dist/default/production\WaterHeatingSystem.X.production.o
-TempControlTask_Update@Paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_LedTask_Update$1434 47 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_SwitchTask_init 210A 0 CODE 0 text6 dist/default/production\WaterHeatingSystem.X.production.o
+_TempSensorTask_update 18F2 0 CODE 0 text21 dist/default/production\WaterHeatingSystem.X.production.o
+__size_of_TempControl_setState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _PORTC 7 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
@@ -1482,44 +1478,48 @@ _T1CON 10 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _TMR1H F 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 _TMR1L E 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_deleteTask 2B28 0 CODE 0 text35 dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_WritePage@Buffer 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 _Scheduler_dispatchTasks 11A4 0 CODE 0 text15 dist/default/production\WaterHeatingSystem.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\WaterHeatingSystem.X.production.o
-LedTask_SetState@State 2A 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_LedTask_Init 251C 0 CODE 0 text48 dist/default/production\WaterHeatingSystem.X.production.o
-Gpio_GetPinState@Pin 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_LedTask_SetState$1398 2D 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_tempControlTask 67 0 BANK0 1 bssBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_write@buffer 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_LedTask_init 251C 0 CODE 0 text48 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_writePage@i 28 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __end_of_Scheduler_dispatchTasks 12CC 0 CODE 0 text15 dist/default/production\WaterHeatingSystem.X.production.o
 _CCP1CON 17 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\WaterHeatingSystem.X.production.o
-SsdTask_Init@ctrlGpioId 3C 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Timer1_init@tickNumber 20 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __HdataBANK1 0 0 ABS 0 dataBANK1 -
 __HdataBANK3 0 0 ABS 0 dataBANK3 -
 _Scheduler_initSysTick 3BD8 0 CODE 0 text11 dist/default/production\WaterHeatingSystem.X.production.o
-_LedTask_Update 1730 0 CODE 0 text17 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_setState@period 2B 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_tempSensorTask 1CE 0 BANK3 1 bssBANK3 dist/default/production\WaterHeatingSystem.X.production.o
 __initialization 2A 0 CODE 0 cinit dist/default/production\WaterHeatingSystem.X.production.o
 ___bmul@product 21 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_addTask@delay 25 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_addTask@index 28 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-_LedTask BD 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
+_I2c_startMaster 37F2 0 CODE 0 text61 dist/default/production\WaterHeatingSystem.X.production.o
+__end_of_TempControl_setState 267A 0 CODE 0 text25 dist/default/production\WaterHeatingSystem.X.production.o
 __pbssBANK0 51 0 BANK0 1 bssBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 __pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production\WaterHeatingSystem.X.production.o
 __pbssBANK3 190 0 BANK3 1 bssBANK3 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_SwitchTask_Update 1416 0 CODE 0 text20 dist/default/production\WaterHeatingSystem.X.production.o
-TempControlTask_Init@cGpioId 3B 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Eeprom_writePage@address 27 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 ___wmul@product 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_delaySoftwareMs@msDelay 29 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Timer1Init 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_Led_SetState 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-I2c_MasterInit@BaudRate 3E 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-Eeprom_WritePage@Address 27 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+HeaterTask_init@id 47 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_update@paramter 43 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Ssd_init@cGpioId 32 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_TempControlTask_setState 3834 0 CODE 0 text41 dist/default/production\WaterHeatingSystem.X.production.o
+SwitchTask_init@xPin 38 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempControl_init@cPin 35 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+TempControl_init@hPin 33 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+_I2c_writeMaster 3A80 0 CODE 0 text59 dist/default/production\WaterHeatingSystem.X.production.o
 Scheduler_init@index 24 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
-__end_of_SwitchTask_GetState 3CBE 0 CODE 0 text42 dist/default/production\WaterHeatingSystem.X.production.o
 fpbase A8 0 ENTRY 0 functab dist/default/production\WaterHeatingSystem.X.production.o
-__size_of_HeaterTask_Update 0 0 ABS 0 - dist/default/production\WaterHeatingSystem.X.production.o
-_SsdTask_SetSymbol 39A6 0 CODE 0 text43 dist/default/production\WaterHeatingSystem.X.production.o
+LedTask_update@id 48 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+Gpio_setPinState@Pin 23 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
+SsdTask_init@cGpioId 3C 0 BANK0 1 cstackBANK0 dist/default/production\WaterHeatingSystem.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1600,12 +1600,12 @@ text55 0 1F62 3EC4 2F 2
 text56 0 1398 2730 61 2
 text57 0 1C4F 389E 10 2
 text58 0 1085 210A 44 2
-text59 0 1D71 3AE2 1B 2
-text60 0 1C3F 387E 10 2
-text61 0 1D40 3A80 18 2
-text62 0 1C04 3808 B 2
-text63 0 1BF9 37F2 B 2
-text64 0 1BEE 37DC B 2
+text59 0 1D40 3A80 18 2
+text60 0 1C04 3808 B 2
+text61 0 1BF9 37F2 B 2
+text62 0 1BEE 37DC B 2
+text63 0 1D71 3AE2 1B 2
+text64 0 1C3F 387E 10 2
 text65 0 1C32 3864 D 2
 text66 0 1EDC 3DB8 2C 2
 text67 0 1E87 3D0E 2A 2
@@ -1616,11 +1616,11 @@ text71 0 16E4 2DC8 8E 2
 text72 0 1CA9 3952 15 2
 maintext 0 EA7 1D4E 163 2
 cstackCOMMON 1 70 70 A 1
-cstackBANK0 1 20 20 4D 1
+cstackBANK0 1 20 20 50 1
 inittext 0 1C96 392C 13 2
 intentry 0 4 8 4B 2
 reset_vec 0 0 0 3 2
-bssBANK1 1 A0 A0 50 1
+bssBANK1 1 A0 A0 4D 1
 bssBANK3 1 190 190 56 1
 idataBANK3 0 1BE4 37C8 A 2
 functab 0 4F 9E 18 2

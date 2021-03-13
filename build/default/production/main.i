@@ -2170,12 +2170,21 @@ void Scheduler_goToSleep( void );
 
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 4 "main.c" 2
 
 # 1 "./Adc.h" 1
@@ -2184,14 +2193,26 @@ UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
 
 
 
-void Adc_Init( Id_t Id );
-uint16_t Adc_GetState( Id_t Id );
+typedef enum
+{
+ ADC0_ID
+}ADC_t;
+
+void Adc_init( Id_t id );
+uint16_t Adc_getState( Id_t id );
 # 5 "main.c" 2
 
 # 1 "./Timer.h" 1
 # 12 "./Timer.h"
-void Timer0Init( void );
-void Timer1Init( uint16_t TicksNumber );
+typedef enum
+{
+ TIMER0_ID,
+ TIMER1_ID,
+ TIMER2_ID
+}TIMER_t;
+
+void Timer0_init( void );
+void Timer1_init( uint16_t tickNumber );
 # 6 "main.c" 2
 
 # 1 "./Switch.h" 1
@@ -2201,9 +2222,15 @@ void Timer1Init( uint16_t TicksNumber );
 
 
 
-void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-uint8_t Switch_GetState( Id_t Id );
-void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ SWITCH1_ID,
+ SWITCH2_ID,
+ SWITCH3_ID
+}SWITCH_t;
+
+void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+uint8_t Switch_getState( Id_t id );
 # 7 "main.c" 2
 
 # 1 "./SwitchTask.h" 1
@@ -2213,9 +2240,9 @@ void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-uint8_t SwitchTask_GetState( Id_t Id );
-void SwitchTask_Update( void *Paramter );
+void SwitchTask_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+uint8_t SwitchTask_getState( Id_t id );
+void SwitchTask_update( void *paramter );
 # 8 "main.c" 2
 
 # 1 "./TempSensor.h" 1
@@ -2226,10 +2253,13 @@ void SwitchTask_Update( void *Paramter );
 
 
 
-void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
-uint8_t TempSensor_GetState( Id_t Id );
-void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
-void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
+typedef enum
+{
+ TEMP_SENSOR1_ID
+}TEMP_SENSOR_t;
+
+void TempSensor_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId );
+uint8_t TempSensor_getState( Id_t id );
 # 9 "main.c" 2
 
 # 1 "./TempSensorTask.h" 1
@@ -2239,9 +2269,9 @@ void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
 
 
 
-void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
-uint8_t TempSensorTask_GetAverage( Id_t Id );
-void TempSensorTask_Update( void *Paramter );
+void TempSensorTask_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId );
+uint8_t TempSensorTask_getAverage( Id_t id );
+void TempSensorTask_update( void *paramter );
 # 10 "main.c" 2
 
 # 1 "./TempControl.h" 1
@@ -2251,10 +2281,13 @@ void TempSensorTask_Update( void *Paramter );
 
 
 
-void TempControl_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
-void TempControl_SetState( Id_t Id, uint8_t State );
-void TempControl_SetGpioH( Id_t Id, Id_t GpioId, uint8_t Pin );
-void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ TEMP_CONTROL1_ID
+}TEMP_CONTROL_t;
+
+void TempControl_init( Id_t id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
+void TempControl_setState( Id_t id, uint8_t state );
 # 11 "main.c" 2
 
 # 1 "./TempControlTask.h" 1
@@ -2264,9 +2297,9 @@ void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void TempControlTask_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
-void TempControlTask_SetState( Id_t Id, uint8_t State );
-void TempControlTask_Update( void *Paramter );
+void TempControlTask_init( Id_t id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
+void TempControlTask_setState( Id_t id, uint8_t state );
+void TempControlTask_update( void *paramter );
 # 12 "main.c" 2
 
 # 1 "./Led.h" 1
@@ -2276,9 +2309,14 @@ void TempControlTask_Update( void *Paramter );
 
 
 
-void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Led_SetState( Id_t Id, uint8_t State );
-void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ LED1_ID,
+ LED2_ID
+}LED_t;
+
+void Led_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+void Led_setState( Id_t id, uint8_t state );
 # 13 "main.c" 2
 
 # 1 "./LedTask.h" 1
@@ -2288,11 +2326,9 @@ void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-
-
-void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
-void LedTask_Update( void *Paramter );
+void LedTask_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+void LedTask_setState( Id_t id, uint8_t state, uint16_t period );
+void LedTask_update( void *paramter );
 # 14 "main.c" 2
 
 # 1 "./Ssd.h" 1
@@ -2302,18 +2338,15 @@ void LedTask_Update( void *Paramter );
 
 
 
-void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
-void Ssd_SetState( Id_t Id, uint8_t State );
-void Ssd_SetSymbol( Id_t Id, uint8_t Symbol );
-void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD0( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD1( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD2( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD3( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD4( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD5( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD6( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD7( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ SSD1_ID,
+ SSD2_ID
+}SSD_t;
+
+void Ssd_init( Id_t id, Id_t cGpioId, uint8_t cPin, Id_t dGpioId, uint8_t dPin );
+void Ssd_setState( Id_t id, uint8_t state );
+void Ssd_setSymbol( Id_t id, uint8_t symbol );
 # 15 "main.c" 2
 
 # 1 "./SsdTask.h" 1
@@ -2323,10 +2356,10 @@ void Ssd_SetGpioD7( Id_t Id, Id_t GpioId, uint8_t Pin );
 
 
 
-void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
-void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
-void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol );
-void SsdTask_Update( void *Paramter );
+void SsdTask_init( Id_t id, Id_t cGpioId, uint8_t cPin, Id_t dGpioId, uint8_t dPin );
+void SsdTask_setState( Id_t id, uint8_t state, uint16_t period );
+void SsdTask_setSymbol( Id_t id, uint8_t symbol );
+void SsdTask_update( void *paramter );
 # 16 "main.c" 2
 
 
@@ -2337,15 +2370,20 @@ void SsdTask_Update( void *Paramter );
 
 
 
-void I2c_MasterInit( uint32_t BaudRate );
-void I2c_MasterWait( void );
-void I2c_MasterStart( void );
-void I2c_MasterRepeatedStart( void );
-void I2c_MasterStop( void );
-void I2c_ACK( void );
-void I2c_NACK( void );
-uint8_t I2c_MasterWrite( uint8_t Buffer );
-uint8_t I2c_Read( void );
+typedef enum
+{
+ I2C0_ID
+}I2C_t;
+
+void I2c_initMaster( uint32_t baudrate );
+void I2c_waitMaster( void );
+void I2c_startMaster( void );
+void I2c_repeatedStartMaster( void );
+void I2c_stopMaster( void );
+void I2c_ack( void );
+void I2c_nack( void );
+uint8_t I2c_writeMaster( uint8_t buffer );
+uint8_t I2c_read( void );
 # 18 "main.c" 2
 
 # 1 "./Eeprom.h" 1
@@ -2355,11 +2393,16 @@ uint8_t I2c_Read( void );
 
 
 
-void Eeprom_Init( void );
-void Eeprom_Write( uint8_t Address, uint8_t Buffer );
-void Eeprom_WritePage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
-uint8_t Eeprom_Read( uint8_t Address );
-void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
+typedef enum
+{
+ EEPROM0_ID
+}EEPROM_t;
+
+void Eeprom_init( void );
+void Eeprom_write( uint8_t address, uint8_t buffer );
+void Eeprom_writePage( uint8_t address, uint8_t *buffer, uint8_t length );
+uint8_t Eeprom_read( uint8_t address );
+void Eeprom_readPage( uint8_t address, uint8_t *buffer, uint8_t length );
 # 19 "main.c" 2
 
 # 1 "./WaterHeater.h" 1
@@ -2367,8 +2410,13 @@ void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
 # 1 "./WaterHeater.h" 1
 # 22 "./WaterHeater.h" 2
 # 33 "./WaterHeater.h"
-void HeaterTask_Init( Id_t Id );
-void HeaterTask_Update( void *Paramter );
+typedef enum
+{
+ HEATER1_ID
+}HEATER_t;
+
+void HeaterTask_init( Id_t id );
+void HeaterTask_update( void *paramter );
 # 20 "main.c" 2
 
 
@@ -2383,35 +2431,30 @@ void SysTick_Handler( void ) __attribute__((picinterrupt((""))))
 
 int main( void )
 {
-    SwitchTask_Init( 0, ( 1 ), 0 );
-    SwitchTask_Init( 1, ( 1 ), 1 );
-    SwitchTask_Init( 2, ( 1 ), 2 );
-
-    TempSensorTask_Init( 0, ( 0 ), 2, 0 );
-
-    TempControlTask_Init( 0, ( 2 ), 5, ( 2 ), 2 );
-
-    LedTask_Init( 0, ( 1 ), 6 );
-    LedTask_Init( 1, ( 1 ), 7 );
-
-    SsdTask_Init( 0, ( 0 ), 5, ( 3 ), 0 );
-    SsdTask_Init( 1, ( 0 ), 4, ( 3 ), 0 );
-
-    HeaterTask_Init( 0 );
+    SwitchTask_init( SWITCH1_ID, GPIOB_ID, 0 );
+    SwitchTask_init( SWITCH2_ID, GPIOB_ID, 1 );
+    SwitchTask_init( SWITCH3_ID, GPIOB_ID, 2 );
+    TempSensorTask_init( TEMP_SENSOR1_ID, GPIOA_ID, 2, 0 );
+    TempControlTask_init( TEMP_CONTROL1_ID, GPIOC_ID, 5, GPIOC_ID, 2 );
+    LedTask_init( LED1_ID, GPIOB_ID, 6 );
+    LedTask_init( LED2_ID, GPIOB_ID, 7 );
+    SsdTask_init( SSD1_ID, GPIOA_ID, 5, GPIOD_ID, 0 );
+    SsdTask_init( SSD2_ID, GPIOA_ID, 4, GPIOD_ID, 0 );
+    HeaterTask_init( HEATER1_ID );
 
     Scheduler_delaySoftwareUs( 1000 );
 
     Scheduler_init();
-    Scheduler_addTask( SwitchTask_Update, (void *) 0, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( SwitchTask_Update, (void *) 1, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( SwitchTask_Update, (void *) 2, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( TempSensorTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( HeaterTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( TempControlTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( LedTask_Update, (void *) 0, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( LedTask_Update, (void *) 1, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( SsdTask_Update, (void *) 0, 0, ( 5 / ( ( TickType_t ) 5 ) ) );
-    Scheduler_addTask( SsdTask_Update, (void *) 1, 0, ( 5 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SwitchTask_update, (void *) SWITCH1_ID, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SwitchTask_update, (void *) SWITCH1_ID, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SwitchTask_update, (void *) SWITCH1_ID, 0, ( 10 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( TempSensorTask_update, (void *) TEMP_SENSOR1_ID, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( HeaterTask_update, (void *) HEATER1_ID, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( TempControlTask_update, (void *) TEMP_CONTROL1_ID, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( LedTask_update, (void *) LED1_ID, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( LedTask_update, (void *) LED2_ID, 0, ( 100 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SsdTask_update, (void *) SSD1_ID, 0, ( 5 / ( ( TickType_t ) 5 ) ) );
+    Scheduler_addTask( SsdTask_update, (void *) SSD2_ID, 0, ( 5 / ( ( TickType_t ) 5 ) ) );
 
     Scheduler_start();
     while( 1 )

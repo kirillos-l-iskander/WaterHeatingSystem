@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.20\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\WaterHeatingSystem.X.production.sym \
   --cmf=dist/default/production\WaterHeatingSystem.X.production.cmf -z \
-  -Q16F877A -oC:\Users\Lenovo\AppData\Local\Temp\sc1s.2 \
+  -Q16F877A -oC:\Users\Lenovo\AppData\Local\Temp\skfk.2 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/WaterHeatingSystem.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
@@ -19,7 +19,7 @@ Linker command line:
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Lenovo\AppData\Local\Temp\sc1s.o \
+  C:\Users\Lenovo\AppData\Local\Temp\skfk.o \
   dist/default/production\WaterHeatingSystem.X.production.o 
 
 Object code version is 3.11
@@ -29,7 +29,7 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Lenovo\AppData\Local\Temp\sc1s.o
+C:\Users\Lenovo\AppData\Local\Temp\skfk.o
                 end_init                             12       12        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        1        0       4
@@ -46,12 +46,12 @@ dist/default/production\WaterHeatingSystem.X.production.o
                 text67                             1E87     1E87       2A     3D0E       0
                 text66                             1EDC     1EDC       2C     3DB8       0
                 text65                             1C32     1C32        D     3864       0
-                text64                             1BEE     1BEE        B     37DC       0
-                text63                             1BF9     1BF9        B     37F2       0
-                text62                             1C04     1C04        B     3808       0
-                text61                             1D40     1D40       18     3A80       0
-                text60                             1C3F     1C3F       10     387E       0
-                text59                             1D71     1D71       1B     3AE2       0
+                text64                             1C3F     1C3F       10     387E       0
+                text63                             1D71     1D71       1B     3AE2       0
+                text62                             1BEE     1BEE        B     37DC       0
+                text61                             1BF9     1BF9        B     37F2       0
+                text60                             1C04     1C04        B     3808       0
+                text59                             1D40     1D40       18     3A80       0
                 text58                             1085     1085       44     210A       0
                 text57                             1C4F     1C4F       10     389E       0
                 text56                             1398     1398       61     2730       0
@@ -117,9 +117,9 @@ dist/default/production\WaterHeatingSystem.X.production.o
                 inittext                           1C96     1C96       13     392C       0
                 dataBANK3                           1DC      1DC        A      190       1
                 bssBANK3                            190      190       4C      190       1
-                dataBANK1                            E6       E6        A       A0       1
-                bssBANK1                             A0       A0       46       A0       1
-                bssBANK0                             51       51       1C       20       1
+                dataBANK1                            E3       E3        A       A0       1
+                bssBANK1                             A0       A0       43       A0       1
+                bssBANK0                             51       51       1F       20       1
                 idataBANK3                         1BE4     1BE4        A     37C8       0
                 idataBANK1                         1000     1000        A     1D4E       0
 
@@ -139,12 +139,12 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text67                             1E87     1E87       2A         0
                 text66                             1EDC     1EDC       2C         0
                 text65                             1C32     1C32        D         0
-                text64                             1BEE     1BEE        B         0
-                text63                             1BF9     1BF9        B         0
-                text62                             1C04     1C04        B         0
-                text61                             1D40     1D40       18         0
-                text60                             1C3F     1C3F       10         0
-                text59                             1D71     1D71       1B         0
+                text64                             1C3F     1C3F       10         0
+                text63                             1D71     1D71       1B         0
+                text62                             1BEE     1BEE        B         0
+                text61                             1BF9     1BF9        B         0
+                text60                             1C04     1C04        B         0
+                text59                             1D40     1D40       18         0
                 text58                             1085     1085       44         0
                 text57                             1C4F     1C4F       10         0
                 text56                             1398     1398       61         0
@@ -223,11 +223,11 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   BANK0          
                 cstackBANK0                          20       20       31         1
-                bssBANK0                             51       51       1C         1
+                bssBANK0                             51       51       1F         1
 
         CLASS   BANK1          
-                dataBANK1                            E6       E6        A         1
-                bssBANK1                             A0       A0       46         1
+                dataBANK1                            E3       E3        A         1
+                bssBANK1                             A0       A0       43         1
 
         CLASS   BANK2          
 
@@ -261,10 +261,10 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
                 intentry                       000004  00004B  00004F         8       0  CODE        2
-                cstackBANK0                    000020  00004D  00006D        20       1  BANK0       1
+                cstackBANK0                    000020  000050  000070        20       1  BANK0       1
                 cstackCOMMON                   000070  00000A  00007A        70       1  COMMON      1
                 functab                        00004F  000018  000067        9E       0  ENTRY       2
-                bssBANK1                       0000A0  000050  0000F0        A0       1  BANK1       1
+                bssBANK1                       0000A0  00004D  0000ED        A0       1  BANK1       1
                 text19                         000067  000798  0007FF        CE       0  CODE        2
                 bssBANK3                       000190  000056  0001E6       190       1  BANK3       1
                 text52                         000806  00003B  000841      100C       0  CODE        2
@@ -301,14 +301,14 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 text5                          001772  00008E  001800      2EE4       0  CODE        2
                 clrtext                        001BDC  000008  001BE4      37B8       0  CODE        2
                 idataBANK3                     001BE4  00000A  001BEE      37C8       0  CODE        2
-                text64                         001BEE  00000B  001BF9      37DC       0  CODE        2
-                text63                         001BF9  00000B  001C04      37F2       0  CODE        2
-                text62                         001C04  00000B  001C0F      3808       0  CODE        2
+                text62                         001BEE  00000B  001BF9      37DC       0  CODE        2
+                text61                         001BF9  00000B  001C04      37F2       0  CODE        2
+                text60                         001C04  00000B  001C0F      3808       0  CODE        2
                 text3                          001C0F  00000B  001C1A      381E       0  CODE        2
                 text41                         001C1A  00000C  001C26      3834       0  CODE        2
                 text10                         001C26  00000C  001C32      384C       0  CODE        2
                 text65                         001C32  00000D  001C3F      3864       0  CODE        2
-                text60                         001C3F  000010  001C4F      387E       0  CODE        2
+                text64                         001C3F  000010  001C4F      387E       0  CODE        2
                 text57                         001C4F  000010  001C5F      389E       0  CODE        2
                 text40                         001C5F  000012  001C71      38BE       0  CODE        2
                 text31                         001C71  000012  001C83      38E2       0  CODE        2
@@ -321,9 +321,9 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 text18                         001CFD  000015  001D12      39FA       0  CODE        2
                 text51                         001D12  000017  001D29      3A24       0  CODE        2
                 text33                         001D29  000017  001D40      3A52       0  CODE        2
-                text61                         001D40  000018  001D58      3A80       0  CODE        2
+                text59                         001D40  000018  001D58      3A80       0  CODE        2
                 text26                         001D58  000019  001D71      3AB0       0  CODE        2
-                text59                         001D71  00001B  001D8C      3AE2       0  CODE        2
+                text63                         001D71  00001B  001D8C      3AE2       0  CODE        2
                 text32                         001D8C  00001F  001DAB      3B18       0  CODE        2
                 text4                          001DAB  00001F  001DCA      3B56       0  CODE        2
                 text14                         001DCA  000022  001DEC      3B94       0  CODE        2
@@ -344,7 +344,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            006D-006F              3           1
+        BANK1            00ED-00EF              3           1
         BANK2            0110-016F             60           1
         BANK3            01E6-01EF              A           1
         CODE             0003-0003              1           2
@@ -359,7 +359,7 @@ UNUSED ADDRESS RANGES
                          07FF-0805              1
                          1800-1BDB            100
         IDLOC            2000-2003              4           2
-        RAM              006D-006F              3           1
+        RAM              00ED-00EF              3           1
                          0110-016F             60
                          01E6-01EF              A
         SFR0             0000-001F             20           1
@@ -376,55 +376,55 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
-?_Adc_GetState                      cstackBANK0  0020
+?_Adc_getState                      cstackBANK0  0020
 ?___awdiv                           cstackBANK0  0023
 ?___awmod                           cstackBANK0  002B
 ?___lldiv                           cstackBANK0  0030
 ?___lmul                            cstackBANK0  0023
 ?___lwdiv                           cstackBANK0  0023
 ?___wmul                            cstackBANK0  0020
-Eeprom_Read@Address                 cstackBANK0  0021
-Eeprom_Read@Buffer                  cstackBANK0  0022
-Eeprom_ReadPage@Address             cstackBANK0  0027
-Eeprom_ReadPage@Buffer              cstackBANK0  0023
-Eeprom_ReadPage@Length              cstackBANK0  0024
-Eeprom_ReadPage@i                   cstackBANK0  0028
-Eeprom_Write@Address                cstackBANK0  0024
-Eeprom_Write@Buffer                 cstackBANK0  0023
-Eeprom_WritePage@Address            cstackBANK0  0027
-Eeprom_WritePage@Buffer             cstackBANK0  0023
-Eeprom_WritePage@Length             cstackBANK0  0024
-Eeprom_WritePage@i                  cstackBANK0  0028
-Gpio_GetPinState@Id                 cstackBANK0  0026
-Gpio_GetPinState@Pin                cstackBANK0  0020
-Gpio_InitPin@Id                     cstackBANK0  0031
-Gpio_InitPin@Mode                   cstackBANK0  0024
-Gpio_InitPin@Pin                    cstackBANK0  0023
-Gpio_SetPinState@Id                 cstackBANK0  002D
-Gpio_SetPinState@Pin                cstackBANK0  0023
-Gpio_SetPinState@State              cstackBANK0  0024
-Gpio_SetPortState@Id                cstackBANK0  0029
-Gpio_SetPortState@Pins              cstackBANK0  0020
-Gpio_SetPortState@State             cstackBANK0  0021
-HeaterTask_Init@Id                  cstackBANK0  0047
-HeaterTask_Init@Index               cstackBANK0  0045
-HeaterTask_Update@Id                cstackBANK0  0048
-HeaterTask_Update@Paramter          cstackBANK0  0043
-I2c_MasterInit@BaudRate             cstackBANK0  003E
-I2c_MasterWrite@Buffer              cstackBANK0  0020
-LedTask_Init@GpioId                 cstackBANK0  0035
-LedTask_Init@Id                     cstackBANK0  0037
-LedTask_Init@Pin                    cstackBANK0  0036
-LedTask_SetState@Id                 cstackBANK0  002F
-LedTask_SetState@Period             cstackBANK0  002B
-LedTask_SetState@State              cstackBANK0  002A
-LedTask_Update@Id                   cstackBANK0  0048
-LedTask_Update@Paramter             cstackBANK0  0043
-Led_Init@GpioId                     cstackBANK0  0032
-Led_Init@Id                         cstackBANK0  0034
-Led_Init@Pin                        cstackBANK0  0033
-Led_SetState@Id                     cstackBANK0  002F
-Led_SetState@State                  cstackBANK0  002E
+Eeprom_read@address                 cstackBANK0  0021
+Eeprom_read@buffer                  cstackBANK0  0022
+Eeprom_readPage@address             cstackBANK0  0027
+Eeprom_readPage@buffer              cstackBANK0  0023
+Eeprom_readPage@i                   cstackBANK0  0028
+Eeprom_readPage@length              cstackBANK0  0024
+Eeprom_write@address                cstackBANK0  0024
+Eeprom_write@buffer                 cstackBANK0  0023
+Eeprom_writePage@address            cstackBANK0  0027
+Eeprom_writePage@buffer             cstackBANK0  0023
+Eeprom_writePage@i                  cstackBANK0  0028
+Eeprom_writePage@length             cstackBANK0  0024
+Gpio_getPinState@Id                 cstackBANK0  0026
+Gpio_getPinState@Pin                cstackBANK0  0020
+Gpio_initPin@Id                     cstackBANK0  0031
+Gpio_initPin@Mode                   cstackBANK0  0024
+Gpio_initPin@Pin                    cstackBANK0  0023
+Gpio_setPinState@Id                 cstackBANK0  002D
+Gpio_setPinState@Pin                cstackBANK0  0023
+Gpio_setPinState@State              cstackBANK0  0024
+Gpio_setPortState@Id                cstackBANK0  0029
+Gpio_setPortState@Pins              cstackBANK0  0020
+Gpio_setPortState@State             cstackBANK0  0021
+HeaterTask_init@id                  cstackBANK0  0047
+HeaterTask_init@index               cstackBANK0  0045
+HeaterTask_update@id                cstackBANK0  0048
+HeaterTask_update@paramter          cstackBANK0  0043
+I2c_initMaster@baudrate             cstackBANK0  003E
+I2c_writeMaster@buffer              cstackBANK0  0020
+LedTask_init@id                     cstackBANK0  0037
+LedTask_init@xGpioId                cstackBANK0  0035
+LedTask_init@xPin                   cstackBANK0  0036
+LedTask_setState@id                 cstackBANK0  002F
+LedTask_setState@period             cstackBANK0  002B
+LedTask_setState@state              cstackBANK0  002A
+LedTask_update@id                   cstackBANK0  0048
+LedTask_update@paramter             cstackBANK0  0043
+Led_init@id                         cstackBANK0  0034
+Led_init@xGpioId                    cstackBANK0  0032
+Led_init@xPin                       cstackBANK0  0033
+Led_setState@id                     cstackBANK0  002F
+Led_setState@state                  cstackBANK0  002E
 Scheduler_addTask@delay             cstackBANK0  0025
 Scheduler_addTask@index             cstackBANK0  0028
 Scheduler_addTask@paramter          cstackBANK0  0023
@@ -440,112 +440,108 @@ Scheduler_init@index                cstackBANK0  0024
 Scheduler_initSysTick@msTickPeriod  cstackBANK0  0026
 Scheduler_initSysTick@tickNumber    cstackBANK0  0028
 Scheduler_update@index              cstackCOMMON 0074
-SsdTask_Init@Id                     cstackBANK0  0041
-SsdTask_Init@ctrlGpioId             cstackBANK0  003C
-SsdTask_Init@ctrlPin                cstackBANK0  003D
-SsdTask_Init@dataGpioId             cstackBANK0  003E
-SsdTask_Init@dataPin                cstackBANK0  003F
-SsdTask_SetState@Id                 cstackBANK0  002E
-SsdTask_SetState@Period             cstackBANK0  002B
-SsdTask_SetState@State              cstackBANK0  002A
-SsdTask_SetSymbol@Id                cstackBANK0  0033
-SsdTask_SetSymbol@Symbol            cstackBANK0  0031
-SsdTask_Update@Id                   cstackBANK0  0049
-SsdTask_Update@Paramter             cstackBANK0  0043
-Ssd_Init@Id                         cstackBANK0  003B
-Ssd_Init@Pin                        cstackBANK0  0039
-Ssd_Init@ctrlGpioId                 cstackBANK0  0032
-Ssd_Init@ctrlPin                    cstackBANK0  0033
-Ssd_Init@dataGpioId                 cstackBANK0  0034
-Ssd_Init@dataPin                    cstackBANK0  0035
-Ssd_SetState@Id                     cstackBANK0  0031
-Ssd_SetState@State                  cstackBANK0  002E
-Ssd_SetSymbol@Id                    cstackBANK0  002E
-Ssd_SetSymbol@Symbol                cstackBANK0  002A
-SwitchTask_GetState@Buffer          cstackBANK0  0023
-SwitchTask_GetState@Id              cstackBANK0  0024
-SwitchTask_Init@GpioId              cstackBANK0  0037
-SwitchTask_Init@Id                  cstackBANK0  0039
-SwitchTask_Init@Pin                 cstackBANK0  0038
-SwitchTask_Update@Id                cstackBANK0  0045
-SwitchTask_Update@Paramter          cstackBANK0  0043
-Switch_GetState@Id                  cstackBANK0  0029
-Switch_Init@GpioId                  cstackBANK0  0032
-Switch_Init@Id                      cstackBANK0  0036
-Switch_Init@Pin                     cstackBANK0  0033
-TempControlTask_Init@Id             cstackBANK0  003D
-TempControlTask_Init@cGpioId        cstackBANK0  003B
-TempControlTask_Init@cPin           cstackBANK0  003C
-TempControlTask_Init@hGpioId        cstackBANK0  0039
-TempControlTask_Init@hPin           cstackBANK0  003A
-TempControlTask_SetState@Id         cstackBANK0  0021
-TempControlTask_SetState@State      cstackBANK0  0020
-TempControlTask_Update@Id           cstackBANK0  0045
-TempControlTask_Update@Paramter     cstackBANK0  0043
-TempControl_Init@Id                 cstackBANK0  0038
-TempControl_Init@cGpioId            cstackBANK0  0034
-TempControl_Init@cPin               cstackBANK0  0035
-TempControl_Init@hGpioId            cstackBANK0  0032
-TempControl_Init@hPin               cstackBANK0  0033
-TempControl_SetState@Id             cstackBANK0  0032
-TempControl_SetState@State          cstackBANK0  002E
-TempSensorTask_GetAverage@Id        cstackBANK0  0023
-TempSensorTask_Init@AdcId           cstackBANK0  0038
-TempSensorTask_Init@GpioId          cstackBANK0  0036
-TempSensorTask_Init@Id              cstackBANK0  003C
-TempSensorTask_Init@Index           cstackBANK0  003A
-TempSensorTask_Init@Pin             cstackBANK0  0037
-TempSensorTask_Update@Id            cstackBANK0  004A
-TempSensorTask_Update@Index         cstackBANK0  0048
-TempSensorTask_Update@Paramter      cstackBANK0  0043
-TempSensor_GetState@Id              cstackBANK0  0042
-TempSensor_Init@AdcId               cstackBANK0  0034
-TempSensor_Init@GpioId              cstackBANK0  0032
-TempSensor_Init@Id                  cstackBANK0  0035
-TempSensor_Init@Pin                 cstackBANK0  0033
-Timer1Init@TicksNumber              cstackBANK0  0020
+SsdTask_init@cGpioId                cstackBANK0  003C
+SsdTask_init@cPin                   cstackBANK0  003D
+SsdTask_init@dGpioId                cstackBANK0  003E
+SsdTask_init@dPin                   cstackBANK0  003F
+SsdTask_init@id                     cstackBANK0  0041
+SsdTask_setState@id                 cstackBANK0  002E
+SsdTask_setState@period             cstackBANK0  002B
+SsdTask_setState@state              cstackBANK0  002A
+SsdTask_setSymbol@id                cstackBANK0  0033
+SsdTask_setSymbol@symbol            cstackBANK0  0031
+SsdTask_update@id                   cstackBANK0  0049
+SsdTask_update@paramter             cstackBANK0  0043
+Ssd_init@cGpioId                    cstackBANK0  0032
+Ssd_init@cPin                       cstackBANK0  0033
+Ssd_init@dGpioId                    cstackBANK0  0034
+Ssd_init@dPin                       cstackBANK0  0035
+Ssd_init@id                         cstackBANK0  003B
+Ssd_init@pin                        cstackBANK0  0039
+Ssd_setState@id                     cstackBANK0  0031
+Ssd_setState@state                  cstackBANK0  002E
+Ssd_setSymbol@id                    cstackBANK0  002E
+Ssd_setSymbol@symbol                cstackBANK0  002A
+SwitchTask_getState@buffer          cstackBANK0  0023
+SwitchTask_getState@id              cstackBANK0  0024
+SwitchTask_init@id                  cstackBANK0  0039
+SwitchTask_init@xGpioId             cstackBANK0  0037
+SwitchTask_init@xPin                cstackBANK0  0038
+SwitchTask_update@id                cstackBANK0  0045
+SwitchTask_update@paramter          cstackBANK0  0043
+Switch_getState@id                  cstackBANK0  0029
+Switch_init@id                      cstackBANK0  0036
+Switch_init@xGpioId                 cstackBANK0  0032
+Switch_init@xPin                    cstackBANK0  0033
+TempControlTask_init@cGpioId        cstackBANK0  003B
+TempControlTask_init@cPin           cstackBANK0  003C
+TempControlTask_init@hGpioId        cstackBANK0  0039
+TempControlTask_init@hPin           cstackBANK0  003A
+TempControlTask_init@id             cstackBANK0  003D
+TempControlTask_setState@id         cstackBANK0  0021
+TempControlTask_setState@state      cstackBANK0  0020
+TempControlTask_update@id           cstackBANK0  0045
+TempControlTask_update@paramter     cstackBANK0  0043
+TempControl_init@cGpioId            cstackBANK0  0034
+TempControl_init@cPin               cstackBANK0  0035
+TempControl_init@hGpioId            cstackBANK0  0032
+TempControl_init@hPin               cstackBANK0  0033
+TempControl_init@id                 cstackBANK0  0038
+TempControl_setState@id             cstackBANK0  0032
+TempControl_setState@state          cstackBANK0  002E
+TempSensorTask_getAverage@id        cstackBANK0  0023
+TempSensorTask_init@id              cstackBANK0  003C
+TempSensorTask_init@index           cstackBANK0  003A
+TempSensorTask_init@xAdcId          cstackBANK0  0038
+TempSensorTask_init@xGpioId         cstackBANK0  0036
+TempSensorTask_init@xPin            cstackBANK0  0037
+TempSensorTask_update@id            cstackBANK0  004A
+TempSensorTask_update@index         cstackBANK0  0048
+TempSensorTask_update@paramter      cstackBANK0  0043
+TempSensor_getState@id              cstackBANK0  0042
+TempSensor_init@id                  cstackBANK0  0035
+TempSensor_init@xAdcId              cstackBANK0  0034
+TempSensor_init@xGpioId             cstackBANK0  0032
+TempSensor_init@xPin                cstackBANK0  0033
+Timer1_init@tickNumber              cstackBANK0  0020
 _ADCON0                             (abs)        001F
 _ADCON1                             (abs)        009F
 _ADRESH                             (abs)        001E
 _ADRESL                             (abs)        009E
-_Adc_GetState                       text24       1CE8
-_Adc_Init                           text3        1C0F
+_Adc_getState                       text24       1CE8
+_Adc_init                           text3        1C0F
 _CCP1CON                            (abs)        0017
 _CCPR1H                             (abs)        0016
 _CCPR1L                             (abs)        0015
-_Eeprom_Init                        text66       1EDC
-_Eeprom_Read                        text58       1085
-_Eeprom_ReadPage                    text56       1398
-_Eeprom_Write                       text55       1F62
-_Eeprom_WritePage                   text54       11A4
-_Gpio                               dataBANK1    00E6
-_Gpio_GetPinState                   text27       1E5F
-_Gpio_InitPin                       text69       1157
-_Gpio_SetPinState                   text37       07C1
-_Gpio_SetPortState                  text29       1F08
-_Heater                             bssBANK0     0056
-_HeaterTask_Init                    text50       054B
-_HeaterTask_Update                  text19       0067
-_I2c_ACK                            text57       1C4F
-_I2c_MasterInit                     text67       1E87
-_I2c_MasterRepeatedStart            text64       1BEE
-_I2c_MasterStart                    text63       1BF9
-_I2c_MasterStop                     text62       1C04
-_I2c_MasterWait                     text65       1C32
-_I2c_MasterWrite                    text61       1D40
-_I2c_NACK                           text60       1C3F
-_I2c_Read                           text59       1D71
+_Eeprom_init                        text66       1EDC
+_Eeprom_read                        text58       1085
+_Eeprom_readPage                    text56       1398
+_Eeprom_write                       text55       1F62
+_Eeprom_writePage                   text54       11A4
+_Gpio_getPinState                   text27       1E5F
+_Gpio_initPin                       text69       1157
+_Gpio_setPinState                   text37       07C1
+_Gpio_setPortState                  text29       1F08
+_HeaterTask_init                    text50       054B
+_HeaterTask_update                  text19       0067
+_I2c_ack                            text57       1C4F
+_I2c_initMaster                     text67       1E87
+_I2c_nack                           text64       1C3F
+_I2c_read                           text63       1D71
+_I2c_repeatedStartMaster            text62       1BEE
+_I2c_startMaster                    text61       1BF9
+_I2c_stopMaster                     text60       1C04
+_I2c_waitMaster                     text65       1C32
+_I2c_writeMaster                    text59       1D40
 _INTCON                             (abs)        000B
 _INTCONbits                         (abs)        000B
-_Led                                bssBANK1     00D8
-_LedTask                            bssBANK1     00BD
-_LedTask_Init                       text48       128E
-_LedTask_SetState                   text45       11F1
-_LedTask_SetState$1398              cstackBANK0  002D
-_LedTask_Update                     text17       0B98
-_LedTask_Update$1434                cstackBANK0  0047
-_Led_Init                           text49       13F9
-_Led_SetState                       text36       123E
+_LedTask_init                       text48       128E
+_LedTask_setState                   text45       11F1
+_LedTask_setState$1428              cstackBANK0  002D
+_LedTask_update                     text17       0B98
+_LedTask_update$1464                cstackBANK0  0047
+_Led_init                           text49       13F9
+_Led_setState                       text36       123E
 _OPTION_REG                         (abs)        0081
 _PIE1                               (abs)        008C
 _PIR1                               (abs)        000C
@@ -564,8 +560,8 @@ _Scheduler_delaySoftwareMs          text52       0806
 _Scheduler_delaySoftwareUs          text53       1FC7
 _Scheduler_deleteTask               text35       152B
 _Scheduler_dispatchTasks            text15       08D2
-_Scheduler_dispatchTasks$1428       cstackBANK0  004E
-_Scheduler_dispatchTasks$1433       cstackBANK0  004C
+_Scheduler_dispatchTasks$1458       cstackBANK0  004E
+_Scheduler_dispatchTasks$1463       cstackBANK0  004C
 _Scheduler_displayError             text32       1D8C
 _Scheduler_goToSleep                text33       1D29
 _Scheduler_init                     text14       1DCA
@@ -574,43 +570,34 @@ _Scheduler_reportStatus             text31       1C71
 _Scheduler_sleepHardware            text34       07FE
 _Scheduler_start                    text10       1C26
 _Scheduler_update                   text71       16E4
-_Ssd                                bssBANK1     00DE
-_SsdSymbolPattern                   dataBANK3    01DC
-_SsdTask                            bssBANK1     00A0
-_SsdTask_Init                       text8        1602
-_SsdTask_SetState                   text44       1F91
-_SsdTask_SetSymbol                  text43       1CD3
-_SsdTask_Update                     text16       0D7F
-_Ssd_Init                           text9        0A0B
-_Ssd_SetState                       text30       1EB1
-_Ssd_SetSymbol                      text28       100A
-_Switch                             bssBANK1     00D2
-_SwitchTask                         bssBANK1     00C9
-_SwitchTask_GetState                text42       1E37
-_SwitchTask_Init                    text6        1043
-_SwitchTask_Update                  text20       0966
-_Switch_GetState                    text26       1D58
-_Switch_Init                        text7        1F35
+_SsdTask_init                       text8        1602
+_SsdTask_setState                   text44       1F91
+_SsdTask_setSymbol                  text43       1CD3
+_SsdTask_update                     text16       0D7F
+_Ssd_init                           text9        0A0B
+_Ssd_setState                       text30       1EB1
+_Ssd_setSymbol                      text28       100A
+_SwitchTask_getState                text42       1E37
+_SwitchTask_init                    text6        1043
+_SwitchTask_update                  text20       0966
+_Switch_getState                    text26       1D58
+_Switch_init                        text7        1F35
 _SysTick_Handler                    text70       1CBE
 _T1CON                              (abs)        0010
 _TMR0                               (abs)        0001
 _TMR1H                              (abs)        000F
 _TMR1L                              (abs)        000E
-_TempControl                        bssBANK0     0051
-_TempControlTask                    bssBANK0     0055
-_TempControlTask_Init               text4        1DAB
-_TempControlTask_SetState           text41       1C1A
-_TempControlTask_Update             text18       1CFD
-_TempControl_Init                   text5        1772
-_TempControl_SetState               text25       12E4
-_TempSensor                         bssBANK1     00B0
-_TempSensorTask                     bssBANK3     01CE
-_TempSensorTask_GetAverage          text40       1C5F
-_TempSensorTask_Init                text1        1594
-_TempSensorTask_Update              text21       0C79
-_TempSensor_GetState                text22       1672
-_TempSensor_Init                    text2        0AC7
-_Timer1Init                         text13       1C83
+_TempControlTask_init               text4        1DAB
+_TempControlTask_setState           text41       1C1A
+_TempControlTask_update             text18       1CFD
+_TempControl_init                   text5        1772
+_TempControl_setState               text25       12E4
+_TempSensorTask_getAverage          text40       1C5F
+_TempSensorTask_init                text1        1594
+_TempSensorTask_update              text21       0C79
+_TempSensor_getState                text22       1672
+_TempSensor_init                    text2        0AC7
+_Timer1_init                        text13       1C83
 __Habs1                             abs1         0000
 __Hbank0                            bank0        0000
 __Hbank1                            bank1        0000
@@ -735,33 +722,33 @@ ___wmul                             text12       1E10
 ___wmul@multiplicand                cstackBANK0  0022
 ___wmul@multiplier                  cstackBANK0  0020
 ___wmul@product                     cstackBANK0  0024
-__end_of_Adc_GetState               text24       1CFD
-__end_of_Adc_Init                   text3        1C1A
-__end_of_Eeprom_Init                text66       1F08
-__end_of_Eeprom_Read                text58       10C9
-__end_of_Eeprom_ReadPage            text56       13F9
-__end_of_Eeprom_Write               text55       1F91
-__end_of_Eeprom_WritePage           text54       11F1
-__end_of_Gpio_GetPinState           text27       1E87
-__end_of_Gpio_InitPin               text69       11A4
-__end_of_Gpio_SetPinState           text37       07FE
-__end_of_Gpio_SetPortState          text29       1F35
-__end_of_HeaterTask_Init            text50       07C1
-__end_of_HeaterTask_Update          text19       054B
-__end_of_I2c_ACK                    text57       1C5F
-__end_of_I2c_MasterInit             text67       1EB1
-__end_of_I2c_MasterRepeatedStart    text64       1BF9
-__end_of_I2c_MasterStart            text63       1C04
-__end_of_I2c_MasterStop             text62       1C0F
-__end_of_I2c_MasterWait             text65       1C3F
-__end_of_I2c_MasterWrite            text61       1D58
-__end_of_I2c_NACK                   text60       1C4F
-__end_of_I2c_Read                   text59       1D8C
-__end_of_LedTask_Init               text48       12E4
-__end_of_LedTask_SetState           text45       123E
-__end_of_LedTask_Update             text17       0C79
-__end_of_Led_Init                   text49       145A
-__end_of_Led_SetState               text36       128E
+__end_of_Adc_getState               text24       1CFD
+__end_of_Adc_init                   text3        1C1A
+__end_of_Eeprom_init                text66       1F08
+__end_of_Eeprom_read                text58       10C9
+__end_of_Eeprom_readPage            text56       13F9
+__end_of_Eeprom_write               text55       1F91
+__end_of_Eeprom_writePage           text54       11F1
+__end_of_Gpio_getPinState           text27       1E87
+__end_of_Gpio_initPin               text69       11A4
+__end_of_Gpio_setPinState           text37       07FE
+__end_of_Gpio_setPortState          text29       1F35
+__end_of_HeaterTask_init            text50       07C1
+__end_of_HeaterTask_update          text19       054B
+__end_of_I2c_ack                    text57       1C5F
+__end_of_I2c_initMaster             text67       1EB1
+__end_of_I2c_nack                   text64       1C4F
+__end_of_I2c_read                   text63       1D8C
+__end_of_I2c_repeatedStartMaster    text62       1BF9
+__end_of_I2c_startMaster            text61       1C04
+__end_of_I2c_stopMaster             text60       1C0F
+__end_of_I2c_waitMaster             text65       1C3F
+__end_of_I2c_writeMaster            text59       1D58
+__end_of_LedTask_init               text48       12E4
+__end_of_LedTask_setState           text45       123E
+__end_of_LedTask_update             text17       0C79
+__end_of_Led_init                   text49       145A
+__end_of_Led_setState               text36       128E
 __end_of_Scheduler_addTask          text47       08D2
 __end_of_Scheduler_delaySoftwareMs  text52       0841
 __end_of_Scheduler_delaySoftwareUs  text53       2000
@@ -775,30 +762,30 @@ __end_of_Scheduler_reportStatus     text31       1C83
 __end_of_Scheduler_sleepHardware    text34       07FF
 __end_of_Scheduler_start            text10       1C32
 __end_of_Scheduler_update           text71       1772
-__end_of_SsdTask_Init               text8        1672
-__end_of_SsdTask_SetState           text44       1FC7
-__end_of_SsdTask_SetSymbol          text43       1CE8
-__end_of_SsdTask_Update             text16       0EA7
-__end_of_Ssd_Init                   text9        0AC7
-__end_of_Ssd_SetState               text30       1EDC
-__end_of_Ssd_SetSymbol              text28       1043
-__end_of_SwitchTask_GetState        text42       1E5F
-__end_of_SwitchTask_Init            text6        1085
-__end_of_SwitchTask_Update          text20       0A0B
-__end_of_Switch_GetState            text26       1D71
-__end_of_Switch_Init                text7        1F62
+__end_of_SsdTask_init               text8        1672
+__end_of_SsdTask_setState           text44       1FC7
+__end_of_SsdTask_setSymbol          text43       1CE8
+__end_of_SsdTask_update             text16       0EA7
+__end_of_Ssd_init                   text9        0AC7
+__end_of_Ssd_setState               text30       1EDC
+__end_of_Ssd_setSymbol              text28       1043
+__end_of_SwitchTask_getState        text42       1E5F
+__end_of_SwitchTask_init            text6        1085
+__end_of_SwitchTask_update          text20       0A0B
+__end_of_Switch_getState            text26       1D71
+__end_of_Switch_init                text7        1F62
 __end_of_SysTick_Handler            text70       1CD3
-__end_of_TempControlTask_Init       text4        1DCA
-__end_of_TempControlTask_SetState   text41       1C26
-__end_of_TempControlTask_Update     text18       1D12
-__end_of_TempControl_Init           text5        1800
-__end_of_TempControl_SetState       text25       133D
-__end_of_TempSensorTask_GetAverage  text40       1C71
-__end_of_TempSensorTask_Init        text1        1602
-__end_of_TempSensorTask_Update      text21       0D7F
-__end_of_TempSensor_GetState        text22       16E4
-__end_of_TempSensor_Init            text2        0B98
-__end_of_Timer1Init                 text13       1C96
+__end_of_TempControlTask_init       text4        1DCA
+__end_of_TempControlTask_setState   text41       1C26
+__end_of_TempControlTask_update     text18       1D12
+__end_of_TempControl_init           text5        1800
+__end_of_TempControl_setState       text25       133D
+__end_of_TempSensorTask_getAverage  text40       1C71
+__end_of_TempSensorTask_init        text1        1602
+__end_of_TempSensorTask_update      text21       0D7F
+__end_of_TempSensor_getState        text22       16E4
+__end_of_TempSensor_init            text2        0B98
+__end_of_Timer1_init                text13       1C96
 __end_of___awdiv                    text39       152B
 __end_of___awmod                    text38       1398
 __end_of___bmul                     text51       1D29
@@ -817,7 +804,7 @@ __pbssBANK1                         bssBANK1     00A0
 __pbssBANK3                         bssBANK3     0190
 __pcstackBANK0                      cstackBANK0  0020
 __pcstackCOMMON                     cstackCOMMON 0070
-__pdataBANK1                        dataBANK1    00E6
+__pdataBANK1                        dataBANK1    00E3
 __pdataBANK3                        dataBANK3    01DC
 __pfunctab                          functab      004F
 __pidataBANK1                       idataBANK1   1000
@@ -878,13 +865,13 @@ __ptext55                           text55       1F62
 __ptext56                           text56       1398
 __ptext57                           text57       1C4F
 __ptext58                           text58       1085
-__ptext59                           text59       1D71
+__ptext59                           text59       1D40
 __ptext6                            text6        1043
-__ptext60                           text60       1C3F
-__ptext61                           text61       1D40
-__ptext62                           text62       1C04
-__ptext63                           text63       1BF9
-__ptext64                           text64       1BEE
+__ptext60                           text60       1C04
+__ptext61                           text61       1BF9
+__ptext62                           text62       1BEE
+__ptext63                           text63       1D71
+__ptext64                           text64       1C3F
 __ptext65                           text65       1C32
 __ptext66                           text66       1EDC
 __ptext67                           text67       1E87
@@ -896,33 +883,33 @@ __ptext71                           text71       16E4
 __ptext72                           text72       1CA9
 __ptext8                            text8        1602
 __ptext9                            text9        0A0B
-__size_of_Adc_GetState              (abs)        0000
-__size_of_Adc_Init                  (abs)        0000
-__size_of_Eeprom_Init               (abs)        0000
-__size_of_Eeprom_Read               (abs)        0000
-__size_of_Eeprom_ReadPage           (abs)        0000
-__size_of_Eeprom_Write              (abs)        0000
-__size_of_Eeprom_WritePage          (abs)        0000
-__size_of_Gpio_GetPinState          (abs)        0000
-__size_of_Gpio_InitPin              (abs)        0000
-__size_of_Gpio_SetPinState          (abs)        0000
-__size_of_Gpio_SetPortState         (abs)        0000
-__size_of_HeaterTask_Init           (abs)        0000
-__size_of_HeaterTask_Update         (abs)        0000
-__size_of_I2c_ACK                   (abs)        0000
-__size_of_I2c_MasterInit            (abs)        0000
-__size_of_I2c_MasterRepeatedStart   (abs)        0000
-__size_of_I2c_MasterStart           (abs)        0000
-__size_of_I2c_MasterStop            (abs)        0000
-__size_of_I2c_MasterWait            (abs)        0000
-__size_of_I2c_MasterWrite           (abs)        0000
-__size_of_I2c_NACK                  (abs)        0000
-__size_of_I2c_Read                  (abs)        0000
-__size_of_LedTask_Init              (abs)        0000
-__size_of_LedTask_SetState          (abs)        0000
-__size_of_LedTask_Update            (abs)        0000
-__size_of_Led_Init                  (abs)        0000
-__size_of_Led_SetState              (abs)        0000
+__size_of_Adc_getState              (abs)        0000
+__size_of_Adc_init                  (abs)        0000
+__size_of_Eeprom_init               (abs)        0000
+__size_of_Eeprom_read               (abs)        0000
+__size_of_Eeprom_readPage           (abs)        0000
+__size_of_Eeprom_write              (abs)        0000
+__size_of_Eeprom_writePage          (abs)        0000
+__size_of_Gpio_getPinState          (abs)        0000
+__size_of_Gpio_initPin              (abs)        0000
+__size_of_Gpio_setPinState          (abs)        0000
+__size_of_Gpio_setPortState         (abs)        0000
+__size_of_HeaterTask_init           (abs)        0000
+__size_of_HeaterTask_update         (abs)        0000
+__size_of_I2c_ack                   (abs)        0000
+__size_of_I2c_initMaster            (abs)        0000
+__size_of_I2c_nack                  (abs)        0000
+__size_of_I2c_read                  (abs)        0000
+__size_of_I2c_repeatedStartMaster   (abs)        0000
+__size_of_I2c_startMaster           (abs)        0000
+__size_of_I2c_stopMaster            (abs)        0000
+__size_of_I2c_waitMaster            (abs)        0000
+__size_of_I2c_writeMaster           (abs)        0000
+__size_of_LedTask_init              (abs)        0000
+__size_of_LedTask_setState          (abs)        0000
+__size_of_LedTask_update            (abs)        0000
+__size_of_Led_init                  (abs)        0000
+__size_of_Led_setState              (abs)        0000
 __size_of_Scheduler_addTask         (abs)        0000
 __size_of_Scheduler_delaySoftwareMs (abs)        0000
 __size_of_Scheduler_delaySoftwareUs (abs)        0000
@@ -936,30 +923,30 @@ __size_of_Scheduler_reportStatus    (abs)        0000
 __size_of_Scheduler_sleepHardware   (abs)        0000
 __size_of_Scheduler_start           (abs)        0000
 __size_of_Scheduler_update          (abs)        0000
-__size_of_SsdTask_Init              (abs)        0000
-__size_of_SsdTask_SetState          (abs)        0000
-__size_of_SsdTask_SetSymbol         (abs)        0000
-__size_of_SsdTask_Update            (abs)        0000
-__size_of_Ssd_Init                  (abs)        0000
-__size_of_Ssd_SetState              (abs)        0000
-__size_of_Ssd_SetSymbol             (abs)        0000
-__size_of_SwitchTask_GetState       (abs)        0000
-__size_of_SwitchTask_Init           (abs)        0000
-__size_of_SwitchTask_Update         (abs)        0000
-__size_of_Switch_GetState           (abs)        0000
-__size_of_Switch_Init               (abs)        0000
+__size_of_SsdTask_init              (abs)        0000
+__size_of_SsdTask_setState          (abs)        0000
+__size_of_SsdTask_setSymbol         (abs)        0000
+__size_of_SsdTask_update            (abs)        0000
+__size_of_Ssd_init                  (abs)        0000
+__size_of_Ssd_setState              (abs)        0000
+__size_of_Ssd_setSymbol             (abs)        0000
+__size_of_SwitchTask_getState       (abs)        0000
+__size_of_SwitchTask_init           (abs)        0000
+__size_of_SwitchTask_update         (abs)        0000
+__size_of_Switch_getState           (abs)        0000
+__size_of_Switch_init               (abs)        0000
 __size_of_SysTick_Handler           (abs)        0000
-__size_of_TempControlTask_Init      (abs)        0000
-__size_of_TempControlTask_SetState  (abs)        0000
-__size_of_TempControlTask_Update    (abs)        0000
-__size_of_TempControl_Init          (abs)        0000
-__size_of_TempControl_SetState      (abs)        0000
-__size_of_TempSensorTask_GetAverage (abs)        0000
-__size_of_TempSensorTask_Init       (abs)        0000
-__size_of_TempSensorTask_Update     (abs)        0000
-__size_of_TempSensor_GetState       (abs)        0000
-__size_of_TempSensor_Init           (abs)        0000
-__size_of_Timer1Init                (abs)        0000
+__size_of_TempControlTask_init      (abs)        0000
+__size_of_TempControlTask_setState  (abs)        0000
+__size_of_TempControlTask_update    (abs)        0000
+__size_of_TempControl_init          (abs)        0000
+__size_of_TempControl_setState      (abs)        0000
+__size_of_TempSensorTask_getAverage (abs)        0000
+__size_of_TempSensorTask_init       (abs)        0000
+__size_of_TempSensorTask_update     (abs)        0000
+__size_of_TempSensor_getState       (abs)        0000
+__size_of_TempSensor_init           (abs)        0000
+__size_of_Timer1_init               (abs)        0000
 __size_of___awdiv                   (abs)        0000
 __size_of___awmod                   (abs)        0000
 __size_of___bmul                    (abs)        0000
@@ -970,8 +957,21 @@ __size_of___wmul                    (abs)        0000
 __size_of__fptable                  (abs)        0000
 __size_of_main                      (abs)        0000
 __size_ofi1___bmul                  (abs)        0000
+_gpio                               dataBANK1    00E3
+_heater                             bssBANK1     00CC
+_led                                bssBANK0     005D
+_ledTask                            bssBANK0     0051
 _main                               maintext     0EA7
 _scheduler                          bssBANK3     0190
+_ssd                                bssBANK0     0068
+_ssdSymbolPattern                   dataBANK3    01DC
+_ssdTask                            bssBANK1     00A0
+_sw                                 bssBANK1     00C6
+_switchTask                         bssBANK1     00BD
+_tempControl                        bssBANK0     0063
+_tempControlTask                    bssBANK0     0067
+_tempSensor                         bssBANK1     00B0
+_tempSensorTask                     bssBANK3     01CE
 btemp                               (abs)        007E
 clear_ram0                          clrtext      1BDC
 end_of_initialization               cinit        004B
@@ -1023,33 +1023,33 @@ FUNCTION INFORMATION:
 Total ram usage:        0 bytes
  Hardware stack levels required when called:    8
  This function calls:
-		_HeaterTask_Init
-		_LedTask_Init
+		_HeaterTask_init
+		_LedTask_init
 		_Scheduler_addTask
 		_Scheduler_delaySoftwareUs
 		_Scheduler_dispatchTasks
 		_Scheduler_init
 		_Scheduler_start
-		_SsdTask_Init
-		_SwitchTask_Init
-		_TempControlTask_Init
-		_TempSensorTask_Init
+		_SsdTask_init
+		_SwitchTask_init
+		_TempControlTask_init
+		_TempSensorTask_init
  This function is called by:
 		Startup code after reset
  This function uses a non-reentrant model
 
 
- *************** function _TempSensorTask_Init *****************
+ *************** function _TempSensorTask_init *****************
  Defined at:
 		line 13 in file "TempSensorTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  GpioId          1   22[BANK0 ] unsigned char 
-  Pin             1   23[BANK0 ] unsigned char 
-  AdcId           1   24[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  xGpioId         1   22[BANK0 ] unsigned char 
+  xPin            1   23[BANK0 ] unsigned char 
+  xAdcId          1   24[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   28[BANK0 ] unsigned char 
-  Index           2   26[BANK0 ] unsigned int 
+  id              1   28[BANK0 ] unsigned char 
+  index           2   26[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1067,23 +1067,23 @@ Total ram usage:        7 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_TempSensor_Init
+		_TempSensor_init
 		___bmul
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _TempSensor_Init *****************
+ *************** function _TempSensor_init *****************
  Defined at:
 		line 16 in file "TempSensor.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  GpioId          1   18[BANK0 ] unsigned char 
-  Pin             1   19[BANK0 ] unsigned char 
-  AdcId           1   20[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  xGpioId         1   18[BANK0 ] unsigned char 
+  xPin            1   19[BANK0 ] unsigned char 
+  xAdcId          1   20[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   21[BANK0 ] unsigned char 
+  id              1   21[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1101,21 +1101,21 @@ Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Adc_Init
-		_Gpio_InitPin
+		_Adc_init
+		_Gpio_initPin
 		___bmul
  This function is called by:
-		_TempSensorTask_Init
+		_TempSensorTask_init
  This function uses a non-reentrant model
 
 
- *************** function _Adc_Init *****************
+ *************** function _Adc_init *****************
  Defined at:
 		line 3 in file "Adc.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
+  id              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1    0[COMMON] unsigned char 
+  id              1    0[COMMON] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1135,21 +1135,21 @@ Total ram usage:        0 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_TempSensor_Init
+		_TempSensor_init
  This function uses a non-reentrant model
 
 
- *************** function _TempControlTask_Init *****************
+ *************** function _TempControlTask_init *****************
  Defined at:
 		line 10 in file "TempControlTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
+  id              1    wreg     unsigned char 
   hGpioId         1   25[BANK0 ] unsigned char 
   hPin            1   26[BANK0 ] unsigned char 
   cGpioId         1   27[BANK0 ] unsigned char 
   cPin            1   28[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   29[BANK0 ] unsigned char 
+  id              1   29[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1167,23 +1167,23 @@ Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_TempControl_Init
+		_TempControl_init
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _TempControl_Init *****************
+ *************** function _TempControl_init *****************
  Defined at:
 		line 13 in file "TempControl.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
+  id              1    wreg     unsigned char 
   hGpioId         1   18[BANK0 ] unsigned char 
   hPin            1   19[BANK0 ] unsigned char 
   cGpioId         1   20[BANK0 ] unsigned char 
   cPin            1   21[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   24[BANK0 ] unsigned char 
+  id              1   24[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1201,21 +1201,21 @@ Total ram usage:        7 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Gpio_InitPin
+		_Gpio_initPin
  This function is called by:
-		_TempControlTask_Init
+		_TempControlTask_init
  This function uses a non-reentrant model
 
 
- *************** function _SwitchTask_Init *****************
+ *************** function _SwitchTask_init *****************
  Defined at:
 		line 12 in file "SwitchTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  GpioId          1   23[BANK0 ] unsigned char 
-  Pin             1   24[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  xGpioId         1   23[BANK0 ] unsigned char 
+  xPin            1   24[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   25[BANK0 ] unsigned char 
+  id              1   25[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1233,22 +1233,22 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Switch_Init
+		_Switch_init
 		___bmul
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _Switch_Init *****************
+ *************** function _Switch_init *****************
  Defined at:
 		line 11 in file "Switch.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  GpioId          1   18[BANK0 ] unsigned char 
-  Pin             1   19[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  xGpioId         1   18[BANK0 ] unsigned char 
+  xPin            1   19[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   22[BANK0 ] unsigned char 
+  id              1   22[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1266,23 +1266,23 @@ Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Gpio_InitPin
+		_Gpio_initPin
  This function is called by:
-		_SwitchTask_Init
+		_SwitchTask_init
  This function uses a non-reentrant model
 
 
- *************** function _SsdTask_Init *****************
+ *************** function _SsdTask_init *****************
  Defined at:
 		line 15 in file "SsdTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  ctrlGpioId      1   28[BANK0 ] unsigned char 
-  ctrlPin         1   29[BANK0 ] unsigned char 
-  dataGpioId      1   30[BANK0 ] unsigned char 
-  dataPin         1   31[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  cGpioId         1   28[BANK0 ] unsigned char 
+  cPin            1   29[BANK0 ] unsigned char 
+  dGpioId         1   30[BANK0 ] unsigned char 
+  dPin            1   31[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   33[BANK0 ] unsigned char 
+  id              1   33[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1300,24 +1300,24 @@ Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Ssd_Init
+		_Ssd_init
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _Ssd_Init *****************
+ *************** function _Ssd_init *****************
  Defined at:
 		line 14 in file "Ssd.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  ctrlGpioId      1   18[BANK0 ] unsigned char 
-  ctrlPin         1   19[BANK0 ] unsigned char 
-  dataGpioId      1   20[BANK0 ] unsigned char 
-  dataPin         1   21[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  cGpioId         1   18[BANK0 ] unsigned char 
+  cPin            1   19[BANK0 ] unsigned char 
+  dGpioId         1   20[BANK0 ] unsigned char 
+  dPin            1   21[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   27[BANK0 ] unsigned char 
-  Pin             2   25[BANK0 ] unsigned int 
+  id              1   27[BANK0 ] unsigned char 
+  pin             2   25[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1335,9 +1335,9 @@ Total ram usage:       10 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Gpio_InitPin
+		_Gpio_initPin
  This function is called by:
-		_SsdTask_Init
+		_SsdTask_init
  This function uses a non-reentrant model
 
 
@@ -1395,7 +1395,7 @@ Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Timer1Init
+		_Timer1_init
 		___wmul
  This function is called by:
 		_Scheduler_start
@@ -1433,11 +1433,11 @@ Total ram usage:        6 bytes
  This function uses a non-reentrant model
 
 
- *************** function _Timer1Init *****************
+ *************** function _Timer1_init *****************
  Defined at:
 		line 16 in file "Timer.c"
  Parameters:    Size  Location     Type
-  TicksNumber     2    0[BANK0 ] unsigned int 
+  tickNumber      2    0[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1518,29 +1518,29 @@ Total ram usage:        6 bytes
  Hardware stack levels required when called:    7
  This function calls:
 		Absolute function
-		_HeaterTask_Update
-		_LedTask_Update
+		_HeaterTask_update
+		_LedTask_update
 		_Scheduler_deleteTask
 		_Scheduler_goToSleep
 		_Scheduler_reportStatus
-		_SsdTask_Update
-		_SwitchTask_Update
-		_TempControlTask_Update
-		_TempSensorTask_Update
+		_SsdTask_update
+		_SwitchTask_update
+		_TempControlTask_update
+		_TempSensorTask_update
 		___bmul
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _SsdTask_Update *****************
+ *************** function _SsdTask_update *****************
  Defined at:
 		line 37 in file "SsdTask.c"
  Parameters:    Size  Location     Type
-  Paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), RAM(512), NULL(0), 
+  paramter        2   35[BANK0 ] PTR void 
+		 -> RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  Id              1   41[BANK0 ] unsigned char 
+  id              1   41[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1558,22 +1558,22 @@ Total ram usage:        7 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Ssd_SetState
-		_Ssd_SetSymbol
+		_Ssd_setState
+		_Ssd_setSymbol
  This function is called by:
 		_main
 		_Scheduler_dispatchTasks
  This function uses a non-reentrant model
 
 
- *************** function _LedTask_Update *****************
+ *************** function _LedTask_update *****************
  Defined at:
 		line 28 in file "LedTask.c"
  Parameters:    Size  Location     Type
-  Paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), RAM(512), NULL(0), 
+  paramter        2   35[BANK0 ] PTR void 
+		 -> RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  Id              1   40[BANK0 ] unsigned char 
+  id              1   40[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1591,7 +1591,7 @@ Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Led_SetState
+		_Led_setState
 		___bmul
  This function is called by:
 		_main
@@ -1599,14 +1599,14 @@ Total ram usage:        6 bytes
  This function uses a non-reentrant model
 
 
- *************** function _TempControlTask_Update *****************
+ *************** function _TempControlTask_update *****************
  Defined at:
 		line 21 in file "TempControlTask.c"
  Parameters:    Size  Location     Type
-  Paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), RAM(512), NULL(0), 
+  paramter        2   35[BANK0 ] PTR void 
+		 -> RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  Id              1   37[BANK0 ] unsigned char 
+  id              1   37[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1624,21 +1624,21 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_TempControl_SetState
+		_TempControl_setState
  This function is called by:
 		_main
 		_Scheduler_dispatchTasks
  This function uses a non-reentrant model
 
 
- *************** function _HeaterTask_Update *****************
+ *************** function _HeaterTask_update *****************
  Defined at:
-		line 75 in file "WaterHeater.c"
+		line 74 in file "WaterHeater.c"
  Parameters:    Size  Location     Type
-  Paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), RAM(512), NULL(0), 
+  paramter        2   35[BANK0 ] PTR void 
+		 -> RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  Id              1   40[BANK0 ] unsigned char 
+  id              1   40[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1656,13 +1656,13 @@ Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    6
  This function calls:
-		_Eeprom_Write
-		_LedTask_SetState
-		_SsdTask_SetState
-		_SsdTask_SetSymbol
-		_SwitchTask_GetState
-		_TempControlTask_SetState
-		_TempSensorTask_GetAverage
+		_Eeprom_write
+		_LedTask_setState
+		_SsdTask_setState
+		_SsdTask_setSymbol
+		_SwitchTask_getState
+		_TempControlTask_setState
+		_TempSensorTask_getAverage
 		___awdiv
 		___awmod
 		___bmul
@@ -1672,14 +1672,14 @@ Total ram usage:        6 bytes
  This function uses a non-reentrant model
 
 
- *************** function _SwitchTask_Update *****************
+ *************** function _SwitchTask_update *****************
  Defined at:
 		line 27 in file "SwitchTask.c"
  Parameters:    Size  Location     Type
-  Paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), RAM(512), NULL(0), 
+  paramter        2   35[BANK0 ] PTR void 
+		 -> RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  Id              1   37[BANK0 ] unsigned char 
+  id              1   37[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1697,7 +1697,7 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Switch_GetState
+		_Switch_getState
 		___bmul
  This function is called by:
 		_main
@@ -1705,15 +1705,15 @@ Total ram usage:        3 bytes
  This function uses a non-reentrant model
 
 
- *************** function _TempSensorTask_Update *****************
+ *************** function _TempSensorTask_update *****************
  Defined at:
 		line 31 in file "TempSensorTask.c"
  Parameters:    Size  Location     Type
-  Paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), RAM(512), NULL(0), 
+  paramter        2   35[BANK0 ] PTR void 
+		 -> RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  Index           2   40[BANK0 ] unsigned int 
-  Id              1   42[BANK0 ] unsigned char 
+  index           2   40[BANK0 ] unsigned int 
+  id              1   42[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1731,7 +1731,7 @@ Total ram usage:        8 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_TempSensor_GetState
+		_TempSensor_getState
 		___bmul
 		___lwdiv
  This function is called by:
@@ -1740,13 +1740,13 @@ Total ram usage:        8 bytes
  This function uses a non-reentrant model
 
 
- *************** function _TempSensor_GetState *****************
+ *************** function _TempSensor_getState *****************
  Defined at:
 		line 29 in file "TempSensor.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
+  id              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   34[BANK0 ] unsigned char 
+  id              1   34[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -1764,12 +1764,12 @@ Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Adc_GetState
+		_Adc_getState
 		___bmul
 		___lldiv
 		___lmul
  This function is called by:
-		_TempSensorTask_Update
+		_TempSensorTask_update
  This function uses a non-reentrant model
 
 
@@ -1800,17 +1800,17 @@ Total ram usage:       13 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_TempSensor_GetState
+		_TempSensor_getState
  This function uses a non-reentrant model
 
 
- *************** function _Adc_GetState *****************
+ *************** function _Adc_getState *****************
  Defined at:
 		line 9 in file "Adc.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
+  id              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1    0[COMMON] unsigned char 
+  id              1    0[COMMON] unsigned char 
  Return value:  Size  Location     Type
                   2    0[BANK0 ] unsigned int 
  Registers used:
@@ -1830,18 +1830,18 @@ Total ram usage:        3 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_TempSensor_GetState
+		_TempSensor_getState
  This function uses a non-reentrant model
 
 
- *************** function _TempControl_SetState *****************
+ *************** function _TempControl_setState *****************
  Defined at:
 		line 23 in file "TempControl.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  State           1   14[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  state           1   14[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   18[BANK0 ] unsigned char 
+  id              1   18[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1859,19 +1859,19 @@ Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Gpio_SetPinState
+		_Gpio_setPinState
  This function is called by:
-		_TempControlTask_Update
+		_TempControlTask_update
  This function uses a non-reentrant model
 
 
- *************** function _Switch_GetState *****************
+ *************** function _Switch_getState *****************
  Defined at:
 		line 18 in file "Switch.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
+  id              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1    9[BANK0 ] unsigned char 
+  id              1    9[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -1889,13 +1889,13 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Gpio_GetPinState
+		_Gpio_getPinState
  This function is called by:
-		_SwitchTask_Update
+		_SwitchTask_update
  This function uses a non-reentrant model
 
 
- *************** function _Gpio_GetPinState *****************
+ *************** function _Gpio_getPinState *****************
  Defined at:
 		line 28 in file "Gpio.c"
  Parameters:    Size  Location     Type
@@ -1922,18 +1922,18 @@ Total ram usage:        7 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_Switch_GetState
+		_Switch_getState
  This function uses a non-reentrant model
 
 
- *************** function _Ssd_SetSymbol *****************
+ *************** function _Ssd_setSymbol *****************
  Defined at:
 		line 33 in file "Ssd.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  Symbol          1   10[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  symbol          1   10[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   14[BANK0 ] unsigned char 
+  id              1   14[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1951,13 +1951,13 @@ Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Gpio_SetPortState
+		_Gpio_setPortState
  This function is called by:
-		_SsdTask_Update
+		_SsdTask_update
  This function uses a non-reentrant model
 
 
- *************** function _Gpio_SetPortState *****************
+ *************** function _Gpio_setPortState *****************
  Defined at:
 		line 33 in file "Gpio.c"
  Parameters:    Size  Location     Type
@@ -1985,18 +1985,18 @@ Total ram usage:       10 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_Ssd_SetSymbol
+		_Ssd_setSymbol
  This function uses a non-reentrant model
 
 
- *************** function _Ssd_SetState *****************
+ *************** function _Ssd_setState *****************
  Defined at:
 		line 28 in file "Ssd.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  State           1   14[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  state           1   14[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   17[BANK0 ] unsigned char 
+  id              1   17[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2014,9 +2014,9 @@ Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Gpio_SetPinState
+		_Gpio_setPinState
  This function is called by:
-		_SsdTask_Update
+		_SsdTask_update
  This function uses a non-reentrant model
 
 
@@ -2074,7 +2074,7 @@ Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_LedTask_SetState
+		_LedTask_setState
  This function is called by:
 		_Scheduler_reportStatus
  This function uses a non-reentrant model
@@ -2171,14 +2171,14 @@ Total ram usage:        1 bytes
  This function uses a non-reentrant model
 
 
- *************** function _Led_SetState *****************
+ *************** function _Led_setState *****************
  Defined at:
 		line 20 in file "Led.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  State           1   14[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  state           1   14[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   15[BANK0 ] unsigned char 
+  id              1   15[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2196,14 +2196,14 @@ Total ram usage:        2 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Gpio_SetPinState
+		_Gpio_setPinState
 		___bmul
  This function is called by:
-		_LedTask_Update
+		_LedTask_update
  This function uses a non-reentrant model
 
 
- *************** function _Gpio_SetPinState *****************
+ *************** function _Gpio_setPinState *****************
  Defined at:
 		line 23 in file "Gpio.c"
  Parameters:    Size  Location     Type
@@ -2231,9 +2231,9 @@ Total ram usage:       11 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_Led_SetState
-		_Ssd_SetState
-		_TempControl_SetState
+		_Led_setState
+		_Ssd_setState
+		_TempControl_setState
  This function uses a non-reentrant model
 
 
@@ -2265,7 +2265,7 @@ Total ram usage:        6 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_HeaterTask_Update
+		_HeaterTask_update
  This function uses a non-reentrant model
 
 
@@ -2298,17 +2298,17 @@ Total ram usage:        8 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_HeaterTask_Update
+		_HeaterTask_update
  This function uses a non-reentrant model
 
 
- *************** function _TempSensorTask_GetAverage *****************
+ *************** function _TempSensorTask_getAverage *****************
  Defined at:
 		line 26 in file "TempSensorTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
+  id              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1    3[BANK0 ] unsigned char 
+  id              1    3[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -2328,18 +2328,18 @@ Total ram usage:        1 bytes
  This function calls:
 		___bmul
  This function is called by:
-		_HeaterTask_Update
+		_HeaterTask_update
  This function uses a non-reentrant model
 
 
- *************** function _TempControlTask_SetState *****************
+ *************** function _TempControlTask_setState *****************
  Defined at:
 		line 16 in file "TempControlTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  State           1    0[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  state           1    0[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1    1[BANK0 ] unsigned char 
+  id              1    1[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2359,18 +2359,18 @@ Total ram usage:        2 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_HeaterTask_Update
+		_HeaterTask_update
  This function uses a non-reentrant model
 
 
- *************** function _SwitchTask_GetState *****************
+ *************** function _SwitchTask_getState *****************
  Defined at:
 		line 20 in file "SwitchTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
+  id              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1    4[BANK0 ] unsigned char 
-  Buffer          1    3[BANK0 ] unsigned char 
+  id              1    4[BANK0 ] unsigned char 
+  buffer          1    3[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -2390,18 +2390,18 @@ Total ram usage:        2 bytes
  This function calls:
 		___bmul
  This function is called by:
-		_HeaterTask_Update
+		_HeaterTask_update
  This function uses a non-reentrant model
 
 
- *************** function _SsdTask_SetSymbol *****************
+ *************** function _SsdTask_setSymbol *****************
  Defined at:
 		line 32 in file "SsdTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  Symbol          1   17[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  symbol          1   17[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   19[BANK0 ] unsigned char 
+  id              1   19[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2421,19 +2421,19 @@ Total ram usage:        3 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_HeaterTask_Update
+		_HeaterTask_update
  This function uses a non-reentrant model
 
 
- *************** function _SsdTask_SetState *****************
+ *************** function _SsdTask_setState *****************
  Defined at:
 		line 26 in file "SsdTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  State           1   10[BANK0 ] unsigned char 
-  Period          2   11[BANK0 ] unsigned int 
+  id              1    wreg     unsigned char 
+  state           1   10[BANK0 ] unsigned char 
+  period          2   11[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
-  Id              1   14[BANK0 ] unsigned char 
+  id              1   14[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2453,19 +2453,19 @@ Total ram usage:        5 bytes
  This function calls:
 		___lwdiv
  This function is called by:
-		_HeaterTask_Update
+		_HeaterTask_update
  This function uses a non-reentrant model
 
 
- *************** function _LedTask_SetState *****************
+ *************** function _LedTask_setState *****************
  Defined at:
 		line 22 in file "LedTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  State           1   10[BANK0 ] unsigned char 
-  Period          2   11[BANK0 ] unsigned int 
+  id              1    wreg     unsigned char 
+  state           1   10[BANK0 ] unsigned char 
+  period          2   11[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
-  Id              1   15[BANK0 ] unsigned char 
+  id              1   15[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2487,7 +2487,7 @@ Total ram usage:        6 bytes
 		___lwdiv
  This function is called by:
 		_Scheduler_displayError
-		_HeaterTask_Update
+		_HeaterTask_update
  This function uses a non-reentrant model
 
 
@@ -2519,9 +2519,9 @@ Total ram usage:        7 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_SsdTask_SetState
-		_TempSensorTask_Update
-		_LedTask_SetState
+		_SsdTask_setState
+		_TempSensorTask_update
+		_LedTask_setState
  This function uses a non-reentrant model
 
 
@@ -2530,16 +2530,16 @@ Total ram usage:        7 bytes
 		line 32 in file "Scheduler.c"
  Parameters:    Size  Location     Type
   task            1    wreg     PTR FTN(PTR void ,)void 
-		 -> SsdTask_Update(1), LedTask_Update(1), TempControlTask_Update(1), HeaterTask_Update(1), 
-		 -> TempSensorTask_Update(1), SwitchTask_Update(1), 
+		 -> SsdTask_update(1), LedTask_update(1), TempControlTask_update(1), HeaterTask_update(1), 
+		 -> TempSensorTask_update(1), SwitchTask_update(1), 
   paramter        2    3[BANK0 ] PTR void 
-		 -> RAM(512), RAM(512), NULL(0), 
+		 -> RAM(512), NULL(0), 
   delay           1    5[BANK0 ] unsigned char 
   period          1    6[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
   task            1    7[BANK0 ] PTR FTN(PTR void ,)void 
-		 -> SsdTask_Update(1), LedTask_Update(1), TempControlTask_Update(1), HeaterTask_Update(1), 
-		 -> TempSensorTask_Update(1), SwitchTask_Update(1), 
+		 -> SsdTask_update(1), LedTask_update(1), TempControlTask_update(1), HeaterTask_update(1), 
+		 -> TempSensorTask_update(1), SwitchTask_update(1), 
   index           2    8[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
@@ -2564,15 +2564,15 @@ Total ram usage:        7 bytes
  This function uses a non-reentrant model
 
 
- *************** function _LedTask_Init *****************
+ *************** function _LedTask_init *****************
  Defined at:
 		line 13 in file "LedTask.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  GpioId          1   21[BANK0 ] unsigned char 
-  Pin             1   22[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  xGpioId         1   21[BANK0 ] unsigned char 
+  xPin            1   22[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   23[BANK0 ] unsigned char 
+  id              1   23[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2590,22 +2590,22 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Led_Init
+		_Led_init
 		___bmul
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _Led_Init *****************
+ *************** function _Led_init *****************
  Defined at:
 		line 12 in file "Led.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  GpioId          1   18[BANK0 ] unsigned char 
-  Pin             1   19[BANK0 ] unsigned char 
+  id              1    wreg     unsigned char 
+  xGpioId         1   18[BANK0 ] unsigned char 
+  xPin            1   19[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   20[BANK0 ] unsigned char 
+  id              1   20[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2623,21 +2623,21 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Gpio_InitPin
+		_Gpio_initPin
 		___bmul
  This function is called by:
-		_LedTask_Init
+		_LedTask_init
  This function uses a non-reentrant model
 
 
- *************** function _HeaterTask_Init *****************
+ *************** function _HeaterTask_init *****************
  Defined at:
 		line 26 in file "WaterHeater.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
+  id              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  Id              1   39[BANK0 ] unsigned char 
-  Index           2   37[BANK0 ] unsigned int 
+  id              1   39[BANK0 ] unsigned char 
+  index           2   37[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2655,11 +2655,11 @@ Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    6
  This function calls:
-		_Eeprom_Init
-		_Eeprom_Read
-		_Eeprom_ReadPage
-		_Eeprom_Write
-		_Eeprom_WritePage
+		_Eeprom_init
+		_Eeprom_read
+		_Eeprom_readPage
+		_Eeprom_write
+		_Eeprom_writePage
 		_Scheduler_delaySoftwareMs
 		___bmul
  This function is called by:
@@ -2699,21 +2699,21 @@ Total ram usage:        3 bytes
 		_Scheduler_deleteTask
 		_Scheduler_update
 		_Scheduler_dispatchTasks
-		_Led_Init
-		_Led_SetState
-		_HeaterTask_Init
-		_HeaterTask_Update
-		_SwitchTask_Init
-		_SwitchTask_GetState
-		_SwitchTask_Update
-		_TempSensorTask_Init
-		_TempSensorTask_GetAverage
-		_TempSensorTask_Update
-		_TempSensor_Init
-		_TempSensor_GetState
-		_LedTask_Init
-		_LedTask_SetState
-		_LedTask_Update
+		_Led_init
+		_Led_setState
+		_HeaterTask_init
+		_HeaterTask_update
+		_SwitchTask_init
+		_SwitchTask_getState
+		_SwitchTask_update
+		_TempSensorTask_init
+		_TempSensorTask_getAverage
+		_TempSensorTask_update
+		_TempSensor_init
+		_TempSensor_getState
+		_LedTask_init
+		_LedTask_setState
+		_LedTask_update
  This function uses a non-reentrant model
 
 
@@ -2743,7 +2743,7 @@ Total ram usage:        8 bytes
  This function calls:
 		_Scheduler_delaySoftwareUs
  This function is called by:
-		_HeaterTask_Init
+		_HeaterTask_init
  This function uses a non-reentrant model
 
 
@@ -2778,16 +2778,16 @@ Total ram usage:        9 bytes
  This function uses a non-reentrant model
 
 
- *************** function _Eeprom_WritePage *****************
+ *************** function _Eeprom_writePage *****************
  Defined at:
 		line 26 in file "Eeprom.c"
  Parameters:    Size  Location     Type
-  Address         1    wreg     unsigned char 
-  Buffer          1    3[BANK0 ] PTR unsigned char 
-		 -> Heater(23), 
-  Length          1    4[BANK0 ] unsigned char 
+  address         1    wreg     unsigned char 
+  buffer          1    3[BANK0 ] PTR unsigned char 
+		 -> heater(23), 
+  length          1    4[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Address         1    7[BANK0 ] unsigned char 
+  address         1    7[BANK0 ] unsigned char 
   i               2    8[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
@@ -2806,23 +2806,23 @@ Total ram usage:        7 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_I2c_MasterRepeatedStart
-		_I2c_MasterStart
-		_I2c_MasterStop
-		_I2c_MasterWrite
+		_I2c_repeatedStartMaster
+		_I2c_startMaster
+		_I2c_stopMaster
+		_I2c_writeMaster
  This function is called by:
-		_HeaterTask_Init
+		_HeaterTask_init
  This function uses a non-reentrant model
 
 
- *************** function _Eeprom_Write *****************
+ *************** function _Eeprom_write *****************
  Defined at:
 		line 13 in file "Eeprom.c"
  Parameters:    Size  Location     Type
-  Address         1    wreg     unsigned char 
-  Buffer          1    3[BANK0 ] unsigned char 
+  address         1    wreg     unsigned char 
+  buffer          1    3[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Address         1    4[BANK0 ] unsigned char 
+  address         1    4[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2840,26 +2840,26 @@ Total ram usage:        2 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_I2c_MasterRepeatedStart
-		_I2c_MasterStart
-		_I2c_MasterStop
-		_I2c_MasterWrite
+		_I2c_repeatedStartMaster
+		_I2c_startMaster
+		_I2c_stopMaster
+		_I2c_writeMaster
  This function is called by:
-		_HeaterTask_Init
-		_HeaterTask_Update
+		_HeaterTask_init
+		_HeaterTask_update
  This function uses a non-reentrant model
 
 
- *************** function _Eeprom_ReadPage *****************
+ *************** function _Eeprom_readPage *****************
  Defined at:
 		line 60 in file "Eeprom.c"
  Parameters:    Size  Location     Type
-  Address         1    wreg     unsigned char 
-  Buffer          1    3[BANK0 ] PTR unsigned char 
-		 -> Heater(23), 
-  Length          1    4[BANK0 ] unsigned char 
+  address         1    wreg     unsigned char 
+  buffer          1    3[BANK0 ] PTR unsigned char 
+		 -> heater(23), 
+  length          1    4[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  Address         1    7[BANK0 ] unsigned char 
+  address         1    7[BANK0 ] unsigned char 
   i               2    8[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
@@ -2878,18 +2878,18 @@ Total ram usage:        7 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_I2c_ACK
-		_I2c_MasterRepeatedStart
-		_I2c_MasterStart
-		_I2c_MasterStop
-		_I2c_MasterWrite
-		_I2c_Read
+		_I2c_ack
+		_I2c_read
+		_I2c_repeatedStartMaster
+		_I2c_startMaster
+		_I2c_stopMaster
+		_I2c_writeMaster
  This function is called by:
-		_HeaterTask_Init
+		_HeaterTask_init
  This function uses a non-reentrant model
 
 
- *************** function _I2c_ACK *****************
+ *************** function _I2c_ack *****************
  Defined at:
 		line 53 in file "I2c.c"
  Parameters:    Size  Location     Type
@@ -2913,20 +2913,20 @@ Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_I2c_MasterWait
+		_I2c_waitMaster
  This function is called by:
-		_Eeprom_ReadPage
+		_Eeprom_readPage
  This function uses a non-reentrant model
 
 
- *************** function _Eeprom_Read *****************
+ *************** function _Eeprom_read *****************
  Defined at:
 		line 42 in file "Eeprom.c"
  Parameters:    Size  Location     Type
-  Address         1    wreg     unsigned char 
+  address         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  Address         1    1[BANK0 ] unsigned char 
-  Buffer          1    2[BANK0 ] unsigned char 
+  address         1    1[BANK0 ] unsigned char 
+  buffer          1    2[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -2944,85 +2944,24 @@ Total ram usage:        2 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_I2c_MasterRepeatedStart
-		_I2c_MasterStart
-		_I2c_MasterStop
-		_I2c_MasterWrite
-		_I2c_NACK
-		_I2c_Read
+		_I2c_nack
+		_I2c_read
+		_I2c_repeatedStartMaster
+		_I2c_startMaster
+		_I2c_stopMaster
+		_I2c_writeMaster
  This function is called by:
-		_HeaterTask_Init
+		_HeaterTask_init
  This function uses a non-reentrant model
 
 
- *************** function _I2c_Read *****************
- Defined at:
-		line 43 in file "I2c.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, status,2, status,0, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       0       0       0       0
-      Locals:         0       0       0       0       0
-      Temps:          0       0       0       0       0
-      Totals:         0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		_I2c_MasterWait
- This function is called by:
-		_Eeprom_Read
-		_Eeprom_ReadPage
- This function uses a non-reentrant model
-
-
- *************** function _I2c_NACK *****************
- Defined at:
-		line 60 in file "I2c.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       0       0       0       0
-      Locals:         0       0       0       0       0
-      Temps:          0       0       0       0       0
-      Totals:         0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		_I2c_MasterWait
- This function is called by:
-		_Eeprom_Read
- This function uses a non-reentrant model
-
-
- *************** function _I2c_MasterWrite *****************
+ *************** function _I2c_writeMaster *****************
  Defined at:
 		line 34 in file "I2c.c"
  Parameters:    Size  Location     Type
-  Buffer          1    wreg     unsigned char 
+  buffer          1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  Buffer          1    0[BANK0 ] unsigned char 
+  buffer          1    0[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -3040,16 +2979,16 @@ Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_I2c_MasterWait
+		_I2c_waitMaster
  This function is called by:
-		_Eeprom_Write
-		_Eeprom_WritePage
-		_Eeprom_Read
-		_Eeprom_ReadPage
+		_Eeprom_write
+		_Eeprom_writePage
+		_Eeprom_read
+		_Eeprom_readPage
  This function uses a non-reentrant model
 
 
- *************** function _I2c_MasterStop *****************
+ *************** function _I2c_stopMaster *****************
  Defined at:
 		line 28 in file "I2c.c"
  Parameters:    Size  Location     Type
@@ -3073,16 +3012,16 @@ Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_I2c_MasterWait
+		_I2c_waitMaster
  This function is called by:
-		_Eeprom_Write
-		_Eeprom_WritePage
-		_Eeprom_Read
-		_Eeprom_ReadPage
+		_Eeprom_write
+		_Eeprom_writePage
+		_Eeprom_read
+		_Eeprom_readPage
  This function uses a non-reentrant model
 
 
- *************** function _I2c_MasterStart *****************
+ *************** function _I2c_startMaster *****************
  Defined at:
 		line 16 in file "I2c.c"
  Parameters:    Size  Location     Type
@@ -3106,16 +3045,16 @@ Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_I2c_MasterWait
+		_I2c_waitMaster
  This function is called by:
-		_Eeprom_Write
-		_Eeprom_WritePage
-		_Eeprom_Read
-		_Eeprom_ReadPage
+		_Eeprom_write
+		_Eeprom_writePage
+		_Eeprom_read
+		_Eeprom_readPage
  This function uses a non-reentrant model
 
 
- *************** function _I2c_MasterRepeatedStart *****************
+ *************** function _I2c_repeatedStartMaster *****************
  Defined at:
 		line 22 in file "I2c.c"
  Parameters:    Size  Location     Type
@@ -3139,16 +3078,77 @@ Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_I2c_MasterWait
+		_I2c_waitMaster
  This function is called by:
-		_Eeprom_Write
-		_Eeprom_WritePage
-		_Eeprom_Read
-		_Eeprom_ReadPage
+		_Eeprom_write
+		_Eeprom_writePage
+		_Eeprom_read
+		_Eeprom_readPage
  This function uses a non-reentrant model
 
 
- *************** function _I2c_MasterWait *****************
+ *************** function _I2c_read *****************
+ Defined at:
+		line 43 in file "I2c.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_I2c_waitMaster
+ This function is called by:
+		_Eeprom_read
+		_Eeprom_readPage
+ This function uses a non-reentrant model
+
+
+ *************** function _I2c_nack *****************
+ Defined at:
+		line 60 in file "I2c.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_I2c_waitMaster
+ This function is called by:
+		_Eeprom_read
+ This function uses a non-reentrant model
+
+
+ *************** function _I2c_waitMaster *****************
  Defined at:
 		line 11 in file "I2c.c"
  Parameters:    Size  Location     Type
@@ -3174,17 +3174,17 @@ Total ram usage:        0 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_I2c_MasterStart
-		_I2c_MasterRepeatedStart
-		_I2c_MasterStop
-		_I2c_MasterWrite
-		_I2c_Read
-		_I2c_ACK
-		_I2c_NACK
+		_I2c_startMaster
+		_I2c_repeatedStartMaster
+		_I2c_stopMaster
+		_I2c_writeMaster
+		_I2c_read
+		_I2c_ack
+		_I2c_nack
  This function uses a non-reentrant model
 
 
- *************** function _Eeprom_Init *****************
+ *************** function _Eeprom_init *****************
  Defined at:
 		line 6 in file "Eeprom.c"
  Parameters:    Size  Location     Type
@@ -3208,18 +3208,18 @@ Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Gpio_InitPin
-		_I2c_MasterInit
+		_Gpio_initPin
+		_I2c_initMaster
  This function is called by:
-		_HeaterTask_Init
+		_HeaterTask_init
  This function uses a non-reentrant model
 
 
- *************** function _I2c_MasterInit *****************
+ *************** function _I2c_initMaster *****************
  Defined at:
 		line 3 in file "I2c.c"
  Parameters:    Size  Location     Type
-  BaudRate        4   30[BANK0 ] unsigned long 
+  baudrate        4   30[BANK0 ] unsigned long 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -3241,7 +3241,7 @@ Total ram usage:        4 bytes
  This function calls:
 		___lldiv
  This function is called by:
-		_Eeprom_Init
+		_Eeprom_init
  This function uses a non-reentrant model
 
 
@@ -3273,12 +3273,12 @@ Total ram usage:       14 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_TempSensor_GetState
-		_I2c_MasterInit
+		_TempSensor_getState
+		_I2c_initMaster
  This function uses a non-reentrant model
 
 
- *************** function _Gpio_InitPin *****************
+ *************** function _Gpio_initPin *****************
  Defined at:
 		line 18 in file "Gpio.c"
  Parameters:    Size  Location     Type
@@ -3306,12 +3306,12 @@ Total ram usage:       15 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_Led_Init
-		_Switch_Init
-		_Ssd_Init
-		_Eeprom_Init
-		_TempSensor_Init
-		_TempControl_Init
+		_Led_init
+		_Switch_init
+		_Ssd_init
+		_Eeprom_init
+		_TempSensor_init
+		_TempControl_init
  This function uses a non-reentrant model
 
 
@@ -3416,15 +3416,15 @@ C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c estimated size: 73
 
 Led.c
-		_Led_Init      		CODE           	13F9	0000	98
-		_Led_SetState  		CODE           	123E	0000	81
+		_Led_init      		CODE           	13F9	0000	98
+		_Led_setState  		CODE           	123E	0000	81
 
 Led.c estimated size: 179
 
 SwitchTask.c
-		_SwitchTask_Init		CODE           	1043	0000	67
-		_SwitchTask_GetState		CODE           	1E37	0000	41
-		_SwitchTask_Update		CODE           	0966	0000	166
+		_SwitchTask_init		CODE           	1043	0000	67
+		_SwitchTask_getState		CODE           	1E37	0000	41
+		_SwitchTask_update		CODE           	0966	0000	166
 
 SwitchTask.c estimated size: 274
 
@@ -3441,7 +3441,7 @@ Scheduler.c
 Scheduler.c estimated size: 635
 
 Timer.c
-		_Timer1Init    		CODE           	1C83	0000	20
+		_Timer1_init   		CODE           	1C83	0000	20
 
 Timer.c estimated size: 20
 
@@ -3451,35 +3451,35 @@ C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c estimated size: 105
 
 Ssd.c
-		_Ssd_Init      		CODE           	0A0B	0000	189
-		_Ssd_SetState  		CODE           	1EB1	0000	44
-		_Ssd_SetSymbol 		CODE           	100A	0000	58
+		_Ssd_init      		CODE           	0A0B	0000	189
+		_Ssd_setState  		CODE           	1EB1	0000	44
+		_Ssd_setSymbol 		CODE           	100A	0000	58
 
 Ssd.c estimated size: 291
 
 TempControlTask.c
-		_TempControlTask_SetState		CODE           	1C1A	0000	13
-		_TempControlTask_Init		CODE           	1DAB	0000	32
-		_TempControlTask_Update		CODE           	1CFD	0000	22
+		_TempControlTask_setState		CODE           	1C1A	0000	13
+		_TempControlTask_init		CODE           	1DAB	0000	32
+		_TempControlTask_update		CODE           	1CFD	0000	22
 
 TempControlTask.c estimated size: 67
 
 TempControl.c
-		_TempControl_Init		CODE           	1772	0000	143
-		_TempControl_SetState		CODE           	12E4	0000	90
+		_TempControl_init		CODE           	1772	0000	143
+		_TempControl_setState		CODE           	12E4	0000	90
 
 TempControl.c estimated size: 233
 
 I2c.c
-		_I2c_ACK       		CODE           	1C4F	0000	17
-		_I2c_NACK      		CODE           	1C3F	0000	17
-		_I2c_MasterWait		CODE           	1C32	0000	14
-		_I2c_MasterInit		CODE           	1E87	0000	43
-		_I2c_MasterStop		CODE           	1C04	0000	12
-		_I2c_MasterWrite		CODE           	1D40	0000	25
-		_I2c_MasterStart		CODE           	1BF9	0000	12
-		_I2c_MasterRepeatedStart		CODE           	1BEE	0000	12
-		_I2c_Read      		CODE           	1D71	0000	28
+		_I2c_startMaster		CODE           	1BF9	0000	12
+		_I2c_read      		CODE           	1D71	0000	28
+		_I2c_stopMaster		CODE           	1C04	0000	12
+		_I2c_ack       		CODE           	1C4F	0000	17
+		_I2c_waitMaster		CODE           	1C32	0000	14
+		_I2c_nack      		CODE           	1C3F	0000	17
+		_I2c_initMaster		CODE           	1E87	0000	43
+		_I2c_writeMaster		CODE           	1D40	0000	25
+		_I2c_repeatedStartMaster		CODE           	1BEE	0000	12
 
 I2c.c estimated size: 180
 
@@ -3493,31 +3493,31 @@ SchedulerConfig.c
 SchedulerConfig.c estimated size: 189
 
 SsdTask.c
-		_SsdTask_Update		CODE           	0D7F	0000	297
-		_SsdTask_SetSymbol		CODE           	1CD3	0000	22
-		_SsdTask_Init  		CODE           	1602	0000	113
-		_SsdTask_SetState		CODE           	1F91	0000	55
+		_SsdTask_update		CODE           	0D7F	0000	297
+		_SsdTask_setSymbol		CODE           	1CD3	0000	22
+		_SsdTask_init  		CODE           	1602	0000	113
+		_SsdTask_setState		CODE           	1F91	0000	55
 
 SsdTask.c estimated size: 487
 
 Gpio.c
-		_Gpio_InitPin  		CODE           	1157	0000	78
-		_Gpio_GetPinState		CODE           	1E5F	0000	41
-		_Gpio_SetPinState		CODE           	07C1	0000	62
-		_Gpio_SetPortState		CODE           	1F08	0000	46
+		_Gpio_initPin  		CODE           	1157	0000	78
+		_Gpio_getPinState		CODE           	1E5F	0000	41
+		_Gpio_setPinState		CODE           	07C1	0000	62
+		_Gpio_setPortState		CODE           	1F08	0000	46
 
 Gpio.c estimated size: 227
 
 TempSensorTask.c
-		_TempSensorTask_Update		CODE           	0C79	0000	263
-		_TempSensorTask_Init		CODE           	1594	0000	111
-		_TempSensorTask_GetAverage		CODE           	1C5F	0000	19
+		_TempSensorTask_getAverage		CODE           	1C5F	0000	19
+		_TempSensorTask_update		CODE           	0C79	0000	263
+		_TempSensorTask_init		CODE           	1594	0000	111
 
 TempSensorTask.c estimated size: 393
 
 Adc.c
-		_Adc_GetState  		CODE           	1CE8	0000	22
-		_Adc_Init      		CODE           	1C0F	0000	12
+		_Adc_init      		CODE           	1C0F	0000	12
+		_Adc_getState  		CODE           	1CE8	0000	22
 
 Adc.c estimated size: 34
 
@@ -3534,8 +3534,8 @@ shared
 shared estimated size: 102
 
 WaterHeater.c
-		_HeaterTask_Init		CODE           	054B	0000	631
-		_HeaterTask_Update		CODE           	0067	0000	1253
+		_HeaterTask_init		CODE           	054B	0000	631
+		_HeaterTask_update		CODE           	0067	0000	1253
 
 WaterHeater.c estimated size: 1884
 
@@ -3550,30 +3550,30 @@ C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c estimated size: 71
 
 TempSensor.c
-		_TempSensor_GetState		CODE           	1672	0000	115
-		_TempSensor_Init		CODE           	0AC7	0000	210
+		_TempSensor_getState		CODE           	1672	0000	115
+		_TempSensor_init		CODE           	0AC7	0000	210
 
 TempSensor.c estimated size: 325
 
 Switch.c
-		_Switch_Init   		CODE           	1F35	0000	46
-		_Switch_GetState		CODE           	1D58	0000	26
+		_Switch_init   		CODE           	1F35	0000	46
+		_Switch_getState		CODE           	1D58	0000	26
 
 Switch.c estimated size: 72
 
 LedTask.c
-		_LedTask_Init  		CODE           	128E	0000	87
-		_LedTask_SetState		CODE           	11F1	0000	78
-		_LedTask_Update		CODE           	0B98	0000	226
+		_LedTask_init  		CODE           	128E	0000	87
+		_LedTask_setState		CODE           	11F1	0000	78
+		_LedTask_update		CODE           	0B98	0000	226
 
 LedTask.c estimated size: 391
 
 Eeprom.c
-		_Eeprom_ReadPage		CODE           	1398	0000	98
-		_Eeprom_Read   		CODE           	1085	0000	69
-		_Eeprom_Init   		CODE           	1EDC	0000	45
-		_Eeprom_Write  		CODE           	1F62	0000	48
-		_Eeprom_WritePage		CODE           	11A4	0000	78
+		_Eeprom_readPage		CODE           	1398	0000	98
+		_Eeprom_read   		CODE           	1085	0000	69
+		_Eeprom_init   		CODE           	1EDC	0000	45
+		_Eeprom_write  		CODE           	1F62	0000	48
+		_Eeprom_writePage		CODE           	11A4	0000	78
 
 Eeprom.c estimated size: 338
 

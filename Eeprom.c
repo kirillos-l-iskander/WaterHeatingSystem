@@ -3,75 +3,75 @@
 #define EEPROM_Address_W 0xA0
 #define EEPROM_Address_R 0xA1
 
-void Eeprom_Init( void )
+void Eeprom_init( void )
 {
-    I2c_MasterInit( 100000 );
-    Gpio_InitPin(I2C_REG, SDA, INPUT);
-    Gpio_InitPin(I2C_REG, SCL, INPUT);
+    I2c_initMaster( 100000 );
+    Gpio_initPin(I2C_REG, SDA, INPUT);
+    Gpio_initPin(I2C_REG, SCL, INPUT);
 }
 
-void Eeprom_Write( uint8_t Address, uint8_t Buffer )
+void Eeprom_write( uint8_t address, uint8_t buffer )
 {
-    I2c_MasterStart();
+    I2c_startMaster();
     //Wait Until EEPROM Is IDLE
-    while( I2c_MasterWrite( EEPROM_Address_W ) )
+    while( I2c_writeMaster( EEPROM_Address_W ) )
     {
-        I2c_MasterRepeatedStart();
+        I2c_repeatedStartMaster();
     }
-    I2c_MasterWrite( Address );
-    I2c_MasterWrite( Buffer );
-    I2c_MasterStop();
+    I2c_writeMaster( address );
+    I2c_writeMaster( buffer );
+    I2c_stopMaster();
 }
 
-void Eeprom_WritePage( uint8_t Address, uint8_t *Buffer, uint8_t Length )
+void Eeprom_writePage( uint8_t address, uint8_t *buffer, uint8_t length )
 {
-    I2c_MasterStart();
+    I2c_startMaster();
     //Wait Until EEPROM Is IDLE
-    while( I2c_MasterWrite( EEPROM_Address_W ) )
+    while( I2c_writeMaster( EEPROM_Address_W ) )
     {
-        I2c_MasterRepeatedStart();
+        I2c_repeatedStartMaster();
     }
-    I2c_MasterWrite( Address );
-    for( unsigned int i = 0; i< Length; i++ )
+    I2c_writeMaster( address );
+    for( size_t i = 0; i< length; i++ )
     {
-        I2c_MasterWrite( Buffer[ i ] );
+        I2c_writeMaster( buffer[ i ] );
     }
-    I2c_MasterStop();
+    I2c_stopMaster();
 }
 
-uint8_t Eeprom_Read( uint8_t Address )
+uint8_t Eeprom_read( uint8_t address )
 {
-    uint8_t Buffer;
-    I2c_MasterStart();
+    uint8_t buffer;
+    I2c_startMaster();
     //Wait Until EEPROM Is IDLE
-    while( I2c_MasterWrite( EEPROM_Address_W ) )
+    while( I2c_writeMaster( EEPROM_Address_W ) )
     {
-        I2c_MasterRepeatedStart();
+        I2c_repeatedStartMaster();
     }
-    I2c_MasterWrite( Address );
-    I2c_MasterStart();
-    I2c_MasterWrite( EEPROM_Address_R );
-    Buffer = I2c_Read();
-    I2c_NACK();
-    I2c_MasterStop();
-    return Buffer;
+    I2c_writeMaster( address );
+    I2c_startMaster();
+    I2c_writeMaster( EEPROM_Address_R );
+    buffer = I2c_read();
+    I2c_nack();
+    I2c_stopMaster();
+    return buffer;
 }
 
-void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length )
+void Eeprom_readPage( uint8_t address, uint8_t *buffer, uint8_t length )
 {
-    I2c_MasterStart();
+    I2c_startMaster();
     //Wait Until EEPROM Is IDLE
-    while( I2c_MasterWrite( EEPROM_Address_W ) )
+    while( I2c_writeMaster( EEPROM_Address_W ) )
     {
-        I2c_MasterRepeatedStart();
+        I2c_repeatedStartMaster();
     }
-    I2c_MasterWrite( Address );
-    I2c_MasterStart();
-    I2c_MasterWrite( EEPROM_Address_R );
-    for( unsigned int i = 0; i < Length; i++ )
+    I2c_writeMaster( address );
+    I2c_startMaster();
+    I2c_writeMaster( EEPROM_Address_R );
+    for( size_t i = 0; i < length; i++ )
     {
-        Buffer[i] = I2c_Read();
-        I2c_ACK();
+        buffer[i] = I2c_read();
+        I2c_ack();
     }
-    I2c_MasterStop();
+    I2c_stopMaster();
 }

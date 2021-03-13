@@ -2,31 +2,31 @@
 
 typedef struct
 {
-    Id_t GpioId;
-	uint8_t Pin;
-    Id_t AdcId;
-    uint8_t Channel;
-    uint32_t VoltMulti;
-    uint32_t VoltDivide;
-    uint8_t Result;
+    Id_t xGpioId;
+	uint8_t xPin;
+    Id_t xAdcId;
+    uint8_t channel;
+    uint32_t voltMulti;
+    uint32_t voltDivide;
+    uint8_t result;
 }TempSensor_t;
 
-static TempSensor_t TempSensor[ TEMP_SENSOR_NUMBER ];
+static TempSensor_t tempSensor[ TEMP_SENSOR_NUMBER ];
 
-void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId )
+void TempSensor_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId )
 {
-    TempSensor[ Id ].GpioId = GpioId;
-    TempSensor[ Id ].Pin = Pin;
-    TempSensor[ Id ].AdcId = AdcId;
-    TempSensor[ Id ].Channel = 2;
-    TempSensor[ Id ].VoltMulti = 488281;
-    TempSensor[ Id ].VoltDivide = 1000000;
-    TempSensor[ Id ].Result = 0;
-    Gpio_InitPin( TempSensor[ Id ].GpioId, TempSensor[ Id ].Pin, INPUT );
-    Adc_Init( TempSensor[ Id ].AdcId );
+    tempSensor[ id ].xGpioId = xGpioId;
+    tempSensor[ id ].xPin = xPin;
+    tempSensor[ id ].xAdcId = xAdcId;
+    tempSensor[ id ].channel = 2;
+    tempSensor[ id ].voltMulti = 488281;
+    tempSensor[ id ].voltDivide = 1000000;
+    tempSensor[ id ].result = 0;
+    Gpio_initPin( tempSensor[ id ].xGpioId, tempSensor[ id ].xPin, INPUT );
+    Adc_init( tempSensor[ id ].xAdcId );
 }
 
-uint8_t TempSensor_GetState( Id_t Id )
+uint8_t TempSensor_getState( Id_t id )
 {
-    return ( ( Adc_GetState( TempSensor[ Id ].AdcId ) * TempSensor[ Id ].VoltMulti ) / TempSensor[ Id ].VoltDivide );
+    return ( ( Adc_getState( tempSensor[ id ].xAdcId ) * tempSensor[ id ].voltMulti ) / tempSensor[ id ].voltDivide );
 }

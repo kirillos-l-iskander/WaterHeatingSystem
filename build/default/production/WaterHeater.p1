@@ -1,48 +1,48 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "24 WaterHeater.c
-[; ;WaterHeater.c: 24: static Heater_t Heater[ ( 1 ) ];
-[c E1380 0 1 2 3 4 .. ]
-[n E1380 . OffMode OperationMode NormalMode TempSetMode ResetMode  ]
+[; ;WaterHeater.c: 24: static Heater_t heater[ ( 1 ) ];
+[c E1364 0 1 2 3 4 .. ]
+[n E1364 . OffMode OperationMode NormalMode TempSetMode ResetMode  ]
 "13
 [; ;WaterHeater.c: 13: {
-[s S102 `E1380 1 `E1380 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc -> 8 `i `uc -> 8 `i ]
-[n S102 . State PreState AvgTemp TargetTemp Counter PasswordFlag PasswordWrite PasswordRead ]
-"7 ./Eeprom.h
-[; ;./Eeprom.h: 7: void Eeprom_Init( void );
-[v _Eeprom_Init `(v ~T0 @X0 0 ef ]
-"11
-[; ;./Eeprom.h: 11: void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
-[v _Eeprom_ReadPage `(v ~T0 @X0 0 ef3`uc`*uc`uc ]
-"10
-[; ;./Eeprom.h: 10: uint8_t Eeprom_Read( uint8_t Address );
-[v _Eeprom_Read `(uc ~T0 @X0 0 ef1`uc ]
-"9
-[; ;./Eeprom.h: 9: void Eeprom_WritePage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
-[v _Eeprom_WritePage `(v ~T0 @X0 0 ef3`uc`*uc`uc ]
+[s S102 `E1364 1 `E1364 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc -> 8 `i `uc -> 8 `i ]
+[n S102 . state preState avgTemp targetTemp counter passwordFlag passwordWrite passwordRead ]
+"12 ./Eeprom.h
+[; ;./Eeprom.h: 12: void Eeprom_init( void );
+[v _Eeprom_init `(v ~T0 @X0 0 ef ]
+"16
+[; ;./Eeprom.h: 16: void Eeprom_readPage( uint8_t address, uint8_t *buffer, uint8_t length );
+[v _Eeprom_readPage `(v ~T0 @X0 0 ef3`uc`*uc`uc ]
+"15
+[; ;./Eeprom.h: 15: uint8_t Eeprom_read( uint8_t address );
+[v _Eeprom_read `(uc ~T0 @X0 0 ef1`uc ]
+"14
+[; ;./Eeprom.h: 14: void Eeprom_writePage( uint8_t address, uint8_t *buffer, uint8_t length );
+[v _Eeprom_writePage `(v ~T0 @X0 0 ef3`uc`*uc`uc ]
 "85 ./SchedulerConfig.h
 [; ;./SchedulerConfig.h: 85: void Scheduler_delaySoftwareMs( volatile uint32_t msDelay );
 [v _Scheduler_delaySoftwareMs `(v ~T0 @X0 0 ef1`Vul ]
-"8 ./Eeprom.h
-[; ;./Eeprom.h: 8: void Eeprom_Write( uint8_t Address, uint8_t Buffer );
-[v _Eeprom_Write `(v ~T0 @X0 0 ef2`uc`uc ]
+"13 ./Eeprom.h
+[; ;./Eeprom.h: 13: void Eeprom_write( uint8_t address, uint8_t buffer );
+[v _Eeprom_write `(v ~T0 @X0 0 ef2`uc`uc ]
 "8 ./SwitchTask.h
-[; ;./SwitchTask.h: 8: uint8_t SwitchTask_GetState( Id_t Id );
-[v _SwitchTask_GetState `(uc ~T0 @X0 0 ef1`uc ]
+[; ;./SwitchTask.h: 8: uint8_t SwitchTask_getState( Id_t id );
+[v _SwitchTask_getState `(uc ~T0 @X0 0 ef1`uc ]
 "8 ./TempSensorTask.h
-[; ;./TempSensorTask.h: 8: uint8_t TempSensorTask_GetAverage( Id_t Id );
-[v _TempSensorTask_GetAverage `(uc ~T0 @X0 0 ef1`uc ]
+[; ;./TempSensorTask.h: 8: uint8_t TempSensorTask_getAverage( Id_t id );
+[v _TempSensorTask_getAverage `(uc ~T0 @X0 0 ef1`uc ]
 "8 ./TempControlTask.h
-[; ;./TempControlTask.h: 8: void TempControlTask_SetState( Id_t Id, uint8_t State );
-[v _TempControlTask_SetState `(v ~T0 @X0 0 ef2`uc`uc ]
-"10 ./LedTask.h
-[; ;./LedTask.h: 10: void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
-[v _LedTask_SetState `(v ~T0 @X0 0 ef3`uc`uc`ui ]
+[; ;./TempControlTask.h: 8: void TempControlTask_setState( Id_t id, uint8_t state );
+[v _TempControlTask_setState `(v ~T0 @X0 0 ef2`uc`uc ]
+"8 ./LedTask.h
+[; ;./LedTask.h: 8: void LedTask_setState( Id_t id, uint8_t state, uint16_t period );
+[v _LedTask_setState `(v ~T0 @X0 0 ef3`uc`uc`ui ]
 "8 ./SsdTask.h
-[; ;./SsdTask.h: 8: void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
-[v _SsdTask_SetState `(v ~T0 @X0 0 ef3`uc`uc`ui ]
+[; ;./SsdTask.h: 8: void SsdTask_setState( Id_t id, uint8_t state, uint16_t period );
+[v _SsdTask_setState `(v ~T0 @X0 0 ef3`uc`uc`ui ]
 "9
-[; ;./SsdTask.h: 9: void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol );
-[v _SsdTask_SetSymbol `(v ~T0 @X0 0 ef2`uc`uc ]
+[; ;./SsdTask.h: 9: void SsdTask_setSymbol( Id_t id, uint8_t symbol );
+[v _SsdTask_setSymbol `(v ~T0 @X0 0 ef2`uc`uc ]
 "13 ./Config.h
 [p x FOSC = HS ]
 "14
@@ -240,498 +240,498 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "24 WaterHeater.c
-[; ;WaterHeater.c: 24: static Heater_t Heater[ ( 1 ) ];
-[v _Heater `S102 ~T0 @X0 -> -> 1 `i `ux s ]
+[; ;WaterHeater.c: 24: static Heater_t heater[ ( 1 ) ];
+[v _heater `S102 ~T0 @X0 -> -> 1 `i `ux s ]
 "26
-[; ;WaterHeater.c: 26: void HeaterTask_Init( Id_t Id )
-[v _HeaterTask_Init `(v ~T0 @X0 1 ef1`uc ]
+[; ;WaterHeater.c: 26: void HeaterTask_init( Id_t id )
+[v _HeaterTask_init `(v ~T0 @X0 1 ef1`uc ]
 "27
 [; ;WaterHeater.c: 27: {
 {
-[e :U _HeaterTask_Init ]
+[e :U _HeaterTask_init ]
 "26
-[; ;WaterHeater.c: 26: void HeaterTask_Init( Id_t Id )
-[v _Id `uc ~T0 @X0 1 r1 ]
+[; ;WaterHeater.c: 26: void HeaterTask_init( Id_t id )
+[v _id `uc ~T0 @X0 1 r1 ]
 "27
 [; ;WaterHeater.c: 27: {
 [f ]
 "28
-[; ;WaterHeater.c: 28:     size_t Index = 0;
-[v _Index `ui ~T0 @X0 1 a ]
-[e = _Index -> -> 0 `i `ui ]
+[; ;WaterHeater.c: 28:     size_t index = 0;
+[v _index `ui ~T0 @X0 1 a ]
+[e = _index -> -> 0 `i `ui ]
 "29
-[; ;WaterHeater.c: 29:     Eeprom_Init();
-[e ( _Eeprom_Init ..  ]
+[; ;WaterHeater.c: 29:     Eeprom_init();
+[e ( _Eeprom_init ..  ]
 "30
-[; ;WaterHeater.c: 30:     Heater[ Id ].State = OffMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 0 ]
+[; ;WaterHeater.c: 30:     heater[ id ].state = OffMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 0 ]
 "31
-[; ;WaterHeater.c: 31:     Heater[ Id ].PreState = Heater[ Id ].State;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 1 . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 ]
+[; ;WaterHeater.c: 31:     heater[ id ].preState = heater[ id ].state;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 1 . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 ]
 "32
-[; ;WaterHeater.c: 32:     Heater[ Id ].AvgTemp = 0;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 2 -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 32:     heater[ id ].avgTemp = 0;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 2 -> -> 0 `i `uc ]
 "33
-[; ;WaterHeater.c: 33:     Heater[ Id ].TargetTemp = 60;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 -> -> 60 `i `uc ]
+[; ;WaterHeater.c: 33:     heater[ id ].targetTemp = 60;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 -> -> 60 `i `uc ]
 "34
-[; ;WaterHeater.c: 34:     Heater[ Id ].Counter = 0;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 4 -> -> 0 `i `ui ]
+[; ;WaterHeater.c: 34:     heater[ id ].counter = 0;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 4 -> -> 0 `i `ui ]
 "35
-[; ;WaterHeater.c: 35:     Heater[ Id ].PasswordFlag = 1;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 5 -> -> 1 `i `uc ]
+[; ;WaterHeater.c: 35:     heater[ id ].passwordFlag = 1;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 5 -> -> 1 `i `uc ]
 "36
-[; ;WaterHeater.c: 36:     Heater[ Id ].PasswordWrite[ 0 ] = '#';
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 `ui `ux -> -> 35 `ui `uc ]
+[; ;WaterHeater.c: 36:     heater[ id ].passwordWrite[ 0 ] = '#';
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 `ui `ux -> -> 35 `ui `uc ]
 "37
-[; ;WaterHeater.c: 37:     Heater[ Id ].PasswordWrite[ 1 ] = 'P';
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 `ui `ux -> -> 80 `ui `uc ]
+[; ;WaterHeater.c: 37:     heater[ id ].passwordWrite[ 1 ] = 'P';
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 `ui `ux -> -> 80 `ui `uc ]
 "38
-[; ;WaterHeater.c: 38:     Heater[ Id ].PasswordWrite[ 2 ] = 'w';
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 `ui `ux -> -> 119 `ui `uc ]
+[; ;WaterHeater.c: 38:     heater[ id ].passwordWrite[ 2 ] = 'w';
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 `ui `ux -> -> 119 `ui `uc ]
 "39
-[; ;WaterHeater.c: 39:     Heater[ Id ].PasswordWrite[ 3 ] = 'r';
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 `ui `ux -> -> 114 `ui `uc ]
+[; ;WaterHeater.c: 39:     heater[ id ].passwordWrite[ 3 ] = 'r';
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 `ui `ux -> -> 114 `ui `uc ]
 "40
-[; ;WaterHeater.c: 40:     Heater[ Id ].PasswordWrite[ 4 ] = 'U';
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 `ui `ux -> -> 85 `ui `uc ]
+[; ;WaterHeater.c: 40:     heater[ id ].passwordWrite[ 4 ] = 'U';
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 `ui `ux -> -> 85 `ui `uc ]
 "41
-[; ;WaterHeater.c: 41:     Heater[ Id ].PasswordWrite[ 5 ] = 'p';
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 `ui `ux -> -> 112 `ui `uc ]
+[; ;WaterHeater.c: 41:     heater[ id ].passwordWrite[ 5 ] = 'p';
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 `ui `ux -> -> 112 `ui `uc ]
 "42
-[; ;WaterHeater.c: 42:     Heater[ Id ].PasswordWrite[ 6 ] = '_';
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 `ui `ux -> -> 95 `ui `uc ]
+[; ;WaterHeater.c: 42:     heater[ id ].passwordWrite[ 6 ] = '_';
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 `ui `ux -> -> 95 `ui `uc ]
 "43
-[; ;WaterHeater.c: 43:     Heater[ Id ].PasswordWrite[ 7 ] = '1';
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 `ui `ux -> -> 49 `ui `uc ]
+[; ;WaterHeater.c: 43:     heater[ id ].passwordWrite[ 7 ] = '1';
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 `ui `ux -> -> 49 `ui `uc ]
 "44
-[; ;WaterHeater.c: 44:     Heater[ Id ].PasswordRead[ 0 ] = 0;
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 44:     heater[ id ].passwordRead[ 0 ] = 0;
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
 "45
-[; ;WaterHeater.c: 45:     Heater[ Id ].PasswordRead[ 1 ] = 0;
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 45:     heater[ id ].passwordRead[ 1 ] = 0;
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
 "46
-[; ;WaterHeater.c: 46:     Heater[ Id ].PasswordRead[ 2 ] = 0;
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 46:     heater[ id ].passwordRead[ 2 ] = 0;
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
 "47
-[; ;WaterHeater.c: 47:     Heater[ Id ].PasswordRead[ 3 ] = 0;
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 47:     heater[ id ].passwordRead[ 3 ] = 0;
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
 "48
-[; ;WaterHeater.c: 48:     Heater[ Id ].PasswordRead[ 4 ] = 0;
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 48:     heater[ id ].passwordRead[ 4 ] = 0;
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
 "49
-[; ;WaterHeater.c: 49:     Heater[ Id ].PasswordRead[ 5 ] = 0;
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 49:     heater[ id ].passwordRead[ 5 ] = 0;
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
 "50
-[; ;WaterHeater.c: 50:     Heater[ Id ].PasswordRead[ 6 ] = 0;
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 50:     heater[ id ].passwordRead[ 6 ] = 0;
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
 "51
-[; ;WaterHeater.c: 51:     Heater[ Id ].PasswordRead[ 7 ] = 0;
-[e = *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 51:     heater[ id ].passwordRead[ 7 ] = 0;
+[e = *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 `ui `ux -> -> 0 `i `uc ]
+"53
+[; ;WaterHeater.c: 53:     Eeprom_readPage( 0, heater[ id ].passwordRead, 8 );
+[e ( _Eeprom_readPage (3 , , -> -> 0 `i `uc &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 -> -> 8 `i `uc ]
 "54
-[; ;WaterHeater.c: 54:     Eeprom_ReadPage( 0, Heater[ Id ].PasswordRead, 8 );
-[e ( _Eeprom_ReadPage (3 , , -> -> 0 `i `uc &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 -> -> 8 `i `uc ]
-"55
-[; ;WaterHeater.c: 55:     for( Index = 0; Index < 8; Index++)
+[; ;WaterHeater.c: 54:     for( index = 0; index < 8; index++)
 {
-[e = _Index -> -> 0 `i `ui ]
-[e $ < _Index -> -> 8 `i `ui 104  ]
+[e = _index -> -> 0 `i `ui ]
+[e $ < _index -> -> 8 `i `ui 104  ]
 [e $U 105  ]
 [e :U 104 ]
+"55
+[; ;WaterHeater.c: 55:     {
+{
 "56
-[; ;WaterHeater.c: 56:     {
-{
+[; ;WaterHeater.c: 56:         if( heater[ id ].passwordWrite[ index ] != heater[ id ].passwordRead[ index ] )
+[e $ ! != -> *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 * -> _index `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 `ui `ux `i -> *U + &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 * -> _index `ux -> -> # *U &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 7 `ui `ux `i 107  ]
 "57
-[; ;WaterHeater.c: 57:         if( Heater[ Id ].PasswordWrite[ Index ] != Heater[ Id ].PasswordRead[ Index ] )
-[e $ ! != -> *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 * -> _Index `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 `ui `ux `i -> *U + &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 * -> _Index `ux -> -> # *U &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 7 `ui `ux `i 107  ]
-"58
-[; ;WaterHeater.c: 58:         {
+[; ;WaterHeater.c: 57:         {
 {
+"58
+[; ;WaterHeater.c: 58:             heater[ id ].passwordFlag = 0;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 5 -> -> 0 `i `uc ]
 "59
-[; ;WaterHeater.c: 59:             Heater[ Id ].PasswordFlag = 0;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 5 -> -> 0 `i `uc ]
-"60
-[; ;WaterHeater.c: 60:             break;
+[; ;WaterHeater.c: 59:             break;
 [e $U 105  ]
-"61
-[; ;WaterHeater.c: 61:         }
+"60
+[; ;WaterHeater.c: 60:         }
 }
 [e :U 107 ]
-"62
-[; ;WaterHeater.c: 62:     }
+"61
+[; ;WaterHeater.c: 61:     }
 }
-[e ++ _Index -> -> 1 `i `ui ]
-[e $ < _Index -> -> 8 `i `ui 104  ]
+[e ++ _index -> -> 1 `i `ui ]
+[e $ < _index -> -> 8 `i `ui 104  ]
 [e :U 105 ]
 }
+"63
+[; ;WaterHeater.c: 63:     if( heater[ id ].passwordFlag )
+[e $ ! != -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 5 `i -> 0 `i 108  ]
 "64
-[; ;WaterHeater.c: 64:     if( Heater[ Id ].PasswordFlag )
-[e $ ! != -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 5 `i -> 0 `i 108  ]
-"65
-[; ;WaterHeater.c: 65:     {
+[; ;WaterHeater.c: 64:     {
 {
+"65
+[; ;WaterHeater.c: 65:         heater[ id ].targetTemp = Eeprom_read( 8 );
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 ( _Eeprom_read (1 -> -> 8 `i `uc ]
 "66
-[; ;WaterHeater.c: 66:         Heater[ Id ].TargetTemp = Eeprom_Read( 8 );
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 ( _Eeprom_Read (1 -> -> 8 `i `uc ]
-"67
-[; ;WaterHeater.c: 67:     }else
+[; ;WaterHeater.c: 66:     }else
 }
 [e $U 109  ]
 [e :U 108 ]
-"68
-[; ;WaterHeater.c: 68:     {
+"67
+[; ;WaterHeater.c: 67:     {
 {
+"68
+[; ;WaterHeater.c: 68:         Eeprom_writePage( 0, heater[ id ].passwordWrite, 8 );
+[e ( _Eeprom_writePage (3 , , -> -> 0 `i `uc &U . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 6 -> -> 8 `i `uc ]
 "69
-[; ;WaterHeater.c: 69:         Eeprom_WritePage( 0, Heater[ Id ].PasswordWrite, 8 );
-[e ( _Eeprom_WritePage (3 , , -> -> 0 `i `uc &U . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 6 -> -> 8 `i `uc ]
-"70
-[; ;WaterHeater.c: 70:         Scheduler_delaySoftwareMs( 10 );
+[; ;WaterHeater.c: 69:         Scheduler_delaySoftwareMs( 10 );
 [e ( _Scheduler_delaySoftwareMs (1 -> -> -> 10 `i `l `ul ]
+"70
+[; ;WaterHeater.c: 70:         Eeprom_write( 8, heater[ id ].targetTemp );
+[e ( _Eeprom_write (2 , -> -> 8 `i `uc . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 ]
 "71
-[; ;WaterHeater.c: 71:         Eeprom_Write( 8, Heater[ Id ].TargetTemp );
-[e ( _Eeprom_Write (2 , -> -> 8 `i `uc . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 ]
-"72
-[; ;WaterHeater.c: 72:     }
+[; ;WaterHeater.c: 71:     }
 }
 [e :U 109 ]
-"73
-[; ;WaterHeater.c: 73: }
+"72
+[; ;WaterHeater.c: 72: }
 [e :UE 103 ]
 }
+"74
+[; ;WaterHeater.c: 74: void HeaterTask_update( void *paramter )
+[v _HeaterTask_update `(v ~T0 @X0 1 ef1`*v ]
 "75
-[; ;WaterHeater.c: 75: void HeaterTask_Update( void *Paramter )
-[v _HeaterTask_Update `(v ~T0 @X0 1 ef1`*v ]
-"76
-[; ;WaterHeater.c: 76: {
+[; ;WaterHeater.c: 75: {
 {
-[e :U _HeaterTask_Update ]
+[e :U _HeaterTask_update ]
+"74
+[; ;WaterHeater.c: 74: void HeaterTask_update( void *paramter )
+[v _paramter `*v ~T0 @X0 1 r1 ]
 "75
-[; ;WaterHeater.c: 75: void HeaterTask_Update( void *Paramter )
-[v _Paramter `*v ~T0 @X0 1 r1 ]
-"76
-[; ;WaterHeater.c: 76: {
+[; ;WaterHeater.c: 75: {
 [f ]
+"76
+[; ;WaterHeater.c: 76:     Id_t id = (Id_t) paramter;
+[v _id `uc ~T0 @X0 1 a ]
+[e = _id -> _paramter `uc ]
 "77
-[; ;WaterHeater.c: 77:     Id_t Id = (Id_t) Paramter;
-[v _Id `uc ~T0 @X0 1 a ]
-[e = _Id -> _Paramter `uc ]
-"78
-[; ;WaterHeater.c: 78:     switch( Heater[ Id ].State )
+[; ;WaterHeater.c: 77:     switch( heater[ id ].state )
 [e $U 112  ]
+"78
+[; ;WaterHeater.c: 78:     {
+{
 "79
-[; ;WaterHeater.c: 79:     {
-{
-"80
-[; ;WaterHeater.c: 80:         case OffMode:
+[; ;WaterHeater.c: 79:         case OffMode:
 [e :U 113 ]
+"80
+[; ;WaterHeater.c: 80:         {
+{
 "81
-[; ;WaterHeater.c: 81:         {
-{
+[; ;WaterHeater.c: 81:             if( SwitchTask_getState( id*3 ) )
+[e $ ! != -> ( _SwitchTask_getState (1 -> * -> _id `i -> 3 `i `uc `i -> 0 `i 114  ]
 "82
-[; ;WaterHeater.c: 82:             if( SwitchTask_GetState( Id*3 ) )
-[e $ ! != -> ( _SwitchTask_GetState (1 -> * -> _Id `i -> 3 `i `uc `i -> 0 `i 114  ]
-"83
-[; ;WaterHeater.c: 83:             {
+[; ;WaterHeater.c: 82:             {
 {
+"83
+[; ;WaterHeater.c: 83:                 heater[ id ].state = OperationMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 1 ]
 "84
-[; ;WaterHeater.c: 84:                 Heater[ Id ].State = OperationMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 1 ]
-"85
-[; ;WaterHeater.c: 85:             }
+[; ;WaterHeater.c: 84:             }
 }
 [e :U 114 ]
-"86
-[; ;WaterHeater.c: 86:             break;
+"85
+[; ;WaterHeater.c: 85:             break;
 [e $U 111  ]
-"87
-[; ;WaterHeater.c: 87:         }
+"86
+[; ;WaterHeater.c: 86:         }
 }
-"88
-[; ;WaterHeater.c: 88:         case OperationMode:
+"87
+[; ;WaterHeater.c: 87:         case OperationMode:
 [e :U 115 ]
+"88
+[; ;WaterHeater.c: 88:         {
+{
 "89
-[; ;WaterHeater.c: 89:         {
-{
+[; ;WaterHeater.c: 89:             heater[ id ].avgTemp = TempSensorTask_getAverage( id );
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 2 ( _TempSensorTask_getAverage (1 _id ]
 "90
-[; ;WaterHeater.c: 90:             Heater[ Id ].AvgTemp = TempSensorTask_GetAverage( Id );
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 2 ( _TempSensorTask_GetAverage (1 _Id ]
+[; ;WaterHeater.c: 90:             if( heater[ id ].avgTemp <= ( heater[ id ].targetTemp - 5 ) )
+[e $ ! <= -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 2 `i - -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 `i -> 5 `i 116  ]
 "91
-[; ;WaterHeater.c: 91:             if( Heater[ Id ].AvgTemp <= ( Heater[ Id ].TargetTemp - 5 ) )
-[e $ ! <= -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 2 `i - -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 `i -> 5 `i 116  ]
-"92
-[; ;WaterHeater.c: 92:             {
+[; ;WaterHeater.c: 91:             {
 {
+"92
+[; ;WaterHeater.c: 92:                 TempControlTask_setState( id, 1 );
+[e ( _TempControlTask_setState (2 , _id -> -> 1 `i `uc ]
 "93
-[; ;WaterHeater.c: 93:                 TempControlTask_SetState( Id, 1 );
-[e ( _TempControlTask_SetState (2 , _Id -> -> 1 `i `uc ]
+[; ;WaterHeater.c: 93:                 LedTask_setState( id, ( 1 ), 1000 );
+[e ( _LedTask_setState (3 , , _id -> -> 1 `i `uc -> -> 1000 `i `ui ]
 "94
-[; ;WaterHeater.c: 94:                 LedTask_SetState( Id, ( 1 ), 1000 );
-[e ( _LedTask_SetState (3 , , _Id -> -> 1 `i `uc -> -> 1000 `i `ui ]
-"95
-[; ;WaterHeater.c: 95:             }else if( Heater[ Id ].AvgTemp >= ( Heater[ Id ].TargetTemp + 5 ) )
+[; ;WaterHeater.c: 94:             }else if( heater[ id ].avgTemp >= ( heater[ id ].targetTemp + 5 ) )
 }
 [e $U 117  ]
 [e :U 116 ]
-[e $ ! >= -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 2 `i + -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 `i -> 5 `i 118  ]
-"96
-[; ;WaterHeater.c: 96:             {
+[e $ ! >= -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 2 `i + -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 `i -> 5 `i 118  ]
+"95
+[; ;WaterHeater.c: 95:             {
 {
+"96
+[; ;WaterHeater.c: 96:                 TempControlTask_setState( id, 2 );
+[e ( _TempControlTask_setState (2 , _id -> -> 2 `i `uc ]
 "97
-[; ;WaterHeater.c: 97:                 TempControlTask_SetState( Id, 2 );
-[e ( _TempControlTask_SetState (2 , _Id -> -> 2 `i `uc ]
+[; ;WaterHeater.c: 97:                 LedTask_setState( id, ( 1 ), 0 );
+[e ( _LedTask_setState (3 , , _id -> -> 1 `i `uc -> -> 0 `i `ui ]
 "98
-[; ;WaterHeater.c: 98:                 LedTask_SetState( Id, ( 1 ), 0 );
-[e ( _LedTask_SetState (3 , , _Id -> -> 1 `i `uc -> -> 0 `i `ui ]
-"99
-[; ;WaterHeater.c: 99:             }
+[; ;WaterHeater.c: 98:             }
 }
 [e :U 118 ]
 [e :U 117 ]
+"99
+[; ;WaterHeater.c: 99:             if( heater[ id ].preState == TempSetMode )
+[e $ ! == -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 1 `ui -> . `E1364 3 `ui 119  ]
 "100
-[; ;WaterHeater.c: 100:             if( Heater[ Id ].PreState == TempSetMode )
-[e $ ! == -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 1 `ui -> . `E1380 3 `ui 119  ]
-"101
-[; ;WaterHeater.c: 101:             {
+[; ;WaterHeater.c: 100:             {
 {
+"101
+[; ;WaterHeater.c: 101:                 heater[ id ].state = TempSetMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 3 ]
 "102
-[; ;WaterHeater.c: 102:                 Heater[ Id ].State = TempSetMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 3 ]
-"103
-[; ;WaterHeater.c: 103:             }else
+[; ;WaterHeater.c: 102:             }else
 }
 [e $U 120  ]
 [e :U 119 ]
-"104
-[; ;WaterHeater.c: 104:             {
+"103
+[; ;WaterHeater.c: 103:             {
 {
+"104
+[; ;WaterHeater.c: 104:                 heater[ id ].state = NormalMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 2 ]
 "105
-[; ;WaterHeater.c: 105:                 Heater[ Id ].State = NormalMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 2 ]
-"106
-[; ;WaterHeater.c: 106:             }
+[; ;WaterHeater.c: 105:             }
 }
 [e :U 120 ]
-"107
-[; ;WaterHeater.c: 107:             break;
+"106
+[; ;WaterHeater.c: 106:             break;
 [e $U 111  ]
-"108
-[; ;WaterHeater.c: 108:         }
+"107
+[; ;WaterHeater.c: 107:         }
 }
-"109
-[; ;WaterHeater.c: 109:         case NormalMode:
+"108
+[; ;WaterHeater.c: 108:         case NormalMode:
 [e :U 121 ]
+"109
+[; ;WaterHeater.c: 109:         {
+{
 "110
-[; ;WaterHeater.c: 110:         {
-{
+[; ;WaterHeater.c: 110:             heater[ id ].preState = heater[ id ].state;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 1 . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 ]
 "111
-[; ;WaterHeater.c: 111:             Heater[ Id ].PreState = Heater[ Id ].State;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 1 . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 ]
+[; ;WaterHeater.c: 111:             SsdTask_setState( id*2, ( 1 ), 0 );
+[e ( _SsdTask_setState (3 , , -> * -> _id `i -> 2 `i `uc -> -> 1 `i `uc -> -> 0 `i `ui ]
 "112
-[; ;WaterHeater.c: 112:             SsdTask_SetState( Id*2, ( 1 ), 0 );
-[e ( _SsdTask_SetState (3 , , -> * -> _Id `i -> 2 `i `uc -> -> 1 `i `uc -> -> 0 `i `ui ]
+[; ;WaterHeater.c: 112:             SsdTask_setState( id*2 + 1, ( 1 ), 0 );
+[e ( _SsdTask_setState (3 , , -> + * -> _id `i -> 2 `i -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `ui ]
 "113
-[; ;WaterHeater.c: 113:             SsdTask_SetState( Id*2 + 1, ( 1 ), 0 );
-[e ( _SsdTask_SetState (3 , , -> + * -> _Id `i -> 2 `i -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `ui ]
+[; ;WaterHeater.c: 113:             SsdTask_setSymbol( id*2, heater[ id ].avgTemp % 10 );
+[e ( _SsdTask_setSymbol (2 , -> * -> _id `i -> 2 `i `uc -> % -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 2 `i -> 10 `i `uc ]
 "114
-[; ;WaterHeater.c: 114:             SsdTask_SetSymbol( Id*2, Heater[ Id ].AvgTemp % 10 );
-[e ( _SsdTask_SetSymbol (2 , -> * -> _Id `i -> 2 `i `uc -> % -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 2 `i -> 10 `i `uc ]
+[; ;WaterHeater.c: 114:             SsdTask_setSymbol( id*2 + 1, ( heater[ id ].avgTemp / 10 ) % 10 );
+[e ( _SsdTask_setSymbol (2 , -> + * -> _id `i -> 2 `i -> 1 `i `uc -> % / -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 2 `i -> 10 `i -> 10 `i `uc ]
 "115
-[; ;WaterHeater.c: 115:             SsdTask_SetSymbol( Id*2 + 1, ( Heater[ Id ].AvgTemp / 10 ) % 10 );
-[e ( _SsdTask_SetSymbol (2 , -> + * -> _Id `i -> 2 `i -> 1 `i `uc -> % / -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 2 `i -> 10 `i -> 10 `i `uc ]
+[; ;WaterHeater.c: 115:             if( SwitchTask_getState( id*3 + 2 ) || SwitchTask_getState( id*3 + 1 ) )
+[e $ ! || != -> ( _SwitchTask_getState (1 -> + * -> _id `i -> 3 `i -> 2 `i `uc `i -> 0 `i != -> ( _SwitchTask_getState (1 -> + * -> _id `i -> 3 `i -> 1 `i `uc `i -> 0 `i 122  ]
 "116
-[; ;WaterHeater.c: 116:             if( SwitchTask_GetState( Id*3 + 2 ) || SwitchTask_GetState( Id*3 + 1 ) )
-[e $ ! || != -> ( _SwitchTask_GetState (1 -> + * -> _Id `i -> 3 `i -> 2 `i `uc `i -> 0 `i != -> ( _SwitchTask_GetState (1 -> + * -> _Id `i -> 3 `i -> 1 `i `uc `i -> 0 `i 122  ]
-"117
-[; ;WaterHeater.c: 117:             {
+[; ;WaterHeater.c: 116:             {
 {
+"117
+[; ;WaterHeater.c: 117:                 heater[ id ].state = TempSetMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 3 ]
 "118
-[; ;WaterHeater.c: 118:                 Heater[ Id ].State = TempSetMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 3 ]
-"119
-[; ;WaterHeater.c: 119:             }else if( SwitchTask_GetState( Id*3 ) )
+[; ;WaterHeater.c: 118:             }else if( SwitchTask_getState( id*3 ) )
 }
 [e $U 123  ]
 [e :U 122 ]
-[e $ ! != -> ( _SwitchTask_GetState (1 -> * -> _Id `i -> 3 `i `uc `i -> 0 `i 124  ]
-"120
-[; ;WaterHeater.c: 120:             {
+[e $ ! != -> ( _SwitchTask_getState (1 -> * -> _id `i -> 3 `i `uc `i -> 0 `i 124  ]
+"119
+[; ;WaterHeater.c: 119:             {
 {
+"120
+[; ;WaterHeater.c: 120:                 heater[ id ].state = ResetMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 4 ]
 "121
-[; ;WaterHeater.c: 121:                 Heater[ Id ].State = ResetMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 4 ]
-"122
-[; ;WaterHeater.c: 122:             }else
+[; ;WaterHeater.c: 121:             }else
 }
 [e $U 125  ]
 [e :U 124 ]
-"123
-[; ;WaterHeater.c: 123:             {
+"122
+[; ;WaterHeater.c: 122:             {
 {
+"123
+[; ;WaterHeater.c: 123:                 heater[ id ].state = OperationMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 1 ]
 "124
-[; ;WaterHeater.c: 124:                 Heater[ Id ].State = OperationMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 1 ]
-"125
-[; ;WaterHeater.c: 125:             }
+[; ;WaterHeater.c: 124:             }
 }
 [e :U 125 ]
 [e :U 123 ]
-"126
-[; ;WaterHeater.c: 126:             break;
+"125
+[; ;WaterHeater.c: 125:             break;
 [e $U 111  ]
-"127
-[; ;WaterHeater.c: 127:         }
+"126
+[; ;WaterHeater.c: 126:         }
 }
-"128
-[; ;WaterHeater.c: 128:         case TempSetMode:
+"127
+[; ;WaterHeater.c: 127:         case TempSetMode:
 [e :U 126 ]
+"128
+[; ;WaterHeater.c: 128:         {
+{
 "129
-[; ;WaterHeater.c: 129:         {
-{
+[; ;WaterHeater.c: 129:             heater[ id ].preState = heater[ id ].state;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 1 . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 ]
 "130
-[; ;WaterHeater.c: 130:             Heater[ Id ].PreState = Heater[ Id ].State;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 1 . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 ]
+[; ;WaterHeater.c: 130:             SsdTask_setState( id*2, ( 1 ), 1000 );
+[e ( _SsdTask_setState (3 , , -> * -> _id `i -> 2 `i `uc -> -> 1 `i `uc -> -> 1000 `i `ui ]
 "131
-[; ;WaterHeater.c: 131:             SsdTask_SetState( Id*2, ( 1 ), 1000 );
-[e ( _SsdTask_SetState (3 , , -> * -> _Id `i -> 2 `i `uc -> -> 1 `i `uc -> -> 1000 `i `ui ]
+[; ;WaterHeater.c: 131:             SsdTask_setState( id*2 + 1, ( 1 ), 1000 );
+[e ( _SsdTask_setState (3 , , -> + * -> _id `i -> 2 `i -> 1 `i `uc -> -> 1 `i `uc -> -> 1000 `i `ui ]
 "132
-[; ;WaterHeater.c: 132:             SsdTask_SetState( Id*2 + 1, ( 1 ), 1000 );
-[e ( _SsdTask_SetState (3 , , -> + * -> _Id `i -> 2 `i -> 1 `i `uc -> -> 1 `i `uc -> -> 1000 `i `ui ]
+[; ;WaterHeater.c: 132:             SsdTask_setSymbol( id*2, heater[ id ].targetTemp % 10 );
+[e ( _SsdTask_setSymbol (2 , -> * -> _id `i -> 2 `i `uc -> % -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 `i -> 10 `i `uc ]
 "133
-[; ;WaterHeater.c: 133:             SsdTask_SetSymbol( Id*2, Heater[ Id ].TargetTemp % 10 );
-[e ( _SsdTask_SetSymbol (2 , -> * -> _Id `i -> 2 `i `uc -> % -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 `i -> 10 `i `uc ]
+[; ;WaterHeater.c: 133:             SsdTask_setSymbol( id*2 + 1, ( heater[ id ].targetTemp / 10 ) % 10 );
+[e ( _SsdTask_setSymbol (2 , -> + * -> _id `i -> 2 `i -> 1 `i `uc -> % / -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 `i -> 10 `i -> 10 `i `uc ]
 "134
-[; ;WaterHeater.c: 134:             SsdTask_SetSymbol( Id*2 + 1, ( Heater[ Id ].TargetTemp / 10 ) % 10 );
-[e ( _SsdTask_SetSymbol (2 , -> + * -> _Id `i -> 2 `i -> 1 `i `uc -> % / -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 `i -> 10 `i -> 10 `i `uc ]
+[; ;WaterHeater.c: 134:             if( SwitchTask_getState( id*3 + 2 ) && heater[ id ].targetTemp <= 70 )
+[e $ ! && != -> ( _SwitchTask_getState (1 -> + * -> _id `i -> 3 `i -> 2 `i `uc `i -> 0 `i <= -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 `i -> 70 `i 127  ]
 "135
-[; ;WaterHeater.c: 135:             if( SwitchTask_GetState( Id*3 + 2 ) && Heater[ Id ].TargetTemp <= 70 )
-[e $ ! && != -> ( _SwitchTask_GetState (1 -> + * -> _Id `i -> 3 `i -> 2 `i `uc `i -> 0 `i <= -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 `i -> 70 `i 127  ]
-"136
-[; ;WaterHeater.c: 136:             {
+[; ;WaterHeater.c: 135:             {
 {
+"136
+[; ;WaterHeater.c: 136:                 heater[ id ].targetTemp += 5;
+[e =+ . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 -> -> 5 `i `uc ]
 "137
-[; ;WaterHeater.c: 137:                 Heater[ Id ].TargetTemp += 5;
-[e =+ . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 -> -> 5 `i `uc ]
+[; ;WaterHeater.c: 137:                 heater[ id ].counter = 0;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 4 -> -> 0 `i `ui ]
 "138
-[; ;WaterHeater.c: 138:                 Heater[ Id ].Counter = 0;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 4 -> -> 0 `i `ui ]
-"139
-[; ;WaterHeater.c: 139:             }
+[; ;WaterHeater.c: 138:             }
 }
 [e :U 127 ]
+"139
+[; ;WaterHeater.c: 139:             if( SwitchTask_getState( id*3 + 1 ) && heater[ id ].targetTemp >= 40 )
+[e $ ! && != -> ( _SwitchTask_getState (1 -> + * -> _id `i -> 3 `i -> 1 `i `uc `i -> 0 `i >= -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 `i -> 40 `i 128  ]
 "140
-[; ;WaterHeater.c: 140:             if( SwitchTask_GetState( Id*3 + 1 ) && Heater[ Id ].TargetTemp >= 40 )
-[e $ ! && != -> ( _SwitchTask_GetState (1 -> + * -> _Id `i -> 3 `i -> 1 `i `uc `i -> 0 `i >= -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 `i -> 40 `i 128  ]
-"141
-[; ;WaterHeater.c: 141:             {
+[; ;WaterHeater.c: 140:             {
 {
+"141
+[; ;WaterHeater.c: 141:                 heater[ id ].targetTemp -= 5;
+[e =- . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 -> -> 5 `i `uc ]
 "142
-[; ;WaterHeater.c: 142:                 Heater[ Id ].TargetTemp -= 5;
-[e =- . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 -> -> 5 `i `uc ]
+[; ;WaterHeater.c: 142:                 heater[ id ].counter = 0;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 4 -> -> 0 `i `ui ]
 "143
-[; ;WaterHeater.c: 143:                 Heater[ Id ].Counter = 0;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 4 -> -> 0 `i `ui ]
-"144
-[; ;WaterHeater.c: 144:             }
+[; ;WaterHeater.c: 143:             }
 }
 [e :U 128 ]
+"144
+[; ;WaterHeater.c: 144:             if( SwitchTask_getState( id*3 ) )
+[e $ ! != -> ( _SwitchTask_getState (1 -> * -> _id `i -> 3 `i `uc `i -> 0 `i 129  ]
 "145
-[; ;WaterHeater.c: 145:             if( SwitchTask_GetState( Id*3 ) )
-[e $ ! != -> ( _SwitchTask_GetState (1 -> * -> _Id `i -> 3 `i `uc `i -> 0 `i 129  ]
-"146
-[; ;WaterHeater.c: 146:             {
+[; ;WaterHeater.c: 145:             {
 {
+"146
+[; ;WaterHeater.c: 146:                 heater[ id ].state = ResetMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 4 ]
 "147
-[; ;WaterHeater.c: 147:                 Heater[ Id ].State = ResetMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 4 ]
-"148
-[; ;WaterHeater.c: 148:             }else
+[; ;WaterHeater.c: 147:             }else
 }
 [e $U 130  ]
 [e :U 129 ]
-"149
-[; ;WaterHeater.c: 149:             {
+"148
+[; ;WaterHeater.c: 148:             {
 {
+"149
+[; ;WaterHeater.c: 149:                 heater[ id ].state = OperationMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 1 ]
 "150
-[; ;WaterHeater.c: 150:                 Heater[ Id ].State = OperationMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 1 ]
-"151
-[; ;WaterHeater.c: 151:             }
+[; ;WaterHeater.c: 150:             }
 }
 [e :U 130 ]
+"151
+[; ;WaterHeater.c: 151:             if( heater[ id ].counter++ >= ( ( 5000 / ( ( TickType_t ) 5 ) ) / ( 200 / ( ( TickType_t ) 5 ) ) ) )
+[e $ ! >= ++ . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 4 -> -> 1 `i `ui / / -> -> 5000 `i `ui -> -> 5 `i `ui / -> -> 200 `i `ui -> -> 5 `i `ui 131  ]
 "152
-[; ;WaterHeater.c: 152:             if( Heater[ Id ].Counter++ >= ( ( 5000 / ( ( TickType_t ) 5 ) ) / ( 200 / ( ( TickType_t ) 5 ) ) ) )
-[e $ ! >= ++ . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 4 -> -> 1 `i `ui / / -> -> 5000 `i `ui -> -> 5 `i `ui / -> -> 200 `i `ui -> -> 5 `i `ui 131  ]
-"153
-[; ;WaterHeater.c: 153:             {
+[; ;WaterHeater.c: 152:             {
 {
+"153
+[; ;WaterHeater.c: 153:                 heater[ id ].counter = 0;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 4 -> -> 0 `i `ui ]
 "154
-[; ;WaterHeater.c: 154:                 Heater[ Id ].Counter = 0;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 4 -> -> 0 `i `ui ]
+[; ;WaterHeater.c: 154:                 Eeprom_write( 8, heater[ id ].targetTemp );
+[e ( _Eeprom_write (2 , -> -> 8 `i `uc . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 ]
 "155
-[; ;WaterHeater.c: 155:                 Eeprom_Write( 8, Heater[ Id ].TargetTemp );
-[e ( _Eeprom_Write (2 , -> -> 8 `i `uc . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 ]
+[; ;WaterHeater.c: 155:                 heater[ id ].state = NormalMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 2 ]
 "156
-[; ;WaterHeater.c: 156:                 Heater[ Id ].State = NormalMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 2 ]
-"157
-[; ;WaterHeater.c: 157:             }
+[; ;WaterHeater.c: 156:             }
 }
 [e :U 131 ]
+"157
+[; ;WaterHeater.c: 157:             break;
+[e $U 111  ]
 "158
-[; ;WaterHeater.c: 158:             break;
-[e $U 111  ]
+[; ;WaterHeater.c: 158:         }
+}
 "159
-[; ;WaterHeater.c: 159:         }
-}
-"160
-[; ;WaterHeater.c: 160:         case ResetMode:
+[; ;WaterHeater.c: 159:         case ResetMode:
 [e :U 132 ]
-"161
-[; ;WaterHeater.c: 161:         {
+"160
+[; ;WaterHeater.c: 160:         {
 {
+"161
+[; ;WaterHeater.c: 161:             TempControlTask_setState( id, 0 );
+[e ( _TempControlTask_setState (2 , _id -> -> 0 `i `uc ]
 "162
-[; ;WaterHeater.c: 162:             TempControlTask_SetState( Id, 0 );
-[e ( _TempControlTask_SetState (2 , _Id -> -> 0 `i `uc ]
+[; ;WaterHeater.c: 162:             LedTask_setState( id, ( 0 ), 0 );
+[e ( _LedTask_setState (3 , , _id -> -> 0 `i `uc -> -> 0 `i `ui ]
 "163
-[; ;WaterHeater.c: 163:             LedTask_SetState( Id, ( 0 ), 0 );
-[e ( _LedTask_SetState (3 , , _Id -> -> 0 `i `uc -> -> 0 `i `ui ]
+[; ;WaterHeater.c: 163:             SsdTask_setState( id*2, 0x00, 0 );
+[e ( _SsdTask_setState (3 , , -> * -> _id `i -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `ui ]
 "164
-[; ;WaterHeater.c: 164:             SsdTask_SetState( Id*2, 0x00, 0 );
-[e ( _SsdTask_SetState (3 , , -> * -> _Id `i -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `ui ]
+[; ;WaterHeater.c: 164:             SsdTask_setState( id*2 + 1, 0x00, 0 );
+[e ( _SsdTask_setState (3 , , -> + * -> _id `i -> 2 `i -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `ui ]
 "165
-[; ;WaterHeater.c: 165:             SsdTask_SetState( Id*2 + 1, 0x00, 0 );
-[e ( _SsdTask_SetState (3 , , -> + * -> _Id `i -> 2 `i -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `ui ]
+[; ;WaterHeater.c: 165:             Eeprom_write( 8, heater[ id ].targetTemp );
+[e ( _Eeprom_write (2 , -> -> 8 `i `uc . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 3 ]
 "166
-[; ;WaterHeater.c: 166:             Eeprom_Write( 8, Heater[ Id ].TargetTemp );
-[e ( _Eeprom_Write (2 , -> -> 8 `i `uc . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 3 ]
+[; ;WaterHeater.c: 166:             heater[ id ].counter = 0;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 4 -> -> 0 `i `ui ]
 "167
-[; ;WaterHeater.c: 167:             Heater[ Id ].Counter = 0;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 4 -> -> 0 `i `ui ]
+[; ;WaterHeater.c: 167:             heater[ id ].state = OffMode;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 . `E1364 0 ]
 "168
-[; ;WaterHeater.c: 168:             Heater[ Id ].State = OffMode;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 . `E1380 0 ]
+[; ;WaterHeater.c: 168:             heater[ id ].preState = heater[ id ].state;
+[e = . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 1 . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 ]
 "169
-[; ;WaterHeater.c: 169:             Heater[ Id ].PreState = Heater[ Id ].State;
-[e = . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 1 . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 ]
-"170
-[; ;WaterHeater.c: 170:             break;
+[; ;WaterHeater.c: 169:             break;
 [e $U 111  ]
-"171
-[; ;WaterHeater.c: 171:         }
+"170
+[; ;WaterHeater.c: 170:         }
 }
-"172
-[; ;WaterHeater.c: 172:     }
+"171
+[; ;WaterHeater.c: 171:     }
 }
 [e $U 111  ]
 [e :U 112 ]
-[e [\ -> . *U + &U _Heater * -> _Id `ux -> -> # *U &U _Heater `ui `ux 0 `ui , $ -> . `E1380 0 `ui 113
- , $ -> . `E1380 1 `ui 115
- , $ -> . `E1380 2 `ui 121
- , $ -> . `E1380 3 `ui 126
- , $ -> . `E1380 4 `ui 132
+[e [\ -> . *U + &U _heater * -> _id `ux -> -> # *U &U _heater `ui `ux 0 `ui , $ -> . `E1364 0 `ui 113
+ , $ -> . `E1364 1 `ui 115
+ , $ -> . `E1364 2 `ui 121
+ , $ -> . `E1364 3 `ui 126
+ , $ -> . `E1364 4 `ui 132
  111 ]
 [e :U 111 ]
-"173
-[; ;WaterHeater.c: 173: }
+"172
+[; ;WaterHeater.c: 172: }
 [e :UE 110 ]
 }

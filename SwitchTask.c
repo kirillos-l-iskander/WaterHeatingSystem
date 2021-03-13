@@ -2,45 +2,45 @@
 
 typedef struct
 {
-    uint8_t Lock;
-    uint8_t Counter;
-    uint8_t State;
+    uint8_t lock;
+    uint8_t counter;
+    uint8_t state;
 }SwitchTask_t;
 
-static SwitchTask_t SwitchTask[ SWITCH_TASK_NUMBER ];
+static SwitchTask_t switchTask[ SWITCH_NUMBER ];
 
-void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+void SwitchTask_init( Id_t id, Id_t xGpioId, uint8_t xPin )
 {
-    SwitchTask[ Id ].Lock = 0;
-    SwitchTask[ Id ].Counter = 0;
-    SwitchTask[ Id ].State = LOW;
-    Switch_Init( Id, GpioId, Pin );
+    switchTask[ id ].lock = 0;
+    switchTask[ id ].counter = 0;
+    switchTask[ id ].state = LOW;
+    Switch_init( id, xGpioId, xPin );
 }
 
-uint8_t SwitchTask_GetState( Id_t Id )
+uint8_t SwitchTask_getState( Id_t id )
 {
-    uint8_t Buffer = SwitchTask[ Id ].State;
-    SwitchTask[ Id ].State = LOW;
-    return Buffer;
+    uint8_t buffer = switchTask[ id ].state;
+    switchTask[ id ].state = LOW;
+    return buffer;
 }
 
-void SwitchTask_Update( void *Paramter )
+void SwitchTask_update( void *paramter )
 {
-    Id_t Id = (Id_t) Paramter;
-    if( SwitchTask[ Id ].Lock )
+    Id_t id = (Id_t) paramter;
+    if( switchTask[ id ].lock )
     {
-        SwitchTask[ Id ].Lock--;
-    }else if( !Switch_GetState( Id ) )
+        switchTask[ id ].lock--;
+    }else if( !Switch_getState( id ) )
     {
-        SwitchTask[ Id ].Counter++;
-        if( SwitchTask[ Id ].Counter == C_MS_TO_TICKS( 20 ) / C_MS_TO_TICKS( 10 ) )
+        switchTask[ id ].counter++;
+        if( switchTask[ id ].counter == MS_TO_TICKS( 20 ) / MS_TO_TICKS( 10 ) )
         {
-            SwitchTask[ Id ].Lock = C_MS_TO_TICKS( 500 ) / C_MS_TO_TICKS( 10 );
-            SwitchTask[ Id ].Counter = 0;
-            SwitchTask[ Id ].State = HIGH;
+            switchTask[ id ].lock = MS_TO_TICKS( 500 ) / MS_TO_TICKS( 10 );
+            switchTask[ id ].counter = 0;
+            switchTask[ id ].state = HIGH;
         }
     }else
     {
-        SwitchTask[ Id ].Counter = 0;
+        switchTask[ id ].counter = 0;
     }
 }

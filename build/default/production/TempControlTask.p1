@@ -2,13 +2,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4 TempControlTask.c
 [; ;TempControlTask.c: 4: {
 [s S102 `uc 1 ]
-[n S102 . State ]
-"7 ./TempControl.h
-[; ;./TempControl.h: 7: void TempControl_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
-[v _TempControl_Init `(v ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
-"8
-[; ;./TempControl.h: 8: void TempControl_SetState( Id_t Id, uint8_t State );
-[v _TempControl_SetState `(v ~T0 @X0 0 ef2`uc`uc ]
+[n S102 . state ]
+"12 ./TempControl.h
+[; ;./TempControl.h: 12: void TempControl_init( Id_t id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
+[v _TempControl_init `(v ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
+"13
+[; ;./TempControl.h: 13: void TempControl_setState( Id_t id, uint8_t state );
+[v _TempControl_setState `(v ~T0 @X0 0 ef2`uc`uc ]
 "13 ./Config.h
 [p x FOSC = HS ]
 "14
@@ -206,18 +206,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "8 TempControlTask.c
-[; ;TempControlTask.c: 8: static TempControlTask_t TempControlTask[ ( 1 ) ];
-[v _TempControlTask `S102 ~T0 @X0 -> -> 1 `i `ux s ]
+[; ;TempControlTask.c: 8: static TempControlTask_t tempControlTask[ ( 1 ) ];
+[v _tempControlTask `S102 ~T0 @X0 -> -> 1 `i `ux s ]
 "10
-[; ;TempControlTask.c: 10: void TempControlTask_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
-[v _TempControlTask_Init `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
+[; ;TempControlTask.c: 10: void TempControlTask_init( Id_t id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
+[v _TempControlTask_init `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
 "11
 [; ;TempControlTask.c: 11: {
 {
-[e :U _TempControlTask_Init ]
+[e :U _TempControlTask_init ]
 "10
-[; ;TempControlTask.c: 10: void TempControlTask_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
-[v _Id `uc ~T0 @X0 1 r1 ]
+[; ;TempControlTask.c: 10: void TempControlTask_init( Id_t id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
+[v _id `uc ~T0 @X0 1 r1 ]
 [v _hGpioId `uc ~T0 @X0 1 r2 ]
 [v _hPin `uc ~T0 @X0 1 r3 ]
 [v _cGpioId `uc ~T0 @X0 1 r4 ]
@@ -226,56 +226,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TempControlTask.c: 11: {
 [f ]
 "12
-[; ;TempControlTask.c: 12:     TempControlTask[ Id ].State = 0;
-[e = . *U + &U _TempControlTask * -> _Id `ux -> -> # *U &U _TempControlTask `ui `ux 0 -> -> 0 `i `uc ]
+[; ;TempControlTask.c: 12:     tempControlTask[ id ].state = 0;
+[e = . *U + &U _tempControlTask * -> _id `ux -> -> # *U &U _tempControlTask `ui `ux 0 -> -> 0 `i `uc ]
 "13
-[; ;TempControlTask.c: 13:     TempControl_Init( Id, hGpioId, hPin, cGpioId, cPin );
-[e ( _TempControl_Init (4 , , , , _Id _hGpioId _hPin _cGpioId _cPin ]
+[; ;TempControlTask.c: 13:     TempControl_init( id, hGpioId, hPin, cGpioId, cPin );
+[e ( _TempControl_init (4 , , , , _id _hGpioId _hPin _cGpioId _cPin ]
 "14
 [; ;TempControlTask.c: 14: }
 [e :UE 103 ]
 }
 "16
-[; ;TempControlTask.c: 16: void TempControlTask_SetState( Id_t Id, uint8_t State )
-[v _TempControlTask_SetState `(v ~T0 @X0 1 ef2`uc`uc ]
+[; ;TempControlTask.c: 16: void TempControlTask_setState( Id_t id, uint8_t state )
+[v _TempControlTask_setState `(v ~T0 @X0 1 ef2`uc`uc ]
 "17
 [; ;TempControlTask.c: 17: {
 {
-[e :U _TempControlTask_SetState ]
+[e :U _TempControlTask_setState ]
 "16
-[; ;TempControlTask.c: 16: void TempControlTask_SetState( Id_t Id, uint8_t State )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _State `uc ~T0 @X0 1 r2 ]
+[; ;TempControlTask.c: 16: void TempControlTask_setState( Id_t id, uint8_t state )
+[v _id `uc ~T0 @X0 1 r1 ]
+[v _state `uc ~T0 @X0 1 r2 ]
 "17
 [; ;TempControlTask.c: 17: {
 [f ]
 "18
-[; ;TempControlTask.c: 18:     TempControlTask[ Id ].State = State;
-[e = . *U + &U _TempControlTask * -> _Id `ux -> -> # *U &U _TempControlTask `ui `ux 0 _State ]
+[; ;TempControlTask.c: 18:     tempControlTask[ id ].state = state;
+[e = . *U + &U _tempControlTask * -> _id `ux -> -> # *U &U _tempControlTask `ui `ux 0 _state ]
 "19
 [; ;TempControlTask.c: 19: }
 [e :UE 104 ]
 }
 "21
-[; ;TempControlTask.c: 21: void TempControlTask_Update( void *Paramter )
-[v _TempControlTask_Update `(v ~T0 @X0 1 ef1`*v ]
+[; ;TempControlTask.c: 21: void TempControlTask_update( void *paramter )
+[v _TempControlTask_update `(v ~T0 @X0 1 ef1`*v ]
 "22
 [; ;TempControlTask.c: 22: {
 {
-[e :U _TempControlTask_Update ]
+[e :U _TempControlTask_update ]
 "21
-[; ;TempControlTask.c: 21: void TempControlTask_Update( void *Paramter )
-[v _Paramter `*v ~T0 @X0 1 r1 ]
+[; ;TempControlTask.c: 21: void TempControlTask_update( void *paramter )
+[v _paramter `*v ~T0 @X0 1 r1 ]
 "22
 [; ;TempControlTask.c: 22: {
 [f ]
 "23
-[; ;TempControlTask.c: 23:     Id_t Id = (Id_t) Paramter;
-[v _Id `uc ~T0 @X0 1 a ]
-[e = _Id -> _Paramter `uc ]
+[; ;TempControlTask.c: 23:     Id_t id = (Id_t) paramter;
+[v _id `uc ~T0 @X0 1 a ]
+[e = _id -> _paramter `uc ]
 "24
-[; ;TempControlTask.c: 24:     TempControl_SetState( Id, TempControlTask[ Id ].State );
-[e ( _TempControl_SetState (2 , _Id . *U + &U _TempControlTask * -> _Id `ux -> -> # *U &U _TempControlTask `ui `ux 0 ]
+[; ;TempControlTask.c: 24:     TempControl_setState( id, tempControlTask[ id ].state );
+[e ( _TempControl_setState (2 , _id . *U + &U _tempControlTask * -> _id `ux -> -> # *U &U _tempControlTask `ui `ux 0 ]
 "25
 [; ;TempControlTask.c: 25: }
 [e :UE 105 ]

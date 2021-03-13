@@ -2,35 +2,35 @@
 
 typedef struct
 {
-    Id_t GpioIdCtrl;
-    uint8_t PinCtrl;
-    Id_t GpioIdD0;
-    uint8_t PinD0;
+    Id_t cGpioId;
+    uint8_t cPin;
+    Id_t dGpioId;
+    uint8_t dPin;
 }Ssd_t;
 
-static Ssd_t Ssd[ SSD_NUMBER ];
-static uint8_t SsdSymbolPattern[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+static Ssd_t ssd[ SSD_NUMBER ];
+static uint8_t ssdSymbolPattern[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
 
-void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin )
+void Ssd_init( Id_t id, Id_t cGpioId, uint8_t cPin, Id_t dGpioId, uint8_t dPin )
 {
-    size_t Pin = 0;
-    Ssd[ Id ].GpioIdCtrl = ctrlGpioId;
-    Ssd[ Id ].PinCtrl = ctrlPin;
-    Ssd[ Id ].GpioIdD0 = dataGpioId;
-    Ssd[ Id ].PinD0 = dataPin;
-    Gpio_InitPin( Ssd[ Id ].GpioIdCtrl, Ssd[ Id ].PinCtrl, OUTPUT );
-    for ( Pin = Ssd[ Id ].PinD0; Pin < ( Ssd[ Id ].PinD0 + 8 ); Pin++ )
+    size_t pin = 0;
+    ssd[ id ].cGpioId = cGpioId;
+    ssd[ id ].cPin = cPin;
+    ssd[ id ].dGpioId = dGpioId;
+    ssd[ id ].dPin = dPin;
+    Gpio_initPin( ssd[ id ].cGpioId, ssd[ id ].cPin, OUTPUT );
+    for ( pin = ssd[ id ].dPin; pin < ( ssd[ id ].dPin + 8 ); pin++ )
     {
-        Gpio_InitPin( Ssd[ Id ].GpioIdD0, Pin, OUTPUT );
+        Gpio_initPin( ssd[ id ].dGpioId, pin, OUTPUT );
     }
 }
 
-void Ssd_SetState( Id_t Id, uint8_t State )
+void Ssd_setState( Id_t id, uint8_t state )
 {
-    Gpio_SetPinState( Ssd[ Id ].GpioIdCtrl, Ssd[ Id ].PinCtrl, State );
+    Gpio_setPinState( ssd[ id ].cGpioId, ssd[ id ].cPin, state );
 }
 
-void Ssd_SetSymbol( Id_t Id, uint8_t Symbol )
+void Ssd_setSymbol( Id_t id, uint8_t symbol )
 {
-	Gpio_SetPortState( Ssd[ Id ].GpioIdD0, ( 0xFF << Ssd[ Id ].PinD0 ), SsdSymbolPattern[ Symbol ] );
+	Gpio_setPortState( ssd[ id ].dGpioId, ( 0xFF << ssd[ id ].dPin ), ssdSymbolPattern[ symbol ] );
 }

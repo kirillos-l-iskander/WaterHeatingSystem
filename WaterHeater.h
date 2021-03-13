@@ -30,7 +30,12 @@
 #define SSD_UPDATE 5
 #define WH_UPDATE 100
 
-void HeaterTask_Init( Id_t Id );
-void HeaterTask_Update( void *Paramter );
+typedef enum
+{
+	HEATER1_ID
+}HEATER_t;
+
+void HeaterTask_init( Id_t id );
+void HeaterTask_update( void *paramter );
 
 #endif	/* WH_H */

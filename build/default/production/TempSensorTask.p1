@@ -2,13 +2,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4 TempSensorTask.c
 [; ;TempSensorTask.c: 4: {
 [s S102 `uc -> 10 `i `uc 1 `uc 1 `ui 1 ]
-[n S102 . Array Index AvgFlag AvgTemp ]
-"8 ./TempSensor.h
-[; ;./TempSensor.h: 8: void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
-[v _TempSensor_Init `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
-"9
-[; ;./TempSensor.h: 9: uint8_t TempSensor_GetState( Id_t Id );
-[v _TempSensor_GetState `(uc ~T0 @X0 0 ef1`uc ]
+[n S102 . array index avgFlag avgTemp ]
+"13 ./TempSensor.h
+[; ;./TempSensor.h: 13: void TempSensor_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId );
+[v _TempSensor_init `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
+"14
+[; ;./TempSensor.h: 14: uint8_t TempSensor_getState( Id_t id );
+[v _TempSensor_getState `(uc ~T0 @X0 0 ef1`uc ]
 "13 ./Config.h
 [p x FOSC = HS ]
 "14
@@ -206,154 +206,154 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "11 TempSensorTask.c
-[; ;TempSensorTask.c: 11: static TempSensorTask_t TempSensorTask[ ( 1 ) ];
-[v _TempSensorTask `S102 ~T0 @X0 -> -> 1 `i `ux s ]
+[; ;TempSensorTask.c: 11: static TempSensorTask_t tempSensorTask[ ( 1 ) ];
+[v _tempSensorTask `S102 ~T0 @X0 -> -> 1 `i `ux s ]
 "13
-[; ;TempSensorTask.c: 13: void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId )
-[v _TempSensorTask_Init `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
+[; ;TempSensorTask.c: 13: void TempSensorTask_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId )
+[v _TempSensorTask_init `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
 "14
 [; ;TempSensorTask.c: 14: {
 {
-[e :U _TempSensorTask_Init ]
+[e :U _TempSensorTask_init ]
 "13
-[; ;TempSensorTask.c: 13: void TempSensorTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _GpioId `uc ~T0 @X0 1 r2 ]
-[v _Pin `uc ~T0 @X0 1 r3 ]
-[v _AdcId `uc ~T0 @X0 1 r4 ]
+[; ;TempSensorTask.c: 13: void TempSensorTask_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId )
+[v _id `uc ~T0 @X0 1 r1 ]
+[v _xGpioId `uc ~T0 @X0 1 r2 ]
+[v _xPin `uc ~T0 @X0 1 r3 ]
+[v _xAdcId `uc ~T0 @X0 1 r4 ]
 "14
 [; ;TempSensorTask.c: 14: {
 [f ]
 "15
-[; ;TempSensorTask.c: 15:     size_t Index = 0;
-[v _Index `ui ~T0 @X0 1 a ]
-[e = _Index -> -> 0 `i `ui ]
+[; ;TempSensorTask.c: 15:     size_t index = 0;
+[v _index `ui ~T0 @X0 1 a ]
+[e = _index -> -> 0 `i `ui ]
 "16
-[; ;TempSensorTask.c: 16:     for( Index = 0; Index < 10; Index++ )
+[; ;TempSensorTask.c: 16:     for( index = 0; index < 10; index++ )
 {
-[e = _Index -> -> 0 `i `ui ]
-[e $ < _Index -> -> 10 `i `ui 104  ]
+[e = _index -> -> 0 `i `ui ]
+[e $ < _index -> -> 10 `i `ui 104  ]
 [e $U 105  ]
 [e :U 104 ]
 "17
 [; ;TempSensorTask.c: 17:     {
 {
 "18
-[; ;TempSensorTask.c: 18:         TempSensorTask[ Id ].Array[ Index ] = 0;
-[e = *U + &U . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 0 * -> _Index `ux -> -> # *U &U . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 0 `ui `ux -> -> 0 `i `uc ]
+[; ;TempSensorTask.c: 18:         tempSensorTask[ id ].array[ index ] = 0;
+[e = *U + &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 * -> _index `ux -> -> # *U &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 `ui `ux -> -> 0 `i `uc ]
 "19
 [; ;TempSensorTask.c: 19:     }
 }
-[e ++ _Index -> -> 1 `i `ui ]
-[e $ < _Index -> -> 10 `i `ui 104  ]
+[e ++ _index -> -> 1 `i `ui ]
+[e $ < _index -> -> 10 `i `ui 104  ]
 [e :U 105 ]
 }
 "20
-[; ;TempSensorTask.c: 20:     TempSensorTask[ Id ].Index = 0;
-[e = . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 1 -> -> 0 `i `uc ]
+[; ;TempSensorTask.c: 20:     tempSensorTask[ id ].index = 0;
+[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 1 -> -> 0 `i `uc ]
 "21
-[; ;TempSensorTask.c: 21:     TempSensorTask[ Id ].AvgFlag = 0;
-[e = . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 2 -> -> 0 `i `uc ]
+[; ;TempSensorTask.c: 21:     tempSensorTask[ id ].avgFlag = 0;
+[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 2 -> -> 0 `i `uc ]
 "22
-[; ;TempSensorTask.c: 22:     TempSensorTask[ Id ].AvgTemp = 0;
-[e = . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 3 -> -> 0 `i `ui ]
+[; ;TempSensorTask.c: 22:     tempSensorTask[ id ].avgTemp = 0;
+[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 3 -> -> 0 `i `ui ]
 "23
-[; ;TempSensorTask.c: 23:     TempSensor_Init( Id, GpioId, Pin, AdcId );
-[e ( _TempSensor_Init (4 , , , _Id _GpioId _Pin _AdcId ]
+[; ;TempSensorTask.c: 23:     TempSensor_init( id, xGpioId, xPin, xAdcId );
+[e ( _TempSensor_init (4 , , , _id _xGpioId _xPin _xAdcId ]
 "24
 [; ;TempSensorTask.c: 24: }
 [e :UE 103 ]
 }
 "26
-[; ;TempSensorTask.c: 26: uint8_t TempSensorTask_GetAverage( Id_t Id )
-[v _TempSensorTask_GetAverage `(uc ~T0 @X0 1 ef1`uc ]
+[; ;TempSensorTask.c: 26: uint8_t TempSensorTask_getAverage( Id_t id )
+[v _TempSensorTask_getAverage `(uc ~T0 @X0 1 ef1`uc ]
 "27
 [; ;TempSensorTask.c: 27: {
 {
-[e :U _TempSensorTask_GetAverage ]
+[e :U _TempSensorTask_getAverage ]
 "26
-[; ;TempSensorTask.c: 26: uint8_t TempSensorTask_GetAverage( Id_t Id )
-[v _Id `uc ~T0 @X0 1 r1 ]
+[; ;TempSensorTask.c: 26: uint8_t TempSensorTask_getAverage( Id_t id )
+[v _id `uc ~T0 @X0 1 r1 ]
 "27
 [; ;TempSensorTask.c: 27: {
 [f ]
 "28
-[; ;TempSensorTask.c: 28:     return ( uint8_t ) TempSensorTask[ Id ].AvgTemp;
-[e ) -> . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 3 `uc ]
+[; ;TempSensorTask.c: 28:     return ( uint8_t ) tempSensorTask[ id ].avgTemp;
+[e ) -> . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 3 `uc ]
 [e $UE 107  ]
 "29
 [; ;TempSensorTask.c: 29: }
 [e :UE 107 ]
 }
 "31
-[; ;TempSensorTask.c: 31: void TempSensorTask_Update( void *Paramter )
-[v _TempSensorTask_Update `(v ~T0 @X0 1 ef1`*v ]
+[; ;TempSensorTask.c: 31: void TempSensorTask_update( void *paramter )
+[v _TempSensorTask_update `(v ~T0 @X0 1 ef1`*v ]
 "32
 [; ;TempSensorTask.c: 32: {
 {
-[e :U _TempSensorTask_Update ]
+[e :U _TempSensorTask_update ]
 "31
-[; ;TempSensorTask.c: 31: void TempSensorTask_Update( void *Paramter )
-[v _Paramter `*v ~T0 @X0 1 r1 ]
+[; ;TempSensorTask.c: 31: void TempSensorTask_update( void *paramter )
+[v _paramter `*v ~T0 @X0 1 r1 ]
 "32
 [; ;TempSensorTask.c: 32: {
 [f ]
 "33
-[; ;TempSensorTask.c: 33:     Id_t Id = (Id_t) Paramter;
-[v _Id `uc ~T0 @X0 1 a ]
-[e = _Id -> _Paramter `uc ]
+[; ;TempSensorTask.c: 33:     Id_t id = (Id_t) paramter;
+[v _id `uc ~T0 @X0 1 a ]
+[e = _id -> _paramter `uc ]
 "34
-[; ;TempSensorTask.c: 34:     size_t Index = 0;
-[v _Index `ui ~T0 @X0 1 a ]
-[e = _Index -> -> 0 `i `ui ]
+[; ;TempSensorTask.c: 34:     size_t index = 0;
+[v _index `ui ~T0 @X0 1 a ]
+[e = _index -> -> 0 `i `ui ]
 "35
-[; ;TempSensorTask.c: 35:     TempSensorTask[ Id ].Array[ TempSensorTask[ Id ].Index++ ] = TempSensor_GetState( Id );
-[e = *U + &U . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 0 * -> ++ . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 1 -> -> 1 `i `uc `ux -> -> # *U &U . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 0 `ui `ux ( _TempSensor_GetState (1 _Id ]
+[; ;TempSensorTask.c: 35:     tempSensorTask[ id ].array[ tempSensorTask[ id ].index++ ] = TempSensor_getState( id );
+[e = *U + &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 * -> ++ . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 1 -> -> 1 `i `uc `ux -> -> # *U &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 `ui `ux ( _TempSensor_getState (1 _id ]
 "36
-[; ;TempSensorTask.c: 36:     if( TempSensorTask[ Id ].Index == 10 )
-[e $ ! == -> . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 1 `i -> 10 `i 109  ]
+[; ;TempSensorTask.c: 36:     if( tempSensorTask[ id ].index == 10 )
+[e $ ! == -> . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 1 `i -> 10 `i 109  ]
 "37
 [; ;TempSensorTask.c: 37:     {
 {
 "38
-[; ;TempSensorTask.c: 38:         TempSensorTask[ Id ].Index = 0;
-[e = . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 1 -> -> 0 `i `uc ]
+[; ;TempSensorTask.c: 38:         tempSensorTask[ id ].index = 0;
+[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 1 -> -> 0 `i `uc ]
 "39
-[; ;TempSensorTask.c: 39:         TempSensorTask[ Id ].AvgFlag = 1;
-[e = . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 2 -> -> 1 `i `uc ]
+[; ;TempSensorTask.c: 39:         tempSensorTask[ id ].avgFlag = 1;
+[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 2 -> -> 1 `i `uc ]
 "40
 [; ;TempSensorTask.c: 40:     }
 }
 [e :U 109 ]
 "41
-[; ;TempSensorTask.c: 41:     if( TempSensorTask[ Id ].AvgFlag )
-[e $ ! != -> . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 2 `i -> 0 `i 110  ]
+[; ;TempSensorTask.c: 41:     if( tempSensorTask[ id ].avgFlag )
+[e $ ! != -> . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 2 `i -> 0 `i 110  ]
 "42
 [; ;TempSensorTask.c: 42:     {
 {
 "43
-[; ;TempSensorTask.c: 43:         for( Index = 0; Index < 10; Index++ )
+[; ;TempSensorTask.c: 43:         for( index = 0; index < 10; index++ )
 {
-[e = _Index -> -> 0 `i `ui ]
-[e $ < _Index -> -> 10 `i `ui 111  ]
+[e = _index -> -> 0 `i `ui ]
+[e $ < _index -> -> 10 `i `ui 111  ]
 [e $U 112  ]
 [e :U 111 ]
 "44
 [; ;TempSensorTask.c: 44:         {
 {
 "45
-[; ;TempSensorTask.c: 45:             TempSensorTask[ Id ].AvgTemp += TempSensorTask[ Id ].Array[ Index ];
-[e =+ . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 3 -> *U + &U . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 0 * -> _Index `ux -> -> # *U &U . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 0 `ui `ux `ui ]
+[; ;TempSensorTask.c: 45:             tempSensorTask[ id ].avgTemp += tempSensorTask[ id ].array[ index ];
+[e =+ . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 3 -> *U + &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 * -> _index `ux -> -> # *U &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 `ui `ux `ui ]
 "46
 [; ;TempSensorTask.c: 46:         }
 }
-[e ++ _Index -> -> 1 `i `ui ]
-[e $ < _Index -> -> 10 `i `ui 111  ]
+[e ++ _index -> -> 1 `i `ui ]
+[e $ < _index -> -> 10 `i `ui 111  ]
 [e :U 112 ]
 }
 "47
-[; ;TempSensorTask.c: 47:         TempSensorTask[ Id ].AvgTemp /= 10;
-[e =/ . *U + &U _TempSensorTask * -> _Id `ux -> -> # *U &U _TempSensorTask `ui `ux 3 -> -> 10 `i `ui ]
+[; ;TempSensorTask.c: 47:         tempSensorTask[ id ].avgTemp /= 10;
+[e =/ . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 3 -> -> 10 `i `ui ]
 "48
 [; ;TempSensorTask.c: 48:     }
 }

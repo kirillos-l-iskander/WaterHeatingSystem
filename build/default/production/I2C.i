@@ -2157,87 +2157,101 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 # 4 "./I2c.h" 2
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./I2c.h" 2
 
 
-void I2c_MasterInit( uint32_t BaudRate );
-void I2c_MasterWait( void );
-void I2c_MasterStart( void );
-void I2c_MasterRepeatedStart( void );
-void I2c_MasterStop( void );
-void I2c_ACK( void );
-void I2c_NACK( void );
-uint8_t I2c_MasterWrite( uint8_t Buffer );
-uint8_t I2c_Read( void );
+typedef enum
+{
+ I2C0_ID
+}I2C_t;
+
+void I2c_initMaster( uint32_t baudrate );
+void I2c_waitMaster( void );
+void I2c_startMaster( void );
+void I2c_repeatedStartMaster( void );
+void I2c_stopMaster( void );
+void I2c_ack( void );
+void I2c_nack( void );
+uint8_t I2c_writeMaster( uint8_t buffer );
+uint8_t I2c_read( void );
 # 1 "I2c.c" 2
 
 
-void I2c_MasterInit( uint32_t BaudRate )
+void I2c_initMaster( uint32_t baudrate )
 {
     SSPSTAT = 0;
     SSPCON = SSPCON | 0x28;
     SSPCON2 = 0;
-    SSPADD = ( ( ( 16000000 ) / ( 4 ) ) / BaudRate ) - 1;
+    SSPADD = ( ( ( 16000000 ) / ( 4 ) ) / baudrate ) - 1;
 }
 
-void I2c_MasterWait( void )
+void I2c_waitMaster( void )
 {
     while ( ( SSPSTAT & 0x04 ) || ( SSPCON2 & 0x1F ) );
 }
 
-void I2c_MasterStart( void )
+void I2c_startMaster( void )
 {
-    I2c_MasterWait();
+    I2c_waitMaster();
     SSPCON2 = SSPCON2 | 0x01;
 }
 
-void I2c_MasterRepeatedStart( void )
+void I2c_repeatedStartMaster( void )
 {
-    I2c_MasterWait();
+    I2c_waitMaster();
     SSPCON2 = SSPCON2 | 0x02;
 }
 
-void I2c_MasterStop( void )
+void I2c_stopMaster( void )
 {
-    I2c_MasterWait();
+    I2c_waitMaster();
     SSPCON2 = SSPCON2 | 0x04;
 }
 
-uint8_t I2c_MasterWrite( uint8_t Buffer )
+uint8_t I2c_writeMaster( uint8_t buffer )
 {
-    I2c_MasterWait();
-    SSPBUF = Buffer;
+    I2c_waitMaster();
+    SSPBUF = buffer;
     while( !( PIR1 & 0x08 ) );
     PIR1 = PIR1 & ~0x08;
     return ( SSPCON2 & 0x40 );
 }
 
-uint8_t I2c_Read( void )
+uint8_t I2c_read( void )
 {
-    I2c_MasterWait();
+    I2c_waitMaster();
     SSPCON2 = SSPCON2 | 0x08;
     while( !( PIR1 & 0x08 ) );
     PIR1 = PIR1 & ~0x08;
-    I2c_MasterWait();
+    I2c_waitMaster();
     return SSPBUF;
 }
 
-void I2c_ACK( void )
+void I2c_ack( void )
 {
     SSPCON2 = SSPCON2 & ~0x20;
-    I2c_MasterWait();
+    I2c_waitMaster();
     SSPCON2 = SSPCON2 | 0x10;
 }
 
-void I2c_NACK( void )
+void I2c_nack( void )
 {
     SSPCON2 = SSPCON2 | 0x20;
-    I2c_MasterWait();
+    I2c_waitMaster();
     SSPCON2 = SSPCON2 | 0x10;
 }

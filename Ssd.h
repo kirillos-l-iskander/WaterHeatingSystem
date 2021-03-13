@@ -4,17 +4,14 @@
 #include "SchedulerConfig.h"
 #include "Gpio.h"
 
-void Ssd_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
-void Ssd_SetState( Id_t Id, uint8_t State );
-void Ssd_SetSymbol( Id_t Id, uint8_t Symbol );
-void Ssd_SetGpioCtrl( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD0( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD1( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD2( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD3( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD4( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD5( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD6( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Ssd_SetGpioD7( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+	SSD1_ID,
+	SSD2_ID
+}SSD_t;
+
+void Ssd_init( Id_t id, Id_t cGpioId, uint8_t cPin, Id_t dGpioId, uint8_t dPin );
+void Ssd_setState( Id_t id, uint8_t state );
+void Ssd_setSymbol( Id_t id, uint8_t symbol );
 
 #endif	/* SSD_H */

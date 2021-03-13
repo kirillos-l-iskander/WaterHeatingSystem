@@ -38,15 +38,10 @@
 
 typedef uint8_t                     Id_t;
 #define SWITCH_NUMBER               ( 3 )
-#define SWITCH_TASK_NUMBER          ( 3 )
 #define TEMP_SENSOR_NUMBER          ( 1 )
-#define TEMP_SENSOR_TASK_NUMBER     ( 1 )
 #define TEMP_CONTROL_NUMBER         ( 1 )
-#define TEMP_CONTROL_TASK_NUMBER    ( 1 )
 #define LED_NUMBER                  ( 2 )
-#define LED_TASK_NUMBER             ( 2 )
 #define SSD_NUMBER                  ( 2 )
-#define SSD_TASK_NUMBER             ( 2 )
 #define HEATER_NUMBER               ( 1 )
 
 #define EEPROM_PASSWORD_ADDRESS 0

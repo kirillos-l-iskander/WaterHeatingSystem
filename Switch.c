@@ -2,20 +2,20 @@
 
 typedef struct
 {
-    Id_t GpioId;
-    uint8_t Pin;
+    Id_t xGpioId;
+    uint8_t xPin;
 }Switch_t;
 
-static Switch_t Switch[ SWITCH_NUMBER ];
+static Switch_t sw[ SWITCH_NUMBER ];
 
-void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin )
 {
-    Switch[ Id ].GpioId = GpioId;
-    Switch[ Id ].Pin = Pin;
-    Gpio_InitPin( Switch[ Id ].GpioId, Switch[ Id ].Pin, INPUT );
+    sw[ id ].xGpioId = xGpioId;
+    sw[ id ].xPin = xPin;
+    Gpio_initPin( sw[ id ].xGpioId, sw[ id ].xPin, INPUT );
 }
 
-uint8_t Switch_GetState( Id_t Id )
+uint8_t Switch_getState( Id_t id )
 {
-    return Gpio_GetPinState( Switch[ Id ].GpioId, Switch[ Id ].Pin );
+    return Gpio_getPinState( sw[ id ].xGpioId, sw[ id ].xPin );
 }

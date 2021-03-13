@@ -226,12 +226,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "3 Timer.c
-[; ;Timer.c: 3: void Timer0Init( void )
-[v _Timer0Init `(v ~T0 @X0 1 ef ]
+[; ;Timer.c: 3: void Timer0_init( void )
+[v _Timer0_init `(v ~T0 @X0 1 ef ]
 "4
 [; ;Timer.c: 4: {
 {
-[e :U _Timer0Init ]
+[e :U _Timer0_init ]
 [f ]
 "8
 [; ;Timer.c: 8:     OPTION_REG = 0x03;
@@ -247,15 +247,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 102 ]
 }
 "16
-[; ;Timer.c: 16: void Timer1Init( uint16_t TicksNumber )
-[v _Timer1Init `(v ~T0 @X0 1 ef1`ui ]
+[; ;Timer.c: 16: void Timer1_init( uint16_t tickNumber )
+[v _Timer1_init `(v ~T0 @X0 1 ef1`ui ]
 "17
 [; ;Timer.c: 17: {
 {
-[e :U _Timer1Init ]
+[e :U _Timer1_init ]
 "16
-[; ;Timer.c: 16: void Timer1Init( uint16_t TicksNumber )
-[v _TicksNumber `ui ~T0 @X0 1 r1 ]
+[; ;Timer.c: 16: void Timer1_init( uint16_t tickNumber )
+[v _tickNumber `ui ~T0 @X0 1 r1 ]
 "17
 [; ;Timer.c: 17: {
 [f ]
@@ -269,11 +269,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Timer.c: 23:     T1CON = 0x01;
 [e = _T1CON -> -> 1 `i `uc ]
 "26
-[; ;Timer.c: 26:     CCPR1H = TicksNumber >> 8;
-[e = _CCPR1H -> >> _TicksNumber -> 8 `i `uc ]
+[; ;Timer.c: 26:     CCPR1H = tickNumber >> 8;
+[e = _CCPR1H -> >> _tickNumber -> 8 `i `uc ]
 "27
-[; ;Timer.c: 27:     CCPR1L = TicksNumber;
-[e = _CCPR1L -> _TicksNumber `uc ]
+[; ;Timer.c: 27:     CCPR1L = tickNumber;
+[e = _CCPR1L -> _tickNumber `uc ]
 "29
 [; ;Timer.c: 29:     CCP1CON = 0x0B;
 [e = _CCP1CON -> -> 11 `i `uc ]

@@ -4,9 +4,9 @@
 #include "SchedulerConfig.h"
 #include "Ssd.h"
 
-void SsdTask_Init( Id_t Id, Id_t ctrlGpioId, uint8_t ctrlPin, Id_t dataGpioId, uint8_t dataPin );
-void SsdTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
-void SsdTask_SetSymbol( Id_t Id, uint8_t Symbol );
-void SsdTask_Update( void *Paramter );
+void SsdTask_init( Id_t id, Id_t cGpioId, uint8_t cPin, Id_t dGpioId, uint8_t dPin );
+void SsdTask_setState( Id_t id, uint8_t state, uint16_t period );
+void SsdTask_setSymbol( Id_t id, uint8_t symbol );
+void SsdTask_update( void *paramter );
 
 #endif	/* SSD_TASK_H */

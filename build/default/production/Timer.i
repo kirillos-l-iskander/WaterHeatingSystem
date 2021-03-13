@@ -2163,12 +2163,19 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 
 
 
-void Timer0Init( void );
-void Timer1Init( uint16_t TicksNumber );
+typedef enum
+{
+ TIMER0_ID,
+ TIMER1_ID,
+ TIMER2_ID
+}TIMER_t;
+
+void Timer0_init( void );
+void Timer1_init( uint16_t tickNumber );
 # 1 "Timer.c" 2
 
 
-void Timer0Init( void )
+void Timer0_init( void )
 {
 
 
@@ -2181,7 +2188,7 @@ void Timer0Init( void )
     INTCON = 0x60;
 }
 
-void Timer1Init( uint16_t TicksNumber )
+void Timer1_init( uint16_t tickNumber )
 {
 
     TMR1H = 0;
@@ -2191,8 +2198,8 @@ void Timer1Init( uint16_t TicksNumber )
     T1CON = 0x01;
 
 
-    CCPR1H = TicksNumber >> 8;
-    CCPR1L = TicksNumber;
+    CCPR1H = tickNumber >> 8;
+    CCPR1L = tickNumber;
 
     CCP1CON = 0x0B;
 

@@ -5,7 +5,7 @@
 void Scheduler_initSysTick( TickType_t msTickPeriod )
 {
 	TickType_t tickNumber = ( TickType_t )( ( ( ( ( SCH_CPU_F / SCH_CPU_INSTRUCTION ) / SCH_TIMER_PRESCALER ) / 1000 ) * msTickPeriod ) - 1 );
-    Timer1Init( tickNumber );
+    Timer1_init( tickNumber );
     GIE();
 }
 
@@ -13,10 +13,10 @@ void Scheduler_displayError( UBaseType_t errorCode )
 {
 	if( errorCode )
 	{
-		LedTask_SetState( 1, LOW, BLINK_Period );
+		LedTask_setState( LED2_ID, LOW, 0 );
 	}else
 	{
-		LedTask_SetState( 1, HIGH, BLINK_Period );
+		LedTask_setState( LED2_ID, HIGH, 0 );
 	}
 }
 

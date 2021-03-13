@@ -208,15 +208,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "3 Adc.c
-[; ;Adc.c: 3: void Adc_Init( Id_t Id )
-[v _Adc_Init `(v ~T0 @X0 1 ef1`uc ]
+[; ;Adc.c: 3: void Adc_init( Id_t id )
+[v _Adc_init `(v ~T0 @X0 1 ef1`uc ]
 "4
 [; ;Adc.c: 4: {
 {
-[e :U _Adc_Init ]
+[e :U _Adc_init ]
 "3
-[; ;Adc.c: 3: void Adc_Init( Id_t Id )
-[v _Id `uc ~T0 @X0 1 r1 ]
+[; ;Adc.c: 3: void Adc_init( Id_t id )
+[v _id `uc ~T0 @X0 1 r1 ]
 "4
 [; ;Adc.c: 4: {
 [f ]
@@ -231,15 +231,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 102 ]
 }
 "9
-[; ;Adc.c: 9: uint16_t Adc_GetState( Id_t Id )
-[v _Adc_GetState `(ui ~T0 @X0 1 ef1`uc ]
+[; ;Adc.c: 9: uint16_t Adc_getState( Id_t id )
+[v _Adc_getState `(ui ~T0 @X0 1 ef1`uc ]
 "10
 [; ;Adc.c: 10: {
 {
-[e :U _Adc_GetState ]
+[e :U _Adc_getState ]
 "9
-[; ;Adc.c: 9: uint16_t Adc_GetState( Id_t Id )
-[v _Id `uc ~T0 @X0 1 r1 ]
+[; ;Adc.c: 9: uint16_t Adc_getState( Id_t id )
+[v _id `uc ~T0 @X0 1 r1 ]
 "10
 [; ;Adc.c: 10: {
 [f ]

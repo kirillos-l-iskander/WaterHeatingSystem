@@ -3,7 +3,12 @@
 
 #include "SchedulerConfig.h"
 
-void Adc_Init( Id_t Id );
-uint16_t Adc_GetState( Id_t Id );
+typedef enum
+{
+	ADC0_ID
+}ADC_t;
+
+void Adc_init( Id_t id );
+uint16_t Adc_getState( Id_t id );
 
 #endif	/* ADC_H */

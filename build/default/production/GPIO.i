@@ -2155,12 +2155,28 @@ void Scheduler_delayHardwareUs( volatile uint32_t usDelay );
 void Scheduler_delaySoftwareMs( volatile uint32_t msDelay );
 void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 # 4 "./Gpio.h" 2
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+
+
+
+
+
+
+
+
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 1 "Gpio.c" 2
 
 
@@ -2177,29 +2193,29 @@ typedef struct
  UBaseType_t TRIS;
 }Gpio_t;
 
-static Gpio_t *Gpio[ 5 ] = { ( ( Gpio_t * ) &PORTA ), ( ( Gpio_t * ) &PORTB ), ( ( Gpio_t * ) &PORTC ), ( ( Gpio_t * ) &PORTD ), ( ( Gpio_t * ) &PORTE ) };
+static Gpio_t *gpio[ 5 ] = { ( ( Gpio_t * ) &PORTA ), ( ( Gpio_t * ) &PORTB ), ( ( Gpio_t * ) &PORTC ), ( ( Gpio_t * ) &PORTD ), ( ( Gpio_t * ) &PORTE ) };
 
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode )
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode )
 {
- Gpio[ Id ]->TRIS = ( Gpio[ Id ]->TRIS & ~( 1 << Pin ) ) | ( Mode << Pin );
+ gpio[ Id ]->TRIS = ( gpio[ Id ]->TRIS & ~( 1 << Pin ) ) | ( Mode << Pin );
 }
 
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State )
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State )
 {
- Gpio[ Id ]->PORT = ( Gpio[ Id ]->PORT & ~( 1 << Pin ) ) | ( State << Pin);
+ gpio[ Id ]->PORT = ( gpio[ Id ]->PORT & ~( 1 << Pin ) ) | ( State << Pin);
 }
 
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin )
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin )
 {
- return ( Gpio[ Id ]->PORT & ( 1 << Pin ) ) >> Pin;
+ return ( gpio[ Id ]->PORT & ( 1 << Pin ) ) >> Pin;
 }
 
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State )
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State )
 {
- Gpio[ Id ]->PORT = ( Gpio[ Id ]->PORT & ~Pins ) | ( State & Pins );
+ gpio[ Id ]->PORT = ( gpio[ Id ]->PORT & ~Pins ) | ( State & Pins );
 }
 
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins )
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins )
 {
- return ( Gpio[ Id ]->PORT & ~Pins );
+ return ( gpio[ Id ]->PORT & ~Pins );
 }

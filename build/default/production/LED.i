@@ -2157,40 +2157,54 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 # 4 "./Led.h" 2
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Led.h" 2
 
 
-void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Led_SetState( Id_t Id, uint8_t State );
-void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ LED1_ID,
+ LED2_ID
+}LED_t;
+
+void Led_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+void Led_setState( Id_t id, uint8_t state );
 # 1 "Led.c" 2
 
 
 typedef struct
 {
- Id_t GpioId;
- uint8_t Pin;
- uint8_t State;
+ Id_t xGpioId;
+ uint8_t xPin;
+ uint8_t state;
 }Led_t;
 
-static Led_t Led[ ( 2 ) ];
+volatile static Led_t led[ ( 2 ) ];
 
-void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+void Led_init( Id_t id, Id_t xGpioId, uint8_t xPin )
 {
- Led[ Id ].GpioId = GpioId;
- Led[ Id ].Pin = Pin;
-    Led[ Id ].State = ( 0 );
-    Gpio_InitPin( Led[ Id ].GpioId, Led[ Id ].Pin, ( 0 ) );
+ led[ id ].xGpioId = xGpioId;
+ led[ id ].xPin = xPin;
+ led[ id ].state = ( 0 );
+ Gpio_initPin( led[ id ].xGpioId, led[ id ].xPin, ( 0 ) );
 }
 
-void Led_SetState( uint8_t Id, uint8_t State )
+void Led_setState( Id_t id, uint8_t state )
 {
-    Led[ Id ].State = State;
- Gpio_SetPinState( Led[ Id ].GpioId, Led[ Id ].Pin, Led[ Id ].State );
+  led[ id ].state = state;
+ Gpio_setPinState( led[ id ].xGpioId, led[ id ].xPin, led[ id ].state );
 }

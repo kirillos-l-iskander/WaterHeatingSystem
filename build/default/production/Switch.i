@@ -2157,37 +2157,52 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 # 4 "./Switch.h" 2
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Switch.h" 2
 
 
-void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-uint8_t Switch_GetState( Id_t Id );
-void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ SWITCH1_ID,
+ SWITCH2_ID,
+ SWITCH3_ID
+}SWITCH_t;
+
+void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+uint8_t Switch_getState( Id_t id );
 # 1 "Switch.c" 2
 
 
 typedef struct
 {
-    Id_t GpioId;
-    uint8_t Pin;
+    Id_t xGpioId;
+    uint8_t xPin;
 }Switch_t;
 
-static Switch_t Switch[ ( 3 ) ];
+static Switch_t sw[ ( 3 ) ];
 
-void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin )
 {
-    Switch[ Id ].GpioId = GpioId;
-    Switch[ Id ].Pin = Pin;
-    Gpio_InitPin( Switch[ Id ].GpioId, Switch[ Id ].Pin, ( 1 ) );
+    sw[ id ].xGpioId = xGpioId;
+    sw[ id ].xPin = xPin;
+    Gpio_initPin( sw[ id ].xGpioId, sw[ id ].xPin, ( 1 ) );
 }
 
-uint8_t Switch_GetState( Id_t Id )
+uint8_t Switch_getState( Id_t id )
 {
-    return Gpio_GetPinState( Switch[ Id ].GpioId, Switch[ Id ].Pin );
+    return Gpio_getPinState( sw[ id ].xGpioId, sw[ id ].xPin );
 }

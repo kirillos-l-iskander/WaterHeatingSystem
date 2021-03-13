@@ -13,29 +13,29 @@ typedef struct
 	UBaseType_t TRIS;
 }Gpio_t;
 
-static Gpio_t *Gpio[ 5 ] = { GPIOA, GPIOB, GPIOC, GPIOD, GPIOE };
+static Gpio_t *gpio[ 5 ] = { GPIOA, GPIOB, GPIOC, GPIOD, GPIOE };
 
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode )
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode )
 {
-	Gpio[ Id ]->TRIS = ( Gpio[ Id ]->TRIS & ~( 1 << Pin ) ) | ( Mode << Pin );
+	gpio[ Id ]->TRIS = ( gpio[ Id ]->TRIS & ~( 1 << Pin ) ) | ( Mode << Pin );
 }
 
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State )
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State )
 {
-	Gpio[ Id ]->PORT = ( Gpio[ Id ]->PORT & ~( 1 << Pin ) ) | ( State << Pin);
+	gpio[ Id ]->PORT = ( gpio[ Id ]->PORT & ~( 1 << Pin ) ) | ( State << Pin);
 }
 
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin )
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin )
 {
-	return ( Gpio[ Id ]->PORT & ( 1 << Pin ) ) >> Pin;
+	return ( gpio[ Id ]->PORT & ( 1 << Pin ) ) >> Pin;
 }
 
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State )
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State )
 {
-	Gpio[ Id ]->PORT = ( Gpio[ Id ]->PORT & ~Pins ) | ( State & Pins );
+	gpio[ Id ]->PORT = ( gpio[ Id ]->PORT & ~Pins ) | ( State & Pins );
 }
 
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins )
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins )
 {
-	return ( Gpio[ Id ]->PORT & ~Pins );
+	return ( gpio[ Id ]->PORT & ~Pins );
 }

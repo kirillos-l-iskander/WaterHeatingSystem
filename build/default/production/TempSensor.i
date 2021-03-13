@@ -2157,12 +2157,21 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 # 4 "./TempSensor.h" 2
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./TempSensor.h" 2
 
 # 1 "./Adc.h" 1
@@ -2171,45 +2180,53 @@ UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
 
 
 
-void Adc_Init( Id_t Id );
-uint16_t Adc_GetState( Id_t Id );
+typedef enum
+{
+ ADC0_ID
+}ADC_t;
+
+void Adc_init( Id_t id );
+uint16_t Adc_getState( Id_t id );
 # 6 "./TempSensor.h" 2
 
 
-void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId );
-uint8_t TempSensor_GetState( Id_t Id );
-void TempSensor_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
-void TempSensor_SetAdc( Id_t Id, Id_t AdcId );
+typedef enum
+{
+ TEMP_SENSOR1_ID
+}TEMP_SENSOR_t;
+
+void TempSensor_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId );
+uint8_t TempSensor_getState( Id_t id );
 # 1 "TempSensor.c" 2
 
 
 typedef struct
 {
-    Id_t GpioId;
- uint8_t Pin;
-    Id_t AdcId;
-    uint8_t Channel;
-    uint32_t VoltMulti;
-    uint32_t VoltDivide;
-    uint8_t Result;
+    Id_t xGpioId;
+ uint8_t xPin;
+    Id_t xAdcId;
+    uint8_t channel;
+    uint32_t voltMulti;
+    uint32_t voltDivide;
+    uint8_t result;
 }TempSensor_t;
 
-static TempSensor_t TempSensor[ ( 1 ) ];
+static TempSensor_t tempSensor[ ( 1 ) ];
 
-void TempSensor_Init( Id_t Id, Id_t GpioId, uint8_t Pin, Id_t AdcId )
+void TempSensor_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId )
 {
-    TempSensor[ Id ].GpioId = GpioId;
-    TempSensor[ Id ].Pin = Pin;
-    TempSensor[ Id ].AdcId = AdcId;
-    TempSensor[ Id ].Channel = 2;
-    TempSensor[ Id ].VoltMulti = 488281;
-    TempSensor[ Id ].VoltDivide = 1000000;
-    TempSensor[ Id ].Result = 0;
-    Gpio_InitPin( TempSensor[ Id ].GpioId, TempSensor[ Id ].Pin, ( 1 ) );
-    Adc_Init( TempSensor[ Id ].AdcId );
+    tempSensor[ id ].xGpioId = xGpioId;
+    tempSensor[ id ].xPin = xPin;
+    tempSensor[ id ].xAdcId = xAdcId;
+    tempSensor[ id ].channel = 2;
+    tempSensor[ id ].voltMulti = 488281;
+    tempSensor[ id ].voltDivide = 1000000;
+    tempSensor[ id ].result = 0;
+    Gpio_initPin( tempSensor[ id ].xGpioId, tempSensor[ id ].xPin, ( 1 ) );
+    Adc_init( tempSensor[ id ].xAdcId );
 }
 
-uint8_t TempSensor_GetState( Id_t Id )
+uint8_t TempSensor_getState( Id_t id )
 {
-    return ( ( Adc_GetState( TempSensor[ Id ].AdcId ) * TempSensor[ Id ].VoltMulti ) / TempSensor[ Id ].VoltDivide );
+    return ( ( Adc_getState( tempSensor[ id ].xAdcId ) * tempSensor[ id ].voltMulti ) / tempSensor[ id ].voltDivide );
 }

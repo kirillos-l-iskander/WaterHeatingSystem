@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13 ./Timer.h
-[; ;./Timer.h: 13: void Timer1Init( uint16_t TicksNumber );
-[v _Timer1Init `(v ~T0 @X0 0 ef1`ui ]
+"20 ./Timer.h
+[; ;./Timer.h: 20: void Timer1_init( uint16_t tickNumber );
+[v _Timer1_init `(v ~T0 @X0 0 ef1`ui ]
 "460 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 460:     struct {
 [s S23 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -17,9 +17,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "477
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 477: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
 [v _INTCONbits `VS22 ~T0 @X0 0 e@11 ]
-"10 ./LedTask.h
-[; ;./LedTask.h: 10: void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
-[v _LedTask_SetState `(v ~T0 @X0 0 ef3`uc`uc`ui ]
+"8 ./LedTask.h
+[; ;./LedTask.h: 8: void LedTask_setState( Id_t id, uint8_t state, uint16_t period );
+[v _LedTask_setState `(v ~T0 @X0 0 ef3`uc`uc`ui ]
+"16 SchedulerConfig.c
+[; ;SchedulerConfig.c: 16:   LedTask_setState( LED2_ID, ( 0 ), 0 );
+[c E1206 0 1 .. ]
+[n E1206 . LED1_ID LED2_ID  ]
 "86 ./SchedulerConfig.h
 [; ;./SchedulerConfig.h: 86: void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 [v _Scheduler_delaySoftwareUs `(v ~T0 @X0 0 ef1`Vul ]
@@ -237,8 +241,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _tickNumber `ui ~T0 @X0 1 a ]
 [e = _tickNumber -> - * / / / -> 16000000 `l -> -> 4 `i `l -> -> -> 1 `i `ui `l -> -> 1000 `i `l -> _msTickPeriod `l -> -> 1 `i `l `ui ]
 "8
-[; ;SchedulerConfig.c: 8:     Timer1Init( tickNumber );
-[e ( _Timer1Init (1 _tickNumber ]
+[; ;SchedulerConfig.c: 8:     Timer1_init( tickNumber );
+[e ( _Timer1_init (1 _tickNumber ]
 "9
 [; ;SchedulerConfig.c: 9:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
@@ -266,8 +270,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;SchedulerConfig.c: 15:  {
 {
 "16
-[; ;SchedulerConfig.c: 16:   LedTask_SetState( 1, ( 0 ), ( 0 ) );
-[e ( _LedTask_SetState (3 , , -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `ui ]
+[; ;SchedulerConfig.c: 16:   LedTask_setState( LED2_ID, ( 0 ), 0 );
+[e ( _LedTask_setState (3 , , -> . `E1206 1 `uc -> -> 0 `i `uc -> -> 0 `i `ui ]
 "17
 [; ;SchedulerConfig.c: 17:  }else
 }
@@ -277,8 +281,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;SchedulerConfig.c: 18:  {
 {
 "19
-[; ;SchedulerConfig.c: 19:   LedTask_SetState( 1, ( 1 ), ( 0 ) );
-[e ( _LedTask_SetState (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `ui ]
+[; ;SchedulerConfig.c: 19:   LedTask_setState( LED2_ID, ( 1 ), 0 );
+[e ( _LedTask_setState (3 , , -> . `E1206 1 `uc -> -> 1 `i `uc -> -> 0 `i `ui ]
 "20
 [; ;SchedulerConfig.c: 20:  }
 }

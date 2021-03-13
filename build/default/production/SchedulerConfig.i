@@ -2154,8 +2154,15 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 
 # 1 "./Timer.h" 1
 # 12 "./Timer.h"
-void Timer0Init( void );
-void Timer1Init( uint16_t TicksNumber );
+typedef enum
+{
+ TIMER0_ID,
+ TIMER1_ID,
+ TIMER2_ID
+}TIMER_t;
+
+void Timer0_init( void );
+void Timer1_init( uint16_t tickNumber );
 # 2 "SchedulerConfig.c" 2
 
 # 1 "./LedTask.h" 1
@@ -2169,33 +2176,45 @@ void Timer1Init( uint16_t TicksNumber );
 
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Led.h" 2
 
 
-void Led_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-void Led_SetState( Id_t Id, uint8_t State );
-void Led_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ LED1_ID,
+ LED2_ID
+}LED_t;
+
+void Led_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+void Led_setState( Id_t id, uint8_t state );
 # 5 "./LedTask.h" 2
 
 
-
-
-void LedTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-void LedTask_SetState( Id_t Id, uint8_t State, uint16_t Period );
-void LedTask_Update( void *Paramter );
+void LedTask_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+void LedTask_setState( Id_t id, uint8_t state, uint16_t period );
+void LedTask_update( void *paramter );
 # 3 "SchedulerConfig.c" 2
 
 
 void Scheduler_initSysTick( TickType_t msTickPeriod )
 {
  TickType_t tickNumber = ( TickType_t )( ( ( ( ( ( 16000000 ) / ( 4 ) ) / ( ( TickType_t ) 1 ) ) / 1000 ) * msTickPeriod ) - 1 );
-    Timer1Init( tickNumber );
+    Timer1_init( tickNumber );
     (INTCONbits.GIE = 1);
 }
 
@@ -2203,10 +2222,10 @@ void Scheduler_displayError( UBaseType_t errorCode )
 {
  if( errorCode )
  {
-  LedTask_SetState( 1, ( 0 ), ( 0 ) );
+  LedTask_setState( LED2_ID, ( 0 ), 0 );
  }else
  {
-  LedTask_SetState( 1, ( 1 ), ( 0 ) );
+  LedTask_setState( LED2_ID, ( 1 ), 0 );
  }
 }
 

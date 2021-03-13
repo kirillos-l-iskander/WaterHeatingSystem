@@ -2162,107 +2162,126 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./I2c.h" 2
 
 
-void I2c_MasterInit( uint32_t BaudRate );
-void I2c_MasterWait( void );
-void I2c_MasterStart( void );
-void I2c_MasterRepeatedStart( void );
-void I2c_MasterStop( void );
-void I2c_ACK( void );
-void I2c_NACK( void );
-uint8_t I2c_MasterWrite( uint8_t Buffer );
-uint8_t I2c_Read( void );
+typedef enum
+{
+ I2C0_ID
+}I2C_t;
+
+void I2c_initMaster( uint32_t baudrate );
+void I2c_waitMaster( void );
+void I2c_startMaster( void );
+void I2c_repeatedStartMaster( void );
+void I2c_stopMaster( void );
+void I2c_ack( void );
+void I2c_nack( void );
+uint8_t I2c_writeMaster( uint8_t buffer );
+uint8_t I2c_read( void );
 # 5 "./Eeprom.h" 2
 
 
-void Eeprom_Init( void );
-void Eeprom_Write( uint8_t Address, uint8_t Buffer );
-void Eeprom_WritePage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
-uint8_t Eeprom_Read( uint8_t Address );
-void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
+typedef enum
+{
+ EEPROM0_ID
+}EEPROM_t;
+
+void Eeprom_init( void );
+void Eeprom_write( uint8_t address, uint8_t buffer );
+void Eeprom_writePage( uint8_t address, uint8_t *buffer, uint8_t length );
+uint8_t Eeprom_read( uint8_t address );
+void Eeprom_readPage( uint8_t address, uint8_t *buffer, uint8_t length );
 # 1 "Eeprom.c" 2
 
 
 
 
 
-void Eeprom_Init( void )
+void Eeprom_init( void )
 {
-    I2c_MasterInit( 100000 );
-    Gpio_InitPin(( ( 2 ) ), ( 4 ), ( 1 ));
-    Gpio_InitPin(( ( 2 ) ), ( 3 ), ( 1 ));
+    I2c_initMaster( 100000 );
+    Gpio_initPin(( GPIOC_ID ), ( 4 ), ( 1 ));
+    Gpio_initPin(( GPIOC_ID ), ( 3 ), ( 1 ));
 }
 
-void Eeprom_Write( uint8_t Address, uint8_t Buffer )
+void Eeprom_write( uint8_t address, uint8_t buffer )
 {
-    I2c_MasterStart();
+    I2c_startMaster();
 
-    while( I2c_MasterWrite( 0xA0 ) )
+    while( I2c_writeMaster( 0xA0 ) )
     {
-        I2c_MasterRepeatedStart();
+        I2c_repeatedStartMaster();
     }
-    I2c_MasterWrite( Address );
-    I2c_MasterWrite( Buffer );
-    I2c_MasterStop();
+    I2c_writeMaster( address );
+    I2c_writeMaster( buffer );
+    I2c_stopMaster();
 }
 
-void Eeprom_WritePage( uint8_t Address, uint8_t *Buffer, uint8_t Length )
+void Eeprom_writePage( uint8_t address, uint8_t *buffer, uint8_t length )
 {
-    I2c_MasterStart();
+    I2c_startMaster();
 
-    while( I2c_MasterWrite( 0xA0 ) )
+    while( I2c_writeMaster( 0xA0 ) )
     {
-        I2c_MasterRepeatedStart();
+        I2c_repeatedStartMaster();
     }
-    I2c_MasterWrite( Address );
-    for( unsigned int i = 0; i< Length; i++ )
+    I2c_writeMaster( address );
+    for( size_t i = 0; i< length; i++ )
     {
-        I2c_MasterWrite( Buffer[ i ] );
+        I2c_writeMaster( buffer[ i ] );
     }
-    I2c_MasterStop();
+    I2c_stopMaster();
 }
 
-uint8_t Eeprom_Read( uint8_t Address )
+uint8_t Eeprom_read( uint8_t address )
 {
-    uint8_t Buffer;
-    I2c_MasterStart();
+    uint8_t buffer;
+    I2c_startMaster();
 
-    while( I2c_MasterWrite( 0xA0 ) )
+    while( I2c_writeMaster( 0xA0 ) )
     {
-        I2c_MasterRepeatedStart();
+        I2c_repeatedStartMaster();
     }
-    I2c_MasterWrite( Address );
-    I2c_MasterStart();
-    I2c_MasterWrite( 0xA1 );
-    Buffer = I2c_Read();
-    I2c_NACK();
-    I2c_MasterStop();
-    return Buffer;
+    I2c_writeMaster( address );
+    I2c_startMaster();
+    I2c_writeMaster( 0xA1 );
+    buffer = I2c_read();
+    I2c_nack();
+    I2c_stopMaster();
+    return buffer;
 }
 
-void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length )
+void Eeprom_readPage( uint8_t address, uint8_t *buffer, uint8_t length )
 {
-    I2c_MasterStart();
+    I2c_startMaster();
 
-    while( I2c_MasterWrite( 0xA0 ) )
+    while( I2c_writeMaster( 0xA0 ) )
     {
-        I2c_MasterRepeatedStart();
+        I2c_repeatedStartMaster();
     }
-    I2c_MasterWrite( Address );
-    I2c_MasterStart();
-    I2c_MasterWrite( 0xA1 );
-    for( unsigned int i = 0; i < Length; i++ )
+    I2c_writeMaster( address );
+    I2c_startMaster();
+    I2c_writeMaster( 0xA1 );
+    for( size_t i = 0; i < length; i++ )
     {
-        Buffer[i] = I2c_Read();
-        I2c_ACK();
+        buffer[i] = I2c_read();
+        I2c_ack();
     }
-    I2c_MasterStop();
+    I2c_stopMaster();
 }

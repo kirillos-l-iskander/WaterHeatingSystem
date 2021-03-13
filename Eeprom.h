@@ -4,10 +4,15 @@
 #include "SchedulerConfig.h"
 #include "I2c.h"
 
-void Eeprom_Init( void );
-void Eeprom_Write( uint8_t Address, uint8_t Buffer );
-void Eeprom_WritePage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
-uint8_t Eeprom_Read( uint8_t Address );
-void Eeprom_ReadPage( uint8_t Address, uint8_t *Buffer, uint8_t Length );
+typedef enum
+{
+	EEPROM0_ID
+}EEPROM_t;
+
+void Eeprom_init( void );
+void Eeprom_write( uint8_t address, uint8_t buffer );
+void Eeprom_writePage( uint8_t address, uint8_t *buffer, uint8_t length );
+uint8_t Eeprom_read( uint8_t address );
+void Eeprom_readPage( uint8_t address, uint8_t *buffer, uint8_t length );
 
 #endif	/* EEPROM_H */

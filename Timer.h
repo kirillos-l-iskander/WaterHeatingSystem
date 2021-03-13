@@ -9,7 +9,14 @@
 #define TIM1_MAX ( 65536 )
 #define TIM1_CLR_INT_FLAG() ( PIR1 = PIR1 & ~0x04 )
 
-void Timer0Init( void );
-void Timer1Init( uint16_t TicksNumber );
+typedef enum
+{
+	TIMER0_ID,
+	TIMER1_ID,
+	TIMER2_ID
+}TIMER_t;
+
+void Timer0_init( void );
+void Timer1_init( uint16_t tickNumber );
 
 #endif	/* TIMER_H */

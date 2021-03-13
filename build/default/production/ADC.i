@@ -2157,18 +2157,23 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 # 4 "./Adc.h" 2
 
 
-void Adc_Init( Id_t Id );
-uint16_t Adc_GetState( Id_t Id );
+typedef enum
+{
+ ADC0_ID
+}ADC_t;
+
+void Adc_init( Id_t id );
+uint16_t Adc_getState( Id_t id );
 # 1 "Adc.c" 2
 
 
-void Adc_Init( Id_t Id )
+void Adc_init( Id_t id )
 {
     ADCON0 = ADCON0 | 0x41;
     ADCON1 = ADCON1 | 0xC0;
 }
 
-uint16_t Adc_GetState( Id_t Id )
+uint16_t Adc_getState( Id_t id )
 {
     ADCON0 = ADCON0 | ( 2 << 3 );
     ADCON0 = ADCON0 | 0x04;

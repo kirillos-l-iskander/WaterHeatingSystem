@@ -2157,44 +2157,56 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 # 4 "./TempControl.h" 2
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./TempControl.h" 2
 
 
-void TempControl_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
-void TempControl_SetState( Id_t Id, uint8_t State );
-void TempControl_SetGpioH( Id_t Id, Id_t GpioId, uint8_t Pin );
-void TempControl_SetGpioC( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ TEMP_CONTROL1_ID
+}TEMP_CONTROL_t;
+
+void TempControl_init( Id_t id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin );
+void TempControl_setState( Id_t id, uint8_t state );
 # 1 "TempControl.c" 2
 
 
 typedef struct
 {
-    Id_t GpioIdH;
- uint8_t PinH;
-    Id_t GpioIdC;
- uint8_t PinC;
+    Id_t hGpioId;
+ uint8_t hPin;
+    Id_t cGpioId;
+ uint8_t cPin;
 }TempControl_t;
 
-static TempControl_t TempControl[ ( 1 ) ];
+static TempControl_t tempControl[ ( 1 ) ];
 
-void TempControl_Init( Id_t Id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
+void TempControl_init( Id_t id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
 {
-    TempControl[ Id ].GpioIdH = hGpioId;
-    TempControl[ Id ].PinH = hPin;
-    TempControl[ Id ].GpioIdC = cGpioId;
-    TempControl[ Id ].PinC = cPin;
-    Gpio_InitPin( TempControl[ Id ].GpioIdH, TempControl[ Id ].PinH, ( 0 ) );
-    Gpio_InitPin( TempControl[ Id ].GpioIdC, TempControl[ Id ].PinC, ( 0 ) );
+    tempControl[ id ].hGpioId = hGpioId;
+    tempControl[ id ].hPin = hPin;
+    tempControl[ id ].cGpioId = cGpioId;
+    tempControl[ id ].cPin = cPin;
+    Gpio_initPin( tempControl[ id ].hGpioId, tempControl[ id ].hPin, ( 0 ) );
+    Gpio_initPin( tempControl[ id ].cGpioId, tempControl[ id ].cPin, ( 0 ) );
 }
 
-void TempControl_SetState( Id_t Id, uint8_t State )
+void TempControl_setState( Id_t id, uint8_t state )
 {
- Gpio_SetPinState( TempControl[ Id ].GpioIdH, TempControl[ Id ].PinH, State & 0x01 );
- Gpio_SetPinState( TempControl[ Id ].GpioIdC, TempControl[ Id ].PinC, ( State & 0x02 ) >> 1 );
+ Gpio_setPinState( tempControl[ id ].hGpioId, tempControl[ id ].hPin, state & 0x01 );
+ Gpio_setPinState( tempControl[ id ].cGpioId, tempControl[ id ].cPin, ( state & 0x02 ) >> 1 );
 }

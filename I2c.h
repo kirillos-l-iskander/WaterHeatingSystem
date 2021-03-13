@@ -4,14 +4,19 @@
 #include "SchedulerConfig.h"
 #include "Gpio.h"
 
-void I2c_MasterInit( uint32_t BaudRate );
-void I2c_MasterWait( void );
-void I2c_MasterStart( void );
-void I2c_MasterRepeatedStart( void );
-void I2c_MasterStop( void );
-void I2c_ACK( void );
-void I2c_NACK( void );
-uint8_t I2c_MasterWrite( uint8_t Buffer );
-uint8_t I2c_Read( void );
+typedef enum
+{
+	I2C0_ID
+}I2C_t;
+
+void I2c_initMaster( uint32_t baudrate );
+void I2c_waitMaster( void );
+void I2c_startMaster( void );
+void I2c_repeatedStartMaster( void );
+void I2c_stopMaster( void );
+void I2c_ack( void );
+void I2c_nack( void );
+uint8_t I2c_writeMaster( uint8_t buffer );
+uint8_t I2c_read( void );
 
 #endif	/* I2C_H */

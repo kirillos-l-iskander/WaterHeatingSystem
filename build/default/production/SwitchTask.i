@@ -2162,68 +2162,83 @@ void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 
 
 # 1 "./Gpio.h" 1
-# 18 "./Gpio.h"
-void Gpio_InitPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_SetPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_GetPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_SetPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_GetPortState( Id_t Id, UBaseType_t Pins );
+# 12 "./Gpio.h"
+typedef enum
+{
+ GPIOA_ID,
+ GPIOB_ID,
+ GPIOC_ID,
+ GPIOD_ID,
+ GPIOE_ID
+}GPIO_t;
+
+void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
+void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
+UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
+void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
+UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
 # 5 "./Switch.h" 2
 
 
-void Switch_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-uint8_t Switch_GetState( Id_t Id );
-void Switch_SetGpio( Id_t Id, Id_t GpioId, uint8_t Pin );
+typedef enum
+{
+ SWITCH1_ID,
+ SWITCH2_ID,
+ SWITCH3_ID
+}SWITCH_t;
+
+void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+uint8_t Switch_getState( Id_t id );
 # 5 "./SwitchTask.h" 2
 
 
-void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin );
-uint8_t SwitchTask_GetState( Id_t Id );
-void SwitchTask_Update( void *Paramter );
+void SwitchTask_init( Id_t id, Id_t xGpioId, uint8_t xPin );
+uint8_t SwitchTask_getState( Id_t id );
+void SwitchTask_update( void *paramter );
 # 1 "SwitchTask.c" 2
 
 
 typedef struct
 {
-    uint8_t Lock;
-    uint8_t Counter;
-    uint8_t State;
+    uint8_t lock;
+    uint8_t counter;
+    uint8_t state;
 }SwitchTask_t;
 
-static SwitchTask_t SwitchTask[ ( 3 ) ];
+static SwitchTask_t switchTask[ ( 3 ) ];
 
-void SwitchTask_Init( Id_t Id, Id_t GpioId, uint8_t Pin )
+void SwitchTask_init( Id_t id, Id_t xGpioId, uint8_t xPin )
 {
-    SwitchTask[ Id ].Lock = 0;
-    SwitchTask[ Id ].Counter = 0;
-    SwitchTask[ Id ].State = ( 0 );
-    Switch_Init( Id, GpioId, Pin );
+    switchTask[ id ].lock = 0;
+    switchTask[ id ].counter = 0;
+    switchTask[ id ].state = ( 0 );
+    Switch_init( id, xGpioId, xPin );
 }
 
-uint8_t SwitchTask_GetState( Id_t Id )
+uint8_t SwitchTask_getState( Id_t id )
 {
-    uint8_t Buffer = SwitchTask[ Id ].State;
-    SwitchTask[ Id ].State = ( 0 );
-    return Buffer;
+    uint8_t buffer = switchTask[ id ].state;
+    switchTask[ id ].state = ( 0 );
+    return buffer;
 }
 
-void SwitchTask_Update( void *Paramter )
+void SwitchTask_update( void *paramter )
 {
-    Id_t Id = (Id_t) Paramter;
-    if( SwitchTask[ Id ].Lock )
+    Id_t id = (Id_t) paramter;
+    if( switchTask[ id ].lock )
     {
-        SwitchTask[ Id ].Lock--;
-    }else if( !Switch_GetState( Id ) )
+        switchTask[ id ].lock--;
+    }else if( !Switch_getState( id ) )
     {
-        SwitchTask[ Id ].Counter++;
-        if( SwitchTask[ Id ].Counter == ( 20 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) ) )
+        switchTask[ id ].counter++;
+        if( switchTask[ id ].counter == ( 20 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) ) )
         {
-            SwitchTask[ Id ].Lock = ( 500 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) );
-            SwitchTask[ Id ].Counter = 0;
-            SwitchTask[ Id ].State = ( 1 );
+            switchTask[ id ].lock = ( 500 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) );
+            switchTask[ id ].counter = 0;
+            switchTask[ id ].state = ( 1 );
         }
     }else
     {
-        SwitchTask[ Id ].Counter = 0;
+        switchTask[ id ].counter = 0;
     }
 }
