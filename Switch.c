@@ -2,20 +2,71 @@
 
 typedef struct
 {
-    Id_t xGpioId;
-    uint8_t xPin;
-}Switch_t;
+    GPIO_ID_t gpioId;
+    GPIO_PIN_t gpioPin;
+    SW_STATE_t state;
+    uint8_t lock;
+    uint8_t counter;
+}   Switch_t;
 
-static Switch_t sw[ SWITCH_NUMBER ];
+static Switch_t sw[ SWITCH_ID_MAX ];
 
-void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin )
+void initSwitchHardware( SW_ID_t id );
+SW_STATE_t getSwitchHardwareState( SW_ID_t id );
+
+void Switch_init( SW_ID_t id, GPIO_ID_t gpioId, GPIO_PIN_t gpioPin )
 {
-    sw[ id ].xGpioId = xGpioId;
-    sw[ id ].xPin = xPin;
-    Gpio_initPin( sw[ id ].xGpioId, sw[ id ].xPin, INPUT );
+    sw[ id ].gpioId = gpioId;
+    sw[ id ].gpioPin = gpioPin;
+    sw[ id ].state = SWITCH_STATE_RELEASED;
+    sw[ id ].lock = 0;
+    sw[ id ].counter = 0;
+    initSwitchHardware( id );
 }
 
-uint8_t Switch_getState( Id_t id )
+void Switch_update( void *paramter )
 {
-    return Gpio_getPinState( sw[ id ].xGpioId, sw[ id ].xPin );
+    SW_ID_t id = (SW_ID_t) paramter;
+    if( sw[ id ].lock )
+    {
+        sw[ id ].lock--;
+    }else if( getSwitchHardwareState( id ) == SWITCH_STATE_PRESSED )
+    {
+        sw[ id ].counter++;
+        if( sw[ id ].counter == MS_TO_TICKS( 20 ) / MS_TO_TICKS( 10 ) )
+        {
+            sw[ id ].state = SWITCH_STATE_PRESSED;
+            sw[ id ].lock = MS_TO_TICKS( 500 ) / MS_TO_TICKS( 10 );
+            sw[ id ].counter = 0;
+        }
+    }else
+    {
+        sw[ id ].counter = 0;
+    }
+}
+
+SW_STATE_t Switch_getState( SW_ID_t id )
+{
+    uint8_t buffer = sw[ id ].state;
+    sw[ id ].state = SWITCH_STATE_RELEASED;
+    return buffer;
+}
+
+void initSwitchHardware( SW_ID_t id )
+{
+    Gpio_initPin( sw[ id ].gpioId, sw[ id ].gpioPin, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
+}
+
+SW_STATE_t getSwitchHardwareState( SW_ID_t id )
+{
+    if( Gpio_getPinState( sw[ id ].gpioId, sw[ id ].gpioPin ) == GPIO_STATE_HIGH )
+    {
+        return SWITCH_STATE_RELEASED;
+    }else if( Gpio_getPinState( sw[ id ].gpioId, sw[ id ].gpioPin ) == GPIO_STATE_LOW )
+    {
+        return SWITCH_STATE_PRESSED;
+    }else
+    {
+        return SWITCH_STATE_ERROR;
+    }
 }

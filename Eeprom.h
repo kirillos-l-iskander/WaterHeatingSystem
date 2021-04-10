@@ -1,7 +1,7 @@
 #ifndef EEPROM_H
 #define	EEPROM_H
 
-#include "SchedulerConfig.h"
+#include "Config.h"
 #include "I2c.h"
 
 typedef enum

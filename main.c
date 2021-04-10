@@ -1,19 +1,15 @@
 #include "SchedulerConfig.h"
 #include "Scheduler.h"
+#include "Config.h"
 
 #include "Gpio.h"
 #include "Adc.h"
 #include "Timer.h"
 #include "Switch.h"
-#include "SwitchTask.h"
-#include "TempSensor.h"
-#include "TempSensorTask.h"
-#include "TempControl.h"
-#include "TempControlTask.h"
+#include "Tempsnsr.h"
+#include "Tempctrl.h"
 #include "Led.h"
-#include "LedTask.h"
 #include "Ssd.h"
-#include "SsdTask.h"
 
 #include "I2c.h"
 #include "Eeprom.h"
@@ -30,30 +26,31 @@ void SysTick_Handler( void ) __interrupt()
 
 int main( void )
 {
-    SwitchTask_init( SWITCH1_ID, GPIOB_ID, 0 );
-    SwitchTask_init( SWITCH2_ID, GPIOB_ID, 1 );
-    SwitchTask_init( SWITCH3_ID, GPIOB_ID, 2 );
-    TempSensorTask_init( TEMP_SENSOR1_ID, GPIOA_ID, 2, 0 );
-    TempControlTask_init( TEMP_CONTROL1_ID, GPIOC_ID, 5, GPIOC_ID, 2 );
-    LedTask_init( LED1_ID, GPIOB_ID, 6 );
-    LedTask_init( LED2_ID, GPIOB_ID, 7 );
-    SsdTask_init( SSD1_ID, GPIOA_ID, 5, GPIOD_ID, 0 );
-    SsdTask_init( SSD2_ID, GPIOA_ID, 4, GPIOD_ID, 0 );
-    HeaterTask_init( HEATER1_ID );
+    Switch_init( SWITCH_ID_1, GPIO_ID_B, GPIO_PIN_0 );
+    Switch_init( SWITCH_ID_2, GPIO_ID_B, GPIO_PIN_1 );
+    Switch_init( SWITCH_ID_3, GPIO_ID_B, GPIO_PIN_2 );
+    Tempsnsr_init( TEMPSNSR_ID_1, GPIO_ID_A, GPIO_PIN_2, ADC_ID_0, ADC_CHANNEL_1 );
+    Tempctrl_init( TEMPCTRL_ID_1, GPIO_ID_C, GPIO_PIN_5, GPIO_ID_C, GPIO_PIN_2 );
+    Led_init( LED_ID_1, GPIO_ID_B, GPIO_PIN_7 );
+    Led_init( LED_ID_2, GPIO_ID_B, GPIO_PIN_6 );
+    Ssd_init( SSD_ID_1, GPIO_ID_A, GPIO_PIN_5, GPIO_ID_D, GPIO_PIN_0 );
+    Ssd_init( SSD_ID_2, GPIO_ID_A, GPIO_PIN_4, GPIO_ID_D, GPIO_PIN_0 );
+    Heater_init( HEATER_ID_1, SWITCH_ID_1, SWITCH_ID_2, SWITCH_ID_3, TEMPSNSR_ID_1,
+                 TEMPCTRL_ID_1, LED_ID_2, SSD_ID_1, SSD_ID_2 );
     
-    DELAY_US(1000);
+    DELAY_US( 1000 );
     
     Scheduler_init();
-    Scheduler_addTask( SwitchTask_update, (void *) SWITCH1_ID, 0, MS_TO_TICKS( 10 ) );
-    Scheduler_addTask( SwitchTask_update, (void *) SWITCH1_ID, 0, MS_TO_TICKS( 10 ) );
-    Scheduler_addTask( SwitchTask_update, (void *) SWITCH1_ID, 0, MS_TO_TICKS( 10 ) );
-    Scheduler_addTask( TempSensorTask_update, (void *) TEMP_SENSOR1_ID, 0, MS_TO_TICKS( 100 ) );
-    Scheduler_addTask( HeaterTask_update, (void *) HEATER1_ID, 0, MS_TO_TICKS( 100 ) );
-    Scheduler_addTask( TempControlTask_update, (void *) TEMP_CONTROL1_ID, 0, MS_TO_TICKS( 100 ) );
-    Scheduler_addTask( LedTask_update, (void *) LED1_ID, 0, MS_TO_TICKS( 100 ) );
-    Scheduler_addTask( LedTask_update, (void *) LED2_ID, 0, MS_TO_TICKS( 100 ) );
-    Scheduler_addTask( SsdTask_update, (void *) SSD1_ID, 0, MS_TO_TICKS( 5 ) );
-    Scheduler_addTask( SsdTask_update, (void *) SSD2_ID, 0, MS_TO_TICKS( 5 ) );
+    Scheduler_addTask( Switch_update, (void *) SWITCH_ID_1, 0, MS_TO_TICKS( 10 ) );
+    Scheduler_addTask( Switch_update, (void *) SWITCH_ID_2, 0, MS_TO_TICKS( 10 ) );
+    Scheduler_addTask( Switch_update, (void *) SWITCH_ID_3, 0, MS_TO_TICKS( 10 ) );
+    Scheduler_addTask( Tempsnsr_update, (void *) TEMPSNSR_ID_1, 0, MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( Heater_update, (void *) HEATER_ID_1, 1, MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( Tempctrl_update, (void *) TEMPCTRL_ID_1, 1, MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( Led_update, (void *) LED_ID_1, 1, MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( Led_update, (void *) LED_ID_2, 1, MS_TO_TICKS( 100 ) );
+    Scheduler_addTask( Ssd_update, (void *) SSD_ID_1, 1, MS_TO_TICKS( 5 ) );
+    Scheduler_addTask( Ssd_update, (void *) SSD_ID_2, 1, MS_TO_TICKS( 5 ) );
     //systickInterrupt = Scheduler_update;
     Scheduler_start();
     while( 1 )

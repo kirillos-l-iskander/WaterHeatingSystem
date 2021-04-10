@@ -2,7 +2,7 @@
 
 typedef enum
 {
-    OffMode,
+    OffMode = 0,
     OperationMode,
     NormalMode,
     TempSetMode,
@@ -11,6 +11,14 @@ typedef enum
 
 typedef struct
 {
+    SW_ID_t sSwId;
+    SW_ID_t mSwId;
+    SW_ID_t pSwId;
+    TEMPSNSR_ID_t xTempsnsrId;
+    TEMPCTRL_ID_t xTempctrlId;
+    LED_ID_t xLedId;
+    SSD_ID_t aSsdId;
+    SSD_ID_t bSsdId;
     HeaterState_t state;
     HeaterState_t preState;
     uint8_t avgTemp;
@@ -21,12 +29,21 @@ typedef struct
     uint8_t passwordRead[ PASSWORD_LENGTH ];
 }Heater_t;
 
-static Heater_t heater[ HEATER_NUMBER ];
+static Heater_t heater[ HEATER_ID_MAX ];
 
-void HeaterTask_init( Id_t id )
+void Heater_init( HEATER_ID_t id, SW_ID_t sSwId, SW_ID_t mSwId, SW_ID_t pSwId, TEMPSNSR_ID_t xTempsnsrId,
+                  TEMPCTRL_ID_t xTempctrlId, LED_ID_t xLedId, SSD_ID_t aSsdId, SSD_ID_t bSsdId )
 {
     size_t index = 0;
     Eeprom_init();
+    heater[ id ].sSwId = sSwId;
+    heater[ id ].mSwId = mSwId;
+    heater[ id ].pSwId = pSwId;
+    heater[ id ].xTempsnsrId = xTempsnsrId;
+    heater[ id ].xTempctrlId = xTempctrlId;
+    heater[ id ].xLedId = xLedId;
+    heater[ id ].aSsdId = aSsdId;
+    heater[ id ].bSsdId = bSsdId;
     heater[ id ].state = OffMode;
     heater[ id ].preState = heater[ id ].state;
     heater[ id ].avgTemp = 0;
@@ -71,14 +88,14 @@ void HeaterTask_init( Id_t id )
     }
 }
 
-void HeaterTask_update( void *paramter )
+void Heater_update( void *paramter )
 {
-    Id_t id = (Id_t) paramter;
+    HEATER_ID_t id = (HEATER_ID_t) paramter;
     switch( heater[ id ].state )
     {
         case OffMode:
         {
-            if( SwitchTask_getState( id*3 ) )
+            if( Switch_getState( heater[ id ].sSwId ) == SWITCH_STATE_PRESSED )
             {
                 heater[ id ].state = OperationMode;
             }
@@ -86,15 +103,15 @@ void HeaterTask_update( void *paramter )
         }
         case OperationMode:
         {
-            heater[ id ].avgTemp = TempSensorTask_getAverage( id );
+            heater[ id ].avgTemp = Tempsnsr_getState( heater[ id ].xTempsnsrId );
             if( heater[ id ].avgTemp <= ( heater[ id ].targetTemp - 5 ) )
             {
-                TempControlTask_setState( id, 1 );
-                LedTask_setState( id, HIGH, 1000 );
+                Tempctrl_setState( heater[ id ].xTempctrlId, TEMPCTRL_STATE_HEAT );
+                Led_setState( heater[ id ].xLedId, LED_STATE_ON, LED_BLINK_1000MS );
             }else if( heater[ id ].avgTemp >= ( heater[ id ].targetTemp + 5 ) )
             {
-                TempControlTask_setState( id, 2 );
-                LedTask_setState( id, HIGH, 0 );
+                Tempctrl_setState( heater[ id ].xTempctrlId, TEMPCTRL_STATE_COOL );
+                Led_setState( heater[ id ].xLedId, LED_STATE_ON, LED_BLINK_0MS );
             }
             if( heater[ id ].preState == TempSetMode )
             {
@@ -108,14 +125,14 @@ void HeaterTask_update( void *paramter )
         case NormalMode:
         {
             heater[ id ].preState = heater[ id ].state;
-            SsdTask_setState( id*2, HIGH, 0 );
-            SsdTask_setState( id*2 + 1, HIGH, 0 );
-            SsdTask_setSymbol( id*2, heater[ id ].avgTemp % 10 );
-            SsdTask_setSymbol( id*2 + 1, ( heater[ id ].avgTemp / 10 ) % 10 );
-            if( SwitchTask_getState( id*3 + 2 ) || SwitchTask_getState( id*3 + 1 ) )
+            Ssd_setState( heater[ id ].aSsdId, SSD_STATE_ON, SSD_BLINK_0MS );
+            Ssd_setState( heater[ id ].bSsdId, SSD_STATE_ON, SSD_BLINK_0MS );
+            Ssd_setSymbol( heater[ id ].aSsdId, heater[ id ].avgTemp % 10 );
+            Ssd_setSymbol( heater[ id ].bSsdId, ( heater[ id ].avgTemp / 10 ) % 10 );
+            if( Switch_getState( heater[ id ].mSwId ) || Switch_getState( heater[ id ].pSwId ) )
             {
                 heater[ id ].state = TempSetMode;
-            }else if( SwitchTask_getState( id*3 ) )
+            }else if( Switch_getState( heater[ id ].sSwId ) )
             {
                 heater[ id ].state = ResetMode;
             }else
@@ -127,21 +144,21 @@ void HeaterTask_update( void *paramter )
         case TempSetMode:
         {
             heater[ id ].preState = heater[ id ].state;
-            SsdTask_setState( id*2, HIGH, 1000 );
-            SsdTask_setState( id*2 + 1, HIGH, 1000 );
-            SsdTask_setSymbol( id*2, heater[ id ].targetTemp % 10 );
-            SsdTask_setSymbol( id*2 + 1, ( heater[ id ].targetTemp / 10 ) % 10 );
-            if( SwitchTask_getState( id*3 + 2 ) && heater[ id ].targetTemp <= 70 )
+            Ssd_setState( heater[ id ].aSsdId, SSD_STATE_ON, SSD_BLINK_1000MS );
+            Ssd_setState( heater[ id ].bSsdId, SSD_STATE_ON, SSD_BLINK_1000MS );
+            Ssd_setSymbol( heater[ id ].aSsdId, heater[ id ].targetTemp % 10 );
+            Ssd_setSymbol( heater[ id ].bSsdId, ( heater[ id ].targetTemp / 10 ) % 10 );
+            if( Switch_getState( heater[ id ].pSwId ) && heater[ id ].targetTemp <= 70 )
             {
                 heater[ id ].targetTemp += 5;
                 heater[ id ].counter = 0;
             }
-            if( SwitchTask_getState( id*3 + 1 ) && heater[ id ].targetTemp >= 40 )
+            if( Switch_getState( heater[ id ].mSwId ) && heater[ id ].targetTemp >= 40 )
             {
                 heater[ id ].targetTemp -= 5;
                 heater[ id ].counter = 0;
             }
-            if( SwitchTask_getState( id*3 ) )
+            if( Switch_getState( heater[ id ].sSwId ) )
             {
                 heater[ id ].state = ResetMode;
             }else
@@ -158,10 +175,10 @@ void HeaterTask_update( void *paramter )
         }
         case ResetMode:
         {
-            TempControlTask_setState( id, 0 );
-            LedTask_setState( id, LOW, 0 );
-            SsdTask_setState( id*2, 0x00, 0 );
-            SsdTask_setState( id*2 + 1, 0x00, 0 );
+            Tempctrl_setState( heater[ id ].xTempctrlId, TEMPCTRL_STATE_OFF );
+            Led_setState( heater[ id ].xLedId, LED_STATE_OFF, LED_BLINK_0MS );
+            Ssd_setState( heater[ id ].aSsdId, SSD_STATE_OFF, SSD_BLINK_0MS );
+            Ssd_setState( heater[ id ].bSsdId, SSD_STATE_OFF, SSD_BLINK_0MS );
             Eeprom_write( EEPROM_DATA_ADDRESS, heater[ id ].targetTemp );
             heater[ id ].counter = 0;
             heater[ id ].state = OffMode;

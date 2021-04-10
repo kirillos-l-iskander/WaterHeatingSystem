@@ -1,21 +1,16 @@
 build/default/production/main.p1:  \
 main.c  \
 SchedulerConfig.h  \
-Config.h  \
 Scheduler.h  \
+Config.h  \
 Gpio.h  \
 Adc.h  \
 Timer.h  \
 Switch.h  \
-SwitchTask.h  \
-TempSensor.h  \
-TempSensorTask.h  \
-TempControl.h  \
-TempControlTask.h  \
+Tempsnsr.h  \
+Tempctrl.h  \
 Led.h  \
-LedTask.h  \
 Ssd.h  \
-SsdTask.h  \
 I2c.h  \
 Eeprom.h  \
 WaterHeater.h 

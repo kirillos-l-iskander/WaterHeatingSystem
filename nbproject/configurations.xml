@@ -14,15 +14,10 @@
       <itemPath>Eeprom.h</itemPath>
       <itemPath>Config.h</itemPath>
       <itemPath>WaterHeater.h</itemPath>
-      <itemPath>SwitchTask.h</itemPath>
-      <itemPath>SsdTask.h</itemPath>
-      <itemPath>TempSensorTask.h</itemPath>
-      <itemPath>TempSensor.h</itemPath>
-      <itemPath>TempControl.h</itemPath>
-      <itemPath>TempControlTask.h</itemPath>
-      <itemPath>LedTask.h</itemPath>
       <itemPath>I2c.h</itemPath>
       <itemPath>Gpio.h</itemPath>
+      <itemPath>Tempctrl.h</itemPath>
+      <itemPath>Tempsnsr.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -41,15 +36,10 @@
       <itemPath>Adc.c</itemPath>
       <itemPath>Eeprom.c</itemPath>
       <itemPath>WaterHeater.c</itemPath>
-      <itemPath>SwitchTask.c</itemPath>
-      <itemPath>SsdTask.c</itemPath>
-      <itemPath>TempSensorTask.c</itemPath>
-      <itemPath>TempSensor.c</itemPath>
-      <itemPath>TempControlTask.c</itemPath>
-      <itemPath>TempControl.c</itemPath>
-      <itemPath>LedTask.c</itemPath>
       <itemPath>I2c.c</itemPath>
       <itemPath>Gpio.c</itemPath>
+      <itemPath>Tempctrl.c</itemPath>
+      <itemPath>Tempsnsr.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

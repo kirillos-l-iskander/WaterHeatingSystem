@@ -1,35 +1,66 @@
 #include "Timer.h"
 
-void Timer0_init( void )
+void Timer0_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event );
+void Timer1_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event );
+void Timer2_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event );
+
+void Timer_init( TIMER_ID_t id, TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
 {
-	//TIM0 Normal mode
-	//OC0 Normal Port Operation
-	//Prescaler CPU_F/16
-    OPTION_REG = 0x03;
-	//Counter Value
-    TMR0 = 6;
-	//TIM0 Overflow Interrupt
-    //TIM0 Preferal Interrupt
-    INTCON = 0x60;
+    switch( id )
+    {
+        case TIMER_ID_0:
+            Timer0_init( mode, period, channel, event );
+            break;
+        case TIMER_ID_1:
+            Timer1_init( mode, period, channel, event );
+            break;
+        case TIMER_ID_2:
+            break;
+        default:
+            break;
+    }
 }
 
-void Timer1_init( uint16_t tickNumber )
+void Timer_enableInterrupt( TIMER_ID_t id )
 {
-	//Counter Value
-    TMR1H = 0;
-    TMR1L = 0;
-    //Prescale CPU_F/1
-    //TIM1 ON
-    T1CON = 0x01;
-    
-	//Compare Match Value
-    CCPR1H = tickNumber >> 8;
-    CCPR1L = tickNumber;
-    //TIM1 Compare Match Mode, Reset TIM1
-    CCP1CON = 0x0B;
+    switch( id )
+    {
+        case TIMER_ID_0:
+            INTCON |= 0x60;
+            break;
+        case TIMER_ID_1:
+            INTCON |= 0x40;
+            PIE1 |= 0x04;
+            break;
+        case TIMER_ID_2:
+            INTCON |= 0x40;
+            PIE1 |= 0x02;
+            break;
+        default:
+            break;
+    }
+}
+void Timer0_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
+{
+    //OPTION_REG &= ~0x3F;
 
-    //TIM1 Compare Match Interrupt
-    PIE1 = 0x04;
-    //TIM1 Perferal Interrupt
-    INTCON = 0x40;
+    TMR0 = 	( uint8_t )( ( ( ( ( SCH_CPU_F / SCH_CPU_INSTRUCTION ) / 256 ) / 1000 ) * period ) - 1 );
+
+    OPTION_REG |= 0x07;
+}
+
+void Timer1_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
+{
+    //T1CON &= ~0xFF;
+    
+    //TMR1 = 0;
+    CCPR1 = ( uint16_t )( ( ( ( ( SCH_CPU_F / SCH_CPU_INSTRUCTION ) / 1 ) / 1000 ) * period ) - 1 );
+
+    //CCP1CON &= 0x0F;
+    CCP1CON |= event;
+
+    T1CON |= 0x01;
+
+    INTCON |= 0x40;
+    PIE1 |= 0x04;
 }

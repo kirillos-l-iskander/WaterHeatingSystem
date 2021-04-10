@@ -5,10 +5,10 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.20\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\WaterHeatingSystem.X.production.sym \
   --cmf=dist/default/production\WaterHeatingSystem.X.production.cmf -z \
-  -Q16F877A -oC:\Users\Lenovo\AppData\Local\Temp\skfk.2 \
+  -Q16F877A -oC:\Users\Lenovo\AppData\Local\Temp\sevg.3 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/WaterHeatingSystem.X.production.map -E1 \
-  -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
+  -ver=XC8 Compiler --acfsm=1493 -ASTACK=01C1h-01EFh -pstack=STACK \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
@@ -19,7 +19,7 @@ Linker command line:
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Lenovo\AppData\Local\Temp\skfk.o \
+  C:\Users\Lenovo\AppData\Local\Temp\sevg.o \
   dist/default/production\WaterHeatingSystem.X.production.o 
 
 Object code version is 3.11
@@ -29,185 +29,192 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Lenovo\AppData\Local\Temp\skfk.o
+C:\Users\Lenovo\AppData\Local\Temp\sevg.o
                 end_init                             12       12        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\WaterHeatingSystem.X.production.o
-                cinit                                15       15       3A        8       0
-                functab                              4F       4F       18       9E       0
+                cinit                                15       15       3F        8       0
+                functab                              54       54       18       A8       0
                 intentry                              4        4        E        8       0
                 config                             2007     2007        1        0       4
-                text72                             1CA9     1CA9       15     3952       0
-                text71                             16E4     16E4       8E     2DC8       0
-                text70                             1CBE     1CBE       15     397C       0
-                text69                             1157     1157       4D     22AE       0
-                text68                             145A     145A       68     28B4       0
-                text67                             1E87     1E87       2A     3D0E       0
-                text66                             1EDC     1EDC       2C     3DB8       0
-                text65                             1C32     1C32        D     3864       0
-                text64                             1C3F     1C3F       10     387E       0
-                text63                             1D71     1D71       1B     3AE2       0
-                text62                             1BEE     1BEE        B     37DC       0
-                text61                             1BF9     1BF9        B     37F2       0
-                text60                             1C04     1C04        B     3808       0
-                text59                             1D40     1D40       18     3A80       0
-                text58                             1085     1085       44     210A       0
-                text57                             1C4F     1C4F       10     389E       0
-                text56                             1398     1398       61     2730       0
-                text55                             1F62     1F62       2F     3EC4       0
-                text54                             11A4     11A4       4D     2348       0
-                text53                             1FC7     1FC7       39     3F8E       0
-                text52                              806      806       3B     100C       0
-                text51                             1D12     1D12       17     3A24       0
-                text50                              54B      54B      276       CE       0
-                text49                             13F9     13F9       61     27F2       0
-                text48                             128E     128E       56     251C       0
-                text47                              841      841       91     1082       0
-                text46                             10C9     10C9       46     2192       0
-                text45                             11F1     11F1       4D     23E2       0
-                text44                             1F91     1F91       36     3F22       0
-                text43                             1CD3     1CD3       15     39A6       0
-                text42                             1E37     1E37       28     3C6E       0
-                text41                             1C1A     1C1A        C     3834       0
-                text40                             1C5F     1C5F       12     38BE       0
-                text39                             14C2     14C2       69     2984       0
-                text38                             133D     133D       5B     267A       0
-                text37                              7C1      7C1       3D       CE       0
-                text36                             123E     123E       50     247C       0
-                text35                             152B     152B       69     2A56       0
-                text34                              7FE      7FE        1       CE       0
-                text33                             1D29     1D29       17     3A52       0
-                text32                             1D8C     1D8C       1F     3B18       0
-                text31                             1C71     1C71       12     38E2       0
-                text30                             1EB1     1EB1       2B     3D62       0
-                text29                             1F08     1F08       2D     3E10       0
-                text28                             100A     100A       39     2014       0
-                text27                             1E5F     1E5F       28     3CBE       0
-                text26                             1D58     1D58       19     3AB0       0
-                text25                             12E4     12E4       59     25C8       0
-                text24                             1CE8     1CE8       15     39D0       0
-                text23                             110F     110F       48     221E       0
-                text22                             1672     1672       72     2CE4       0
-                text21                              C79      C79      106     18F2       0
-                text20                              966      966       A5     12CC       0
-                text19                               67       67      4E4       CE       0
-                text18                             1CFD     1CFD       15     39FA       0
-                text17                              B98      B98       E1     1730       0
-                text16                              D7F      D7F      128     1AFE       0
-                text15                              8D2      8D2       94     11A4       0
-                text14                             1DCA     1DCA       22     3B94       0
-                text13                             1C83     1C83       13     3906       0
-                text12                             1E10     1E10       27     3C20       0
-                text11                             1DEC     1DEC       24     3BD8       0
-                text10                             1C26     1C26        C     384C       0
-                text9                               A0B      A0B       BC     1416       0
-                text8                              1602     1602       70     2C04       0
-                text7                              1F35     1F35       2D     3E6A       0
-                text6                              1043     1043       42     2086       0
-                text5                              1772     1772       8E     2EE4       0
-                text4                              1DAB     1DAB       1F     3B56       0
-                text3                              1C0F     1C0F        B     381E       0
-                text2                               AC7      AC7       D1     158E       0
-                text1                              1594     1594       6E     2B28       0
-                maintext                            EA7      EA7      159     1D4E       0
-                cstackBANK0                          20       20       31       20       1
+                text75                             18BE     18BE       15     317C       0
+                text74                             14FF     14FF       8E     29FE       0
+                text73                             18D3     18D3       15     31A6       0
+                text72                             13A2     13A2       6C     2744       0
+                text71                             11FD     11FD       68     23FA       0
+                text70                             1AA6     1AA6       2A     354C       0
+                text69                              807      807       30     100E       0
+                text68                             186C     186C        D     30D8       0
+                text67                             1879     1879       10     30F2       0
+                text66                             1988     1988       1B     3310       0
+                text65                             1834     1834        B     3068       0
+                text64                             183F     183F        B     307E       0
+                text63                             184A     184A        B     3094       0
+                text62                             1970     1970       18     32E0       0
+                text61                             1D2F     1D2F       44     3A5E       0
+                text60                             1889     1889       10     3112       0
+                text59                             1072     1072       61     20E4       0
+                text58                             1B56     1B56       2F     36AC       0
+                text57                             1E4A     1E4A       4D     3C94       0
+                text56                             1B85     1B85       39     370A       0
+                text55                             1C32     1C32       3B     3864       0
+                text54                             18FD     18FD       17     31FA       0
+                text53                              CF2      CF2      30E     19E4       0
+                text52                             1AD0     1AD0       2A     35A0       0
+                text51                             1134     1134       63     2268       0
+                text50                             158D     158D       91     2B1A       0
+                text49                             1D73     1D73       46     3AE6       0
+                text48                             1E01     1E01       49     3C02       0
+                text47                             1BBE     1BBE       3A     377C       0
+                text46                             1914     1914       17     3228       0
+                text45                             1A56     1A56       28     34AC       0
+                text44                             192B     192B       17     3256       0
+                text43                             1899     1899       12     3132       0
+                text42                             1265     1265       69     24CA       0
+                text41                             1F47     1F47       5B     3E8E       0
+                text40                             1CAB     1CAB       41     3956       0
+                text39                             1E97     1E97       58     3D2E       0
+                text38                             12CE     12CE       69     259C       0
+                text37                                3        3        1        0       0
+                text36                             1942     1942       17     3284       0
+                text35                             19A3     19A3       1F     3346       0
+                text34                             1000     1000       12     19E4       0
+                text33                             1FA2     1FA2       5E     3F44       0
+                text32                             1AFA     1AFA       2E     35F4       0
+                text31                             1BF8     1BF8       3A     37F0       0
+                text30                             1A7E     1A7E       28     34FC       0
+                text29                             10D3     10D3       61     21A6       0
+                text28                              A94      A94      109     1528       0
+                text27                             1337     1337       6B     266E       0
+                text26                             18E8     18E8       15     31D0       0
+                text25                             1DB9     1DB9       48     3B72       0
+                text24                             147A     147A       85     28F4       0
+                text23                             1757     1757       A9     2EAE       0
+                text22                             16B2     16B2       A5     2D64       0
+                text21                               6C       6C      610       D8       0
+                text20                             19E4     19E4       24     33C8       0
+                text19                              8F4      8F4       C2     11E8       0
+                text18                              B9D      B9D      155     173A       0
+                text17                             161E     161E       94     2C3C       0
+                text16                             19C2     19C2       22     3384       0
+                text15                             1959     1959       17     32B2       0
+                text14                             1A08     1A08       27     3410       0
+                text13                             1A2F     1A2F       27     345E       0
+                text12                             1C6D     1C6D       3E     38DA       0
+                text11                              7EC      7EC       14       D8       0
+                text10                             1860     1860        C     30C0       0
+                text9                              140E     140E       6C     281C       0
+                text8                               837      837       BD     106E       0
+                text7                              1B28     1B28       2E     3650       0
+                text6                              1012     1012       60     2024       0
+                text5                              1EEF     1EEF       58     3DDE       0
+                text4                              1197     1197       66     232E       0
+                text3                              1855     1855        B     30AA       0
+                text2                              1CEC     1CEC       43     39D8       0
+                text1                               9B6      9B6       DE     136C       0
+                maintext                            67C      67C      170       D8       0
+                cstackBANK0                          20       20       3C       20       1
                 cstackCOMMON                         70       70        A       70       1
-                clrtext                            1BDC     1BDC        8     37B8       0
-                inittext                           1C96     1C96       13     392C       0
-                dataBANK3                           1DC      1DC        A      190       1
-                bssBANK3                            190      190       4C      190       1
-                dataBANK1                            E3       E3        A       A0       1
-                bssBANK1                             A0       A0       43       A0       1
-                bssBANK0                             51       51       1F       20       1
-                idataBANK3                         1BE4     1BE4        A     37C8       0
-                idataBANK1                         1000     1000        A     1D4E       0
+                clrtext                            1818     1818        8     3030       0
+                inittext                           18AB     18AB       13     3156       0
+                bssBANK2                            110      110       3E      110       1
+                dataBANK3                           1B7      1B7        A      190       1
+                bssBANK3                            190      190       27      190       1
+                bssBANK1                             A0       A0       48       A0       1
+                dataBANK0                            5C       5C        A       20       1
+                bssBANK0                             66       66        5       20       1
+                idataBANK3                         1820     1820        A     3040       0
+                idataBANK0                         182A     182A        A     3054       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                             12       12        3         0
-                cinit                                15       15       3A         0
+                cinit                                15       15       3F         0
                 intentry                              4        4        E         0
                 reset_vec                             0        0        3         0
-                text72                             1CA9     1CA9       15         0
-                text71                             16E4     16E4       8E         0
-                text70                             1CBE     1CBE       15         0
-                text69                             1157     1157       4D         0
-                text68                             145A     145A       68         0
-                text67                             1E87     1E87       2A         0
-                text66                             1EDC     1EDC       2C         0
-                text65                             1C32     1C32        D         0
-                text64                             1C3F     1C3F       10         0
-                text63                             1D71     1D71       1B         0
-                text62                             1BEE     1BEE        B         0
-                text61                             1BF9     1BF9        B         0
-                text60                             1C04     1C04        B         0
-                text59                             1D40     1D40       18         0
-                text58                             1085     1085       44         0
-                text57                             1C4F     1C4F       10         0
-                text56                             1398     1398       61         0
-                text55                             1F62     1F62       2F         0
-                text54                             11A4     11A4       4D         0
-                text53                             1FC7     1FC7       39         0
-                text52                              806      806       3B         0
-                text51                             1D12     1D12       17         0
-                text50                              54B      54B      276         0
-                text49                             13F9     13F9       61         0
-                text48                             128E     128E       56         0
-                text47                              841      841       91         0
-                text46                             10C9     10C9       46         0
-                text45                             11F1     11F1       4D         0
-                text44                             1F91     1F91       36         0
-                text43                             1CD3     1CD3       15         0
-                text42                             1E37     1E37       28         0
-                text41                             1C1A     1C1A        C         0
-                text40                             1C5F     1C5F       12         0
-                text39                             14C2     14C2       69         0
-                text38                             133D     133D       5B         0
-                text37                              7C1      7C1       3D         0
-                text36                             123E     123E       50         0
-                text35                             152B     152B       69         0
-                text34                              7FE      7FE        1         0
-                text33                             1D29     1D29       17         0
-                text32                             1D8C     1D8C       1F         0
-                text31                             1C71     1C71       12         0
-                text30                             1EB1     1EB1       2B         0
-                text29                             1F08     1F08       2D         0
-                text28                             100A     100A       39         0
-                text27                             1E5F     1E5F       28         0
-                text26                             1D58     1D58       19         0
-                text25                             12E4     12E4       59         0
-                text24                             1CE8     1CE8       15         0
-                text23                             110F     110F       48         0
-                text22                             1672     1672       72         0
-                text21                              C79      C79      106         0
-                text20                              966      966       A5         0
-                text19                               67       67      4E4         0
-                text18                             1CFD     1CFD       15         0
-                text17                              B98      B98       E1         0
-                text16                              D7F      D7F      128         0
-                text15                              8D2      8D2       94         0
-                text14                             1DCA     1DCA       22         0
-                text13                             1C83     1C83       13         0
-                text12                             1E10     1E10       27         0
-                text11                             1DEC     1DEC       24         0
-                text10                             1C26     1C26        C         0
-                text9                               A0B      A0B       BC         0
-                text8                              1602     1602       70         0
-                text7                              1F35     1F35       2D         0
-                text6                              1043     1043       42         0
-                text5                              1772     1772       8E         0
-                text4                              1DAB     1DAB       1F         0
-                text3                              1C0F     1C0F        B         0
-                text2                               AC7      AC7       D1         0
-                text1                              1594     1594       6E         0
-                maintext                            EA7      EA7      159         0
-                clrtext                            1BDC     1BDC        8         0
-                inittext                           1C96     1C96       13         0
-                idataBANK3                         1BE4     1BE4        A         0
-                idataBANK1                         1000     1000        A         0
+                text75                             18BE     18BE       15         0
+                text74                             14FF     14FF       8E         0
+                text73                             18D3     18D3       15         0
+                text72                             13A2     13A2       6C         0
+                text71                             11FD     11FD       68         0
+                text70                             1AA6     1AA6       2A         0
+                text69                              807      807       30         0
+                text68                             186C     186C        D         0
+                text67                             1879     1879       10         0
+                text66                             1988     1988       1B         0
+                text65                             1834     1834        B         0
+                text64                             183F     183F        B         0
+                text63                             184A     184A        B         0
+                text62                             1970     1970       18         0
+                text61                             1D2F     1D2F       44         0
+                text60                             1889     1889       10         0
+                text59                             1072     1072       61         0
+                text58                             1B56     1B56       2F         0
+                text57                             1E4A     1E4A       4D         0
+                text56                             1B85     1B85       39         0
+                text55                             1C32     1C32       3B         0
+                text54                             18FD     18FD       17         0
+                text53                              CF2      CF2      30E         0
+                text52                             1AD0     1AD0       2A         0
+                text51                             1134     1134       63         0
+                text50                             158D     158D       91         0
+                text49                             1D73     1D73       46         0
+                text48                             1E01     1E01       49         0
+                text47                             1BBE     1BBE       3A         0
+                text46                             1914     1914       17         0
+                text45                             1A56     1A56       28         0
+                text44                             192B     192B       17         0
+                text43                             1899     1899       12         0
+                text42                             1265     1265       69         0
+                text41                             1F47     1F47       5B         0
+                text40                             1CAB     1CAB       41         0
+                text39                             1E97     1E97       58         0
+                text38                             12CE     12CE       69         0
+                text37                                3        3        1         0
+                text36                             1942     1942       17         0
+                text35                             19A3     19A3       1F         0
+                text34                             1000     1000       12         0
+                text33                             1FA2     1FA2       5E         0
+                text32                             1AFA     1AFA       2E         0
+                text31                             1BF8     1BF8       3A         0
+                text30                             1A7E     1A7E       28         0
+                text29                             10D3     10D3       61         0
+                text28                              A94      A94      109         0
+                text27                             1337     1337       6B         0
+                text26                             18E8     18E8       15         0
+                text25                             1DB9     1DB9       48         0
+                text24                             147A     147A       85         0
+                text23                             1757     1757       A9         0
+                text22                             16B2     16B2       A5         0
+                text21                               6C       6C      610         0
+                text20                             19E4     19E4       24         0
+                text19                              8F4      8F4       C2         0
+                text18                              B9D      B9D      155         0
+                text17                             161E     161E       94         0
+                text16                             19C2     19C2       22         0
+                text15                             1959     1959       17         0
+                text14                             1A08     1A08       27         0
+                text13                             1A2F     1A2F       27         0
+                text12                             1C6D     1C6D       3E         0
+                text11                              7EC      7EC       14         0
+                text10                             1860     1860        C         0
+                text9                              140E     140E       6C         0
+                text8                               837      837       BD         0
+                text7                              1B28     1B28       2E         0
+                text6                              1012     1012       60         0
+                text5                              1EEF     1EEF       58         0
+                text4                              1197     1197       66         0
+                text3                              1855     1855        B         0
+                text2                              1CEC     1CEC       43         0
+                text1                               9B6      9B6       DE         0
+                maintext                            67C      67C      170         0
+                clrtext                            1818     1818        8         0
+                inittext                           18AB     18AB       13         0
+                idataBANK3                         1820     1820        A         0
+                idataBANK0                         182A     182A        A         0
 
         CLASS   STRCODE        
 
@@ -216,24 +223,25 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CONST          
 
         CLASS   ENTRY          
-                functab                              4F       4F       18         0
+                functab                              54       54       18         0
 
         CLASS   COMMON         
                 cstackCOMMON                         70       70        A         1
 
         CLASS   BANK0          
-                cstackBANK0                          20       20       31         1
-                bssBANK0                             51       51       1F         1
+                cstackBANK0                          20       20       3C         1
+                dataBANK0                            5C       5C        A         1
+                bssBANK0                             66       66        5         1
 
         CLASS   BANK1          
-                dataBANK1                            E3       E3        A         1
-                bssBANK1                             A0       A0       43         1
+                bssBANK1                             A0       A0       48         1
 
         CLASS   BANK2          
+                bssBANK2                            110      110       3E         1
 
         CLASS   BANK3          
-                dataBANK3                           1DC      1DC        A         1
-                bssBANK3                            190      190       4C         1
+                dataBANK3                           1B7      1B7        A         1
+                bssBANK3                            190      190       27         1
 
         CLASS   RAM            
 
@@ -259,130 +267,132 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
-                reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  00004B  00004F         8       0  CODE        2
-                cstackBANK0                    000020  000050  000070        20       1  BANK0       1
+                reset_vec                      000000  000004  000004         0       0  CODE        2
+                intentry                       000004  000050  000054         8       0  CODE        2
+                cstackBANK0                    000020  00004B  00006B        20       1  BANK0       1
                 cstackCOMMON                   000070  00000A  00007A        70       1  COMMON      1
-                functab                        00004F  000018  000067        9E       0  ENTRY       2
-                bssBANK1                       0000A0  00004D  0000ED        A0       1  BANK1       1
-                text19                         000067  000798  0007FF        CE       0  CODE        2
-                bssBANK3                       000190  000056  0001E6       190       1  BANK3       1
-                text52                         000806  00003B  000841      100C       0  CODE        2
-                text47                         000841  000091  0008D2      1082       0  CODE        2
-                text15                         0008D2  000094  000966      11A4       0  CODE        2
-                text20                         000966  0000A5  000A0B      12CC       0  CODE        2
-                text9                          000A0B  0000BC  000AC7      1416       0  CODE        2
-                text2                          000AC7  0000D1  000B98      158E       0  CODE        2
-                text17                         000B98  0000E1  000C79      1730       0  CODE        2
-                text21                         000C79  000106  000D7F      18F2       0  CODE        2
-                text16                         000D7F  000128  000EA7      1AFE       0  CODE        2
-                maintext                       000EA7  000163  00100A      1D4E       0  CODE        2
-                text28                         00100A  000039  001043      2014       0  CODE        2
-                text6                          001043  000042  001085      2086       0  CODE        2
-                text58                         001085  000044  0010C9      210A       0  CODE        2
-                text46                         0010C9  000046  00110F      2192       0  CODE        2
-                text23                         00110F  000048  001157      221E       0  CODE        2
-                text69                         001157  00004D  0011A4      22AE       0  CODE        2
-                text54                         0011A4  00004D  0011F1      2348       0  CODE        2
-                text45                         0011F1  00004D  00123E      23E2       0  CODE        2
-                text36                         00123E  000050  00128E      247C       0  CODE        2
-                text48                         00128E  000056  0012E4      251C       0  CODE        2
-                text25                         0012E4  000059  00133D      25C8       0  CODE        2
-                text38                         00133D  00005B  001398      267A       0  CODE        2
-                text56                         001398  000061  0013F9      2730       0  CODE        2
-                text49                         0013F9  000061  00145A      27F2       0  CODE        2
-                text68                         00145A  000068  0014C2      28B4       0  CODE        2
-                text39                         0014C2  000069  00152B      2984       0  CODE        2
-                text35                         00152B  000069  001594      2A56       0  CODE        2
-                text1                          001594  00006E  001602      2B28       0  CODE        2
-                text8                          001602  000070  001672      2C04       0  CODE        2
-                text22                         001672  000072  0016E4      2CE4       0  CODE        2
-                text71                         0016E4  00008E  001772      2DC8       0  CODE        2
-                text5                          001772  00008E  001800      2EE4       0  CODE        2
-                clrtext                        001BDC  000008  001BE4      37B8       0  CODE        2
-                idataBANK3                     001BE4  00000A  001BEE      37C8       0  CODE        2
-                text62                         001BEE  00000B  001BF9      37DC       0  CODE        2
-                text61                         001BF9  00000B  001C04      37F2       0  CODE        2
-                text60                         001C04  00000B  001C0F      3808       0  CODE        2
-                text3                          001C0F  00000B  001C1A      381E       0  CODE        2
-                text41                         001C1A  00000C  001C26      3834       0  CODE        2
-                text10                         001C26  00000C  001C32      384C       0  CODE        2
-                text65                         001C32  00000D  001C3F      3864       0  CODE        2
-                text64                         001C3F  000010  001C4F      387E       0  CODE        2
-                text57                         001C4F  000010  001C5F      389E       0  CODE        2
-                text40                         001C5F  000012  001C71      38BE       0  CODE        2
-                text31                         001C71  000012  001C83      38E2       0  CODE        2
-                text13                         001C83  000013  001C96      3906       0  CODE        2
-                inittext                       001C96  000013  001CA9      392C       0  CODE        2
-                text72                         001CA9  000015  001CBE      3952       0  CODE        2
-                text70                         001CBE  000015  001CD3      397C       0  CODE        2
-                text43                         001CD3  000015  001CE8      39A6       0  CODE        2
-                text24                         001CE8  000015  001CFD      39D0       0  CODE        2
-                text18                         001CFD  000015  001D12      39FA       0  CODE        2
-                text51                         001D12  000017  001D29      3A24       0  CODE        2
-                text33                         001D29  000017  001D40      3A52       0  CODE        2
-                text59                         001D40  000018  001D58      3A80       0  CODE        2
-                text26                         001D58  000019  001D71      3AB0       0  CODE        2
-                text63                         001D71  00001B  001D8C      3AE2       0  CODE        2
-                text32                         001D8C  00001F  001DAB      3B18       0  CODE        2
-                text4                          001DAB  00001F  001DCA      3B56       0  CODE        2
-                text14                         001DCA  000022  001DEC      3B94       0  CODE        2
-                text11                         001DEC  000024  001E10      3BD8       0  CODE        2
-                text12                         001E10  000027  001E37      3C20       0  CODE        2
-                text42                         001E37  000028  001E5F      3C6E       0  CODE        2
-                text27                         001E5F  000028  001E87      3CBE       0  CODE        2
-                text67                         001E87  00002A  001EB1      3D0E       0  CODE        2
-                text30                         001EB1  00002B  001EDC      3D62       0  CODE        2
-                text66                         001EDC  00002C  001F08      3DB8       0  CODE        2
-                text29                         001F08  00002D  001F35      3E10       0  CODE        2
-                text7                          001F35  00002D  001F62      3E6A       0  CODE        2
-                text55                         001F62  00002F  001F91      3EC4       0  CODE        2
-                text44                         001F91  000036  001FC7      3F22       0  CODE        2
-                text53                         001FC7  000039  002000      3F8E       0  CODE        2
+                bssBANK1                       0000A0  000048  0000E8        A0       1  BANK1       1
+                functab                        000054  000018  00006C        A8       0  ENTRY       2
+                text21                         00006C  000794  000800        D8       0  CODE        2
+                bssBANK2                       000110  00003E  00014E       110       1  BANK2       1
+                bssBANK3                       000190  000031  0001C1       190       1  BANK3       1
+                text69                         000807  000030  000837      100E       0  CODE        2
+                text8                          000837  0000BD  0008F4      106E       0  CODE        2
+                text19                         0008F4  0000C2  0009B6      11E8       0  CODE        2
+                text1                          0009B6  0000DE  000A94      136C       0  CODE        2
+                text28                         000A94  000109  000B9D      1528       0  CODE        2
+                text18                         000B9D  000155  000CF2      173A       0  CODE        2
+                text53                         000CF2  000320  001012      19E4       0  CODE        2
+                text6                          001012  000060  001072      2024       0  CODE        2
+                text59                         001072  000061  0010D3      20E4       0  CODE        2
+                text29                         0010D3  000061  001134      21A6       0  CODE        2
+                text51                         001134  000063  001197      2268       0  CODE        2
+                text4                          001197  000066  0011FD      232E       0  CODE        2
+                text71                         0011FD  000068  001265      23FA       0  CODE        2
+                text42                         001265  000069  0012CE      24CA       0  CODE        2
+                text38                         0012CE  000069  001337      259C       0  CODE        2
+                text27                         001337  00006B  0013A2      266E       0  CODE        2
+                text72                         0013A2  00006C  00140E      2744       0  CODE        2
+                text9                          00140E  00006C  00147A      281C       0  CODE        2
+                text24                         00147A  000085  0014FF      28F4       0  CODE        2
+                text74                         0014FF  00008E  00158D      29FE       0  CODE        2
+                text50                         00158D  000091  00161E      2B1A       0  CODE        2
+                text17                         00161E  000094  0016B2      2C3C       0  CODE        2
+                text22                         0016B2  0000A5  001757      2D64       0  CODE        2
+                text23                         001757  0000A9  001800      2EAE       0  CODE        2
+                clrtext                        001818  000008  001820      3030       0  CODE        2
+                idataBANK3                     001820  00000A  00182A      3040       0  CODE        2
+                idataBANK0                     00182A  00000A  001834      3054       0  CODE        2
+                text65                         001834  00000B  00183F      3068       0  CODE        2
+                text64                         00183F  00000B  00184A      307E       0  CODE        2
+                text63                         00184A  00000B  001855      3094       0  CODE        2
+                text3                          001855  00000B  001860      30AA       0  CODE        2
+                text10                         001860  00000C  00186C      30C0       0  CODE        2
+                text68                         00186C  00000D  001879      30D8       0  CODE        2
+                text67                         001879  000010  001889      30F2       0  CODE        2
+                text60                         001889  000010  001899      3112       0  CODE        2
+                text43                         001899  000012  0018AB      3132       0  CODE        2
+                inittext                       0018AB  000013  0018BE      3156       0  CODE        2
+                text75                         0018BE  000015  0018D3      317C       0  CODE        2
+                text73                         0018D3  000015  0018E8      31A6       0  CODE        2
+                text26                         0018E8  000015  0018FD      31D0       0  CODE        2
+                text54                         0018FD  000017  001914      31FA       0  CODE        2
+                text46                         001914  000017  00192B      3228       0  CODE        2
+                text44                         00192B  000017  001942      3256       0  CODE        2
+                text36                         001942  000017  001959      3284       0  CODE        2
+                text15                         001959  000017  001970      32B2       0  CODE        2
+                text62                         001970  000018  001988      32E0       0  CODE        2
+                text66                         001988  00001B  0019A3      3310       0  CODE        2
+                text35                         0019A3  00001F  0019C2      3346       0  CODE        2
+                text16                         0019C2  000022  0019E4      3384       0  CODE        2
+                text20                         0019E4  000024  001A08      33C8       0  CODE        2
+                text14                         001A08  000027  001A2F      3410       0  CODE        2
+                text13                         001A2F  000027  001A56      345E       0  CODE        2
+                text45                         001A56  000028  001A7E      34AC       0  CODE        2
+                text30                         001A7E  000028  001AA6      34FC       0  CODE        2
+                text70                         001AA6  00002A  001AD0      354C       0  CODE        2
+                text52                         001AD0  00002A  001AFA      35A0       0  CODE        2
+                text32                         001AFA  00002E  001B28      35F4       0  CODE        2
+                text7                          001B28  00002E  001B56      3650       0  CODE        2
+                text58                         001B56  00002F  001B85      36AC       0  CODE        2
+                text56                         001B85  000039  001BBE      370A       0  CODE        2
+                text47                         001BBE  00003A  001BF8      377C       0  CODE        2
+                text31                         001BF8  00003A  001C32      37F0       0  CODE        2
+                text55                         001C32  00003B  001C6D      3864       0  CODE        2
+                text12                         001C6D  00003E  001CAB      38DA       0  CODE        2
+                text40                         001CAB  000041  001CEC      3956       0  CODE        2
+                text2                          001CEC  000043  001D2F      39D8       0  CODE        2
+                text61                         001D2F  000044  001D73      3A5E       0  CODE        2
+                text49                         001D73  000046  001DB9      3AE6       0  CODE        2
+                text25                         001DB9  000048  001E01      3B72       0  CODE        2
+                text48                         001E01  000049  001E4A      3C02       0  CODE        2
+                text57                         001E4A  00004D  001E97      3C94       0  CODE        2
+                text39                         001E97  000058  001EEF      3D2E       0  CODE        2
+                text5                          001EEF  000058  001F47      3DDE       0  CODE        2
+                text41                         001F47  00005B  001FA2      3E8E       0  CODE        2
+                text33                         001FA2  00005E  002000      3F44       0  CODE        2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK1            00ED-00EF              3           1
-        BANK2            0110-016F             60           1
-        BANK3            01E6-01EF              A           1
-        CODE             0003-0003              1           2
-                         07FF-0805              1
-                         1800-1BDB            3DC
+        BANK0            006B-006F              5           1
+        BANK1            00E8-00EF              8           1
+        BANK2            014E-016F             22           1
+        BANK3            01C1-01EF             2F           1
+        CODE             0800-0806              7           2
+                         1800-1817             18
         COMMON           007A-007D              4           1
-        CONST            0003-0003              1           2
-                         07FF-0805              1
-                         1800-1BDB            100
+        CONST            0800-0806              7           2
+                         1800-1817             18
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-0003              1           2
-                         07FF-0805              1
-                         1800-1BDB            100
+        ENTRY            0800-0806              7           2
+                         1800-1817             18
         IDLOC            2000-2003              4           2
-        RAM              00ED-00EF              3           1
-                         0110-016F             60
-                         01E6-01EF              A
+        RAM              006B-006F              5           1
+                         00E8-00EF              8
+                         014E-016F             22
+                         01C1-01EF             2F
         SFR0             0000-001F             20           1
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STACK            0110-016F             60           1
-        STRCODE          0003-0003              1           2
-                         07FF-0805              7
-                         1800-1BDB            3DC
-        STRING           0003-0003              1           2
-                         07FF-0805              1
-                         1800-1BDB            100
+        STACK            01C1-01EF             2F           1
+        STRCODE          0800-0806              7           2
+                         1800-1817             18
+        STRING           0800-0806              7           2
+                         1800-1817             18
 
                                   Symbol Table
 
-?_Adc_getState                      cstackBANK0  0020
+?_Adc_getState                      cstackBANK0  0023
 ?___awdiv                           cstackBANK0  0023
 ?___awmod                           cstackBANK0  002B
-?___lldiv                           cstackBANK0  0030
-?___lmul                            cstackBANK0  0023
-?___lwdiv                           cstackBANK0  0023
+?___lldiv                           cstackBANK0  0033
+?___lmul                            cstackBANK0  0026
+?___lwdiv                           cstackBANK0  0020
 ?___wmul                            cstackBANK0  0020
+Adc_getState@channel                cstackBANK0  0023
 Eeprom_read@address                 cstackBANK0  0021
 Eeprom_read@buffer                  cstackBANK0  0022
 Eeprom_readPage@address             cstackBANK0  0027
@@ -395,36 +405,40 @@ Eeprom_writePage@address            cstackBANK0  0027
 Eeprom_writePage@buffer             cstackBANK0  0023
 Eeprom_writePage@i                  cstackBANK0  0028
 Eeprom_writePage@length             cstackBANK0  0024
-Gpio_getPinState@Id                 cstackBANK0  0026
-Gpio_getPinState@Pin                cstackBANK0  0020
-Gpio_initPin@Id                     cstackBANK0  0031
-Gpio_initPin@Mode                   cstackBANK0  0024
-Gpio_initPin@Pin                    cstackBANK0  0023
-Gpio_setPinState@Id                 cstackBANK0  002D
-Gpio_setPinState@Pin                cstackBANK0  0023
-Gpio_setPinState@State              cstackBANK0  0024
-Gpio_setPortState@Id                cstackBANK0  0029
-Gpio_setPortState@Pins              cstackBANK0  0020
-Gpio_setPortState@State             cstackBANK0  0021
-HeaterTask_init@id                  cstackBANK0  0047
-HeaterTask_init@index               cstackBANK0  0045
-HeaterTask_update@id                cstackBANK0  0048
-HeaterTask_update@paramter          cstackBANK0  0043
-I2c_initMaster@baudrate             cstackBANK0  003E
+Gpio_getPinState@id                 cstackBANK0  0029
+Gpio_getPinState@pin                cstackBANK0  0023
+Gpio_initPin@id                     cstackBANK0  0032
+Gpio_initPin@mode                   cstackBANK0  0024
+Gpio_initPin@pin                    cstackBANK0  0023
+Gpio_initPin@type                   cstackBANK0  0025
+Gpio_setPinState@id                 cstackBANK0  002D
+Gpio_setPinState@pin                cstackBANK0  0023
+Gpio_setPinState@state              cstackBANK0  0024
+Gpio_setPortState@id                cstackBANK0  002B
+Gpio_setPortState@pins              cstackBANK0  0023
+Gpio_setPortState@state             cstackBANK0  0024
+Heater_init@aSsdId                  cstackBANK0  004B
+Heater_init@bSsdId                  cstackBANK0  004C
+Heater_init@id                      cstackBANK0  0052
+Heater_init@index                   cstackBANK0  0050
+Heater_init@mSwId                   cstackBANK0  0046
+Heater_init@pSwId                   cstackBANK0  0047
+Heater_init@sSwId                   cstackBANK0  0045
+Heater_init@xLedId                  cstackBANK0  004A
+Heater_init@xTempctrlId             cstackBANK0  0049
+Heater_init@xTempsnsrId             cstackBANK0  0048
+Heater_update@id                    cstackBANK0  0055
+Heater_update@paramter              cstackBANK0  004D
+I2c_initMaster@baudrate             cstackBANK0  0041
 I2c_writeMaster@buffer              cstackBANK0  0020
-LedTask_init@id                     cstackBANK0  0037
-LedTask_init@xGpioId                cstackBANK0  0035
-LedTask_init@xPin                   cstackBANK0  0036
-LedTask_setState@id                 cstackBANK0  002F
-LedTask_setState@period             cstackBANK0  002B
-LedTask_setState@state              cstackBANK0  002A
-LedTask_update@id                   cstackBANK0  0048
-LedTask_update@paramter             cstackBANK0  0043
-Led_init@id                         cstackBANK0  0034
-Led_init@xGpioId                    cstackBANK0  0032
-Led_init@xPin                       cstackBANK0  0033
-Led_setState@id                     cstackBANK0  002F
-Led_setState@state                  cstackBANK0  002E
+Led_init@gpioId                     cstackBANK0  0036
+Led_init@gpioPin                    cstackBANK0  0037
+Led_init@id                         cstackBANK0  0039
+Led_setState@id                     cstackBANK0  002D
+Led_setState@period                 cstackBANK0  0028
+Led_setState@state                  cstackBANK0  0027
+Led_update@id                       cstackBANK0  0053
+Led_update@paramter                 cstackBANK0  004D
 Scheduler_addTask@delay             cstackBANK0  0025
 Scheduler_addTask@index             cstackBANK0  0028
 Scheduler_addTask@paramter          cstackBANK0  0023
@@ -434,114 +448,96 @@ Scheduler_delaySoftwareMs@msDelay   cstackBANK0  0029
 Scheduler_delaySoftwareUs@delay     cstackBANK0  0028
 Scheduler_delaySoftwareUs@usDelay   cstackBANK0  0020
 Scheduler_deleteTask@index          cstackBANK0  0023
-Scheduler_dispatchTasks@index       cstackBANK0  004F
-Scheduler_displayError@errorCode    cstackBANK0  0030
+Scheduler_dispatchTasks@index       cstackBANK0  005A
+Scheduler_displayError@errorCode    cstackBANK0  002E
 Scheduler_init@index                cstackBANK0  0024
-Scheduler_initSysTick@msTickPeriod  cstackBANK0  0026
-Scheduler_initSysTick@tickNumber    cstackBANK0  0028
+Scheduler_initSysTick@systickPeriod cstackBANK0  0034
 Scheduler_update@index              cstackCOMMON 0074
-SsdTask_init@cGpioId                cstackBANK0  003C
-SsdTask_init@cPin                   cstackBANK0  003D
-SsdTask_init@dGpioId                cstackBANK0  003E
-SsdTask_init@dPin                   cstackBANK0  003F
-SsdTask_init@id                     cstackBANK0  0041
-SsdTask_setState@id                 cstackBANK0  002E
-SsdTask_setState@period             cstackBANK0  002B
-SsdTask_setState@state              cstackBANK0  002A
-SsdTask_setSymbol@id                cstackBANK0  0033
-SsdTask_setSymbol@symbol            cstackBANK0  0031
-SsdTask_update@id                   cstackBANK0  0049
-SsdTask_update@paramter             cstackBANK0  0043
-Ssd_init@cGpioId                    cstackBANK0  0032
-Ssd_init@cPin                       cstackBANK0  0033
-Ssd_init@dGpioId                    cstackBANK0  0034
-Ssd_init@dPin                       cstackBANK0  0035
-Ssd_init@id                         cstackBANK0  003B
-Ssd_init@pin                        cstackBANK0  0039
-Ssd_setState@id                     cstackBANK0  0031
-Ssd_setState@state                  cstackBANK0  002E
-Ssd_setSymbol@id                    cstackBANK0  002E
-Ssd_setSymbol@symbol                cstackBANK0  002A
-SwitchTask_getState@buffer          cstackBANK0  0023
-SwitchTask_getState@id              cstackBANK0  0024
-SwitchTask_init@id                  cstackBANK0  0039
-SwitchTask_init@xGpioId             cstackBANK0  0037
-SwitchTask_init@xPin                cstackBANK0  0038
-SwitchTask_update@id                cstackBANK0  0045
-SwitchTask_update@paramter          cstackBANK0  0043
-Switch_getState@id                  cstackBANK0  0029
+Ssd_init@gpioIdC                    cstackBANK0  0036
+Ssd_init@gpioIdD                    cstackBANK0  0038
+Ssd_init@gpioPinC                   cstackBANK0  0037
+Ssd_init@gpioPinD                   cstackBANK0  0039
+Ssd_init@id                         cstackBANK0  003A
+Ssd_setState@id                     cstackBANK0  002A
+Ssd_setState@period                 cstackBANK0  0028
+Ssd_setState@state                  cstackBANK0  0027
+Ssd_setSymbol@id                    cstackBANK0  0032
+Ssd_setSymbol@symbol                cstackBANK0  0031
+Ssd_update@id                       cstackBANK0  0053
+Ssd_update@paramter                 cstackBANK0  004D
+Switch_getState@buffer              cstackBANK0  0023
+Switch_getState@id                  cstackBANK0  0024
+Switch_init@gpioId                  cstackBANK0  0034
+Switch_init@gpioPin                 cstackBANK0  0035
 Switch_init@id                      cstackBANK0  0036
-Switch_init@xGpioId                 cstackBANK0  0032
-Switch_init@xPin                    cstackBANK0  0033
-TempControlTask_init@cGpioId        cstackBANK0  003B
-TempControlTask_init@cPin           cstackBANK0  003C
-TempControlTask_init@hGpioId        cstackBANK0  0039
-TempControlTask_init@hPin           cstackBANK0  003A
-TempControlTask_init@id             cstackBANK0  003D
-TempControlTask_setState@id         cstackBANK0  0021
-TempControlTask_setState@state      cstackBANK0  0020
-TempControlTask_update@id           cstackBANK0  0045
-TempControlTask_update@paramter     cstackBANK0  0043
-TempControl_init@cGpioId            cstackBANK0  0034
-TempControl_init@cPin               cstackBANK0  0035
-TempControl_init@hGpioId            cstackBANK0  0032
-TempControl_init@hPin               cstackBANK0  0033
-TempControl_init@id                 cstackBANK0  0038
-TempControl_setState@id             cstackBANK0  0032
-TempControl_setState@state          cstackBANK0  002E
-TempSensorTask_getAverage@id        cstackBANK0  0023
-TempSensorTask_init@id              cstackBANK0  003C
-TempSensorTask_init@index           cstackBANK0  003A
-TempSensorTask_init@xAdcId          cstackBANK0  0038
-TempSensorTask_init@xGpioId         cstackBANK0  0036
-TempSensorTask_init@xPin            cstackBANK0  0037
-TempSensorTask_update@id            cstackBANK0  004A
-TempSensorTask_update@index         cstackBANK0  0048
-TempSensorTask_update@paramter      cstackBANK0  0043
-TempSensor_getState@id              cstackBANK0  0042
-TempSensor_init@id                  cstackBANK0  0035
-TempSensor_init@xAdcId              cstackBANK0  0034
-TempSensor_init@xGpioId             cstackBANK0  0032
-TempSensor_init@xPin                cstackBANK0  0033
-Timer1_init@tickNumber              cstackBANK0  0020
+Switch_update@id                    cstackBANK0  004F
+Switch_update@paramter              cstackBANK0  004D
+Tempctrl_init@gpioIdC               cstackBANK0  0036
+Tempctrl_init@gpioIdH               cstackBANK0  0034
+Tempctrl_init@gpioPinC              cstackBANK0  0037
+Tempctrl_init@gpioPinH              cstackBANK0  0035
+Tempctrl_init@id                    cstackBANK0  0038
+Tempctrl_setState@id                cstackBANK0  0024
+Tempctrl_setState@state             cstackBANK0  0023
+Tempctrl_update@id                  cstackBANK0  0050
+Tempctrl_update@paramter            cstackBANK0  004D
+Tempsnsr_getState@id                cstackBANK0  0023
+Tempsnsr_init@adcChannel            cstackBANK0  0037
+Tempsnsr_init@adcId                 cstackBANK0  0036
+Tempsnsr_init@gpioId                cstackBANK0  0034
+Tempsnsr_init@gpioPin               cstackBANK0  0035
+Tempsnsr_init@id                    cstackBANK0  003B
+Tempsnsr_init@index                 cstackBANK0  0039
+Tempsnsr_update@id                  cstackBANK0  0051
+Tempsnsr_update@paramter            cstackBANK0  004D
+Timer0_init@channel                 cstackBANK0  0025
+Timer0_init@event                   cstackBANK0  0026
+Timer0_init@period                  cstackBANK0  0023
+Timer1_init@channel                 cstackBANK0  0028
+Timer1_init@event                   cstackBANK0  0029
+Timer1_init@period                  cstackBANK0  0026
+Timer_init@channel                  cstackBANK0  002F
+Timer_init@event                    cstackBANK0  0030
+Timer_init@id                       cstackBANK0  0033
+Timer_init@mode                     cstackBANK0  002C
+Timer_init@period                   cstackBANK0  002D
 _ADCON0                             (abs)        001F
 _ADCON1                             (abs)        009F
 _ADRESH                             (abs)        001E
 _ADRESL                             (abs)        009E
-_Adc_getState                       text24       1CE8
-_Adc_init                           text3        1C0F
+_Adc_getState                       text26       18E8
+_Adc_init                           text3        1855
 _CCP1CON                            (abs)        0017
-_CCPR1H                             (abs)        0016
-_CCPR1L                             (abs)        0015
-_Eeprom_init                        text66       1EDC
-_Eeprom_read                        text58       1085
-_Eeprom_readPage                    text56       1398
-_Eeprom_write                       text55       1F62
-_Eeprom_writePage                   text54       11A4
-_Gpio_getPinState                   text27       1E5F
-_Gpio_initPin                       text69       1157
-_Gpio_setPinState                   text37       07C1
-_Gpio_setPortState                  text29       1F08
-_HeaterTask_init                    text50       054B
-_HeaterTask_update                  text19       0067
-_I2c_ack                            text57       1C4F
-_I2c_initMaster                     text67       1E87
-_I2c_nack                           text64       1C3F
-_I2c_read                           text63       1D71
-_I2c_repeatedStartMaster            text62       1BEE
-_I2c_startMaster                    text61       1BF9
-_I2c_stopMaster                     text60       1C04
-_I2c_waitMaster                     text65       1C32
-_I2c_writeMaster                    text59       1D40
+_CCPR1                              (abs)        0015
+_Eeprom_init                        text69       0807
+_Eeprom_read                        text61       1D2F
+_Eeprom_readPage                    text59       1072
+_Eeprom_write                       text58       1B56
+_Eeprom_writePage                   text57       1E4A
+_Gpio_getPinState                   text30       1A7E
+_Gpio_initPin                       text72       13A2
+_Gpio_setPinState                   text40       1CAB
+_Gpio_setPortState                  text32       1AFA
+_Heater_init                        text53       0CF2
+_Heater_update                      text21       006C
+_Heater_update$1935                 cstackBANK0  0052
+_Heater_update$1936                 cstackBANK0  0054
+_Heater_update$1937                 cstackBANK0  0053
+_I2c_ack                            text60       1889
+_I2c_initMaster                     text70       1AA6
+_I2c_nack                           text67       1879
+_I2c_read                           text66       1988
+_I2c_repeatedStartMaster            text65       1834
+_I2c_startMaster                    text64       183F
+_I2c_stopMaster                     text63       184A
+_I2c_waitMaster                     text68       186C
+_I2c_writeMaster                    text62       1970
 _INTCON                             (abs)        000B
 _INTCONbits                         (abs)        000B
-_LedTask_init                       text48       128E
-_LedTask_setState                   text45       11F1
-_LedTask_setState$1428              cstackBANK0  002D
-_LedTask_update                     text17       0B98
-_LedTask_update$1464                cstackBANK0  0047
-_Led_init                           text49       13F9
-_Led_setState                       text36       123E
+_Led_init                           text51       1134
+_Led_setState                       text48       1E01
+_Led_setState$1877                  cstackBANK0  002B
+_Led_update                         text19       08F4
 _OPTION_REG                         (abs)        0081
 _PIE1                               (abs)        008C
 _PIR1                               (abs)        000C
@@ -555,49 +551,43 @@ _SSPBUF                             (abs)        0013
 _SSPCON                             (abs)        0014
 _SSPCON2                            (abs)        0091
 _SSPSTAT                            (abs)        0094
-_Scheduler_addTask                  text47       0841
-_Scheduler_delaySoftwareMs          text52       0806
-_Scheduler_delaySoftwareUs          text53       1FC7
-_Scheduler_deleteTask               text35       152B
-_Scheduler_dispatchTasks            text15       08D2
-_Scheduler_dispatchTasks$1458       cstackBANK0  004E
-_Scheduler_dispatchTasks$1463       cstackBANK0  004C
-_Scheduler_displayError             text32       1D8C
-_Scheduler_goToSleep                text33       1D29
-_Scheduler_init                     text14       1DCA
-_Scheduler_initSysTick              text11       1DEC
-_Scheduler_reportStatus             text31       1C71
-_Scheduler_sleepHardware            text34       07FE
-_Scheduler_start                    text10       1C26
-_Scheduler_update                   text71       16E4
-_SsdTask_init                       text8        1602
-_SsdTask_setState                   text44       1F91
-_SsdTask_setSymbol                  text43       1CD3
-_SsdTask_update                     text16       0D7F
-_Ssd_init                           text9        0A0B
-_Ssd_setState                       text30       1EB1
-_Ssd_setSymbol                      text28       100A
-_SwitchTask_getState                text42       1E37
-_SwitchTask_init                    text6        1043
-_SwitchTask_update                  text20       0966
-_Switch_getState                    text26       1D58
-_Switch_init                        text7        1F35
-_SysTick_Handler                    text70       1CBE
+_Scheduler_addTask                  text50       158D
+_Scheduler_delaySoftwareMs          text55       1C32
+_Scheduler_delaySoftwareUs          text56       1B85
+_Scheduler_deleteTask               text38       12CE
+_Scheduler_dispatchTasks            text17       161E
+_Scheduler_dispatchTasks$1927       cstackBANK0  0059
+_Scheduler_dispatchTasks$1932       cstackBANK0  0057
+_Scheduler_displayError             text35       19A3
+_Scheduler_goToSleep                text36       1942
+_Scheduler_init                     text16       19C2
+_Scheduler_initSysTick              text11       07EC
+_Scheduler_reportStatus             text34       1000
+_Scheduler_sleepHardware            text37       0003
+_Scheduler_start                    text10       1860
+_Scheduler_update                   text74       14FF
+_Ssd_init                           text8        0837
+_Ssd_setState                       text47       1BBE
+_Ssd_setSymbol                      text46       1914
+_Ssd_update                         text18       0B9D
+_Ssd_update$1933                    cstackBANK0  0051
+_Ssd_update$1934                    cstackBANK0  0052
+_Switch_getState                    text45       1A56
+_Switch_init                        text6        1012
+_Switch_update                      text22       16B2
+_SysTick_Handler                    text73       18D3
 _T1CON                              (abs)        0010
 _TMR0                               (abs)        0001
-_TMR1H                              (abs)        000F
-_TMR1L                              (abs)        000E
-_TempControlTask_init               text4        1DAB
-_TempControlTask_setState           text41       1C1A
-_TempControlTask_update             text18       1CFD
-_TempControl_init                   text5        1772
-_TempControl_setState               text25       12E4
-_TempSensorTask_getAverage          text40       1C5F
-_TempSensorTask_init                text1        1594
-_TempSensorTask_update              text21       0C79
-_TempSensor_getState                text22       1672
-_TempSensor_init                    text2        0AC7
-_Timer1_init                        text13       1C83
+_Tempctrl_init                      text4        1197
+_Tempctrl_setState                  text44       192B
+_Tempctrl_update                    text20       19E4
+_Tempctrl_update$1938               cstackBANK0  004F
+_Tempsnsr_getState                  text43       1899
+_Tempsnsr_init                      text1        09B6
+_Tempsnsr_update                    text23       1757
+_Timer0_init                        text15       1959
+_Timer1_init                        text13       1A2F
+_Timer_init                         text12       1C6D
 __Habs1                             abs1         0000
 __Hbank0                            bank0        0000
 __Hbank1                            bank1        0000
@@ -605,20 +595,21 @@ __Hbank2                            bank2        0000
 __Hbank3                            bank3        0000
 __HbssBANK0                         bssBANK0     0000
 __HbssBANK1                         bssBANK1     0000
+__HbssBANK2                         bssBANK2     0000
 __HbssBANK3                         bssBANK3     0000
-__Hcinit                            cinit        004F
+__Hcinit                            cinit        0054
 __Hclrtext                          clrtext      0000
 __Hcode                             code         0000
 __Hcommon                           common       0000
 __Hconfig                           config       2008
 __HcstackBANK0                      cstackBANK0  0000
 __HcstackCOMMON                     cstackCOMMON 0000
-__HdataBANK1                        dataBANK1    0000
+__HdataBANK0                        dataBANK0    0000
 __HdataBANK3                        dataBANK3    0000
 __Heeprom_data                      eeprom_data  0000
 __Hend_init                         end_init     0015
-__Hfunctab                          functab      0067
-__HidataBANK1                       idataBANK1   0000
+__Hfunctab                          functab      006C
+__HidataBANK0                       idataBANK0   0000
 __HidataBANK3                       idataBANK3   0000
 __Hinit                             init         0012
 __Hinittext                         inittext     0000
@@ -632,7 +623,7 @@ __Hsfr1                             sfr1         0000
 __Hsfr2                             sfr2         0000
 __Hsfr3                             sfr3         0000
 __Hspace_0                          (abs)        2000
-__Hspace_1                          (abs)        01E6
+__Hspace_1                          (abs)        01C1
 __Hspace_2                          (abs)        0000
 __Hspace_3                          (abs)        0000
 __Hspace_4                          (abs)        400F
@@ -646,6 +637,7 @@ __Lbank2                            bank2        0000
 __Lbank3                            bank3        0000
 __LbssBANK0                         bssBANK0     0000
 __LbssBANK1                         bssBANK1     0000
+__LbssBANK2                         bssBANK2     0000
 __LbssBANK3                         bssBANK3     0000
 __Lcinit                            cinit        0015
 __Lclrtext                          clrtext      0000
@@ -654,12 +646,12 @@ __Lcommon                           common       0000
 __Lconfig                           config       0000
 __LcstackBANK0                      cstackBANK0  0000
 __LcstackCOMMON                     cstackCOMMON 0000
-__LdataBANK1                        dataBANK1    0000
+__LdataBANK0                        dataBANK0    0000
 __LdataBANK3                        dataBANK3    0000
 __Leeprom_data                      eeprom_data  0000
 __Lend_init                         end_init     0012
-__Lfunctab                          functab      004F
-__LidataBANK1                       idataBANK1   0000
+__Lfunctab                          functab      0054
+__LidataBANK0                       idataBANK0   0000
 __LidataBANK3                       idataBANK3   0000
 __Linit                             init         0012
 __Linittext                         inittext     0000
@@ -681,208 +673,215 @@ __Lstack                            stack        0000
 __Lstrings                          strings      0000
 __Ltext                             text         0000
 __S0                                (abs)        2000
-__S1                                (abs)        01E6
+__S1                                (abs)        01C1
 __S2                                (abs)        0000
 __S3                                (abs)        0000
-___awdiv                            text39       14C2
+___awdiv                            text42       1265
 ___awdiv@counter                    cstackBANK0  0027
 ___awdiv@dividend                   cstackBANK0  0025
 ___awdiv@divisor                    cstackBANK0  0023
 ___awdiv@quotient                   cstackBANK0  0029
 ___awdiv@sign                       cstackBANK0  0028
-___awmod                            text38       133D
+___awmod                            text41       1F47
 ___awmod@counter                    cstackBANK0  002F
 ___awmod@dividend                   cstackBANK0  002D
 ___awmod@divisor                    cstackBANK0  002B
 ___awmod@sign                       cstackBANK0  0030
-___bmul                             text51       1D12
+___bmul                             text54       18FD
 ___bmul@multiplicand                cstackBANK0  0020
 ___bmul@multiplier                  cstackBANK0  0022
 ___bmul@product                     cstackBANK0  0021
 ___int_sp                           stack        0000
 ___latbits                          (abs)        0002
-___lldiv                            text68       145A
-___lldiv@counter                    cstackBANK0  003D
-___lldiv@dividend                   cstackBANK0  0034
-___lldiv@divisor                    cstackBANK0  0030
-___lldiv@quotient                   cstackBANK0  0039
-___lmul                             text23       110F
-___lmul@multiplicand                cstackBANK0  0027
-___lmul@multiplier                  cstackBANK0  0023
-___lmul@product                     cstackBANK0  002C
-___lwdiv                            text46       10C9
-___lwdiv@counter                    cstackBANK0  0029
-___lwdiv@dividend                   cstackBANK0  0025
-___lwdiv@divisor                    cstackBANK0  0023
-___lwdiv@quotient                   cstackBANK0  0027
+___lldiv                            text71       11FD
+___lldiv@counter                    cstackBANK0  0040
+___lldiv@dividend                   cstackBANK0  0037
+___lldiv@divisor                    cstackBANK0  0033
+___lldiv@quotient                   cstackBANK0  003C
+___lmul                             text25       1DB9
+___lmul@multiplicand                cstackBANK0  002A
+___lmul@multiplier                  cstackBANK0  0026
+___lmul@product                     cstackBANK0  002F
+___lwdiv                            text49       1D73
+___lwdiv@counter                    cstackBANK0  0026
+___lwdiv@dividend                   cstackBANK0  0022
+___lwdiv@divisor                    cstackBANK0  0020
+___lwdiv@quotient                   cstackBANK0  0024
 ___sp                               stack        0000
 ___stackhi                          (abs)        0000
 ___stacklo                          (abs)        0000
-___wmul                             text12       1E10
+___wmul                             text14       1A08
 ___wmul@multiplicand                cstackBANK0  0022
 ___wmul@multiplier                  cstackBANK0  0020
 ___wmul@product                     cstackBANK0  0024
-__end_of_Adc_getState               text24       1CFD
-__end_of_Adc_init                   text3        1C1A
-__end_of_Eeprom_init                text66       1F08
-__end_of_Eeprom_read                text58       10C9
-__end_of_Eeprom_readPage            text56       13F9
-__end_of_Eeprom_write               text55       1F91
-__end_of_Eeprom_writePage           text54       11F1
-__end_of_Gpio_getPinState           text27       1E87
-__end_of_Gpio_initPin               text69       11A4
-__end_of_Gpio_setPinState           text37       07FE
-__end_of_Gpio_setPortState          text29       1F35
-__end_of_HeaterTask_init            text50       07C1
-__end_of_HeaterTask_update          text19       054B
-__end_of_I2c_ack                    text57       1C5F
-__end_of_I2c_initMaster             text67       1EB1
-__end_of_I2c_nack                   text64       1C4F
-__end_of_I2c_read                   text63       1D8C
-__end_of_I2c_repeatedStartMaster    text62       1BF9
-__end_of_I2c_startMaster            text61       1C04
-__end_of_I2c_stopMaster             text60       1C0F
-__end_of_I2c_waitMaster             text65       1C3F
-__end_of_I2c_writeMaster            text59       1D58
-__end_of_LedTask_init               text48       12E4
-__end_of_LedTask_setState           text45       123E
-__end_of_LedTask_update             text17       0C79
-__end_of_Led_init                   text49       145A
-__end_of_Led_setState               text36       128E
-__end_of_Scheduler_addTask          text47       08D2
-__end_of_Scheduler_delaySoftwareMs  text52       0841
-__end_of_Scheduler_delaySoftwareUs  text53       2000
-__end_of_Scheduler_deleteTask       text35       1594
-__end_of_Scheduler_dispatchTasks    text15       0966
-__end_of_Scheduler_displayError     text32       1DAB
-__end_of_Scheduler_goToSleep        text33       1D40
-__end_of_Scheduler_init             text14       1DEC
-__end_of_Scheduler_initSysTick      text11       1E10
-__end_of_Scheduler_reportStatus     text31       1C83
-__end_of_Scheduler_sleepHardware    text34       07FF
-__end_of_Scheduler_start            text10       1C32
-__end_of_Scheduler_update           text71       1772
-__end_of_SsdTask_init               text8        1672
-__end_of_SsdTask_setState           text44       1FC7
-__end_of_SsdTask_setSymbol          text43       1CE8
-__end_of_SsdTask_update             text16       0EA7
-__end_of_Ssd_init                   text9        0AC7
-__end_of_Ssd_setState               text30       1EDC
-__end_of_Ssd_setSymbol              text28       1043
-__end_of_SwitchTask_getState        text42       1E5F
-__end_of_SwitchTask_init            text6        1085
-__end_of_SwitchTask_update          text20       0A0B
-__end_of_Switch_getState            text26       1D71
-__end_of_Switch_init                text7        1F62
-__end_of_SysTick_Handler            text70       1CD3
-__end_of_TempControlTask_init       text4        1DCA
-__end_of_TempControlTask_setState   text41       1C26
-__end_of_TempControlTask_update     text18       1D12
-__end_of_TempControl_init           text5        1800
-__end_of_TempControl_setState       text25       133D
-__end_of_TempSensorTask_getAverage  text40       1C71
-__end_of_TempSensorTask_init        text1        1602
-__end_of_TempSensorTask_update      text21       0D7F
-__end_of_TempSensor_getState        text22       16E4
-__end_of_TempSensor_init            text2        0B98
-__end_of_Timer1_init                text13       1C96
-__end_of___awdiv                    text39       152B
-__end_of___awmod                    text38       1398
-__end_of___bmul                     text51       1D29
-__end_of___lldiv                    text68       14C2
-__end_of___lmul                     text23       1157
-__end_of___lwdiv                    text46       110F
-__end_of___wmul                     text12       1E37
-__end_of__fptable                   functab      0067
-__end_of__initialization            cinit        004B
-__end_of_main                       maintext     1000
-__end_ofi1___bmul                   text72       1CBE
-__fptable                           functab      004F
+__end_of_Adc_getState               text26       18FD
+__end_of_Adc_init                   text3        1860
+__end_of_Eeprom_init                text69       0837
+__end_of_Eeprom_read                text61       1D73
+__end_of_Eeprom_readPage            text59       10D3
+__end_of_Eeprom_write               text58       1B85
+__end_of_Eeprom_writePage           text57       1E97
+__end_of_Gpio_getPinState           text30       1AA6
+__end_of_Gpio_initPin               text72       140E
+__end_of_Gpio_setPinState           text40       1CEC
+__end_of_Gpio_setPortState          text32       1B28
+__end_of_Heater_init                text53       1000
+__end_of_Heater_update              text21       067C
+__end_of_I2c_ack                    text60       1899
+__end_of_I2c_initMaster             text70       1AD0
+__end_of_I2c_nack                   text67       1889
+__end_of_I2c_read                   text66       19A3
+__end_of_I2c_repeatedStartMaster    text65       183F
+__end_of_I2c_startMaster            text64       184A
+__end_of_I2c_stopMaster             text63       1855
+__end_of_I2c_waitMaster             text68       1879
+__end_of_I2c_writeMaster            text62       1988
+__end_of_Led_init                   text51       1197
+__end_of_Led_setState               text48       1E4A
+__end_of_Led_update                 text19       09B6
+__end_of_Scheduler_addTask          text50       161E
+__end_of_Scheduler_delaySoftwareMs  text55       1C6D
+__end_of_Scheduler_delaySoftwareUs  text56       1BBE
+__end_of_Scheduler_deleteTask       text38       1337
+__end_of_Scheduler_dispatchTasks    text17       16B2
+__end_of_Scheduler_displayError     text35       19C2
+__end_of_Scheduler_goToSleep        text36       1959
+__end_of_Scheduler_init             text16       19E4
+__end_of_Scheduler_initSysTick      text11       0800
+__end_of_Scheduler_reportStatus     text34       1012
+__end_of_Scheduler_sleepHardware    text37       0004
+__end_of_Scheduler_start            text10       186C
+__end_of_Scheduler_update           text74       158D
+__end_of_Ssd_init                   text8        08F4
+__end_of_Ssd_setState               text47       1BF8
+__end_of_Ssd_setSymbol              text46       192B
+__end_of_Ssd_update                 text18       0CF2
+__end_of_Switch_getState            text45       1A7E
+__end_of_Switch_init                text6        1072
+__end_of_Switch_update              text22       1757
+__end_of_SysTick_Handler            text73       18E8
+__end_of_Tempctrl_init              text4        11FD
+__end_of_Tempctrl_setState          text44       1942
+__end_of_Tempctrl_update            text20       1A08
+__end_of_Tempsnsr_getState          text43       18AB
+__end_of_Tempsnsr_init              text1        0A94
+__end_of_Tempsnsr_update            text23       1800
+__end_of_Timer0_init                text15       1970
+__end_of_Timer1_init                text13       1A56
+__end_of_Timer_init                 text12       1CAB
+__end_of___awdiv                    text42       12CE
+__end_of___awmod                    text41       1FA2
+__end_of___bmul                     text54       1914
+__end_of___lldiv                    text71       1265
+__end_of___lmul                     text25       1E01
+__end_of___lwdiv                    text49       1DB9
+__end_of___wmul                     text14       1A2F
+__end_of__fptable                   functab      006C
+__end_of__initialization            cinit        0050
+__end_of_getAvgTemp                 text27       13A2
+__end_of_getSwitchHardwareState     text29       1134
+__end_of_getTempsnsrHarwareState    text24       14FF
+__end_of_initLedHardware            text52       1AFA
+__end_of_initSsdHardware            text9        147A
+__end_of_initSwitchHardware         text7        1B56
+__end_of_initTempctrlHardware       text5        1F47
+__end_of_initTempsnsrHardware       text2        1D2F
+__end_of_main                       maintext     07EC
+__end_of_setLedHardwareState        text39       1EEF
+__end_of_setSsdHardwareState        text33       2000
+__end_of_setSsdHardwareSymbol       text31       1C32
+__end_of_setTempctrlHardwareState   text28       0B9D
+__end_ofi1___bmul                   text75       18D3
+__fptable                           functab      0054
 __initialization                    cinit        0015
-__pbssBANK0                         bssBANK0     0051
+__pbssBANK0                         bssBANK0     0066
 __pbssBANK1                         bssBANK1     00A0
+__pbssBANK2                         bssBANK2     0110
 __pbssBANK3                         bssBANK3     0190
 __pcstackBANK0                      cstackBANK0  0020
 __pcstackCOMMON                     cstackCOMMON 0070
-__pdataBANK1                        dataBANK1    00E3
-__pdataBANK3                        dataBANK3    01DC
-__pfunctab                          functab      004F
-__pidataBANK1                       idataBANK1   1000
-__pidataBANK3                       idataBANK3   1BE4
+__pdataBANK0                        dataBANK0    005C
+__pdataBANK3                        dataBANK3    01B7
+__pfunctab                          functab      0054
+__pidataBANK0                       idataBANK0   182A
+__pidataBANK3                       idataBANK3   1820
 __pintentry                         intentry     0004
-__pmaintext                         maintext     0EA7
-__ptext1                            text1        1594
-__ptext10                           text10       1C26
-__ptext11                           text11       1DEC
-__ptext12                           text12       1E10
-__ptext13                           text13       1C83
-__ptext14                           text14       1DCA
-__ptext15                           text15       08D2
-__ptext16                           text16       0D7F
-__ptext17                           text17       0B98
-__ptext18                           text18       1CFD
-__ptext19                           text19       0067
-__ptext2                            text2        0AC7
-__ptext20                           text20       0966
-__ptext21                           text21       0C79
-__ptext22                           text22       1672
-__ptext23                           text23       110F
-__ptext24                           text24       1CE8
-__ptext25                           text25       12E4
-__ptext26                           text26       1D58
-__ptext27                           text27       1E5F
-__ptext28                           text28       100A
-__ptext29                           text29       1F08
-__ptext3                            text3        1C0F
-__ptext30                           text30       1EB1
-__ptext31                           text31       1C71
-__ptext32                           text32       1D8C
-__ptext33                           text33       1D29
-__ptext34                           text34       07FE
-__ptext35                           text35       152B
-__ptext36                           text36       123E
-__ptext37                           text37       07C1
-__ptext38                           text38       133D
-__ptext39                           text39       14C2
-__ptext4                            text4        1DAB
-__ptext40                           text40       1C5F
-__ptext41                           text41       1C1A
-__ptext42                           text42       1E37
-__ptext43                           text43       1CD3
-__ptext44                           text44       1F91
-__ptext45                           text45       11F1
-__ptext46                           text46       10C9
-__ptext47                           text47       0841
-__ptext48                           text48       128E
-__ptext49                           text49       13F9
-__ptext5                            text5        1772
-__ptext50                           text50       054B
-__ptext51                           text51       1D12
-__ptext52                           text52       0806
-__ptext53                           text53       1FC7
-__ptext54                           text54       11A4
-__ptext55                           text55       1F62
-__ptext56                           text56       1398
-__ptext57                           text57       1C4F
-__ptext58                           text58       1085
-__ptext59                           text59       1D40
-__ptext6                            text6        1043
-__ptext60                           text60       1C04
-__ptext61                           text61       1BF9
-__ptext62                           text62       1BEE
-__ptext63                           text63       1D71
-__ptext64                           text64       1C3F
-__ptext65                           text65       1C32
-__ptext66                           text66       1EDC
-__ptext67                           text67       1E87
-__ptext68                           text68       145A
-__ptext69                           text69       1157
-__ptext7                            text7        1F35
-__ptext70                           text70       1CBE
-__ptext71                           text71       16E4
-__ptext72                           text72       1CA9
-__ptext8                            text8        1602
-__ptext9                            text9        0A0B
+__pmaintext                         maintext     067C
+__ptext1                            text1        09B6
+__ptext10                           text10       1860
+__ptext11                           text11       07EC
+__ptext12                           text12       1C6D
+__ptext13                           text13       1A2F
+__ptext14                           text14       1A08
+__ptext15                           text15       1959
+__ptext16                           text16       19C2
+__ptext17                           text17       161E
+__ptext18                           text18       0B9D
+__ptext19                           text19       08F4
+__ptext2                            text2        1CEC
+__ptext20                           text20       19E4
+__ptext21                           text21       006C
+__ptext22                           text22       16B2
+__ptext23                           text23       1757
+__ptext24                           text24       147A
+__ptext25                           text25       1DB9
+__ptext26                           text26       18E8
+__ptext27                           text27       1337
+__ptext28                           text28       0A94
+__ptext29                           text29       10D3
+__ptext3                            text3        1855
+__ptext30                           text30       1A7E
+__ptext31                           text31       1BF8
+__ptext32                           text32       1AFA
+__ptext33                           text33       1FA2
+__ptext34                           text34       1000
+__ptext35                           text35       19A3
+__ptext36                           text36       1942
+__ptext37                           text37       0003
+__ptext38                           text38       12CE
+__ptext39                           text39       1E97
+__ptext4                            text4        1197
+__ptext40                           text40       1CAB
+__ptext41                           text41       1F47
+__ptext42                           text42       1265
+__ptext43                           text43       1899
+__ptext44                           text44       192B
+__ptext45                           text45       1A56
+__ptext46                           text46       1914
+__ptext47                           text47       1BBE
+__ptext48                           text48       1E01
+__ptext49                           text49       1D73
+__ptext5                            text5        1EEF
+__ptext50                           text50       158D
+__ptext51                           text51       1134
+__ptext52                           text52       1AD0
+__ptext53                           text53       0CF2
+__ptext54                           text54       18FD
+__ptext55                           text55       1C32
+__ptext56                           text56       1B85
+__ptext57                           text57       1E4A
+__ptext58                           text58       1B56
+__ptext59                           text59       1072
+__ptext6                            text6        1012
+__ptext60                           text60       1889
+__ptext61                           text61       1D2F
+__ptext62                           text62       1970
+__ptext63                           text63       184A
+__ptext64                           text64       183F
+__ptext65                           text65       1834
+__ptext66                           text66       1988
+__ptext67                           text67       1879
+__ptext68                           text68       186C
+__ptext69                           text69       0807
+__ptext7                            text7        1B28
+__ptext70                           text70       1AA6
+__ptext71                           text71       11FD
+__ptext72                           text72       13A2
+__ptext73                           text73       18D3
+__ptext74                           text74       14FF
+__ptext75                           text75       18BE
+__ptext8                            text8        0837
+__ptext9                            text9        140E
 __size_of_Adc_getState              (abs)        0000
 __size_of_Adc_init                  (abs)        0000
 __size_of_Eeprom_init               (abs)        0000
@@ -894,8 +893,8 @@ __size_of_Gpio_getPinState          (abs)        0000
 __size_of_Gpio_initPin              (abs)        0000
 __size_of_Gpio_setPinState          (abs)        0000
 __size_of_Gpio_setPortState         (abs)        0000
-__size_of_HeaterTask_init           (abs)        0000
-__size_of_HeaterTask_update         (abs)        0000
+__size_of_Heater_init               (abs)        0000
+__size_of_Heater_update             (abs)        0000
 __size_of_I2c_ack                   (abs)        0000
 __size_of_I2c_initMaster            (abs)        0000
 __size_of_I2c_nack                  (abs)        0000
@@ -905,11 +904,9 @@ __size_of_I2c_startMaster           (abs)        0000
 __size_of_I2c_stopMaster            (abs)        0000
 __size_of_I2c_waitMaster            (abs)        0000
 __size_of_I2c_writeMaster           (abs)        0000
-__size_of_LedTask_init              (abs)        0000
-__size_of_LedTask_setState          (abs)        0000
-__size_of_LedTask_update            (abs)        0000
 __size_of_Led_init                  (abs)        0000
 __size_of_Led_setState              (abs)        0000
+__size_of_Led_update                (abs)        0000
 __size_of_Scheduler_addTask         (abs)        0000
 __size_of_Scheduler_delaySoftwareMs (abs)        0000
 __size_of_Scheduler_delaySoftwareUs (abs)        0000
@@ -923,30 +920,23 @@ __size_of_Scheduler_reportStatus    (abs)        0000
 __size_of_Scheduler_sleepHardware   (abs)        0000
 __size_of_Scheduler_start           (abs)        0000
 __size_of_Scheduler_update          (abs)        0000
-__size_of_SsdTask_init              (abs)        0000
-__size_of_SsdTask_setState          (abs)        0000
-__size_of_SsdTask_setSymbol         (abs)        0000
-__size_of_SsdTask_update            (abs)        0000
 __size_of_Ssd_init                  (abs)        0000
 __size_of_Ssd_setState              (abs)        0000
 __size_of_Ssd_setSymbol             (abs)        0000
-__size_of_SwitchTask_getState       (abs)        0000
-__size_of_SwitchTask_init           (abs)        0000
-__size_of_SwitchTask_update         (abs)        0000
+__size_of_Ssd_update                (abs)        0000
 __size_of_Switch_getState           (abs)        0000
 __size_of_Switch_init               (abs)        0000
+__size_of_Switch_update             (abs)        0000
 __size_of_SysTick_Handler           (abs)        0000
-__size_of_TempControlTask_init      (abs)        0000
-__size_of_TempControlTask_setState  (abs)        0000
-__size_of_TempControlTask_update    (abs)        0000
-__size_of_TempControl_init          (abs)        0000
-__size_of_TempControl_setState      (abs)        0000
-__size_of_TempSensorTask_getAverage (abs)        0000
-__size_of_TempSensorTask_init       (abs)        0000
-__size_of_TempSensorTask_update     (abs)        0000
-__size_of_TempSensor_getState       (abs)        0000
-__size_of_TempSensor_init           (abs)        0000
+__size_of_Tempctrl_init             (abs)        0000
+__size_of_Tempctrl_setState         (abs)        0000
+__size_of_Tempctrl_update           (abs)        0000
+__size_of_Tempsnsr_getState         (abs)        0000
+__size_of_Tempsnsr_init             (abs)        0000
+__size_of_Tempsnsr_update           (abs)        0000
+__size_of_Timer0_init               (abs)        0000
 __size_of_Timer1_init               (abs)        0000
+__size_of_Timer_init                (abs)        0000
 __size_of___awdiv                   (abs)        0000
 __size_of___awmod                   (abs)        0000
 __size_of___bmul                    (abs)        0000
@@ -955,44 +945,82 @@ __size_of___lmul                    (abs)        0000
 __size_of___lwdiv                   (abs)        0000
 __size_of___wmul                    (abs)        0000
 __size_of__fptable                  (abs)        0000
+__size_of_getAvgTemp                (abs)        0000
+__size_of_getSwitchHardwareState    (abs)        0000
+__size_of_getTempsnsrHarwareState   (abs)        0000
+__size_of_initLedHardware           (abs)        0000
+__size_of_initSsdHardware           (abs)        0000
+__size_of_initSwitchHardware        (abs)        0000
+__size_of_initTempctrlHardware      (abs)        0000
+__size_of_initTempsnsrHardware      (abs)        0000
 __size_of_main                      (abs)        0000
+__size_of_setLedHardwareState       (abs)        0000
+__size_of_setSsdHardwareState       (abs)        0000
+__size_of_setSsdHardwareSymbol      (abs)        0000
+__size_of_setTempctrlHardwareState  (abs)        0000
 __size_ofi1___bmul                  (abs)        0000
-_gpio                               dataBANK1    00E3
-_heater                             bssBANK1     00CC
-_led                                bssBANK0     005D
-_ledTask                            bssBANK0     0051
-_main                               maintext     0EA7
-_scheduler                          bssBANK3     0190
-_ssd                                bssBANK0     0068
-_ssdSymbolPattern                   dataBANK3    01DC
-_ssdTask                            bssBANK1     00A0
-_sw                                 bssBANK1     00C6
-_switchTask                         bssBANK1     00BD
-_tempControl                        bssBANK0     0063
-_tempControlTask                    bssBANK0     0067
-_tempSensor                         bssBANK1     00B0
-_tempSensorTask                     bssBANK3     01CE
+_getAvgTemp                         text27       1337
+_getSwitchHardwareState             text29       10D3
+_getTempsnsrHarwareState            text24       147A
+_gpio                               dataBANK0    005C
+_heater                             bssBANK1     00C9
+_initLedHardware                    text52       1AD0
+_initSsdHardware                    text9        140E
+_initSwitchHardware                 text7        1B28
+_initTempctrlHardware               text5        1EEF
+_initTempsnsrHardware               text2        1CEC
+_led                                bssBANK1     00B9
+_main                               maintext     067C
+_scheduler                          bssBANK2     0110
+_setLedHardwareState                text39       1E97
+_setSsdHardwareState                text33       1FA2
+_setSsdHardwareSymbol               text31       1BF8
+_setTempctrlHardwareState           text28       0A94
+_ssd                                bssBANK3     019F
+_ssdSymbolPattern                   dataBANK3    01B7
+_sw                                 bssBANK3     0190
+_tempctrl                           bssBANK0     0066
+_tempsnsr                           bssBANK1     00A0
 btemp                               (abs)        007E
-clear_ram0                          clrtext      1BDC
-end_of_initialization               cinit        004B
-fpbase                              functab      0054
-fptable                             functab      004F
+clear_ram0                          clrtext      1818
+end_of_initialization               cinit        0050
+fpbase                              functab      0059
+fptable                             functab      0054
 fptotal                             (abs)        0010
-i1___bmul                           text72       1CA9
+getAvgTemp@id                       cstackBANK0  0046
+getAvgTemp@index                    cstackBANK0  004B
+getAvgTemp@temp                     cstackBANK0  0047
+getSwitchHardwareState@id           cstackBANK0  002A
+getTempsnsrHarwareState@id          cstackBANK0  0045
+i1___bmul                           text75       18BE
 i1___bmul@multiplicand              cstackCOMMON 0070
 i1___bmul@multiplier                cstackCOMMON 0072
 i1___bmul@product                   cstackCOMMON 0071
-init_fetch0                         inittext     1C96
-init_ram0                           inittext     1C9A
+initLedHardware@id                  cstackBANK0  0035
+initSsdHardware@i                   cstackBANK0  0033
+initSsdHardware@id                  cstackBANK0  0035
+initSwitchHardware@id               cstackBANK0  0033
+initTempctrlHardware@id             cstackBANK0  0033
+initTempsnsrHardware@id             cstackBANK0  0033
+init_fetch0                         inittext     18AB
+init_ram0                           inittext     18AF
 interrupt_function                  intentry     0004
-intlevel0                           functab      004F
-intlevel1                           functab      004F
-intlevel2                           functab      004F
-intlevel3                           functab      004F
-intlevel4                           functab      004F
-intlevel5                           functab      004F
+intlevel0                           functab      0054
+intlevel1                           functab      0054
+intlevel2                           functab      0054
+intlevel3                           functab      0054
+intlevel4                           functab      0054
+intlevel5                           functab      0054
 reset_vec                           reset_vec    0000
 saved_w                             (abs)        007E
+setLedHardwareState@id              cstackBANK0  0031
+setLedHardwareState@state           cstackBANK0  002E
+setSsdHardwareState@id              cstackBANK0  002F
+setSsdHardwareState@state           cstackBANK0  002E
+setSsdHardwareSymbol@id             cstackBANK0  002E
+setSsdHardwareSymbol@symbol         cstackBANK0  002C
+setTempctrlHardwareState@id         cstackBANK0  002F
+setTempctrlHardwareState@state      cstackBANK0  002E
 start                               init         0012
 start_initialization                cinit        0015
 wtemp0                              (abs)        007E
@@ -1002,7 +1030,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 31 in file "main.c"
+		line 27 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1023,33 +1051,34 @@ FUNCTION INFORMATION:
 Total ram usage:        0 bytes
  Hardware stack levels required when called:    8
  This function calls:
-		_HeaterTask_init
-		_LedTask_init
+		_Heater_init
+		_Led_init
 		_Scheduler_addTask
 		_Scheduler_delaySoftwareUs
 		_Scheduler_dispatchTasks
 		_Scheduler_init
 		_Scheduler_start
-		_SsdTask_init
-		_SwitchTask_init
-		_TempControlTask_init
-		_TempSensorTask_init
+		_Ssd_init
+		_Switch_init
+		_Tempctrl_init
+		_Tempsnsr_init
  This function is called by:
 		Startup code after reset
  This function uses a non-reentrant model
 
 
- *************** function _TempSensorTask_init *****************
+ *************** function _Tempsnsr_init *****************
  Defined at:
-		line 13 in file "TempSensorTask.c"
+		line 23 in file "Tempsnsr.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  xGpioId         1   22[BANK0 ] unsigned char 
-  xPin            1   23[BANK0 ] unsigned char 
-  xAdcId          1   24[BANK0 ] unsigned char 
+  id              1    wreg     enum E1244
+  gpioId          1   20[BANK0 ] enum E1172
+  gpioPin         1   21[BANK0 ] enum E1180
+  adcId           1   22[BANK0 ] enum E1226
+  adcChannel      1   23[BANK0 ] enum E1229
  Auto vars:     Size  Location     Type
-  id              1   28[BANK0 ] unsigned char 
-  index           2   26[BANK0 ] unsigned int 
+  id              1   27[BANK0 ] enum E1244
+  index           2   25[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1059,31 +1088,28 @@ Total ram usage:        0 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       3       0       0       0
+      Params:         0       4       0       0       0
       Locals:         0       3       0       0       0
       Temps:          0       1       0       0       0
-      Totals:         0       7       0       0       0
-Total ram usage:        7 bytes
+      Totals:         0       8       0       0       0
+Total ram usage:        8 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_TempSensor_init
 		___bmul
+		_initTempsnsrHardware
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _TempSensor_init *****************
+ *************** function _initTempsnsrHardware *****************
  Defined at:
-		line 16 in file "TempSensor.c"
+		line 63 in file "Tempsnsr.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  xGpioId         1   18[BANK0 ] unsigned char 
-  xPin            1   19[BANK0 ] unsigned char 
-  xAdcId          1   20[BANK0 ] unsigned char 
+  id              1    wreg     enum E1244
  Auto vars:     Size  Location     Type
-  id              1   21[BANK0 ] unsigned char 
+  id              1   19[BANK0 ] enum E1244
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1093,11 +1119,11 @@ Total ram usage:        7 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       3       0       0       0
+      Params:         0       0       0       0       0
       Locals:         0       1       0       0       0
       Temps:          0       0       0       0       0
-      Totals:         0       4       0       0       0
-Total ram usage:        4 bytes
+      Totals:         0       1       0       0       0
+Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
@@ -1105,7 +1131,7 @@ Total ram usage:        4 bytes
 		_Gpio_initPin
 		___bmul
  This function is called by:
-		_TempSensorTask_init
+		_Tempsnsr_init
  This function uses a non-reentrant model
 
 
@@ -1113,9 +1139,9 @@ Total ram usage:        4 bytes
  Defined at:
 		line 3 in file "Adc.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
+  id              1    wreg     enum E1172
  Auto vars:     Size  Location     Type
-  id              1    0[COMMON] unsigned char 
+  id              1    0[COMMON] enum E1172
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1135,21 +1161,21 @@ Total ram usage:        0 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_TempSensor_init
+		_initTempsnsrHardware
  This function uses a non-reentrant model
 
 
- *************** function _TempControlTask_init *****************
+ *************** function _Tempctrl_init *****************
  Defined at:
-		line 10 in file "TempControlTask.c"
+		line 17 in file "Tempctrl.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  hGpioId         1   25[BANK0 ] unsigned char 
-  hPin            1   26[BANK0 ] unsigned char 
-  cGpioId         1   27[BANK0 ] unsigned char 
-  cPin            1   28[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
+  gpioIdH         1   20[BANK0 ] enum E1172
+  gpioPinH        1   21[BANK0 ] enum E1180
+  gpioIdC         1   22[BANK0 ] enum E1172
+  gpioPinC        1   23[BANK0 ] enum E1180
  Auto vars:     Size  Location     Type
-  id              1   29[BANK0 ] unsigned char 
+  id              1   24[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1167,23 +1193,20 @@ Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_TempControl_init
+		___bmul
+		_initTempctrlHardware
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _TempControl_init *****************
+ *************** function _initTempctrlHardware *****************
  Defined at:
-		line 13 in file "TempControl.c"
+		line 38 in file "Tempctrl.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  hGpioId         1   18[BANK0 ] unsigned char 
-  hPin            1   19[BANK0 ] unsigned char 
-  cGpioId         1   20[BANK0 ] unsigned char 
-  cPin            1   21[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
  Auto vars:     Size  Location     Type
-  id              1   24[BANK0 ] unsigned char 
+  id              1   19[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1193,29 +1216,30 @@ Total ram usage:        5 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       4       0       0       0
+      Params:         0       0       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       2       0       0       0
-      Totals:         0       7       0       0       0
-Total ram usage:        7 bytes
+      Temps:          0       0       0       0       0
+      Totals:         0       1       0       0       0
+Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
 		_Gpio_initPin
+		___bmul
  This function is called by:
-		_TempControlTask_init
+		_Tempctrl_init
  This function uses a non-reentrant model
 
 
- *************** function _SwitchTask_init *****************
+ *************** function _Switch_init *****************
  Defined at:
-		line 12 in file "SwitchTask.c"
+		line 17 in file "Switch.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  xGpioId         1   23[BANK0 ] unsigned char 
-  xPin            1   24[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
+  gpioId          1   20[BANK0 ] enum E1172
+  gpioPin         1   21[BANK0 ] enum E1180
  Auto vars:     Size  Location     Type
-  id              1   25[BANK0 ] unsigned char 
+  id              1   22[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1233,22 +1257,20 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Switch_init
 		___bmul
+		_initSwitchHardware
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _Switch_init *****************
+ *************** function _initSwitchHardware *****************
  Defined at:
-		line 11 in file "Switch.c"
+		line 55 in file "Switch.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  xGpioId         1   18[BANK0 ] unsigned char 
-  xPin            1   19[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
  Auto vars:     Size  Location     Type
-  id              1   22[BANK0 ] unsigned char 
+  id              1   19[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1258,66 +1280,32 @@ Total ram usage:        3 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       2       0       0       0
+      Params:         0       0       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       2       0       0       0
-      Totals:         0       5       0       0       0
-Total ram usage:        5 bytes
+      Temps:          0       0       0       0       0
+      Totals:         0       1       0       0       0
+Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
 		_Gpio_initPin
+		___bmul
  This function is called by:
-		_SwitchTask_init
- This function uses a non-reentrant model
-
-
- *************** function _SsdTask_init *****************
- Defined at:
-		line 15 in file "SsdTask.c"
- Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  cGpioId         1   28[BANK0 ] unsigned char 
-  cPin            1   29[BANK0 ] unsigned char 
-  dGpioId         1   30[BANK0 ] unsigned char 
-  dPin            1   31[BANK0 ] unsigned char 
- Auto vars:     Size  Location     Type
-  id              1   33[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       4       0       0       0
-      Locals:         0       1       0       0       0
-      Temps:          0       1       0       0       0
-      Totals:         0       6       0       0       0
-Total ram usage:        6 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    5
- This function calls:
-		_Ssd_init
- This function is called by:
-		_main
+		_Switch_init
  This function uses a non-reentrant model
 
 
  *************** function _Ssd_init *****************
  Defined at:
-		line 14 in file "Ssd.c"
+		line 24 in file "Ssd.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  cGpioId         1   18[BANK0 ] unsigned char 
-  cPin            1   19[BANK0 ] unsigned char 
-  dGpioId         1   20[BANK0 ] unsigned char 
-  dPin            1   21[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
+  gpioIdC         1   22[BANK0 ] enum E1172
+  gpioPinC        1   23[BANK0 ] enum E1180
+  gpioIdD         1   24[BANK0 ] enum E1172
+  gpioPinD        1   25[BANK0 ] enum E1180
  Auto vars:     Size  Location     Type
-  id              1   27[BANK0 ] unsigned char 
-  pin             2   25[BANK0 ] unsigned int 
+  id              1   26[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1328,16 +1316,49 @@ Total ram usage:        6 bytes
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       4       0       0       0
+      Locals:         0       1       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       5       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		___bmul
+		_initSsdHardware
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _initSsdHardware *****************
+ Defined at:
+		line 77 in file "Ssd.c"
+ Parameters:    Size  Location     Type
+  id              1    wreg     enum E1226
+ Auto vars:     Size  Location     Type
+  id              1   21[BANK0 ] enum E1226
+  i               2   19[BANK0 ] unsigned int 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
       Locals:         0       3       0       0       0
-      Temps:          0       3       0       0       0
-      Totals:         0      10       0       0       0
-Total ram usage:       10 bytes
+      Temps:          0       0       0       0       0
+      Totals:         0       3       0       0       0
+Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
 		_Gpio_initPin
+		___bmul
  This function is called by:
-		_SsdTask_init
+		_Ssd_init
  This function uses a non-reentrant model
 
 
@@ -1351,7 +1372,7 @@ Total ram usage:       10 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0, pclath, cstack
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1363,7 +1384,7 @@ Total ram usage:       10 bytes
       Totals:         0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    5
+ Hardware stack levels required when called:    7
  This function calls:
 		_Scheduler_initSysTick
  This function is called by:
@@ -1375,30 +1396,97 @@ Total ram usage:        0 bytes
  Defined at:
 		line 5 in file "SchedulerConfig.c"
  Parameters:    Size  Location     Type
-  msTickPeriod    2    6[BANK0 ] unsigned int 
+  systickPerio    2   20[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
-  tickNumber      2    8[BANK0 ] unsigned int 
+		None
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0, pclath, cstack
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       2       0       0       0
-      Locals:         0       2       0       0       0
+      Locals:         0       0       0       0       0
       Temps:          0       0       0       0       0
-      Totals:         0       4       0       0       0
-Total ram usage:        4 bytes
+      Totals:         0       2       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		_Timer_init
+ This function is called by:
+		_Scheduler_start
+ This function uses a non-reentrant model
+
+
+ *************** function _Timer_init *****************
+ Defined at:
+		line 7 in file "Timer.c"
+ Parameters:    Size  Location     Type
+  id              1    wreg     enum E1172
+  mode            1   12[BANK0 ] enum E1178
+  period          2   13[BANK0 ] enum E1197
+  channel         1   15[BANK0 ] enum E1182
+  event           1   16[BANK0 ] enum E1186
+ Auto vars:     Size  Location     Type
+  id              1   19[BANK0 ] enum E1172
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       5       0       0       0
+      Locals:         0       1       0       0       0
+      Temps:          0       2       0       0       0
+      Totals:         0       8       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_Timer0_init
+		_Timer1_init
+ This function is called by:
+		_Scheduler_initSysTick
+ This function uses a non-reentrant model
+
+
+ *************** function _Timer1_init *****************
+ Defined at:
+		line 52 in file "Timer.c"
+ Parameters:    Size  Location     Type
+  mode            1    wreg     enum E1178
+  period          2    6[BANK0 ] enum E1197
+  channel         1    8[BANK0 ] enum E1182
+  event           1    9[BANK0 ] enum E1186
+ Auto vars:     Size  Location     Type
+  mode            1    0[COMMON] enum E1178
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       4       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       2       0       0       0
+      Totals:         0       6       0       0       0
+Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_Timer1_init
 		___wmul
  This function is called by:
-		_Scheduler_start
+		_Timer_init
  This function uses a non-reentrant model
 
 
@@ -1429,37 +1517,40 @@ Total ram usage:        6 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_Scheduler_initSysTick
+		_Timer1_init
  This function uses a non-reentrant model
 
 
- *************** function _Timer1_init *****************
+ *************** function _Timer0_init *****************
  Defined at:
-		line 16 in file "Timer.c"
+		line 43 in file "Timer.c"
  Parameters:    Size  Location     Type
-  tickNumber      2    0[BANK0 ] unsigned int 
+  mode            1    wreg     enum E1178
+  period          2    3[BANK0 ] enum E1197
+  channel         1    5[BANK0 ] enum E1182
+  event           1    6[BANK0 ] enum E1186
  Auto vars:     Size  Location     Type
-		None
+  mode            1    0[COMMON] enum E1178
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2
+		wreg, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       2       0       0       0
+      Params:         0       4       0       0       0
       Locals:         0       0       0       0       0
       Temps:          0       0       0       0       0
-      Totals:         0       2       0       0       0
-Total ram usage:        2 bytes
+      Totals:         0       4       0       0       0
+Total ram usage:        4 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    4
  This function calls:
-		Nothing
+		___bmul
  This function is called by:
-		_Scheduler_initSysTick
+		_Timer_init
  This function uses a non-reentrant model
 
 
@@ -1499,7 +1590,7 @@ Total ram usage:        2 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  index           2   47[BANK0 ] unsigned int 
+  index           2   58[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1518,29 +1609,63 @@ Total ram usage:        6 bytes
  Hardware stack levels required when called:    7
  This function calls:
 		Absolute function
-		_HeaterTask_update
-		_LedTask_update
+		_Heater_update
+		_Led_update
 		_Scheduler_deleteTask
 		_Scheduler_goToSleep
 		_Scheduler_reportStatus
-		_SsdTask_update
-		_SwitchTask_update
-		_TempControlTask_update
-		_TempSensorTask_update
+		_Ssd_update
+		_Switch_update
+		_Tempctrl_update
+		_Tempsnsr_update
 		___bmul
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _SsdTask_update *****************
+ *************** function _Ssd_update *****************
  Defined at:
-		line 37 in file "SsdTask.c"
+		line 39 in file "Ssd.c"
  Parameters:    Size  Location     Type
-  paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), NULL(0), 
+  paramter        2   45[BANK0 ] PTR void 
+		 -> RAM(512), RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  id              1   41[BANK0 ] unsigned char 
+  id              1   51[BANK0 ] enum E1226
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       2       0       0       0
+      Locals:         0       3       0       0       0
+      Temps:          0       2       0       0       0
+      Totals:         0       7       0       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		___bmul
+		_setSsdHardwareState
+		_setSsdHardwareSymbol
+ This function is called by:
+		_main
+		_Scheduler_dispatchTasks
+ This function uses a non-reentrant model
+
+
+ *************** function _Led_update *****************
+ Defined at:
+		line 29 in file "Led.c"
+ Parameters:    Size  Location     Type
+  paramter        2   45[BANK0 ] PTR void 
+		 -> RAM(512), RAM(512), NULL(0), 
+ Auto vars:     Size  Location     Type
+  id              1   51[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1558,22 +1683,21 @@ Total ram usage:        7 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Ssd_setState
-		_Ssd_setSymbol
+		_setLedHardwareState
  This function is called by:
 		_main
 		_Scheduler_dispatchTasks
  This function uses a non-reentrant model
 
 
- *************** function _LedTask_update *****************
+ *************** function _Tempctrl_update *****************
  Defined at:
-		line 28 in file "LedTask.c"
+		line 27 in file "Tempctrl.c"
  Parameters:    Size  Location     Type
-  paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), NULL(0), 
+  paramter        2   45[BANK0 ] PTR void 
+		 -> RAM(512), RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  id              1   40[BANK0 ] unsigned char 
+  id              1   48[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1585,60 +1709,28 @@ Total ram usage:        7 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       2       0       0       0
       Locals:         0       2       0       0       0
-      Temps:          0       2       0       0       0
-      Totals:         0       6       0       0       0
-Total ram usage:        6 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    5
- This function calls:
-		_Led_setState
-		___bmul
- This function is called by:
-		_main
-		_Scheduler_dispatchTasks
- This function uses a non-reentrant model
-
-
- *************** function _TempControlTask_update *****************
- Defined at:
-		line 21 in file "TempControlTask.c"
- Parameters:    Size  Location     Type
-  paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), NULL(0), 
- Auto vars:     Size  Location     Type
-  id              1   37[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       2       0       0       0
-      Locals:         0       1       0       0       0
       Temps:          0       0       0       0       0
-      Totals:         0       3       0       0       0
-Total ram usage:        3 bytes
+      Totals:         0       4       0       0       0
+Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_TempControl_setState
+		___bmul
+		_setTempctrlHardwareState
  This function is called by:
 		_main
 		_Scheduler_dispatchTasks
  This function uses a non-reentrant model
 
 
- *************** function _HeaterTask_update *****************
+ *************** function _Heater_update *****************
  Defined at:
-		line 74 in file "WaterHeater.c"
+		line 91 in file "WaterHeater.c"
  Parameters:    Size  Location     Type
-  paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), NULL(0), 
+  paramter        2   45[BANK0 ] PTR void 
+		 -> RAM(512), RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  id              1   40[BANK0 ] unsigned char 
+  id              1   53[BANK0 ] enum E1438
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1649,20 +1741,20 @@ Total ram usage:        3 bytes
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       2       0       0       0
-      Locals:         0       1       0       0       0
+      Locals:         0       4       0       0       0
       Temps:          0       3       0       0       0
-      Totals:         0       6       0       0       0
-Total ram usage:        6 bytes
+      Totals:         0       9       0       0       0
+Total ram usage:        9 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    6
  This function calls:
 		_Eeprom_write
-		_LedTask_setState
-		_SsdTask_setState
-		_SsdTask_setSymbol
-		_SwitchTask_getState
-		_TempControlTask_setState
-		_TempSensorTask_getAverage
+		_Led_setState
+		_Ssd_setState
+		_Ssd_setSymbol
+		_Switch_getState
+		_Tempctrl_setState
+		_Tempsnsr_getState
 		___awdiv
 		___awmod
 		___bmul
@@ -1672,14 +1764,14 @@ Total ram usage:        6 bytes
  This function uses a non-reentrant model
 
 
- *************** function _SwitchTask_update *****************
+ *************** function _Switch_update *****************
  Defined at:
-		line 27 in file "SwitchTask.c"
+		line 27 in file "Switch.c"
  Parameters:    Size  Location     Type
-  paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), NULL(0), 
+  paramter        2   45[BANK0 ] PTR void 
+		 -> RAM(512), RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  id              1   37[BANK0 ] unsigned char 
+  id              1   47[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1697,23 +1789,22 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Switch_getState
 		___bmul
+		_getSwitchHardwareState
  This function is called by:
 		_main
 		_Scheduler_dispatchTasks
  This function uses a non-reentrant model
 
 
- *************** function _TempSensorTask_update *****************
+ *************** function _Tempsnsr_update *****************
  Defined at:
-		line 31 in file "TempSensorTask.c"
+		line 42 in file "Tempsnsr.c"
  Parameters:    Size  Location     Type
-  paramter        2   35[BANK0 ] PTR void 
-		 -> RAM(512), NULL(0), 
+  paramter        2   45[BANK0 ] PTR void 
+		 -> RAM(512), RAM(512), NULL(0), 
  Auto vars:     Size  Location     Type
-  index           2   40[BANK0 ] unsigned int 
-  id              1   42[BANK0 ] unsigned char 
+  id              1   49[BANK0 ] enum E1244
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1724,31 +1815,31 @@ Total ram usage:        3 bytes
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       2       0       0       0
-      Locals:         0       3       0       0       0
-      Temps:          0       3       0       0       0
-      Totals:         0       8       0       0       0
-Total ram usage:        8 bytes
+      Locals:         0       1       0       0       0
+      Temps:          0       2       0       0       0
+      Totals:         0       5       0       0       0
+Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_TempSensor_getState
 		___bmul
-		___lwdiv
+		_getAvgTemp
+		_getTempsnsrHarwareState
  This function is called by:
 		_main
 		_Scheduler_dispatchTasks
  This function uses a non-reentrant model
 
 
- *************** function _TempSensor_getState *****************
+ *************** function _getTempsnsrHarwareState *****************
  Defined at:
-		line 29 in file "TempSensor.c"
+		line 69 in file "Tempsnsr.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
+  id              1    wreg     enum E1244
  Auto vars:     Size  Location     Type
-  id              1   34[BANK0 ] unsigned char 
+  id              1   37[BANK0 ] enum E1244
  Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
+                  1    wreg      enum E1248
  Registers used:
 		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
@@ -1769,7 +1860,7 @@ Total ram usage:        5 bytes
 		___lldiv
 		___lmul
  This function is called by:
-		_TempSensorTask_update
+		_Tempsnsr_update
  This function uses a non-reentrant model
 
 
@@ -1777,12 +1868,12 @@ Total ram usage:        5 bytes
  Defined at:
 		line 15 in file "C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c"
  Parameters:    Size  Location     Type
-  multiplier      4    3[BANK0 ] unsigned long 
-  multiplicand    4    7[BANK0 ] unsigned long 
+  multiplier      4    6[BANK0 ] unsigned long 
+  multiplicand    4   10[BANK0 ] unsigned long 
  Auto vars:     Size  Location     Type
-  product         4   12[BANK0 ] unsigned long 
+  product         4   15[BANK0 ] unsigned long 
  Return value:  Size  Location     Type
-                  4    3[BANK0 ] unsigned long 
+                  4    6[BANK0 ] unsigned long 
  Registers used:
 		wreg, status,2, status,0
  Tracked objects:
@@ -1800,7 +1891,7 @@ Total ram usage:       13 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_TempSensor_getState
+		_getTempsnsrHarwareState
  This function uses a non-reentrant model
 
 
@@ -1808,11 +1899,12 @@ Total ram usage:       13 bytes
  Defined at:
 		line 9 in file "Adc.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
+  id              1    wreg     enum E1172
+  channel         1    3[BANK0 ] enum E1175
  Auto vars:     Size  Location     Type
-  id              1    0[COMMON] unsigned char 
+  id              1    0[COMMON] enum E1172
  Return value:  Size  Location     Type
-                  2    0[BANK0 ] unsigned int 
+                  2    3[BANK0 ] unsigned int 
  Registers used:
 		wreg, status,2
  Tracked objects:
@@ -1830,18 +1922,51 @@ Total ram usage:        3 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_TempSensor_getState
+		_getTempsnsrHarwareState
  This function uses a non-reentrant model
 
 
- *************** function _TempControl_setState *****************
+ *************** function _getAvgTemp *****************
  Defined at:
-		line 23 in file "TempControl.c"
+		line 75 in file "Tempsnsr.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  state           1   14[BANK0 ] unsigned char 
+  id              1    wreg     enum E1244
  Auto vars:     Size  Location     Type
-  id              1   18[BANK0 ] unsigned char 
+  id              1   38[BANK0 ] enum E1244
+  temp            4   39[BANK0 ] unsigned long 
+  index           2   43[BANK0 ] unsigned int 
+ Return value:  Size  Location     Type
+                  1    wreg      enum E1248
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       7       0       0       0
+      Temps:          0       5       0       0       0
+      Totals:         0      12       0       0       0
+Total ram usage:       12 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		___bmul
+		___lldiv
+ This function is called by:
+		_Tempsnsr_update
+ This function uses a non-reentrant model
+
+
+ *************** function _setTempctrlHardwareState *****************
+ Defined at:
+		line 44 in file "Tempctrl.c"
+ Parameters:    Size  Location     Type
+  id              1    wreg     enum E1226
+  state           1   14[BANK0 ] enum E1230
+ Auto vars:     Size  Location     Type
+  id              1   15[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1853,27 +1978,28 @@ Total ram usage:        3 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       1       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       3       0       0       0
-      Totals:         0       5       0       0       0
-Total ram usage:        5 bytes
+      Temps:          0       0       0       0       0
+      Totals:         0       2       0       0       0
+Total ram usage:        2 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
 		_Gpio_setPinState
+		___bmul
  This function is called by:
-		_TempControlTask_update
+		_Tempctrl_update
  This function uses a non-reentrant model
 
 
- *************** function _Switch_getState *****************
+ *************** function _getSwitchHardwareState *****************
  Defined at:
-		line 18 in file "Switch.c"
+		line 60 in file "Switch.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
+  id              1    wreg     enum E1226
  Auto vars:     Size  Location     Type
-  id              1    9[BANK0 ] unsigned char 
+  id              1   10[BANK0 ] enum E1226
  Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
+                  1    wreg      enum E1232
  Registers used:
 		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
@@ -1883,28 +2009,29 @@ Total ram usage:        5 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       2       0       0       0
-      Totals:         0       3       0       0       0
-Total ram usage:        3 bytes
+      Temps:          0       0       0       0       0
+      Totals:         0       1       0       0       0
+Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
 		_Gpio_getPinState
+		___bmul
  This function is called by:
-		_SwitchTask_update
+		_Switch_update
  This function uses a non-reentrant model
 
 
  *************** function _Gpio_getPinState *****************
  Defined at:
-		line 28 in file "Gpio.c"
+		line 34 in file "Gpio.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  Pin             1    0[BANK0 ] unsigned char 
+  id              1    wreg     enum E1172
+  pin             1    3[BANK0 ] enum E1180
  Auto vars:     Size  Location     Type
-  Id              1    6[BANK0 ] unsigned char 
+  id              1    9[BANK0 ] enum E1172
  Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
+                  1    wreg      enum E1202
  Registers used:
 		wreg, fsr0l, fsr0h, status,2, status,0
  Tracked objects:
@@ -1922,18 +2049,18 @@ Total ram usage:        7 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_Switch_getState
+		_getSwitchHardwareState
  This function uses a non-reentrant model
 
 
- *************** function _Ssd_setSymbol *****************
+ *************** function _setSsdHardwareSymbol *****************
  Defined at:
-		line 33 in file "Ssd.c"
+		line 100 in file "Ssd.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  symbol          1   10[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
+  symbol          1   12[BANK0 ] enum E1242
  Auto vars:     Size  Location     Type
-  id              1   14[BANK0 ] unsigned char 
+  id              1   14[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1945,27 +2072,28 @@ Total ram usage:        7 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       1       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       3       0       0       0
-      Totals:         0       5       0       0       0
-Total ram usage:        5 bytes
+      Temps:          0       1       0       0       0
+      Totals:         0       3       0       0       0
+Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
 		_Gpio_setPortState
+		___bmul
  This function is called by:
-		_SsdTask_update
+		_Ssd_update
  This function uses a non-reentrant model
 
 
  *************** function _Gpio_setPortState *****************
  Defined at:
-		line 33 in file "Gpio.c"
+		line 39 in file "Gpio.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  Pins            1    0[BANK0 ] unsigned char 
-  State           1    1[BANK0 ] unsigned char 
+  id              1    wreg     enum E1172
+  pins            1    3[BANK0 ] enum E1180
+  state           1    4[BANK0 ] enum E1202
  Auto vars:     Size  Location     Type
-  Id              1    9[BANK0 ] unsigned char 
+  id              1   11[BANK0 ] enum E1172
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1977,26 +2105,26 @@ Total ram usage:        5 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       2       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       7       0       0       0
-      Totals:         0      10       0       0       0
-Total ram usage:       10 bytes
+      Temps:          0       6       0       0       0
+      Totals:         0       9       0       0       0
+Total ram usage:        9 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    3
  This function calls:
 		Nothing
  This function is called by:
-		_Ssd_setSymbol
+		_setSsdHardwareSymbol
  This function uses a non-reentrant model
 
 
- *************** function _Ssd_setState *****************
+ *************** function _setSsdHardwareState *****************
  Defined at:
-		line 28 in file "Ssd.c"
+		line 86 in file "Ssd.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  state           1   14[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
+  state           1   14[BANK0 ] enum E1231
  Auto vars:     Size  Location     Type
-  id              1   17[BANK0 ] unsigned char 
+  id              1   15[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2008,15 +2136,16 @@ Total ram usage:       10 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       1       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       2       0       0       0
-      Totals:         0       4       0       0       0
-Total ram usage:        4 bytes
+      Temps:          0       0       0       0       0
+      Totals:         0       2       0       0       0
+Total ram usage:        2 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
 		_Gpio_setPinState
+		___bmul
  This function is called by:
-		_SsdTask_update
+		_Ssd_update
  This function uses a non-reentrant model
 
 
@@ -2052,11 +2181,11 @@ Total ram usage:        0 bytes
 
  *************** function _Scheduler_displayError *****************
  Defined at:
-		line 12 in file "SchedulerConfig.c"
+		line 11 in file "SchedulerConfig.c"
  Parameters:    Size  Location     Type
   errorCode       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  errorCode       1   16[BANK0 ] unsigned char 
+  errorCode       1   14[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2074,7 +2203,7 @@ Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_LedTask_setState
+		_Led_setState
  This function is called by:
 		_Scheduler_reportStatus
  This function uses a non-reentrant model
@@ -2112,7 +2241,7 @@ Total ram usage:        0 bytes
 
  *************** function _Scheduler_sleepHardware *****************
  Defined at:
-		line 23 in file "SchedulerConfig.c"
+		line 22 in file "SchedulerConfig.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2171,14 +2300,14 @@ Total ram usage:        1 bytes
  This function uses a non-reentrant model
 
 
- *************** function _Led_setState *****************
+ *************** function _setLedHardwareState *****************
  Defined at:
-		line 20 in file "Led.c"
+		line 57 in file "Led.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  state           1   14[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
+  state           1   14[BANK0 ] enum E1231
  Auto vars:     Size  Location     Type
-  id              1   15[BANK0 ] unsigned char 
+  id              1   17[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2190,28 +2319,27 @@ Total ram usage:        1 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       1       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       0       0       0       0
-      Totals:         0       2       0       0       0
-Total ram usage:        2 bytes
+      Temps:          0       2       0       0       0
+      Totals:         0       4       0       0       0
+Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
 		_Gpio_setPinState
-		___bmul
  This function is called by:
-		_LedTask_update
+		_Led_update
  This function uses a non-reentrant model
 
 
  *************** function _Gpio_setPinState *****************
  Defined at:
-		line 23 in file "Gpio.c"
+		line 28 in file "Gpio.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  Pin             1    3[BANK0 ] unsigned char 
-  State           1    4[BANK0 ] unsigned char 
+  id              1    wreg     enum E1172
+  pin             1    3[BANK0 ] enum E1180
+  state           1    4[BANK0 ] enum E1202
  Auto vars:     Size  Location     Type
-  Id              1   13[BANK0 ] unsigned char 
+  id              1   13[BANK0 ] enum E1172
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2231,9 +2359,9 @@ Total ram usage:       11 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_Led_setState
-		_Ssd_setState
-		_TempControl_setState
+		_setLedHardwareState
+		_setSsdHardwareState
+		_setTempctrlHardwareState
  This function uses a non-reentrant model
 
 
@@ -2265,7 +2393,7 @@ Total ram usage:        6 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_HeaterTask_update
+		_Heater_update
  This function uses a non-reentrant model
 
 
@@ -2298,19 +2426,19 @@ Total ram usage:        8 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_HeaterTask_update
+		_Heater_update
  This function uses a non-reentrant model
 
 
- *************** function _TempSensorTask_getAverage *****************
+ *************** function _Tempsnsr_getState *****************
  Defined at:
-		line 26 in file "TempSensorTask.c"
+		line 58 in file "Tempsnsr.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
+  id              1    wreg     enum E1244
  Auto vars:     Size  Location     Type
-  id              1    3[BANK0 ] unsigned char 
+  id              1    3[BANK0 ] enum E1244
  Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
+                  1    wreg      enum E1312
  Registers used:
 		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
@@ -2328,22 +2456,22 @@ Total ram usage:        1 bytes
  This function calls:
 		___bmul
  This function is called by:
-		_HeaterTask_update
+		_Heater_update
  This function uses a non-reentrant model
 
 
- *************** function _TempControlTask_setState *****************
+ *************** function _Tempctrl_setState *****************
  Defined at:
-		line 16 in file "TempControlTask.c"
+		line 33 in file "Tempctrl.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  state           1    0[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
+  state           1    3[BANK0 ] enum E1230
  Auto vars:     Size  Location     Type
-  id              1    1[BANK0 ] unsigned char 
+  id              1    4[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -2355,24 +2483,24 @@ Total ram usage:        1 bytes
       Totals:         0       2       0       0       0
 Total ram usage:        2 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    4
  This function calls:
-		Nothing
+		___bmul
  This function is called by:
-		_HeaterTask_update
+		_Heater_update
  This function uses a non-reentrant model
 
 
- *************** function _SwitchTask_getState *****************
+ *************** function _Switch_getState *****************
  Defined at:
-		line 20 in file "SwitchTask.c"
+		line 48 in file "Switch.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
+  id              1    wreg     enum E1226
  Auto vars:     Size  Location     Type
-  id              1    4[BANK0 ] unsigned char 
+  id              1    4[BANK0 ] enum E1226
   buffer          1    3[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
+                  1    wreg      enum E1232
  Registers used:
 		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
@@ -2390,22 +2518,22 @@ Total ram usage:        2 bytes
  This function calls:
 		___bmul
  This function is called by:
-		_HeaterTask_update
+		_Heater_update
  This function uses a non-reentrant model
 
 
- *************** function _SsdTask_setSymbol *****************
+ *************** function _Ssd_setSymbol *****************
  Defined at:
-		line 32 in file "SsdTask.c"
+		line 72 in file "Ssd.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  symbol          1   17[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
+  symbol          1   17[BANK0 ] enum E1242
  Auto vars:     Size  Location     Type
-  id              1   19[BANK0 ] unsigned char 
+  id              1   18[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -2413,27 +2541,27 @@ Total ram usage:        2 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       1       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       1       0       0       0
-      Totals:         0       3       0       0       0
-Total ram usage:        3 bytes
+      Temps:          0       0       0       0       0
+      Totals:         0       2       0       0       0
+Total ram usage:        2 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    4
  This function calls:
-		Nothing
+		___bmul
  This function is called by:
-		_HeaterTask_update
+		_Heater_update
  This function uses a non-reentrant model
 
 
- *************** function _SsdTask_setState *****************
+ *************** function _Ssd_setState *****************
  Defined at:
-		line 26 in file "SsdTask.c"
+		line 66 in file "Ssd.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  state           1   10[BANK0 ] unsigned char 
-  period          2   11[BANK0 ] unsigned int 
+  id              1    wreg     enum E1226
+  state           1    7[BANK0 ] enum E1231
+  period          2    8[BANK0 ] enum E1235
  Auto vars:     Size  Location     Type
-  id              1   14[BANK0 ] unsigned char 
+  id              1   10[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2445,27 +2573,28 @@ Total ram usage:        3 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       3       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       1       0       0       0
-      Totals:         0       5       0       0       0
-Total ram usage:        5 bytes
+      Temps:          0       0       0       0       0
+      Totals:         0       4       0       0       0
+Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
+		___bmul
 		___lwdiv
  This function is called by:
-		_HeaterTask_update
+		_Heater_update
  This function uses a non-reentrant model
 
 
- *************** function _LedTask_setState *****************
+ *************** function _Led_setState *****************
  Defined at:
-		line 22 in file "LedTask.c"
+		line 46 in file "Led.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  state           1   10[BANK0 ] unsigned char 
-  period          2   11[BANK0 ] unsigned int 
+  id              1    wreg     enum E1226
+  state           1    7[BANK0 ] enum E1231
+  period          2    8[BANK0 ] enum E1235
  Auto vars:     Size  Location     Type
-  id              1   15[BANK0 ] unsigned char 
+  id              1   13[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2477,17 +2606,16 @@ Total ram usage:        5 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       3       0       0       0
       Locals:         0       3       0       0       0
-      Temps:          0       0       0       0       0
-      Totals:         0       6       0       0       0
-Total ram usage:        6 bytes
+      Temps:          0       1       0       0       0
+      Totals:         0       7       0       0       0
+Total ram usage:        7 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		___bmul
 		___lwdiv
  This function is called by:
 		_Scheduler_displayError
-		_HeaterTask_update
+		_Heater_update
  This function uses a non-reentrant model
 
 
@@ -2495,13 +2623,13 @@ Total ram usage:        6 bytes
  Defined at:
 		line 5 in file "C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c"
  Parameters:    Size  Location     Type
-  divisor         2    3[BANK0 ] unsigned int 
-  dividend        2    5[BANK0 ] unsigned int 
+  divisor         2    0[BANK0 ] unsigned int 
+  dividend        2    2[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
-  quotient        2    7[BANK0 ] unsigned int 
-  counter         1    9[BANK0 ] unsigned char 
+  quotient        2    4[BANK0 ] unsigned int 
+  counter         1    6[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
-                  2    3[BANK0 ] unsigned int 
+                  2    0[BANK0 ] unsigned int 
  Registers used:
 		wreg, status,2, status,0, btemp+1
  Tracked objects:
@@ -2519,9 +2647,8 @@ Total ram usage:        7 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_SsdTask_setState
-		_TempSensorTask_update
-		_LedTask_setState
+		_Led_setState
+		_Ssd_setState
  This function uses a non-reentrant model
 
 
@@ -2530,16 +2657,16 @@ Total ram usage:        7 bytes
 		line 32 in file "Scheduler.c"
  Parameters:    Size  Location     Type
   task            1    wreg     PTR FTN(PTR void ,)void 
-		 -> SsdTask_update(1), LedTask_update(1), TempControlTask_update(1), HeaterTask_update(1), 
-		 -> TempSensorTask_update(1), SwitchTask_update(1), 
+		 -> Ssd_update(1), Led_update(1), Tempctrl_update(1), Heater_update(1), 
+		 -> Tempsnsr_update(1), Switch_update(1), 
   paramter        2    3[BANK0 ] PTR void 
-		 -> RAM(512), NULL(0), 
+		 -> RAM(512), RAM(512), NULL(0), 
   delay           1    5[BANK0 ] unsigned char 
   period          1    6[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
   task            1    7[BANK0 ] PTR FTN(PTR void ,)void 
-		 -> SsdTask_update(1), LedTask_update(1), TempControlTask_update(1), HeaterTask_update(1), 
-		 -> TempSensorTask_update(1), SwitchTask_update(1), 
+		 -> Ssd_update(1), Led_update(1), Tempctrl_update(1), Heater_update(1), 
+		 -> Tempsnsr_update(1), Switch_update(1), 
   index           2    8[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
@@ -2564,15 +2691,15 @@ Total ram usage:        7 bytes
  This function uses a non-reentrant model
 
 
- *************** function _LedTask_init *****************
+ *************** function _Led_init *****************
  Defined at:
-		line 13 in file "LedTask.c"
+		line 18 in file "Led.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  xGpioId         1   21[BANK0 ] unsigned char 
-  xPin            1   22[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
+  gpioId          1   22[BANK0 ] enum E1172
+  gpioPin         1   23[BANK0 ] enum E1180
  Auto vars:     Size  Location     Type
-  id              1   23[BANK0 ] unsigned char 
+  id              1   25[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2584,60 +2711,25 @@ Total ram usage:        7 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       2       0       0       0
       Locals:         0       1       0       0       0
-      Temps:          0       0       0       0       0
-      Totals:         0       3       0       0       0
-Total ram usage:        3 bytes
+      Temps:          0       1       0       0       0
+      Totals:         0       4       0       0       0
+Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_Led_init
-		___bmul
+		_initLedHardware
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _Led_init *****************
+ *************** function _initLedHardware *****************
  Defined at:
-		line 12 in file "Led.c"
+		line 52 in file "Led.c"
  Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
-  xGpioId         1   18[BANK0 ] unsigned char 
-  xPin            1   19[BANK0 ] unsigned char 
+  id              1    wreg     enum E1226
  Auto vars:     Size  Location     Type
-  id              1   20[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       2       0       0       0
-      Locals:         0       1       0       0       0
-      Temps:          0       0       0       0       0
-      Totals:         0       3       0       0       0
-Total ram usage:        3 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		_Gpio_initPin
-		___bmul
- This function is called by:
-		_LedTask_init
- This function uses a non-reentrant model
-
-
- *************** function _HeaterTask_init *****************
- Defined at:
-		line 26 in file "WaterHeater.c"
- Parameters:    Size  Location     Type
-  id              1    wreg     unsigned char 
- Auto vars:     Size  Location     Type
-  id              1   39[BANK0 ] unsigned char 
-  index           2   37[BANK0 ] unsigned int 
+  id              1   21[BANK0 ] enum E1226
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2648,10 +2740,49 @@ Total ram usage:        3 bytes
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
+      Locals:         0       1       0       0       0
+      Temps:          0       2       0       0       0
+      Totals:         0       3       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_Gpio_initPin
+ This function is called by:
+		_Led_init
+ This function uses a non-reentrant model
+
+
+ *************** function _Heater_init *****************
+ Defined at:
+		line 34 in file "WaterHeater.c"
+ Parameters:    Size  Location     Type
+  id              1    wreg     enum E1438
+  sSwId           1   37[BANK0 ] enum E1289
+  mSwId           1   38[BANK0 ] enum E1289
+  pSwId           1   39[BANK0 ] enum E1289
+  xTempsnsrId     1   40[BANK0 ] enum E1308
+  xTempctrlId     1   41[BANK0 ] enum E1326
+  xLedId          1   42[BANK0 ] enum E1346
+  aSsdId          1   43[BANK0 ] enum E1372
+  bSsdId          1   44[BANK0 ] enum E1372
+ Auto vars:     Size  Location     Type
+  id              1   50[BANK0 ] enum E1438
+  index           2   48[BANK0 ] unsigned int 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       8       0       0       0
       Locals:         0       3       0       0       0
       Temps:          0       3       0       0       0
-      Totals:         0       6       0       0       0
-Total ram usage:        6 bytes
+      Totals:         0      14       0       0       0
+Total ram usage:       14 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    6
  This function calls:
@@ -2699,27 +2830,38 @@ Total ram usage:        3 bytes
 		_Scheduler_deleteTask
 		_Scheduler_update
 		_Scheduler_dispatchTasks
-		_Led_init
-		_Led_setState
-		_HeaterTask_init
-		_HeaterTask_update
-		_SwitchTask_init
-		_SwitchTask_getState
-		_SwitchTask_update
-		_TempSensorTask_init
-		_TempSensorTask_getAverage
-		_TempSensorTask_update
-		_TempSensor_init
-		_TempSensor_getState
-		_LedTask_init
-		_LedTask_setState
-		_LedTask_update
+		_Switch_init
+		_Switch_update
+		_Switch_getState
+		_initSwitchHardware
+		_getSwitchHardwareState
+		_Ssd_init
+		_Ssd_update
+		_Ssd_setState
+		_Ssd_setSymbol
+		_initSsdHardware
+		_setSsdHardwareState
+		_setSsdHardwareSymbol
+		_Timer0_init
+		_Heater_init
+		_Heater_update
+		_Tempctrl_init
+		_Tempctrl_update
+		_Tempctrl_setState
+		_initTempctrlHardware
+		_setTempctrlHardwareState
+		_Tempsnsr_init
+		_Tempsnsr_update
+		_Tempsnsr_getState
+		_initTempsnsrHardware
+		_getTempsnsrHarwareState
+		_getAvgTemp
  This function uses a non-reentrant model
 
 
  *************** function _Scheduler_delaySoftwareMs *****************
  Defined at:
-		line 38 in file "SchedulerConfig.c"
+		line 37 in file "SchedulerConfig.c"
  Parameters:    Size  Location     Type
   msDelay         4    9[BANK0 ] volatile unsigned long 
  Auto vars:     Size  Location     Type
@@ -2743,13 +2885,13 @@ Total ram usage:        8 bytes
  This function calls:
 		_Scheduler_delaySoftwareUs
  This function is called by:
-		_HeaterTask_init
+		_Heater_init
  This function uses a non-reentrant model
 
 
  *************** function _Scheduler_delaySoftwareUs *****************
  Defined at:
-		line 46 in file "SchedulerConfig.c"
+		line 45 in file "SchedulerConfig.c"
  Parameters:    Size  Location     Type
   usDelay         4    0[BANK0 ] volatile unsigned long 
  Auto vars:     Size  Location     Type
@@ -2784,7 +2926,7 @@ Total ram usage:        9 bytes
  Parameters:    Size  Location     Type
   address         1    wreg     unsigned char 
   buffer          1    3[BANK0 ] PTR unsigned char 
-		 -> heater(23), 
+		 -> heater(31), 
   length          1    4[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
   address         1    7[BANK0 ] unsigned char 
@@ -2811,7 +2953,7 @@ Total ram usage:        7 bytes
 		_I2c_stopMaster
 		_I2c_writeMaster
  This function is called by:
-		_HeaterTask_init
+		_Heater_init
  This function uses a non-reentrant model
 
 
@@ -2845,8 +2987,8 @@ Total ram usage:        2 bytes
 		_I2c_stopMaster
 		_I2c_writeMaster
  This function is called by:
-		_HeaterTask_init
-		_HeaterTask_update
+		_Heater_init
+		_Heater_update
  This function uses a non-reentrant model
 
 
@@ -2856,7 +2998,7 @@ Total ram usage:        2 bytes
  Parameters:    Size  Location     Type
   address         1    wreg     unsigned char 
   buffer          1    3[BANK0 ] PTR unsigned char 
-		 -> heater(23), 
+		 -> heater(31), 
   length          1    4[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
   address         1    7[BANK0 ] unsigned char 
@@ -2885,7 +3027,7 @@ Total ram usage:        7 bytes
 		_I2c_stopMaster
 		_I2c_writeMaster
  This function is called by:
-		_HeaterTask_init
+		_Heater_init
  This function uses a non-reentrant model
 
 
@@ -2951,7 +3093,7 @@ Total ram usage:        2 bytes
 		_I2c_stopMaster
 		_I2c_writeMaster
  This function is called by:
-		_HeaterTask_init
+		_Heater_init
  This function uses a non-reentrant model
 
 
@@ -3211,7 +3353,7 @@ Total ram usage:        0 bytes
 		_Gpio_initPin
 		_I2c_initMaster
  This function is called by:
-		_HeaterTask_init
+		_Heater_init
  This function uses a non-reentrant model
 
 
@@ -3219,7 +3361,7 @@ Total ram usage:        0 bytes
  Defined at:
 		line 3 in file "I2c.c"
  Parameters:    Size  Location     Type
-  baudrate        4   30[BANK0 ] unsigned long 
+  baudrate        4   33[BANK0 ] unsigned long 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -3249,13 +3391,13 @@ Total ram usage:        4 bytes
  Defined at:
 		line 5 in file "C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c"
  Parameters:    Size  Location     Type
-  divisor         4   16[BANK0 ] unsigned long 
-  dividend        4   20[BANK0 ] unsigned long 
+  divisor         4   19[BANK0 ] unsigned long 
+  dividend        4   23[BANK0 ] unsigned long 
  Auto vars:     Size  Location     Type
-  quotient        4   25[BANK0 ] unsigned long 
-  counter         1   29[BANK0 ] unsigned char 
+  quotient        4   28[BANK0 ] unsigned long 
+  counter         1   32[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
-                  4   16[BANK0 ] unsigned long 
+                  4   19[BANK0 ] unsigned long 
  Registers used:
 		wreg, status,2, status,0, btemp+1
  Tracked objects:
@@ -3273,8 +3415,9 @@ Total ram usage:       14 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_TempSensor_getState
 		_I2c_initMaster
+		_getTempsnsrHarwareState
+		_getAvgTemp
  This function uses a non-reentrant model
 
 
@@ -3282,11 +3425,12 @@ Total ram usage:       14 bytes
  Defined at:
 		line 18 in file "Gpio.c"
  Parameters:    Size  Location     Type
-  Id              1    wreg     unsigned char 
-  Pin             1    3[BANK0 ] unsigned char 
-  Mode            1    4[BANK0 ] unsigned char 
+  id              1    wreg     enum E1172
+  pin             1    3[BANK0 ] enum E1180
+  mode            1    4[BANK0 ] enum E1191
+  type            1    5[BANK0 ] enum E1195
  Auto vars:     Size  Location     Type
-  Id              1   17[BANK0 ] unsigned char 
+  id              1   18[BANK0 ] enum E1172
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -3296,28 +3440,28 @@ Total ram usage:       14 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       2       0       0       0
+      Params:         0       3       0       0       0
       Locals:         0       1       0       0       0
       Temps:          0      12       0       0       0
-      Totals:         0      15       0       0       0
-Total ram usage:       15 bytes
+      Totals:         0      16       0       0       0
+Total ram usage:       16 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    3
  This function calls:
 		Nothing
  This function is called by:
-		_Led_init
-		_Switch_init
-		_Ssd_init
+		_initLedHardware
+		_initSwitchHardware
+		_initSsdHardware
 		_Eeprom_init
-		_TempSensor_init
-		_TempControl_init
+		_initTempctrlHardware
+		_initTempsnsrHardware
  This function uses a non-reentrant model
 
 
  *************** function _SysTick_Handler *****************
  Defined at:
-		line 24 in file "main.c"
+		line 20 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3411,185 +3555,168 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-		___lmul        		CODE           	110F	0000	73
+		___lmul        		CODE           	1DB9	0000	73
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c estimated size: 73
 
 Led.c
-		_Led_init      		CODE           	13F9	0000	98
-		_Led_setState  		CODE           	123E	0000	81
+		_initLedHardware		CODE           	1AD0	0000	43
+		_setLedHardwareState		CODE           	1E97	0000	89
+		_Led_init      		CODE           	1134	0000	100
+		_Led_setState  		CODE           	1E01	0000	74
+		_Led_update    		CODE           	08F4	0000	195
 
-Led.c estimated size: 179
-
-SwitchTask.c
-		_SwitchTask_init		CODE           	1043	0000	67
-		_SwitchTask_getState		CODE           	1E37	0000	41
-		_SwitchTask_update		CODE           	0966	0000	166
-
-SwitchTask.c estimated size: 274
+Led.c estimated size: 501
 
 Scheduler.c
-		_Scheduler_update		CODE           	16E4	0000	143
-		_Scheduler_dispatchTasks		CODE           	08D2	0000	149
-		_Scheduler_goToSleep		CODE           	1D29	0000	24
-		_Scheduler_deleteTask		CODE           	152B	0000	106
-		_Scheduler_addTask		CODE           	0841	0000	146
-		_Scheduler_init		CODE           	1DCA	0000	35
-		_Scheduler_reportStatus		CODE           	1C71	0000	19
-		_Scheduler_start		CODE           	1C26	0000	13
+		_Scheduler_update		CODE           	14FF	0000	143
+		_Scheduler_dispatchTasks		CODE           	161E	0000	149
+		_Scheduler_goToSleep		CODE           	1942	0000	24
+		_Scheduler_deleteTask		CODE           	12CE	0000	106
+		_Scheduler_addTask		CODE           	158D	0000	146
+		_Scheduler_init		CODE           	19C2	0000	35
+		_Scheduler_reportStatus		CODE           	1000	0000	19
+		_Scheduler_start		CODE           	1860	0000	13
 
 Scheduler.c estimated size: 635
 
 Timer.c
-		_Timer1_init   		CODE           	1C83	0000	20
+		_Timer0_init   		CODE           	1959	0000	24
+		_Timer_init    		CODE           	1C6D	0000	63
+		_Timer1_init   		CODE           	1A2F	0000	40
 
-Timer.c estimated size: 20
+Timer.c estimated size: 127
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-		___lldiv       		CODE           	145A	0000	105
+		___lldiv       		CODE           	11FD	0000	105
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c estimated size: 105
 
 Ssd.c
-		_Ssd_init      		CODE           	0A0B	0000	189
-		_Ssd_setState  		CODE           	1EB1	0000	44
-		_Ssd_setSymbol 		CODE           	100A	0000	58
+		_Ssd_init      		CODE           	0837	0000	190
+		_initSsdHardware		CODE           	140E	0000	109
+		_Ssd_setState  		CODE           	1BBE	0000	59
+		_setSsdHardwareState		CODE           	1FA2	0000	95
+		_Ssd_update    		CODE           	0B9D	0000	342
+		_Ssd_setSymbol 		CODE           	1914	0000	24
+		_setSsdHardwareSymbol		CODE           	1BF8	0000	59
 
-Ssd.c estimated size: 291
-
-TempControlTask.c
-		_TempControlTask_setState		CODE           	1C1A	0000	13
-		_TempControlTask_init		CODE           	1DAB	0000	32
-		_TempControlTask_update		CODE           	1CFD	0000	22
-
-TempControlTask.c estimated size: 67
-
-TempControl.c
-		_TempControl_init		CODE           	1772	0000	143
-		_TempControl_setState		CODE           	12E4	0000	90
-
-TempControl.c estimated size: 233
+Ssd.c estimated size: 878
 
 I2c.c
-		_I2c_startMaster		CODE           	1BF9	0000	12
-		_I2c_read      		CODE           	1D71	0000	28
-		_I2c_stopMaster		CODE           	1C04	0000	12
-		_I2c_ack       		CODE           	1C4F	0000	17
-		_I2c_waitMaster		CODE           	1C32	0000	14
-		_I2c_nack      		CODE           	1C3F	0000	17
-		_I2c_initMaster		CODE           	1E87	0000	43
-		_I2c_writeMaster		CODE           	1D40	0000	25
-		_I2c_repeatedStartMaster		CODE           	1BEE	0000	12
+		_I2c_startMaster		CODE           	183F	0000	12
+		_I2c_read      		CODE           	1988	0000	28
+		_I2c_stopMaster		CODE           	184A	0000	12
+		_I2c_ack       		CODE           	1889	0000	17
+		_I2c_waitMaster		CODE           	186C	0000	14
+		_I2c_nack      		CODE           	1879	0000	17
+		_I2c_initMaster		CODE           	1AA6	0000	43
+		_I2c_writeMaster		CODE           	1970	0000	25
+		_I2c_repeatedStartMaster		CODE           	1834	0000	12
 
 I2c.c estimated size: 180
 
 SchedulerConfig.c
-		_Scheduler_delaySoftwareMs		CODE           	0806	0000	60
-		_Scheduler_delaySoftwareUs		CODE           	1FC7	0000	58
-		_Scheduler_sleepHardware		CODE           	07FE	0000	2
-		_Scheduler_initSysTick		CODE           	1DEC	0000	37
-		_Scheduler_displayError		CODE           	1D8C	0000	32
+		_Scheduler_delaySoftwareMs		CODE           	1C32	0000	60
+		_Scheduler_delaySoftwareUs		CODE           	1B85	0000	58
+		_Scheduler_sleepHardware		CODE           	0003	0000	2
+		_Scheduler_initSysTick		CODE           	07EC	0000	21
+		_Scheduler_displayError		CODE           	19A3	0000	32
 
-SchedulerConfig.c estimated size: 189
-
-SsdTask.c
-		_SsdTask_update		CODE           	0D7F	0000	297
-		_SsdTask_setSymbol		CODE           	1CD3	0000	22
-		_SsdTask_init  		CODE           	1602	0000	113
-		_SsdTask_setState		CODE           	1F91	0000	55
-
-SsdTask.c estimated size: 487
+SchedulerConfig.c estimated size: 173
 
 Gpio.c
-		_Gpio_initPin  		CODE           	1157	0000	78
-		_Gpio_getPinState		CODE           	1E5F	0000	41
-		_Gpio_setPinState		CODE           	07C1	0000	62
-		_Gpio_setPortState		CODE           	1F08	0000	46
+		_Gpio_initPin  		CODE           	13A2	0000	109
+		_Gpio_getPinState		CODE           	1A7E	0000	41
+		_Gpio_setPinState		CODE           	1CAB	0000	66
+		_Gpio_setPortState		CODE           	1AFA	0000	47
 
-Gpio.c estimated size: 227
+Gpio.c estimated size: 263
 
-TempSensorTask.c
-		_TempSensorTask_getAverage		CODE           	1C5F	0000	19
-		_TempSensorTask_update		CODE           	0C79	0000	263
-		_TempSensorTask_init		CODE           	1594	0000	111
+Tempctrl.c
+		_Tempctrl_setState		CODE           	192B	0000	24
+		_initTempctrlHardware		CODE           	1EEF	0000	89
+		_Tempctrl_update		CODE           	19E4	0000	37
+		_setTempctrlHardwareState		CODE           	0A94	0000	266
+		_Tempctrl_init 		CODE           	1197	0000	103
 
-TempSensorTask.c estimated size: 393
+Tempctrl.c estimated size: 519
 
 Adc.c
-		_Adc_init      		CODE           	1C0F	0000	12
-		_Adc_getState  		CODE           	1CE8	0000	22
+		_Adc_init      		CODE           	1855	0000	12
+		_Adc_getState  		CODE           	18E8	0000	22
 
 Adc.c estimated size: 34
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-		___awmod       		CODE           	133D	0000	92
+		___awmod       		CODE           	1F47	0000	92
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c estimated size: 92
 
 shared
-		__initialization		CODE           	0015	0000	55
-		__fptable      		ENTRY          	004F	0000	25
-		i1___bmul      		CODE           	1CA9	0000	22
+		__initialization		CODE           	0015	0000	60
+		__fptable      		ENTRY          	0054	0000	25
+		i1___bmul      		CODE           	18BE	0000	22
 
-shared estimated size: 102
+shared estimated size: 107
 
 WaterHeater.c
-		_HeaterTask_init		CODE           	054B	0000	631
-		_HeaterTask_update		CODE           	0067	0000	1253
+		_Heater_init   		CODE           	0CF2	0000	783
+		_Heater_update 		CODE           	006C	0000	1553
 
-WaterHeater.c estimated size: 1884
+WaterHeater.c estimated size: 2336
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul16.c
-		___wmul        		CODE           	1E10	0000	40
+		___wmul        		CODE           	1A08	0000	40
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul16.c estimated size: 40
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c
-		___lwdiv       		CODE           	10C9	0000	71
+		___lwdiv       		CODE           	1D73	0000	71
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c estimated size: 71
 
-TempSensor.c
-		_TempSensor_getState		CODE           	1672	0000	115
-		_TempSensor_init		CODE           	0AC7	0000	210
-
-TempSensor.c estimated size: 325
-
 Switch.c
-		_Switch_init   		CODE           	1F35	0000	46
-		_Switch_getState		CODE           	1D58	0000	26
+		_initSwitchHardware		CODE           	1B28	0000	47
+		_Switch_init   		CODE           	1012	0000	97
+		_Switch_update 		CODE           	16B2	0000	166
+		_Switch_getState		CODE           	1A56	0000	41
+		_getSwitchHardwareState		CODE           	10D3	0000	98
 
-Switch.c estimated size: 72
-
-LedTask.c
-		_LedTask_init  		CODE           	128E	0000	87
-		_LedTask_setState		CODE           	11F1	0000	78
-		_LedTask_update		CODE           	0B98	0000	226
-
-LedTask.c estimated size: 391
+Switch.c estimated size: 449
 
 Eeprom.c
-		_Eeprom_readPage		CODE           	1398	0000	98
-		_Eeprom_read   		CODE           	1085	0000	69
-		_Eeprom_init   		CODE           	1EDC	0000	45
-		_Eeprom_write  		CODE           	1F62	0000	48
-		_Eeprom_writePage		CODE           	11A4	0000	78
+		_Eeprom_readPage		CODE           	1072	0000	98
+		_Eeprom_read   		CODE           	1D2F	0000	69
+		_Eeprom_init   		CODE           	0807	0000	49
+		_Eeprom_write  		CODE           	1B56	0000	48
+		_Eeprom_writePage		CODE           	1E4A	0000	78
 
-Eeprom.c estimated size: 338
+Eeprom.c estimated size: 342
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-		___bmul        		CODE           	1D12	0000	24
+		___bmul        		CODE           	18FD	0000	24
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c estimated size: 24
 
-main.c
-		_SysTick_Handler		CODE           	1CBE	0000	22
-		_main          		CODE           	0EA7	0000	346
+Tempsnsr.c
+		_initTempsnsrHardware		CODE           	1CEC	0000	68
+		_Tempsnsr_init 		CODE           	09B6	0000	223
+		_Tempsnsr_getState		CODE           	1899	0000	19
+		_getAvgTemp    		CODE           	1337	0000	108
+		_getTempsnsrHarwareState		CODE           	147A	0000	134
+		_Tempsnsr_update		CODE           	1757	0000	170
 
-main.c estimated size: 368
+Tempsnsr.c estimated size: 722
+
+main.c
+		_SysTick_Handler		CODE           	18D3	0000	22
+		_main          		CODE           	067C	0000	369
+
+main.c estimated size: 391
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-		___awdiv       		CODE           	14C2	0000	106
+		___awdiv       		CODE           	1265	0000	106
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c estimated size: 106
 

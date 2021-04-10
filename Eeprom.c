@@ -6,8 +6,8 @@
 void Eeprom_init( void )
 {
     I2c_initMaster( 100000 );
-    Gpio_initPin(I2C_REG, SDA, INPUT);
-    Gpio_initPin(I2C_REG, SCL, INPUT);
+    Gpio_initPin(GPIO_ID_C, GPIO_PIN_3, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
+    Gpio_initPin(GPIO_ID_C, GPIO_PIN_4, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
 }
 
 void Eeprom_write( uint8_t address, uint8_t buffer )

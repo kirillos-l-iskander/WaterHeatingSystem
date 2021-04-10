@@ -1,14 +1,26 @@
 #ifndef ADC_H
 #define	ADC_H
 
-#include "SchedulerConfig.h"
+#include "Config.h"
 
 typedef enum
 {
-	ADC0_ID
-}ADC_t;
+	ADC_ID_0 = 0,
+}   ADC_ID_t;
 
-void Adc_init( Id_t id );
-uint16_t Adc_getState( Id_t id );
+typedef enum
+{
+	ADC_CHANNEL_1 = 0,
+	ADC_CHANNEL_2,
+	ADC_CHANNEL_3,
+	ADC_CHANNEL_4,
+	ADC_CHANNEL_5,
+	ADC_CHANNEL_6,
+	ADC_CHANNEL_7,
+	ADC_CHANNEL_8,
+}   ADC_CHANNEL_t;
+
+void Adc_init( ADC_ID_t id );
+uint16_t Adc_getState( ADC_ID_t id, ADC_CHANNEL_t channel );
 
 #endif	/* ADC_H */

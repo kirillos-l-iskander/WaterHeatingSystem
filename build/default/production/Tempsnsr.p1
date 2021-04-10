@@ -1,14 +1,48 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"4 TempControl.c
-[; ;TempControl.c: 4: {
-[s S102 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S102 . hGpioId hPin cGpioId cPin ]
-"21 ./Gpio.h
-[; ;./Gpio.h: 21: void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-[v _Gpio_initPin `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"22
-[; ;./Gpio.h: 22: void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-[v _Gpio_setPinState `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"17 Tempsnsr.c
+[; ;Tempsnsr.c: 17: static TempSensor_t tempsnsr[ TEMPSNSR_ID_MAX ];
+[c E1172 0 1 2 3 4 5 .. ]
+[n E1172 . GPIO_ID_A GPIO_ID_B GPIO_ID_C GPIO_ID_D GPIO_ID_E GPIO_ID_MAX  ]
+[c E1180 0 1 2 3 4 5 6 7 255 .. ]
+[n E1180 . GPIO_PIN_0 GPIO_PIN_1 GPIO_PIN_2 GPIO_PIN_3 GPIO_PIN_4 GPIO_PIN_5 GPIO_PIN_6 GPIO_PIN_7 GPIO_PIN_MAX  ]
+[c E1226 0 .. ]
+[n E1226 . ADC_ID_0  ]
+[c E1229 0 1 2 3 4 5 6 7 .. ]
+[n E1229 . ADC_CHANNEL_1 ADC_CHANNEL_2 ADC_CHANNEL_3 ADC_CHANNEL_4 ADC_CHANNEL_5 ADC_CHANNEL_6 ADC_CHANNEL_7 ADC_CHANNEL_8  ]
+[c E1248 0 100 .. ]
+[n E1248 . TEMPSNSR_STATE_MIN TEMPSNSR_STATE_MAX  ]
+"4
+[; ;Tempsnsr.c: 4: {
+[s S102 `E1172 1 `E1180 1 `E1226 1 `E1229 1 `ul 1 `ul 1 `uc -> 10 `i `uc 1 `uc 1 `E1248 1 ]
+[n S102 . gpioId gpioPin adcId adcChannel voltMulti voltDivide array index avgFlag avgTemp ]
+"23
+[; ;Tempsnsr.c: 23: void Tempsnsr_init( TEMPSNSR_ID_t id, GPIO_ID_t gpioId, GPIO_PIN_t gpioPin, ADC_ID_t adcId, ADC_CHANNEL_t adcChannel )
+[c E1244 0 1 .. ]
+[n E1244 . TEMPSNSR_ID_1 TEMPSNSR_ID_MAX  ]
+"19
+[; ;Tempsnsr.c: 19: void initTempsnsrHardware( TEMPSNSR_ID_t id );
+[v _initTempsnsrHardware `(v ~T0 @X0 0 ef1`E1244 ]
+"20
+[; ;Tempsnsr.c: 20: TEMPSNSR_STATE_t getTempsnsrHarwareState( TEMPSNSR_ID_t id );
+[v _getTempsnsrHarwareState `(E1248 ~T0 @X0 0 ef1`E1244 ]
+"21
+[; ;Tempsnsr.c: 21: TEMPSNSR_STATE_t getAvgTemp( TEMPSNSR_ID_t id );
+[v _getAvgTemp `(E1248 ~T0 @X0 0 ef1`E1244 ]
+"65
+[; ;Tempsnsr.c: 65:     Gpio_initPin( tempsnsr[ id ].gpioId, tempsnsr[ id ].gpioPin, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
+[c E1191 1 0 .. ]
+[n E1191 . GPIO_MODE_INPUT GPIO_MODE_OUTPUT_DHZ  ]
+[c E1195 1 1 0 1 1 .. ]
+[n E1195 . GPIO_TYPE_ANALOG GPIO_TYPE_FLOATING GPIO_TYPE_PULLUP GPIO_TYPE_GP_PP GPIO_TYPE_AF_PP  ]
+"51 ./Gpio.h
+[; ;./Gpio.h: 51: void Gpio_initPin( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_MODE_t mode, GPIO_TYPE_t type );
+[v _Gpio_initPin `(v ~T0 @X0 0 ef4`E1172`E1180`E1191`E1195 ]
+"23 ./Adc.h
+[; ;./Adc.h: 23: void Adc_init( ADC_ID_t id );
+[v _Adc_init `(v ~T0 @X0 0 ef1`E1226 ]
+"24
+[; ;./Adc.h: 24: uint16_t Adc_getState( ADC_ID_t id, ADC_CHANNEL_t channel );
+[v _Adc_getState `(ui ~T0 @X0 0 ef2`E1226`E1229 ]
 "13 ./Config.h
 [p x FOSC = HS ]
 "14
@@ -205,69 +239,254 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"11 TempControl.c
-[; ;TempControl.c: 11: static TempControl_t tempControl[ ( 1 ) ];
-[v _tempControl `S102 ~T0 @X0 -> -> 1 `i `ux s ]
-"13
-[; ;TempControl.c: 13: void TempControl_init( Id_t id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
-[v _TempControl_init `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
-"14
-[; ;TempControl.c: 14: {
-{
-[e :U _TempControl_init ]
-"13
-[; ;TempControl.c: 13: void TempControl_init( Id_t id, Id_t hGpioId, uint8_t hPin, Id_t cGpioId, uint8_t cPin )
-[v _id `uc ~T0 @X0 1 r1 ]
-[v _hGpioId `uc ~T0 @X0 1 r2 ]
-[v _hPin `uc ~T0 @X0 1 r3 ]
-[v _cGpioId `uc ~T0 @X0 1 r4 ]
-[v _cPin `uc ~T0 @X0 1 r5 ]
-"14
-[; ;TempControl.c: 14: {
-[f ]
-"15
-[; ;TempControl.c: 15:     tempControl[ id ].hGpioId = hGpioId;
-[e = . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 0 _hGpioId ]
-"16
-[; ;TempControl.c: 16:     tempControl[ id ].hPin = hPin;
-[e = . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 1 _hPin ]
-"17
-[; ;TempControl.c: 17:     tempControl[ id ].cGpioId = cGpioId;
-[e = . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 2 _cGpioId ]
-"18
-[; ;TempControl.c: 18:     tempControl[ id ].cPin = cPin;
-[e = . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 3 _cPin ]
-"19
-[; ;TempControl.c: 19:     Gpio_initPin( tempControl[ id ].hGpioId, tempControl[ id ].hPin, ( 0 ) );
-[e ( _Gpio_initPin (3 , , . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 0 . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 1 -> -> 0 `i `uc ]
-"20
-[; ;TempControl.c: 20:     Gpio_initPin( tempControl[ id ].cGpioId, tempControl[ id ].cPin, ( 0 ) );
-[e ( _Gpio_initPin (3 , , . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 2 . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 3 -> -> 0 `i `uc ]
-"21
-[; ;TempControl.c: 21: }
-[e :UE 103 ]
-}
+"17 Tempsnsr.c
+[; ;Tempsnsr.c: 17: static TempSensor_t tempsnsr[ TEMPSNSR_ID_MAX ];
+[v _tempsnsr `S102 ~T0 @X0 -> -> 1 `i `ux s ]
 "23
-[; ;TempControl.c: 23: void TempControl_setState( Id_t id, uint8_t state )
-[v _TempControl_setState `(v ~T0 @X0 1 ef2`uc`uc ]
+[; ;Tempsnsr.c: 23: void Tempsnsr_init( TEMPSNSR_ID_t id, GPIO_ID_t gpioId, GPIO_PIN_t gpioPin, ADC_ID_t adcId, ADC_CHANNEL_t adcChannel )
+[v _Tempsnsr_init `(v ~T0 @X0 1 ef5`E1244`E1172`E1180`E1226`E1229 ]
 "24
-[; ;TempControl.c: 24: {
+[; ;Tempsnsr.c: 24: {
 {
-[e :U _TempControl_setState ]
+[e :U _Tempsnsr_init ]
 "23
-[; ;TempControl.c: 23: void TempControl_setState( Id_t id, uint8_t state )
-[v _id `uc ~T0 @X0 1 r1 ]
-[v _state `uc ~T0 @X0 1 r2 ]
+[; ;Tempsnsr.c: 23: void Tempsnsr_init( TEMPSNSR_ID_t id, GPIO_ID_t gpioId, GPIO_PIN_t gpioPin, ADC_ID_t adcId, ADC_CHANNEL_t adcChannel )
+[v _id `E1244 ~T0 @X0 1 r1 ]
+[v _gpioId `E1172 ~T0 @X0 1 r2 ]
+[v _gpioPin `E1180 ~T0 @X0 1 r3 ]
+[v _adcId `E1226 ~T0 @X0 1 r4 ]
+[v _adcChannel `E1229 ~T0 @X0 1 r5 ]
 "24
-[; ;TempControl.c: 24: {
+[; ;Tempsnsr.c: 24: {
 [f ]
 "25
-[; ;TempControl.c: 25:  Gpio_setPinState( tempControl[ id ].hGpioId, tempControl[ id ].hPin, state & 0x01 );
-[e ( _Gpio_setPinState (3 , , . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 0 . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 1 -> & -> _state `i -> 1 `i `uc ]
+[; ;Tempsnsr.c: 25:     size_t index = 0;
+[v _index `ui ~T0 @X0 1 a ]
+[e = _index -> -> 0 `i `ui ]
 "26
-[; ;TempControl.c: 26:  Gpio_setPinState( tempControl[ id ].cGpioId, tempControl[ id ].cPin, ( state & 0x02 ) >> 1 );
-[e ( _Gpio_setPinState (3 , , . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 2 . *U + &U _tempControl * -> _id `ux -> -> # *U &U _tempControl `ui `ux 3 -> >> & -> _state `i -> 2 `i -> 1 `i `uc ]
+[; ;Tempsnsr.c: 26:     tempsnsr[ id ].gpioId = gpioId;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 0 _gpioId ]
 "27
-[; ;TempControl.c: 27: }
-[e :UE 104 ]
+[; ;Tempsnsr.c: 27:     tempsnsr[ id ].gpioPin = gpioPin;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 1 _gpioPin ]
+"28
+[; ;Tempsnsr.c: 28:     tempsnsr[ id ].adcId = adcId;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 2 _adcId ]
+"29
+[; ;Tempsnsr.c: 29:     tempsnsr[ id ].adcChannel = adcChannel;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 3 _adcChannel ]
+"30
+[; ;Tempsnsr.c: 30:     tempsnsr[ id ].voltMulti = 488281;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 4 -> -> 488281 `l `ul ]
+"31
+[; ;Tempsnsr.c: 31:     tempsnsr[ id ].voltDivide = 1000000;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 5 -> -> 1000000 `l `ul ]
+"32
+[; ;Tempsnsr.c: 32:     for( index = 0; index < 10; index++ )
+{
+[e = _index -> -> 0 `i `ui ]
+[e $ < _index -> -> 10 `i `ui 104  ]
+[e $U 105  ]
+[e :U 104 ]
+"33
+[; ;Tempsnsr.c: 33:     {
+{
+"34
+[; ;Tempsnsr.c: 34:         tempsnsr[ id ].array[ index ] = 0;
+[e = *U + &U . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 6 * -> _index `ux -> -> # *U &U . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 6 `ui `ux -> -> 0 `i `uc ]
+"35
+[; ;Tempsnsr.c: 35:     }
+}
+[e ++ _index -> -> 1 `i `ui ]
+[e $ < _index -> -> 10 `i `ui 104  ]
+[e :U 105 ]
+}
+"36
+[; ;Tempsnsr.c: 36:     tempsnsr[ id ].index = 0;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 7 -> -> 0 `i `uc ]
+"37
+[; ;Tempsnsr.c: 37:     tempsnsr[ id ].avgFlag = 0;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 8 -> -> 0 `i `uc ]
+"38
+[; ;Tempsnsr.c: 38:     tempsnsr[ id ].avgTemp = 0;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 9 -> -> 0 `i `E1248 ]
+"39
+[; ;Tempsnsr.c: 39:     initTempsnsrHardware( id );
+[e ( _initTempsnsrHardware (1 _id ]
+"40
+[; ;Tempsnsr.c: 40: }
+[e :UE 103 ]
+}
+"42
+[; ;Tempsnsr.c: 42: void Tempsnsr_update( void *paramter )
+[v _Tempsnsr_update `(v ~T0 @X0 1 ef1`*v ]
+"43
+[; ;Tempsnsr.c: 43: {
+{
+[e :U _Tempsnsr_update ]
+"42
+[; ;Tempsnsr.c: 42: void Tempsnsr_update( void *paramter )
+[v _paramter `*v ~T0 @X0 1 r1 ]
+"43
+[; ;Tempsnsr.c: 43: {
+[f ]
+"44
+[; ;Tempsnsr.c: 44:     TEMPSNSR_ID_t id = (TEMPSNSR_ID_t) paramter;
+[v _id `E1244 ~T0 @X0 1 a ]
+[e = _id -> _paramter `E1244 ]
+"45
+[; ;Tempsnsr.c: 45:     tempsnsr[ id ].array[ tempsnsr[ id ].index ] = getTempsnsrHarwareState( id );
+[e = *U + &U . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 6 * -> . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 7 `ux -> -> # *U &U . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 6 `ui `ux -> ( _getTempsnsrHarwareState (1 _id `uc ]
+"46
+[; ;Tempsnsr.c: 46:     tempsnsr[ id ].index++;
+[e ++ . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 7 -> -> 1 `i `uc ]
+"47
+[; ;Tempsnsr.c: 47:  if( tempsnsr[ id ].index == 10 )
+[e $ ! == -> . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 7 `i -> 10 `i 108  ]
+"48
+[; ;Tempsnsr.c: 48:     {
+{
+"49
+[; ;Tempsnsr.c: 49:         tempsnsr[ id ].index = 0;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 7 -> -> 0 `i `uc ]
+"50
+[; ;Tempsnsr.c: 50:         tempsnsr[ id ].avgFlag = 1;
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 8 -> -> 1 `i `uc ]
+"51
+[; ;Tempsnsr.c: 51:     }
+}
+[e :U 108 ]
+"52
+[; ;Tempsnsr.c: 52:     if( tempsnsr[ id ].avgFlag )
+[e $ ! != -> . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 8 `i -> 0 `i 109  ]
+"53
+[; ;Tempsnsr.c: 53:     {
+{
+"54
+[; ;Tempsnsr.c: 54:         tempsnsr[ id ].avgTemp = getAvgTemp( id );
+[e = . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 9 ( _getAvgTemp (1 _id ]
+"55
+[; ;Tempsnsr.c: 55:     }
+}
+[e :U 109 ]
+"56
+[; ;Tempsnsr.c: 56: }
+[e :UE 107 ]
+}
+"58
+[; ;Tempsnsr.c: 58: TEMPSNSR_STATE_t Tempsnsr_getState( TEMPSNSR_ID_t id )
+[v _Tempsnsr_getState `(E1248 ~T0 @X0 1 ef1`E1244 ]
+"59
+[; ;Tempsnsr.c: 59: {
+{
+[e :U _Tempsnsr_getState ]
+"58
+[; ;Tempsnsr.c: 58: TEMPSNSR_STATE_t Tempsnsr_getState( TEMPSNSR_ID_t id )
+[v _id `E1244 ~T0 @X0 1 r1 ]
+"59
+[; ;Tempsnsr.c: 59: {
+[f ]
+"60
+[; ;Tempsnsr.c: 60:     return tempsnsr[ id ].avgTemp;
+[e ) . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 9 ]
+[e $UE 110  ]
+"61
+[; ;Tempsnsr.c: 61: }
+[e :UE 110 ]
+}
+"63
+[; ;Tempsnsr.c: 63: void initTempsnsrHardware( TEMPSNSR_ID_t id )
+[v _initTempsnsrHardware `(v ~T0 @X0 1 ef1`E1244 ]
+"64
+[; ;Tempsnsr.c: 64: {
+{
+[e :U _initTempsnsrHardware ]
+"63
+[; ;Tempsnsr.c: 63: void initTempsnsrHardware( TEMPSNSR_ID_t id )
+[v _id `E1244 ~T0 @X0 1 r1 ]
+"64
+[; ;Tempsnsr.c: 64: {
+[f ]
+"65
+[; ;Tempsnsr.c: 65:     Gpio_initPin( tempsnsr[ id ].gpioId, tempsnsr[ id ].gpioPin, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
+[e ( _Gpio_initPin (4 , , , . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 0 . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 1 . `E1191 0 . `E1195 1 ]
+"66
+[; ;Tempsnsr.c: 66:     Adc_init( tempsnsr[ id ].adcId );
+[e ( _Adc_init (1 . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 2 ]
+"67
+[; ;Tempsnsr.c: 67: }
+[e :UE 111 ]
+}
+"69
+[; ;Tempsnsr.c: 69: TEMPSNSR_STATE_t getTempsnsrHarwareState( TEMPSNSR_ID_t id )
+[v _getTempsnsrHarwareState `(E1248 ~T0 @X0 1 ef1`E1244 ]
+"70
+[; ;Tempsnsr.c: 70: {
+{
+[e :U _getTempsnsrHarwareState ]
+"69
+[; ;Tempsnsr.c: 69: TEMPSNSR_STATE_t getTempsnsrHarwareState( TEMPSNSR_ID_t id )
+[v _id `E1244 ~T0 @X0 1 r1 ]
+"70
+[; ;Tempsnsr.c: 70: {
+[f ]
+"71
+[; ;Tempsnsr.c: 71:     return (TEMPSNSR_STATE_t)
+[e ) -> / * -> ( _Adc_getState (2 , . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 2 . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 3 `ul . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 4 . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 5 `E1248 ]
+[e $UE 112  ]
+"73
+[; ;Tempsnsr.c: 73: }
+[e :UE 112 ]
+}
+"75
+[; ;Tempsnsr.c: 75: TEMPSNSR_STATE_t getAvgTemp( TEMPSNSR_ID_t id )
+[v _getAvgTemp `(E1248 ~T0 @X0 1 ef1`E1244 ]
+"76
+[; ;Tempsnsr.c: 76: {
+{
+[e :U _getAvgTemp ]
+"75
+[; ;Tempsnsr.c: 75: TEMPSNSR_STATE_t getAvgTemp( TEMPSNSR_ID_t id )
+[v _id `E1244 ~T0 @X0 1 r1 ]
+"76
+[; ;Tempsnsr.c: 76: {
+[f ]
+"77
+[; ;Tempsnsr.c: 77:     size_t index = 0;
+[v _index `ui ~T0 @X0 1 a ]
+[e = _index -> -> 0 `i `ui ]
+"78
+[; ;Tempsnsr.c: 78:     uint32_t temp = 0;
+[v _temp `ul ~T0 @X0 1 a ]
+[e = _temp -> -> -> 0 `i `l `ul ]
+"79
+[; ;Tempsnsr.c: 79:     for( index = 0; index < 10; index++ )
+{
+[e = _index -> -> 0 `i `ui ]
+[e $ < _index -> -> 10 `i `ui 114  ]
+[e $U 115  ]
+[e :U 114 ]
+"80
+[; ;Tempsnsr.c: 80:     {
+{
+"81
+[; ;Tempsnsr.c: 81:      temp += tempsnsr[ id ].array[ index ];
+[e =+ _temp -> *U + &U . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 6 * -> _index `ux -> -> # *U &U . *U + &U _tempsnsr * -> _id `ux -> -> # *U &U _tempsnsr `ui `ux 6 `ui `ux `ul ]
+"82
+[; ;Tempsnsr.c: 82:     }
+}
+[e ++ _index -> -> 1 `i `ui ]
+[e $ < _index -> -> 10 `i `ui 114  ]
+[e :U 115 ]
+}
+"83
+[; ;Tempsnsr.c: 83:     temp /= 10;
+[e =/ _temp -> -> -> 10 `i `l `ul ]
+"84
+[; ;Tempsnsr.c: 84:     return temp;
+[e ) -> _temp `E1248 ]
+[e $UE 113  ]
+"85
+[; ;Tempsnsr.c: 85: }
+[e :UE 113 ]
 }

@@ -1,7 +1,7 @@
 #ifndef I2C_H
 #define	I2C_H
 
-#include "SchedulerConfig.h"
+#include "Config.h"
 #include "Gpio.h"
 
 typedef enum

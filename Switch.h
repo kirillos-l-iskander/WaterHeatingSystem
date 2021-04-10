@@ -1,17 +1,26 @@
 #ifndef SWITCH_H
 #define	SWITCH_H
 
-#include "SchedulerConfig.h"
+#include "Config.h"
 #include "Gpio.h"
 
 typedef enum
 {
-	SWITCH1_ID,
-	SWITCH2_ID,
-	SWITCH3_ID
-}SWITCH_t;
+	SWITCH_ID_1 = 0,
+	SWITCH_ID_2,
+	SWITCH_ID_3,
+	SWITCH_ID_MAX,
+}   SW_ID_t;
 
-void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin );
-uint8_t Switch_getState( Id_t id );
+typedef enum
+{
+	SWITCH_STATE_RELEASED = 0,
+	SWITCH_STATE_PRESSED,
+	SWITCH_STATE_ERROR,
+}   SW_STATE_t;
+
+void Switch_init( SW_ID_t id, GPIO_ID_t gpioId, GPIO_PIN_t gpioPin );
+void Switch_update( void *paramter );
+SW_STATE_t Switch_getState( SW_ID_t id );
 
 #endif	/* SWITCH_H */

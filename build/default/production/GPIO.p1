@@ -18,6 +18,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "402
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 402: extern volatile unsigned char PORTE __attribute__((address(0x009)));
 [v _PORTE `Vuc ~T0 @X0 0 e@9 ]
+"18 Gpio.c
+[; ;Gpio.c: 18: void Gpio_initPin( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_MODE_t mode, GPIO_TYPE_t type )
+[c E1172 0 1 2 3 4 5 .. ]
+[n E1172 . GPIO_ID_A GPIO_ID_B GPIO_ID_C GPIO_ID_D GPIO_ID_E GPIO_ID_MAX  ]
+[c E1180 0 1 2 3 4 5 6 7 255 .. ]
+[n E1180 . GPIO_PIN_0 GPIO_PIN_1 GPIO_PIN_2 GPIO_PIN_3 GPIO_PIN_4 GPIO_PIN_5 GPIO_PIN_6 GPIO_PIN_7 GPIO_PIN_MAX  ]
+[c E1191 1 0 .. ]
+[n E1191 . GPIO_MODE_INPUT GPIO_MODE_OUTPUT_DHZ  ]
+[c E1195 1 1 0 1 1 .. ]
+[n E1195 . GPIO_TYPE_ANALOG GPIO_TYPE_FLOATING GPIO_TYPE_PULLUP GPIO_TYPE_GP_PP GPIO_TYPE_AF_PP  ]
+"1255 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1255: extern volatile unsigned char OPTION_REG __attribute__((address(0x081)));
+[v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
+"28 Gpio.c
+[; ;Gpio.c: 28: void Gpio_setPinState( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_STATE_t state )
+[c E1202 0 1 255 .. ]
+[n E1202 . GPIO_STATE_LOW GPIO_STATE_HIGH GPIO_STATE_MAX  ]
 "13 ./Config.h
 [p x FOSC = HS ]
 "14
@@ -215,7 +232,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "16 Gpio.c
-[; ;Gpio.c: 16: static Gpio_t *gpio[ 5 ] = { ( ( Gpio_t * ) &PORTA ), ( ( Gpio_t * ) &PORTB ), ( ( Gpio_t * ) &PORTC ), ( ( Gpio_t * ) &PORTD ), ( ( Gpio_t * ) &PORTE ) };
+[; ;Gpio.c: 16: static Gpio_t *gpio[ GPIO_ID_MAX ] = { ( ( Gpio_t * ) &PORTA ), ( ( Gpio_t * ) &PORTB ), ( ( Gpio_t * ) &PORTC ), ( ( Gpio_t * ) &PORTD ), ( ( Gpio_t * ) &PORTE ) };
 [v _gpio `*S102 ~T0 @X0 -> 5 `i s ]
 [i _gpio
 :U ..
@@ -227,112 +244,135 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "18
-[; ;Gpio.c: 18: void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode )
-[v _Gpio_initPin `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+[; ;Gpio.c: 18: void Gpio_initPin( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_MODE_t mode, GPIO_TYPE_t type )
+[v _Gpio_initPin `(v ~T0 @X0 1 ef4`E1172`E1180`E1191`E1195 ]
 "19
 [; ;Gpio.c: 19: {
 {
 [e :U _Gpio_initPin ]
 "18
-[; ;Gpio.c: 18: void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _Pin `uc ~T0 @X0 1 r2 ]
-[v _Mode `uc ~T0 @X0 1 r3 ]
+[; ;Gpio.c: 18: void Gpio_initPin( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_MODE_t mode, GPIO_TYPE_t type )
+[v _id `E1172 ~T0 @X0 1 r1 ]
+[v _pin `E1180 ~T0 @X0 1 r2 ]
+[v _mode `E1191 ~T0 @X0 1 r3 ]
+[v _type `E1195 ~T0 @X0 1 r4 ]
 "19
 [; ;Gpio.c: 19: {
 [f ]
 "20
-[; ;Gpio.c: 20:  gpio[ Id ]->TRIS = ( gpio[ Id ]->TRIS & ~( 1 << Pin ) ) | ( Mode << Pin );
-[e = . *U *U + &U _gpio * -> _Id `ux -> -> # *U &U _gpio `ui `ux 2 -> | & -> . *U *U + &U _gpio * -> _Id `ux -> -> # *U &U _gpio `ui `ux 2 `i ~ << -> 1 `i -> _Pin `i << -> _Mode `i -> _Pin `i `uc ]
+[; ;Gpio.c: 20:     if( id == GPIO_ID_E && pin > GPIO_PIN_3)
+[e $ ! && == -> _id `ui -> . `E1172 4 `ui > -> _pin `ui -> . `E1180 3 `ui 104  ]
 "21
-[; ;Gpio.c: 21: }
-[e :UE 103 ]
-}
-"23
-[; ;Gpio.c: 23: void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State )
-[v _Gpio_setPinState `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"24
-[; ;Gpio.c: 24: {
+[; ;Gpio.c: 21:     {
 {
-[e :U _Gpio_setPinState ]
+"22
+[; ;Gpio.c: 22:         return;
+[e $UE 103  ]
 "23
-[; ;Gpio.c: 23: void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _Pin `uc ~T0 @X0 1 r2 ]
-[v _State `uc ~T0 @X0 1 r3 ]
+[; ;Gpio.c: 23:     }
+}
+[e :U 104 ]
 "24
-[; ;Gpio.c: 24: {
-[f ]
+[; ;Gpio.c: 24:  gpio[ id ]->TRIS = ( gpio[ id ]->TRIS & ~( 1 << pin ) ) | ( mode << pin );
+[e = . *U *U + &U _gpio * -> _id `ux -> -> # *U &U _gpio `ui `ux 2 -> | -> & -> . *U *U + &U _gpio * -> _id `ux -> -> # *U &U _gpio `ui `ux 2 `i ~ << -> 1 `i -> _pin `ui `ui << -> _mode `ui -> _pin `ui `uc ]
 "25
-[; ;Gpio.c: 25:  gpio[ Id ]->PORT = ( gpio[ Id ]->PORT & ~( 1 << Pin ) ) | ( State << Pin);
-[e = . *U *U + &U _gpio * -> _Id `ux -> -> # *U &U _gpio `ui `ux 0 -> | & -> . *U *U + &U _gpio * -> _Id `ux -> -> # *U &U _gpio `ui `ux 0 `i ~ << -> 1 `i -> _Pin `i << -> _State `i -> _Pin `i `uc ]
+[; ;Gpio.c: 25:     OPTION_REG = ( OPTION_REG & ( 1 << 7 ) ) | ( type << 7 );
+[e = _OPTION_REG -> | -> & -> _OPTION_REG `i << -> 1 `i -> 7 `i `ui << -> _type `ui -> 7 `i `uc ]
 "26
 [; ;Gpio.c: 26: }
-[e :UE 104 ]
+[e :UE 103 ]
 }
 "28
-[; ;Gpio.c: 28: UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin )
-[v _Gpio_getPinState `(uc ~T0 @X0 1 ef2`uc`uc ]
+[; ;Gpio.c: 28: void Gpio_setPinState( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_STATE_t state )
+[v _Gpio_setPinState `(v ~T0 @X0 1 ef3`E1172`E1180`E1202 ]
 "29
 [; ;Gpio.c: 29: {
 {
-[e :U _Gpio_getPinState ]
+[e :U _Gpio_setPinState ]
 "28
-[; ;Gpio.c: 28: UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _Pin `uc ~T0 @X0 1 r2 ]
+[; ;Gpio.c: 28: void Gpio_setPinState( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_STATE_t state )
+[v _id `E1172 ~T0 @X0 1 r1 ]
+[v _pin `E1180 ~T0 @X0 1 r2 ]
+[v _state `E1202 ~T0 @X0 1 r3 ]
 "29
 [; ;Gpio.c: 29: {
 [f ]
 "30
-[; ;Gpio.c: 30:  return ( gpio[ Id ]->PORT & ( 1 << Pin ) ) >> Pin;
-[e ) -> >> & -> . *U *U + &U _gpio * -> _Id `ux -> -> # *U &U _gpio `ui `ux 0 `i << -> 1 `i -> _Pin `i -> _Pin `i `uc ]
-[e $UE 105  ]
+[; ;Gpio.c: 30:     state &= 0x1;
+[e =& _state -> -> 1 `i `E1202 ]
 "31
-[; ;Gpio.c: 31: }
+[; ;Gpio.c: 31:  gpio[ id ]->PORT = ( gpio[ id ]->PORT & ~( 1 << pin ) ) | ( state << pin );
+[e = . *U *U + &U _gpio * -> _id `ux -> -> # *U &U _gpio `ui `ux 0 -> | -> & -> . *U *U + &U _gpio * -> _id `ux -> -> # *U &U _gpio `ui `ux 0 `i ~ << -> 1 `i -> _pin `ui `ui << -> _state `ui -> _pin `ui `uc ]
+"32
+[; ;Gpio.c: 32: }
 [e :UE 105 ]
 }
-"33
-[; ;Gpio.c: 33: void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State )
-[v _Gpio_setPortState `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 "34
-[; ;Gpio.c: 34: {
-{
-[e :U _Gpio_setPortState ]
-"33
-[; ;Gpio.c: 33: void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _Pins `uc ~T0 @X0 1 r2 ]
-[v _State `uc ~T0 @X0 1 r3 ]
-"34
-[; ;Gpio.c: 34: {
-[f ]
+[; ;Gpio.c: 34: GPIO_STATE_t Gpio_getPinState( GPIO_ID_t id, GPIO_PIN_t pin )
+[v _Gpio_getPinState `(E1202 ~T0 @X0 1 ef2`E1172`E1180 ]
 "35
-[; ;Gpio.c: 35:  gpio[ Id ]->PORT = ( gpio[ Id ]->PORT & ~Pins ) | ( State & Pins );
-[e = . *U *U + &U _gpio * -> _Id `ux -> -> # *U &U _gpio `ui `ux 0 -> | & -> . *U *U + &U _gpio * -> _Id `ux -> -> # *U &U _gpio `ui `ux 0 `i ~ -> _Pins `i & -> _State `i -> _Pins `i `uc ]
+[; ;Gpio.c: 35: {
+{
+[e :U _Gpio_getPinState ]
+"34
+[; ;Gpio.c: 34: GPIO_STATE_t Gpio_getPinState( GPIO_ID_t id, GPIO_PIN_t pin )
+[v _id `E1172 ~T0 @X0 1 r1 ]
+[v _pin `E1180 ~T0 @X0 1 r2 ]
+"35
+[; ;Gpio.c: 35: {
+[f ]
 "36
-[; ;Gpio.c: 36: }
+[; ;Gpio.c: 36:  return ( gpio[ id ]->PORT & ( 1 << pin ) ) >> pin;
+[e ) -> >> & -> . *U *U + &U _gpio * -> _id `ux -> -> # *U &U _gpio `ui `ux 0 `i << -> 1 `i -> _pin `ui -> _pin `ui `E1202 ]
+[e $UE 106  ]
+"37
+[; ;Gpio.c: 37: }
 [e :UE 106 ]
 }
-"38
-[; ;Gpio.c: 38: UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins )
-[v _Gpio_getPortState `(uc ~T0 @X0 1 ef2`uc`uc ]
 "39
-[; ;Gpio.c: 39: {
+[; ;Gpio.c: 39: void Gpio_setPortState( GPIO_ID_t id, GPIO_PIN_t pins, GPIO_STATE_t state )
+[v _Gpio_setPortState `(v ~T0 @X0 1 ef3`E1172`E1180`E1202 ]
+"40
+[; ;Gpio.c: 40: {
+{
+[e :U _Gpio_setPortState ]
+"39
+[; ;Gpio.c: 39: void Gpio_setPortState( GPIO_ID_t id, GPIO_PIN_t pins, GPIO_STATE_t state )
+[v _id `E1172 ~T0 @X0 1 r1 ]
+[v _pins `E1180 ~T0 @X0 1 r2 ]
+[v _state `E1202 ~T0 @X0 1 r3 ]
+"40
+[; ;Gpio.c: 40: {
+[f ]
+"41
+[; ;Gpio.c: 41:     state &= pins;
+[e =& _state -> _pins `E1202 ]
+"42
+[; ;Gpio.c: 42:  gpio[ id ]->PORT = ( gpio[ id ]->PORT & ~pins ) | ( state );
+[e = . *U *U + &U _gpio * -> _id `ux -> -> # *U &U _gpio `ui `ux 0 -> | & -> . *U *U + &U _gpio * -> _id `ux -> -> # *U &U _gpio `ui `ux 0 `ui ~ -> _pins `ui -> _state `ui `uc ]
+"43
+[; ;Gpio.c: 43: }
+[e :UE 107 ]
+}
+"45
+[; ;Gpio.c: 45: GPIO_STATE_t Gpio_getPortState( GPIO_ID_t id, GPIO_PIN_t pins )
+[v _Gpio_getPortState `(E1202 ~T0 @X0 1 ef2`E1172`E1180 ]
+"46
+[; ;Gpio.c: 46: {
 {
 [e :U _Gpio_getPortState ]
-"38
-[; ;Gpio.c: 38: UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins )
-[v _Id `uc ~T0 @X0 1 r1 ]
-[v _Pins `uc ~T0 @X0 1 r2 ]
-"39
-[; ;Gpio.c: 39: {
+"45
+[; ;Gpio.c: 45: GPIO_STATE_t Gpio_getPortState( GPIO_ID_t id, GPIO_PIN_t pins )
+[v _id `E1172 ~T0 @X0 1 r1 ]
+[v _pins `E1180 ~T0 @X0 1 r2 ]
+"46
+[; ;Gpio.c: 46: {
 [f ]
-"40
-[; ;Gpio.c: 40:  return ( gpio[ Id ]->PORT & ~Pins );
-[e ) -> & -> . *U *U + &U _gpio * -> _Id `ux -> -> # *U &U _gpio `ui `ux 0 `i ~ -> _Pins `i `uc ]
-[e $UE 107  ]
-"41
-[; ;Gpio.c: 41: }
-[e :UE 107 ]
+"47
+[; ;Gpio.c: 47:  return ( gpio[ id ]->PORT & ~pins );
+[e ) -> & -> . *U *U + &U _gpio * -> _id `ux -> -> # *U &U _gpio `ui `ux 0 `ui ~ -> _pins `ui `E1202 ]
+[e $UE 108  ]
+"48
+[; ;Gpio.c: 48: }
+[e :UE 108 ]
 }

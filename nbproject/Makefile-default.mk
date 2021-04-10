@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c SchedulerConfig.c Scheduler.c Led.c Switch.c Ssd.c Timer.c Adc.c Eeprom.c WaterHeater.c SwitchTask.c SsdTask.c TempSensorTask.c TempSensor.c TempControlTask.c TempControl.c LedTask.c I2c.c Gpio.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c SchedulerConfig.c Scheduler.c Led.c Switch.c Ssd.c Timer.c Adc.c Eeprom.c WaterHeater.c I2c.c Gpio.c Tempctrl.c Tempsnsr.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/SchedulerConfig.p1 ${OBJECTDIR}/Scheduler.p1 ${OBJECTDIR}/Led.p1 ${OBJECTDIR}/Switch.p1 ${OBJECTDIR}/Ssd.p1 ${OBJECTDIR}/Timer.p1 ${OBJECTDIR}/Adc.p1 ${OBJECTDIR}/Eeprom.p1 ${OBJECTDIR}/WaterHeater.p1 ${OBJECTDIR}/SwitchTask.p1 ${OBJECTDIR}/SsdTask.p1 ${OBJECTDIR}/TempSensorTask.p1 ${OBJECTDIR}/TempSensor.p1 ${OBJECTDIR}/TempControlTask.p1 ${OBJECTDIR}/TempControl.p1 ${OBJECTDIR}/LedTask.p1 ${OBJECTDIR}/I2c.p1 ${OBJECTDIR}/Gpio.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/SchedulerConfig.p1.d ${OBJECTDIR}/Scheduler.p1.d ${OBJECTDIR}/Led.p1.d ${OBJECTDIR}/Switch.p1.d ${OBJECTDIR}/Ssd.p1.d ${OBJECTDIR}/Timer.p1.d ${OBJECTDIR}/Adc.p1.d ${OBJECTDIR}/Eeprom.p1.d ${OBJECTDIR}/WaterHeater.p1.d ${OBJECTDIR}/SwitchTask.p1.d ${OBJECTDIR}/SsdTask.p1.d ${OBJECTDIR}/TempSensorTask.p1.d ${OBJECTDIR}/TempSensor.p1.d ${OBJECTDIR}/TempControlTask.p1.d ${OBJECTDIR}/TempControl.p1.d ${OBJECTDIR}/LedTask.p1.d ${OBJECTDIR}/I2c.p1.d ${OBJECTDIR}/Gpio.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/SchedulerConfig.p1 ${OBJECTDIR}/Scheduler.p1 ${OBJECTDIR}/Led.p1 ${OBJECTDIR}/Switch.p1 ${OBJECTDIR}/Ssd.p1 ${OBJECTDIR}/Timer.p1 ${OBJECTDIR}/Adc.p1 ${OBJECTDIR}/Eeprom.p1 ${OBJECTDIR}/WaterHeater.p1 ${OBJECTDIR}/I2c.p1 ${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/Tempctrl.p1 ${OBJECTDIR}/Tempsnsr.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/SchedulerConfig.p1.d ${OBJECTDIR}/Scheduler.p1.d ${OBJECTDIR}/Led.p1.d ${OBJECTDIR}/Switch.p1.d ${OBJECTDIR}/Ssd.p1.d ${OBJECTDIR}/Timer.p1.d ${OBJECTDIR}/Adc.p1.d ${OBJECTDIR}/Eeprom.p1.d ${OBJECTDIR}/WaterHeater.p1.d ${OBJECTDIR}/I2c.p1.d ${OBJECTDIR}/Gpio.p1.d ${OBJECTDIR}/Tempctrl.p1.d ${OBJECTDIR}/Tempsnsr.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/SchedulerConfig.p1 ${OBJECTDIR}/Scheduler.p1 ${OBJECTDIR}/Led.p1 ${OBJECTDIR}/Switch.p1 ${OBJECTDIR}/Ssd.p1 ${OBJECTDIR}/Timer.p1 ${OBJECTDIR}/Adc.p1 ${OBJECTDIR}/Eeprom.p1 ${OBJECTDIR}/WaterHeater.p1 ${OBJECTDIR}/SwitchTask.p1 ${OBJECTDIR}/SsdTask.p1 ${OBJECTDIR}/TempSensorTask.p1 ${OBJECTDIR}/TempSensor.p1 ${OBJECTDIR}/TempControlTask.p1 ${OBJECTDIR}/TempControl.p1 ${OBJECTDIR}/LedTask.p1 ${OBJECTDIR}/I2c.p1 ${OBJECTDIR}/Gpio.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/SchedulerConfig.p1 ${OBJECTDIR}/Scheduler.p1 ${OBJECTDIR}/Led.p1 ${OBJECTDIR}/Switch.p1 ${OBJECTDIR}/Ssd.p1 ${OBJECTDIR}/Timer.p1 ${OBJECTDIR}/Adc.p1 ${OBJECTDIR}/Eeprom.p1 ${OBJECTDIR}/WaterHeater.p1 ${OBJECTDIR}/I2c.p1 ${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/Tempctrl.p1 ${OBJECTDIR}/Tempsnsr.p1
 
 # Source Files
-SOURCEFILES=main.c SchedulerConfig.c Scheduler.c Led.c Switch.c Ssd.c Timer.c Adc.c Eeprom.c WaterHeater.c SwitchTask.c SsdTask.c TempSensorTask.c TempSensor.c TempControlTask.c TempControl.c LedTask.c I2c.c Gpio.c
+SOURCEFILES=main.c SchedulerConfig.c Scheduler.c Led.c Switch.c Ssd.c Timer.c Adc.c Eeprom.c WaterHeater.c I2c.c Gpio.c Tempctrl.c Tempsnsr.c
 
 
 
@@ -174,62 +174,6 @@ ${OBJECTDIR}/WaterHeater.p1: WaterHeater.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/WaterHeater.d ${OBJECTDIR}/WaterHeater.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/WaterHeater.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/SwitchTask.p1: SwitchTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/SwitchTask.p1.d 
-	@${RM} ${OBJECTDIR}/SwitchTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/SwitchTask.p1 SwitchTask.c 
-	@-${MV} ${OBJECTDIR}/SwitchTask.d ${OBJECTDIR}/SwitchTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/SwitchTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/SsdTask.p1: SsdTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/SsdTask.p1.d 
-	@${RM} ${OBJECTDIR}/SsdTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/SsdTask.p1 SsdTask.c 
-	@-${MV} ${OBJECTDIR}/SsdTask.d ${OBJECTDIR}/SsdTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/SsdTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/TempSensorTask.p1: TempSensorTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/TempSensorTask.p1.d 
-	@${RM} ${OBJECTDIR}/TempSensorTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/TempSensorTask.p1 TempSensorTask.c 
-	@-${MV} ${OBJECTDIR}/TempSensorTask.d ${OBJECTDIR}/TempSensorTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/TempSensorTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/TempSensor.p1: TempSensor.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/TempSensor.p1.d 
-	@${RM} ${OBJECTDIR}/TempSensor.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/TempSensor.p1 TempSensor.c 
-	@-${MV} ${OBJECTDIR}/TempSensor.d ${OBJECTDIR}/TempSensor.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/TempSensor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/TempControlTask.p1: TempControlTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/TempControlTask.p1.d 
-	@${RM} ${OBJECTDIR}/TempControlTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/TempControlTask.p1 TempControlTask.c 
-	@-${MV} ${OBJECTDIR}/TempControlTask.d ${OBJECTDIR}/TempControlTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/TempControlTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/TempControl.p1: TempControl.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/TempControl.p1.d 
-	@${RM} ${OBJECTDIR}/TempControl.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/TempControl.p1 TempControl.c 
-	@-${MV} ${OBJECTDIR}/TempControl.d ${OBJECTDIR}/TempControl.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/TempControl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/LedTask.p1: LedTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/LedTask.p1.d 
-	@${RM} ${OBJECTDIR}/LedTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/LedTask.p1 LedTask.c 
-	@-${MV} ${OBJECTDIR}/LedTask.d ${OBJECTDIR}/LedTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/LedTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/I2c.p1: I2c.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/I2c.p1.d 
@@ -245,6 +189,22 @@ ${OBJECTDIR}/Gpio.p1: Gpio.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Gpio.p1 Gpio.c 
 	@-${MV} ${OBJECTDIR}/Gpio.d ${OBJECTDIR}/Gpio.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Gpio.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Tempctrl.p1: Tempctrl.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Tempctrl.p1.d 
+	@${RM} ${OBJECTDIR}/Tempctrl.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Tempctrl.p1 Tempctrl.c 
+	@-${MV} ${OBJECTDIR}/Tempctrl.d ${OBJECTDIR}/Tempctrl.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Tempctrl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Tempsnsr.p1: Tempsnsr.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Tempsnsr.p1.d 
+	@${RM} ${OBJECTDIR}/Tempsnsr.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Tempsnsr.p1 Tempsnsr.c 
+	@-${MV} ${OBJECTDIR}/Tempsnsr.d ${OBJECTDIR}/Tempsnsr.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Tempsnsr.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
@@ -327,62 +287,6 @@ ${OBJECTDIR}/WaterHeater.p1: WaterHeater.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/WaterHeater.d ${OBJECTDIR}/WaterHeater.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/WaterHeater.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/SwitchTask.p1: SwitchTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/SwitchTask.p1.d 
-	@${RM} ${OBJECTDIR}/SwitchTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/SwitchTask.p1 SwitchTask.c 
-	@-${MV} ${OBJECTDIR}/SwitchTask.d ${OBJECTDIR}/SwitchTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/SwitchTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/SsdTask.p1: SsdTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/SsdTask.p1.d 
-	@${RM} ${OBJECTDIR}/SsdTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/SsdTask.p1 SsdTask.c 
-	@-${MV} ${OBJECTDIR}/SsdTask.d ${OBJECTDIR}/SsdTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/SsdTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/TempSensorTask.p1: TempSensorTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/TempSensorTask.p1.d 
-	@${RM} ${OBJECTDIR}/TempSensorTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/TempSensorTask.p1 TempSensorTask.c 
-	@-${MV} ${OBJECTDIR}/TempSensorTask.d ${OBJECTDIR}/TempSensorTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/TempSensorTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/TempSensor.p1: TempSensor.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/TempSensor.p1.d 
-	@${RM} ${OBJECTDIR}/TempSensor.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/TempSensor.p1 TempSensor.c 
-	@-${MV} ${OBJECTDIR}/TempSensor.d ${OBJECTDIR}/TempSensor.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/TempSensor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/TempControlTask.p1: TempControlTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/TempControlTask.p1.d 
-	@${RM} ${OBJECTDIR}/TempControlTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/TempControlTask.p1 TempControlTask.c 
-	@-${MV} ${OBJECTDIR}/TempControlTask.d ${OBJECTDIR}/TempControlTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/TempControlTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/TempControl.p1: TempControl.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/TempControl.p1.d 
-	@${RM} ${OBJECTDIR}/TempControl.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/TempControl.p1 TempControl.c 
-	@-${MV} ${OBJECTDIR}/TempControl.d ${OBJECTDIR}/TempControl.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/TempControl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/LedTask.p1: LedTask.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/LedTask.p1.d 
-	@${RM} ${OBJECTDIR}/LedTask.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/LedTask.p1 LedTask.c 
-	@-${MV} ${OBJECTDIR}/LedTask.d ${OBJECTDIR}/LedTask.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/LedTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/I2c.p1: I2c.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/I2c.p1.d 
@@ -398,6 +302,22 @@ ${OBJECTDIR}/Gpio.p1: Gpio.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Gpio.p1 Gpio.c 
 	@-${MV} ${OBJECTDIR}/Gpio.d ${OBJECTDIR}/Gpio.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Gpio.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Tempctrl.p1: Tempctrl.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Tempctrl.p1.d 
+	@${RM} ${OBJECTDIR}/Tempctrl.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Tempctrl.p1 Tempctrl.c 
+	@-${MV} ${OBJECTDIR}/Tempctrl.d ${OBJECTDIR}/Tempctrl.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Tempctrl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Tempsnsr.p1: Tempsnsr.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Tempsnsr.p1.d 
+	@${RM} ${OBJECTDIR}/Tempsnsr.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Tempsnsr.p1 Tempsnsr.c 
+	@-${MV} ${OBJECTDIR}/Tempsnsr.d ${OBJECTDIR}/Tempsnsr.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Tempsnsr.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

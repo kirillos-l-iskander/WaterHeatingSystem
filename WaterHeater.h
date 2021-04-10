@@ -1,41 +1,29 @@
 #ifndef WH_H
 #define	WH_H
 
-#include "SchedulerConfig.h"
+#include "Config.h"
 
 #include "Gpio.h"
 #include "Adc.h"
 #include "Timer.h"
 #include "Switch.h"
-#include "SwitchTask.h"
-#include "TempSensor.h"
-#include "TempSensorTask.h"
-#include "TempControl.h"
-#include "TempControlTask.h"
+#include "Tempsnsr.h"
+#include "Tempctrl.h"
 #include "Led.h"
-#include "LedTask.h"
 #include "Ssd.h"
-#include "SsdTask.h"
 
 #include "I2c.h"
 #include "Eeprom.h"
 #include "WaterHeater.h"
 
-#define LED_UPDATE 5
-#define SW_UPDATE 10
-#define ADC_UPDATE 100
-#define TEMP_UPDATE 100
-#define HCU_UPDATE 100
-#define DISP_UPDATE 100
-#define SSD_UPDATE 5
-#define WH_UPDATE 100
-
 typedef enum
 {
-	HEATER1_ID
-}HEATER_t;
+	HEATER_ID_1 = 0,
+	HEATER_ID_MAX,
+}   HEATER_ID_t;
 
-void HeaterTask_init( Id_t id );
-void HeaterTask_update( void *paramter );
+void Heater_init( HEATER_ID_t id, SW_ID_t sSwId, SW_ID_t mSwId, SW_ID_t pSwId, TEMPSNSR_ID_t xTempsnsrId,
+                  TEMPCTRL_ID_t xTempctrlId, LED_ID_t xLedId, SSD_ID_t aSsdId, SSD_ID_t bSsdId );
+void Heater_update( void *paramter );
 
 #endif	/* WH_H */

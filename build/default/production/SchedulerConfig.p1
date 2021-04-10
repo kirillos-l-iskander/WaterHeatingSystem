@@ -1,31 +1,47 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"20 ./Timer.h
-[; ;./Timer.h: 20: void Timer1_init( uint16_t tickNumber );
-[v _Timer1_init `(v ~T0 @X0 0 ef1`ui ]
+"7 SchedulerConfig.c
+[; ;SchedulerConfig.c: 7:     Timer_init( TIMER_ID_1, TIMER_MODE_NORMAL, systickPeriod, TIMER_CHANNEL_NORMAL, TIMER_EVENT_NORMAL );
+[c E1172 0 1 2 3 .. ]
+[n E1172 . TIMER_ID_0 TIMER_ID_1 TIMER_ID_2 TIMER_ID_MAX  ]
+[c E1178 0 1 .. ]
+[n E1178 . TIMER_MODE_NORMAL TIMER_MODE_COUNTUP  ]
+[c E1197 0 1000 .. ]
+[n E1197 . TIMER_PERIOD_MIN TIMER_PERIOD_MAX  ]
+[c E1182 0 1 .. ]
+[n E1182 . TIMER_CHANNEL_NORMAL TIMER_CHANNEL_1  ]
+[c E1186 11 12 13 5 4 8 9 15 16 .. ]
+[n E1186 . TIMER_EVENT_NORMAL TIMER_EVENT_CLOCKIN_RISING TIMER_EVENT_CLOCKIN_FALLING TIMER_EVENT_CAPTURE_RISING TIMER_EVENT_CAPTURE_FALLING TIMER_EVENT_COMPARE_SET TIMER_EVENT_COMPARE_RESET TIMER_EVENT_PWM_NONINVERT TIMER_EVENT_PWM_INVERT  ]
+"63 ./Timer.h
+[; ;./Timer.h: 63: void Timer_init( TIMER_ID_t id, TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event );
+[v _Timer_init `(v ~T0 @X0 0 ef5`E1172`E1178`E1197`E1182`E1186 ]
 "460 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 460:     struct {
-[s S23 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S23 . RBIF INTF TMR0IF RBIE INTE TMR0IE PEIE GIE ]
+[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S25 . RBIF INTF TMR0IF RBIE INTE TMR0IE PEIE GIE ]
 "470
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 470:     struct {
-[s S24 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S24 . . T0IF . T0IE ]
+[s S26 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S26 . . T0IF . T0IE ]
 "459
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 459: typedef union {
-[u S22 `S23 1 `S24 1 ]
-[n S22 . . . ]
+[u S24 `S25 1 `S26 1 ]
+[n S24 . . . ]
 "477
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 477: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-[v _INTCONbits `VS22 ~T0 @X0 0 e@11 ]
-"8 ./LedTask.h
-[; ;./LedTask.h: 8: void LedTask_setState( Id_t id, uint8_t state, uint16_t period );
-[v _LedTask_setState `(v ~T0 @X0 0 ef3`uc`uc`ui ]
-"16 SchedulerConfig.c
-[; ;SchedulerConfig.c: 16:   LedTask_setState( LED2_ID, ( 0 ), 0 );
-[c E1206 0 1 .. ]
-[n E1206 . LED1_ID LED2_ID  ]
-"86 ./SchedulerConfig.h
-[; ;./SchedulerConfig.h: 86: void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
+[v _INTCONbits `VS24 ~T0 @X0 0 e@11 ]
+"15 SchedulerConfig.c
+[; ;SchedulerConfig.c: 15:   Led_setState( LED_ID_1, LED_STATE_OFF, LED_BLINK_0MS );
+[c E1271 0 1 2 .. ]
+[n E1271 . LED_ID_1 LED_ID_2 LED_ID_MAX  ]
+[c E1276 0 1 .. ]
+[n E1276 . LED_STATE_OFF LED_STATE_ON  ]
+[c E1280 0 100 500 1000 5000 .. ]
+[n E1280 . LED_BLINK_0MS LED_BLINK_100MS LED_BLINK_500MS LED_BLINK_1000MS LED_BLINK_5000MS  ]
+"31 ./Led.h
+[; ;./Led.h: 31: void Led_setState( LED_ID_t id, LED_STATE_t state, LED_BLINK_t period );
+[v _Led_setState `(v ~T0 @X0 0 ef3`E1271`E1276`E1280 ]
+"84 ./SchedulerConfig.h
+[; ;./SchedulerConfig.h: 84: void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
 [v _Scheduler_delaySoftwareUs `(v ~T0 @X0 0 ef1`Vul ]
 "13 ./Config.h
 [p x FOSC = HS ]
@@ -224,196 +240,192 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "5 SchedulerConfig.c
-[; ;SchedulerConfig.c: 5: void Scheduler_initSysTick( TickType_t msTickPeriod )
+[; ;SchedulerConfig.c: 5: void Scheduler_initSysTick( TickType_t systickPeriod )
 [v _Scheduler_initSysTick `(v ~T0 @X0 1 ef1`ui ]
 "6
 [; ;SchedulerConfig.c: 6: {
 {
 [e :U _Scheduler_initSysTick ]
 "5
-[; ;SchedulerConfig.c: 5: void Scheduler_initSysTick( TickType_t msTickPeriod )
-[v _msTickPeriod `ui ~T0 @X0 1 r1 ]
+[; ;SchedulerConfig.c: 5: void Scheduler_initSysTick( TickType_t systickPeriod )
+[v _systickPeriod `ui ~T0 @X0 1 r1 ]
 "6
 [; ;SchedulerConfig.c: 6: {
 [f ]
 "7
-[; ;SchedulerConfig.c: 7:  TickType_t tickNumber = ( TickType_t )( ( ( ( ( ( 16000000 ) / ( 4 ) ) / ( ( TickType_t ) 1 ) ) / 1000 ) * msTickPeriod ) - 1 );
-[v _tickNumber `ui ~T0 @X0 1 a ]
-[e = _tickNumber -> - * / / / -> 16000000 `l -> -> 4 `i `l -> -> -> 1 `i `ui `l -> -> 1000 `i `l -> _msTickPeriod `l -> -> 1 `i `l `ui ]
+[; ;SchedulerConfig.c: 7:     Timer_init( TIMER_ID_1, TIMER_MODE_NORMAL, systickPeriod, TIMER_CHANNEL_NORMAL, TIMER_EVENT_NORMAL );
+[e ( _Timer_init (4 , , , , . `E1172 1 . `E1178 0 -> _systickPeriod `E1197 . `E1182 0 . `E1186 0 ]
 "8
-[; ;SchedulerConfig.c: 8:     Timer1_init( tickNumber );
-[e ( _Timer1_init (1 _tickNumber ]
-"9
-[; ;SchedulerConfig.c: 9:     (INTCONbits.GIE = 1);
+[; ;SchedulerConfig.c: 8:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"10
-[; ;SchedulerConfig.c: 10: }
+"9
+[; ;SchedulerConfig.c: 9: }
 [e :UE 102 ]
 }
-"12
-[; ;SchedulerConfig.c: 12: void Scheduler_displayError( UBaseType_t errorCode )
+"11
+[; ;SchedulerConfig.c: 11: void Scheduler_displayError( UBaseType_t errorCode )
 [v _Scheduler_displayError `(v ~T0 @X0 1 ef1`uc ]
-"13
-[; ;SchedulerConfig.c: 13: {
+"12
+[; ;SchedulerConfig.c: 12: {
 {
 [e :U _Scheduler_displayError ]
-"12
-[; ;SchedulerConfig.c: 12: void Scheduler_displayError( UBaseType_t errorCode )
+"11
+[; ;SchedulerConfig.c: 11: void Scheduler_displayError( UBaseType_t errorCode )
 [v _errorCode `uc ~T0 @X0 1 r1 ]
-"13
-[; ;SchedulerConfig.c: 13: {
+"12
+[; ;SchedulerConfig.c: 12: {
 [f ]
-"14
-[; ;SchedulerConfig.c: 14:  if( errorCode )
+"13
+[; ;SchedulerConfig.c: 13:  if( errorCode )
 [e $ ! != -> _errorCode `i -> 0 `i 104  ]
-"15
-[; ;SchedulerConfig.c: 15:  {
+"14
+[; ;SchedulerConfig.c: 14:  {
 {
+"15
+[; ;SchedulerConfig.c: 15:   Led_setState( LED_ID_1, LED_STATE_OFF, LED_BLINK_0MS );
+[e ( _Led_setState (3 , , . `E1271 0 . `E1276 0 . `E1280 0 ]
 "16
-[; ;SchedulerConfig.c: 16:   LedTask_setState( LED2_ID, ( 0 ), 0 );
-[e ( _LedTask_setState (3 , , -> . `E1206 1 `uc -> -> 0 `i `uc -> -> 0 `i `ui ]
-"17
-[; ;SchedulerConfig.c: 17:  }else
+[; ;SchedulerConfig.c: 16:  }else
 }
 [e $U 105  ]
 [e :U 104 ]
-"18
-[; ;SchedulerConfig.c: 18:  {
+"17
+[; ;SchedulerConfig.c: 17:  {
 {
+"18
+[; ;SchedulerConfig.c: 18:   Led_setState( LED_ID_1, LED_STATE_ON, LED_BLINK_0MS );
+[e ( _Led_setState (3 , , . `E1271 0 . `E1276 1 . `E1280 0 ]
 "19
-[; ;SchedulerConfig.c: 19:   LedTask_setState( LED2_ID, ( 1 ), 0 );
-[e ( _LedTask_setState (3 , , -> . `E1206 1 `uc -> -> 1 `i `uc -> -> 0 `i `ui ]
-"20
-[; ;SchedulerConfig.c: 20:  }
+[; ;SchedulerConfig.c: 19:  }
 }
 [e :U 105 ]
-"21
-[; ;SchedulerConfig.c: 21: }
+"20
+[; ;SchedulerConfig.c: 20: }
 [e :UE 103 ]
 }
-"23
-[; ;SchedulerConfig.c: 23: void Scheduler_sleepHardware( void )
+"22
+[; ;SchedulerConfig.c: 22: void Scheduler_sleepHardware( void )
 [v _Scheduler_sleepHardware `(v ~T0 @X0 1 ef ]
-"24
-[; ;SchedulerConfig.c: 24: {
+"23
+[; ;SchedulerConfig.c: 23: {
 {
 [e :U _Scheduler_sleepHardware ]
 [f ]
-"26
-[; ;SchedulerConfig.c: 26: }
+"25
+[; ;SchedulerConfig.c: 25: }
 [e :UE 106 ]
 }
-"28
-[; ;SchedulerConfig.c: 28: void Scheduler_delayHardwareMs( volatile uint32_t msDelay )
+"27
+[; ;SchedulerConfig.c: 27: void Scheduler_delayHardwareMs( volatile uint32_t msDelay )
 [v _Scheduler_delayHardwareMs `(v ~T0 @X0 1 ef1`Vul ]
-"29
-[; ;SchedulerConfig.c: 29: {
+"28
+[; ;SchedulerConfig.c: 28: {
 {
 [e :U _Scheduler_delayHardwareMs ]
-"28
-[; ;SchedulerConfig.c: 28: void Scheduler_delayHardwareMs( volatile uint32_t msDelay )
+"27
+[; ;SchedulerConfig.c: 27: void Scheduler_delayHardwareMs( volatile uint32_t msDelay )
 [v _msDelay `Vul ~T0 @X0 1 r1 ]
-"29
-[; ;SchedulerConfig.c: 29: {
+"28
+[; ;SchedulerConfig.c: 28: {
 [f ]
-"31
-[; ;SchedulerConfig.c: 31: }
+"30
+[; ;SchedulerConfig.c: 30: }
 [e :UE 107 ]
 }
-"33
-[; ;SchedulerConfig.c: 33: void Scheduler_delayHardwareUs( volatile uint32_t usDelay )
+"32
+[; ;SchedulerConfig.c: 32: void Scheduler_delayHardwareUs( volatile uint32_t usDelay )
 [v _Scheduler_delayHardwareUs `(v ~T0 @X0 1 ef1`Vul ]
-"34
-[; ;SchedulerConfig.c: 34: {
+"33
+[; ;SchedulerConfig.c: 33: {
 {
 [e :U _Scheduler_delayHardwareUs ]
-"33
-[; ;SchedulerConfig.c: 33: void Scheduler_delayHardwareUs( volatile uint32_t usDelay )
+"32
+[; ;SchedulerConfig.c: 32: void Scheduler_delayHardwareUs( volatile uint32_t usDelay )
 [v _usDelay `Vul ~T0 @X0 1 r1 ]
-"34
-[; ;SchedulerConfig.c: 34: {
+"33
+[; ;SchedulerConfig.c: 33: {
 [f ]
-"36
-[; ;SchedulerConfig.c: 36: }
+"35
+[; ;SchedulerConfig.c: 35: }
 [e :UE 108 ]
 }
-"38
-[; ;SchedulerConfig.c: 38: void Scheduler_delaySoftwareMs( volatile uint32_t msDelay )
+"37
+[; ;SchedulerConfig.c: 37: void Scheduler_delaySoftwareMs( volatile uint32_t msDelay )
 [v _Scheduler_delaySoftwareMs `(v ~T0 @X0 1 ef1`Vul ]
-"39
-[; ;SchedulerConfig.c: 39: {
+"38
+[; ;SchedulerConfig.c: 38: {
 {
 [e :U _Scheduler_delaySoftwareMs ]
-"38
-[; ;SchedulerConfig.c: 38: void Scheduler_delaySoftwareMs( volatile uint32_t msDelay )
+"37
+[; ;SchedulerConfig.c: 37: void Scheduler_delaySoftwareMs( volatile uint32_t msDelay )
 [v _msDelay `Vul ~T0 @X0 1 r1 ]
-"39
-[; ;SchedulerConfig.c: 39: {
+"38
+[; ;SchedulerConfig.c: 38: {
 [f ]
-"40
-[; ;SchedulerConfig.c: 40:  while( msDelay-- )
+"39
+[; ;SchedulerConfig.c: 39:  while( msDelay-- )
 [e $U 110  ]
 [e :U 111 ]
-"41
-[; ;SchedulerConfig.c: 41:  {
+"40
+[; ;SchedulerConfig.c: 40:  {
 {
-"42
-[; ;SchedulerConfig.c: 42:   Scheduler_delaySoftwareUs( 1000 );
+"41
+[; ;SchedulerConfig.c: 41:   Scheduler_delaySoftwareUs( 1000 );
 [e ( _Scheduler_delaySoftwareUs (1 -> -> -> 1000 `i `l `ul ]
-"43
-[; ;SchedulerConfig.c: 43:  }
+"42
+[; ;SchedulerConfig.c: 42:  }
 }
 [e :U 110 ]
-"40
-[; ;SchedulerConfig.c: 40:  while( msDelay-- )
+"39
+[; ;SchedulerConfig.c: 39:  while( msDelay-- )
 [e $ != -- _msDelay -> -> 1 `i `Vul -> -> -> 0 `i `l `ul 111  ]
 [e :U 112 ]
-"44
-[; ;SchedulerConfig.c: 44: }
+"43
+[; ;SchedulerConfig.c: 43: }
 [e :UE 109 ]
 }
-"46
-[; ;SchedulerConfig.c: 46: void Scheduler_delaySoftwareUs( volatile uint32_t usDelay )
+"45
+[; ;SchedulerConfig.c: 45: void Scheduler_delaySoftwareUs( volatile uint32_t usDelay )
 [v _Scheduler_delaySoftwareUs `(v ~T0 @X0 1 ef1`Vul ]
-"47
-[; ;SchedulerConfig.c: 47: {
+"46
+[; ;SchedulerConfig.c: 46: {
 {
 [e :U _Scheduler_delaySoftwareUs ]
-"46
-[; ;SchedulerConfig.c: 46: void Scheduler_delaySoftwareUs( volatile uint32_t usDelay )
+"45
+[; ;SchedulerConfig.c: 45: void Scheduler_delaySoftwareUs( volatile uint32_t usDelay )
 [v _usDelay `Vul ~T0 @X0 1 r1 ]
-"47
-[; ;SchedulerConfig.c: 47: {
+"46
+[; ;SchedulerConfig.c: 46: {
 [f ]
-"48
-[; ;SchedulerConfig.c: 48:  volatile uint8_t delay;
+"47
+[; ;SchedulerConfig.c: 47:  volatile uint8_t delay;
 [v _delay `Vuc ~T0 @X0 1 a ]
-"49
-[; ;SchedulerConfig.c: 49:  while( usDelay-- )
+"48
+[; ;SchedulerConfig.c: 48:  while( usDelay-- )
 [e $U 114  ]
 [e :U 115 ]
-"50
-[; ;SchedulerConfig.c: 50:  {
+"49
+[; ;SchedulerConfig.c: 49:  {
 {
-"51
-[; ;SchedulerConfig.c: 51:   delay = ( uint8_t ) ( ( ( 16000000 ) / ( 4 ) ) / 1000000 );
+"50
+[; ;SchedulerConfig.c: 50:   delay = ( uint8_t ) ( ( ( 16000000 ) / ( 4 ) ) / 1000000 );
 [e = _delay -> / / -> 16000000 `l -> -> 4 `i `l -> 1000000 `l `uc ]
-"52
-[; ;SchedulerConfig.c: 52:   while( delay-- );
+"51
+[; ;SchedulerConfig.c: 51:   while( delay-- );
 [e $U 117  ]
 [e :U 118 ]
 [e :U 117 ]
 [e $ != -> -- _delay -> -> 1 `i `Vuc `i -> 0 `i 118  ]
 [e :U 119 ]
-"53
-[; ;SchedulerConfig.c: 53:  }
+"52
+[; ;SchedulerConfig.c: 52:  }
 }
 [e :U 114 ]
-"49
-[; ;SchedulerConfig.c: 49:  while( usDelay-- )
+"48
+[; ;SchedulerConfig.c: 48:  while( usDelay-- )
 [e $ != -- _usDelay -> -> 1 `i `Vul -> -> -> 0 `i `l `ul 115  ]
 [e :U 116 ]
-"54
-[; ;SchedulerConfig.c: 54: }
+"53
+[; ;SchedulerConfig.c: 53: }
 [e :UE 113 ]
 }

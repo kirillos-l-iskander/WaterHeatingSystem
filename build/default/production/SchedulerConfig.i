@@ -377,6 +377,40 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 # 9 "./SchedulerConfig.h" 2
+# 56 "./SchedulerConfig.h"
+typedef int8_t BaseType_t;
+typedef uint8_t UBaseType_t;
+typedef uint16_t TickType_t;
+
+typedef union
+{
+    struct
+    {
+        UBaseType_t bit0:1;
+        UBaseType_t bit1:1;
+        UBaseType_t bit2:1;
+        UBaseType_t bit3:1;
+        UBaseType_t bit4:1;
+        UBaseType_t bit5:1;
+        UBaseType_t bit6:1;
+        UBaseType_t bit7:1;
+    }Bits_t;
+    UBaseType_t reg:8;
+}Reg_t;
+
+
+
+void Scheduler_initSysTick( TickType_t msTicksPeriod );
+void Scheduler_displayError( UBaseType_t errorCode );
+void Scheduler_sleepHardware( void );
+void Scheduler_delayHardwareMs( volatile uint32_t msDelay );
+void Scheduler_delayHardwareUs( volatile uint32_t usDelay );
+void Scheduler_delaySoftwareMs( volatile uint32_t msDelay );
+void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
+# 1 "SchedulerConfig.c" 2
+
+# 1 "./Timer.h" 1
+
 
 
 # 1 "./Config.h" 1
@@ -2100,17 +2134,7 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
 # 25 "./Config.h" 2
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 29 "./Config.h" 2
-
-
-
-# 1 "./SchedulerConfig.h" 1
-# 32 "./Config.h" 2
+# 4 "./Timer.h" 2
 
 
 
@@ -2118,57 +2142,61 @@ extern __bank0 __bit __timeout;
 
 
 
-typedef uint8_t Id_t;
-# 11 "./SchedulerConfig.h" 2
-# 58 "./SchedulerConfig.h"
-typedef int8_t BaseType_t;
-typedef uint8_t UBaseType_t;
-typedef uint16_t TickType_t;
 
-typedef union
-{
-    struct
-    {
-        UBaseType_t bit0:1;
-        UBaseType_t bit1:1;
-        UBaseType_t bit2:1;
-        UBaseType_t bit3:1;
-        UBaseType_t bit4:1;
-        UBaseType_t bit5:1;
-        UBaseType_t bit6:1;
-        UBaseType_t bit7:1;
-    }Bits_t;
-    UBaseType_t reg:8;
-}Reg_t;
-
-
-
-void Scheduler_initSysTick( TickType_t msTicksPeriod );
-void Scheduler_displayError( UBaseType_t errorCode );
-void Scheduler_sleepHardware( void );
-void Scheduler_delayHardwareMs( volatile uint32_t msDelay );
-void Scheduler_delayHardwareUs( volatile uint32_t usDelay );
-void Scheduler_delaySoftwareMs( volatile uint32_t msDelay );
-void Scheduler_delaySoftwareUs( volatile uint32_t usDelay );
-# 1 "SchedulerConfig.c" 2
-
-# 1 "./Timer.h" 1
-# 12 "./Timer.h"
 typedef enum
 {
- TIMER0_ID,
- TIMER1_ID,
- TIMER2_ID
-}TIMER_t;
+ TIMER_ID_0 = 0,
+ TIMER_ID_1,
+ TIMER_ID_2,
+ TIMER_ID_MAX,
+} TIMER_ID_t;
 
-void Timer0_init( void );
-void Timer1_init( uint16_t tickNumber );
+typedef enum
+{
+ TIMER_MODE_NORMAL = 0,
+ TIMER_MODE_COUNTUP,
+} TIMER_MODE_t;
+
+typedef enum
+{
+ TIMER_CHANNEL_NORMAL = 0,
+ TIMER_CHANNEL_1,
+} TIMER_CHANNEL_t;
+
+typedef enum
+{
+ TIMER_EVENT_NORMAL = 0x0B,
+ TIMER_EVENT_CLOCKIN_RISING,
+ TIMER_EVENT_CLOCKIN_FALLING,
+ TIMER_EVENT_CAPTURE_RISING = 0x05,
+ TIMER_EVENT_CAPTURE_FALLING = 0x04,
+ TIMER_EVENT_COMPARE_SET = 0x08,
+ TIMER_EVENT_COMPARE_RESET = 0x09,
+ TIMER_EVENT_PWM_NONINVERT = 0x0F,
+ TIMER_EVENT_PWM_INVERT,
+} TIMER_EVENT_t;
+
+typedef enum
+{
+ TIMER_PERIOD_MIN = 0,
+ TIMER_PERIOD_MAX = 1000,
+} TIMER_PERIOD_t;
+
+typedef enum
+{
+ TIMER_COUNTER_MIN = 0,
+ TIMER_COUNTER_MAX = 65535,
+} TIMER_COUNTER_t;
+
+typedef enum
+{
+ TIMER_PWM_MIN = 0,
+ TIMER_PWM_MAX = 100,
+} TIMER_PWM_t;
+
+void Timer_init( TIMER_ID_t id, TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event );
+void Timer_enableInterrupt( TIMER_ID_t id );
 # 2 "SchedulerConfig.c" 2
-
-# 1 "./LedTask.h" 1
-
-
-
 
 # 1 "./Led.h" 1
 
@@ -2176,45 +2204,95 @@ void Timer1_init( uint16_t tickNumber );
 
 
 # 1 "./Gpio.h" 1
-# 12 "./Gpio.h"
+
+
+
+
+
 typedef enum
 {
- GPIOA_ID,
- GPIOB_ID,
- GPIOC_ID,
- GPIOD_ID,
- GPIOE_ID
-}GPIO_t;
+ GPIO_ID_A = 0,
+ GPIO_ID_B,
+ GPIO_ID_C,
+ GPIO_ID_D,
+ GPIO_ID_E,
+ GPIO_ID_MAX,
+} GPIO_ID_t;
 
-void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-void Gpio_setPinState( Id_t Id, UBaseType_t Pin, UBaseType_t State );
-UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
-void Gpio_setPortState( Id_t Id, UBaseType_t Pins, UBaseType_t State );
-UBaseType_t Gpio_getPortState( Id_t Id, UBaseType_t Pins );
+typedef enum
+{
+ GPIO_PIN_0 = 0,
+ GPIO_PIN_1,
+ GPIO_PIN_2,
+ GPIO_PIN_3,
+ GPIO_PIN_4,
+ GPIO_PIN_5,
+ GPIO_PIN_6,
+ GPIO_PIN_7,
+ GPIO_PIN_MAX = 0xFF,
+} GPIO_PIN_t;
+
+typedef enum
+{
+ GPIO_MODE_INPUT = 1,
+ GPIO_MODE_OUTPUT_DHZ = 0,
+} GPIO_MODE_t;
+
+typedef enum
+{
+ GPIO_TYPE_ANALOG = 0x01,
+ GPIO_TYPE_FLOATING = 0x01,
+ GPIO_TYPE_PULLUP = 0x00,
+ GPIO_TYPE_GP_PP = 0x01,
+ GPIO_TYPE_AF_PP = 0x01,
+} GPIO_TYPE_t;
+
+typedef enum
+{
+ GPIO_STATE_LOW = 0,
+ GPIO_STATE_HIGH,
+ GPIO_STATE_MAX = 0xFF,
+} GPIO_STATE_t;
+
+void Gpio_initPin( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_MODE_t mode, GPIO_TYPE_t type );
+void Gpio_setPinState( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_STATE_t state );
+GPIO_STATE_t Gpio_getPinState( GPIO_ID_t id, GPIO_PIN_t pin );
+void Gpio_setPortState( GPIO_ID_t Id, GPIO_PIN_t pins, GPIO_STATE_t state );
+GPIO_STATE_t Gpio_getPortState( GPIO_ID_t id, GPIO_PIN_t pins );
 # 5 "./Led.h" 2
 
 
 typedef enum
 {
- LED1_ID,
- LED2_ID
-}LED_t;
+ LED_ID_1 = 0,
+ LED_ID_2,
+ LED_ID_MAX,
+} LED_ID_t;
 
-void Led_init( Id_t id, Id_t xGpioId, uint8_t xPin );
-void Led_setState( Id_t id, uint8_t state );
-# 5 "./LedTask.h" 2
+typedef enum
+{
+ LED_STATE_OFF = 0,
+ LED_STATE_ON,
+} LED_STATE_t;
 
+typedef enum
+{
+ LED_BLINK_0MS = 0,
+ LED_BLINK_100MS = 100,
+ LED_BLINK_500MS = 500,
+ LED_BLINK_1000MS = 1000,
+ LED_BLINK_5000MS = 5000,
+} LED_BLINK_t;
 
-void LedTask_init( Id_t id, Id_t xGpioId, uint8_t xPin );
-void LedTask_setState( Id_t id, uint8_t state, uint16_t period );
-void LedTask_update( void *paramter );
+void Led_init( LED_ID_t id, GPIO_ID_t gpioId, GPIO_PIN_t gpioPin );
+void Led_update( void *paramter );
+void Led_setState( LED_ID_t id, LED_STATE_t state, LED_BLINK_t period );
 # 3 "SchedulerConfig.c" 2
 
 
-void Scheduler_initSysTick( TickType_t msTickPeriod )
+void Scheduler_initSysTick( TickType_t systickPeriod )
 {
- TickType_t tickNumber = ( TickType_t )( ( ( ( ( ( 16000000 ) / ( 4 ) ) / ( ( TickType_t ) 1 ) ) / 1000 ) * msTickPeriod ) - 1 );
-    Timer1_init( tickNumber );
+    Timer_init( TIMER_ID_1, TIMER_MODE_NORMAL, systickPeriod, TIMER_CHANNEL_NORMAL, TIMER_EVENT_NORMAL );
     (INTCONbits.GIE = 1);
 }
 
@@ -2222,10 +2300,10 @@ void Scheduler_displayError( UBaseType_t errorCode )
 {
  if( errorCode )
  {
-  LedTask_setState( LED2_ID, ( 0 ), 0 );
+  Led_setState( LED_ID_1, LED_STATE_OFF, LED_BLINK_0MS );
  }else
  {
-  LedTask_setState( LED2_ID, ( 1 ), 0 );
+  Led_setState( LED_ID_1, LED_STATE_ON, LED_BLINK_0MS );
  }
 }
 

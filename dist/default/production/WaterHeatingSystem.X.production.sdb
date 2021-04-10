@@ -3,61 +3,580 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 0 ]
-"33 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
-[e E1230 . `uc
-SWITCH1_ID 0
-SWITCH2_ID 1
-SWITCH3_ID 2
+"29 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+[e E1306 . `uc
+SWITCH_ID_1 0
+SWITCH_ID_2 1
+SWITCH_ID_3 2
+SWITCH_ID_MAX 3
 ]
-[e E1190 . `uc
-GPIOA_ID 0
-GPIOB_ID 1
-GPIOC_ID 2
-GPIOD_ID 3
-GPIOE_ID 4
+[e E1189 . `uc
+GPIO_ID_A 0
+GPIO_ID_B 1
+GPIO_ID_C 2
+GPIO_ID_D 3
+GPIO_ID_E 4
+GPIO_ID_MAX 5
+]
+[e E1197 . `uc
+GPIO_PIN_0 0
+GPIO_PIN_1 1
+GPIO_PIN_2 2
+GPIO_PIN_3 3
+GPIO_PIN_4 4
+GPIO_PIN_5 5
+GPIO_PIN_6 6
+GPIO_PIN_7 7
+GPIO_PIN_MAX 255
+]
+"32
+[e E1325 . `uc
+TEMPSNSR_ID_1 0
+TEMPSNSR_ID_MAX 1
+]
+[e E1243 . `uc
+ADC_ID_0 0
+]
+[e E1246 . `uc
+ADC_CHANNEL_1 0
+ADC_CHANNEL_2 1
+ADC_CHANNEL_3 2
+ADC_CHANNEL_4 3
+ADC_CHANNEL_5 4
+ADC_CHANNEL_6 5
+ADC_CHANNEL_7 6
+ADC_CHANNEL_8 7
+]
+"33
+[e E1343 . `uc
+TEMPCTRL_ID_1 0
+TEMPCTRL_ID_MAX 1
+]
+"34
+[e E1363 . `uc
+LED_ID_1 0
+LED_ID_2 1
+LED_ID_MAX 2
 ]
 "36
-[e E1249 . `uc
-TEMP_SENSOR1_ID 0
-]
-"37
-[e E1268 . `uc
-TEMP_CONTROL1_ID 0
+[e E1389 . `uc
+SSD_ID_1 0
+SSD_ID_2 1
+SSD_ID_MAX 2
 ]
 "38
-[e E1291 . `uc
-LED1_ID 0
-LED2_ID 1
+[e E1455 . `uc
+HEATER_ID_1 0
+HEATER_ID_MAX 1
 ]
-"40
-[e E1312 . `uc
-SSD1_ID 0
-SSD2_ID 1
+"7 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
+[e E1172 . `uc
+TIMER_ID_0 0
+TIMER_ID_1 1
+TIMER_ID_2 2
+TIMER_ID_MAX 3
 ]
-"42
-[e E1374 . `uc
-HEATER1_ID 0
+[e E1178 . `uc
+TIMER_MODE_NORMAL 0
+TIMER_MODE_COUNTUP 1
 ]
-"16 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
-[e E1206 . `uc
-LED1_ID 0
-LED2_ID 1
+[e E1197 . `ui
+TIMER_PERIOD_MIN 0
+TIMER_PERIOD_MAX 1000
+]
+[e E1182 . `uc
+TIMER_CHANNEL_NORMAL 0
+TIMER_CHANNEL_1 1
+]
+[e E1186 . `uc
+TIMER_EVENT_NORMAL 11
+TIMER_EVENT_CLOCKIN_RISING 12
+TIMER_EVENT_CLOCKIN_FALLING 13
+TIMER_EVENT_CAPTURE_RISING 5
+TIMER_EVENT_CAPTURE_FALLING 4
+TIMER_EVENT_COMPARE_SET 8
+TIMER_EVENT_COMPARE_RESET 9
+TIMER_EVENT_PWM_NONINVERT 15
+TIMER_EVENT_PWM_INVERT 16
+]
+"15
+[e E1271 . `uc
+LED_ID_1 0
+LED_ID_2 1
+LED_ID_MAX 2
+]
+[e E1276 . `uc
+LED_STATE_OFF 0
+LED_STATE_ON 1
+]
+[e E1280 . `ui
+LED_BLINK_0MS 0
+LED_BLINK_100MS 100
+LED_BLINK_500MS 500
+LED_BLINK_1000MS 1000
+LED_BLINK_5000MS 5000
+]
+"13 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
+[e E1172 . `uc
+GPIO_ID_A 0
+GPIO_ID_B 1
+GPIO_ID_C 2
+GPIO_ID_D 3
+GPIO_ID_E 4
+GPIO_ID_MAX 5
+]
+[e E1180 . `uc
+GPIO_PIN_0 0
+GPIO_PIN_1 1
+GPIO_PIN_2 2
+GPIO_PIN_3 3
+GPIO_PIN_4 4
+GPIO_PIN_5 5
+GPIO_PIN_6 6
+GPIO_PIN_7 7
+GPIO_PIN_MAX 255
+]
+[e E1231 . `uc
+LED_STATE_OFF 0
+LED_STATE_ON 1
+]
+[e E1235 . `ui
+LED_BLINK_0MS 0
+LED_BLINK_100MS 100
+LED_BLINK_500MS 500
+LED_BLINK_1000MS 1000
+LED_BLINK_5000MS 5000
+]
+"18
+[e E1226 . `uc
+LED_ID_1 0
+LED_ID_2 1
+LED_ID_MAX 2
+]
+"54
+[e E1191 . `uc
+GPIO_MODE_INPUT 1
+GPIO_MODE_OUTPUT_DHZ 0
+]
+[e E1195 . `uc
+GPIO_TYPE_ANALOG 1
+GPIO_TYPE_FLOATING 1
+GPIO_TYPE_PULLUP 0
+GPIO_TYPE_GP_PP 1
+GPIO_TYPE_AF_PP 1
+]
+"61
+[e E1202 . `uc
+GPIO_STATE_LOW 0
+GPIO_STATE_HIGH 1
+GPIO_STATE_MAX 255
+]
+"12 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
+[e E1172 . `uc
+GPIO_ID_A 0
+GPIO_ID_B 1
+GPIO_ID_C 2
+GPIO_ID_D 3
+GPIO_ID_E 4
+GPIO_ID_MAX 5
+]
+[e E1180 . `uc
+GPIO_PIN_0 0
+GPIO_PIN_1 1
+GPIO_PIN_2 2
+GPIO_PIN_3 3
+GPIO_PIN_4 4
+GPIO_PIN_5 5
+GPIO_PIN_6 6
+GPIO_PIN_7 7
+GPIO_PIN_MAX 255
+]
+[e E1232 . `uc
+SWITCH_STATE_RELEASED 0
+SWITCH_STATE_PRESSED 1
+SWITCH_STATE_ERROR 2
+]
+"17
+[e E1226 . `uc
+SWITCH_ID_1 0
+SWITCH_ID_2 1
+SWITCH_ID_3 2
+SWITCH_ID_MAX 3
+]
+"57
+[e E1191 . `uc
+GPIO_MODE_INPUT 1
+GPIO_MODE_OUTPUT_DHZ 0
+]
+[e E1195 . `uc
+GPIO_TYPE_ANALOG 1
+GPIO_TYPE_FLOATING 1
+GPIO_TYPE_PULLUP 0
+GPIO_TYPE_GP_PP 1
+GPIO_TYPE_AF_PP 1
+]
+"62
+[e E1202 . `uc
+GPIO_STATE_LOW 0
+GPIO_STATE_HIGH 1
+GPIO_STATE_MAX 255
+]
+"17 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
+[e E1172 . `uc
+GPIO_ID_A 0
+GPIO_ID_B 1
+GPIO_ID_C 2
+GPIO_ID_D 3
+GPIO_ID_E 4
+GPIO_ID_MAX 5
+]
+[e E1180 . `uc
+GPIO_PIN_0 0
+GPIO_PIN_1 1
+GPIO_PIN_2 2
+GPIO_PIN_3 3
+GPIO_PIN_4 4
+GPIO_PIN_5 5
+GPIO_PIN_6 6
+GPIO_PIN_7 7
+GPIO_PIN_MAX 255
+]
+[e E1226 . `uc
+SSD_ID_1 0
+SSD_ID_2 1
+SSD_ID_MAX 2
+]
+[e E1231 . `uc
+SSD_STATE_OFF 0
+SSD_STATE_ON 1
+]
+[e E1235 . `ui
+SSD_BLINK_0MS 0
+SSD_BLINK_100MS 100
+SSD_BLINK_500MS 500
+SSD_BLINK_1000MS 1000
+SSD_BLINK_5000MS 5000
+]
+"56
+[e E1242 . `uc
+SSD_SYMBOL_MIN 0
+SSD_SYMBOL_MAX 9
+]
+"79
+[e E1191 . `uc
+GPIO_MODE_INPUT 1
+GPIO_MODE_OUTPUT_DHZ 0
+]
+[e E1195 . `uc
+GPIO_TYPE_ANALOG 1
+GPIO_TYPE_FLOATING 1
+GPIO_TYPE_PULLUP 0
+GPIO_TYPE_GP_PP 1
+GPIO_TYPE_AF_PP 1
+]
+"90
+[e E1202 . `uc
+GPIO_STATE_LOW 0
+GPIO_STATE_HIGH 1
+GPIO_STATE_MAX 255
+]
+"7 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Timer.c
+[e E1172 . `uc
+TIMER_ID_0 0
+TIMER_ID_1 1
+TIMER_ID_2 2
+TIMER_ID_MAX 3
+]
+[e E1178 . `uc
+TIMER_MODE_NORMAL 0
+TIMER_MODE_COUNTUP 1
+]
+[e E1197 . `ui
+TIMER_PERIOD_MIN 0
+TIMER_PERIOD_MAX 1000
+]
+[e E1182 . `uc
+TIMER_CHANNEL_NORMAL 0
+TIMER_CHANNEL_1 1
+]
+[e E1186 . `uc
+TIMER_EVENT_NORMAL 11
+TIMER_EVENT_CLOCKIN_RISING 12
+TIMER_EVENT_CLOCKIN_FALLING 13
+TIMER_EVENT_CAPTURE_RISING 5
+TIMER_EVENT_CAPTURE_FALLING 4
+TIMER_EVENT_COMPARE_SET 8
+TIMER_EVENT_COMPARE_RESET 9
+TIMER_EVENT_PWM_NONINVERT 15
+TIMER_EVENT_PWM_INVERT 16
+]
+"3 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Adc.c
+[e E1172 . `uc
+ADC_ID_0 0
+]
+"9
+[e E1175 . `uc
+ADC_CHANNEL_1 0
+ADC_CHANNEL_2 1
+ADC_CHANNEL_3 2
+ADC_CHANNEL_4 3
+ADC_CHANNEL_5 4
+ADC_CHANNEL_6 5
+ADC_CHANNEL_7 6
+ADC_CHANNEL_8 7
 ]
 "9 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Eeprom.c
-[e E1173 . `uc
-GPIOA_ID 0
-GPIOB_ID 1
-GPIOC_ID 2
-GPIOD_ID 3
-GPIOE_ID 4
+[e E1172 . `uc
+GPIO_ID_A 0
+GPIO_ID_B 1
+GPIO_ID_C 2
+GPIO_ID_D 3
+GPIO_ID_E 4
+GPIO_ID_MAX 5
 ]
-"24 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-[e E1364 . `uc
+[e E1180 . `uc
+GPIO_PIN_0 0
+GPIO_PIN_1 1
+GPIO_PIN_2 2
+GPIO_PIN_3 3
+GPIO_PIN_4 4
+GPIO_PIN_5 5
+GPIO_PIN_6 6
+GPIO_PIN_7 7
+GPIO_PIN_MAX 255
+]
+[e E1191 . `uc
+GPIO_MODE_INPUT 1
+GPIO_MODE_OUTPUT_DHZ 0
+]
+[e E1195 . `uc
+GPIO_TYPE_ANALOG 1
+GPIO_TYPE_FLOATING 1
+GPIO_TYPE_PULLUP 0
+GPIO_TYPE_GP_PP 1
+GPIO_TYPE_AF_PP 1
+]
+"32 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+[e E1289 . `uc
+SWITCH_ID_1 0
+SWITCH_ID_2 1
+SWITCH_ID_3 2
+SWITCH_ID_MAX 3
+]
+[e E1308 . `uc
+TEMPSNSR_ID_1 0
+TEMPSNSR_ID_MAX 1
+]
+[e E1326 . `uc
+TEMPCTRL_ID_1 0
+TEMPCTRL_ID_MAX 1
+]
+[e E1346 . `uc
+LED_ID_1 0
+LED_ID_2 1
+LED_ID_MAX 2
+]
+[e E1372 . `uc
+SSD_ID_1 0
+SSD_ID_2 1
+SSD_ID_MAX 2
+]
+[e E1454 . `uc
 OffMode 0
 OperationMode 1
 NormalMode 2
 TempSetMode 3
 ResetMode 4
+]
+"34
+[e E1438 . `uc
+HEATER_ID_1 0
+HEATER_ID_MAX 1
+]
+"98
+[e E1295 . `uc
+SWITCH_STATE_RELEASED 0
+SWITCH_STATE_PRESSED 1
+SWITCH_STATE_ERROR 2
+]
+"106
+[e E1312 . `uc
+TEMPSNSR_STATE_MIN 0
+TEMPSNSR_STATE_MAX 100
+]
+"109
+[e E1330 . `uc
+TEMPCTRL_STATE_OFF 0
+TEMPCTRL_STATE_HEAT 1
+TEMPCTRL_STATE_COOL 2
+]
+"110
+[e E1351 . `uc
+LED_STATE_OFF 0
+LED_STATE_ON 1
+]
+[e E1355 . `ui
+LED_BLINK_0MS 0
+LED_BLINK_100MS 100
+LED_BLINK_500MS 500
+LED_BLINK_1000MS 1000
+LED_BLINK_5000MS 5000
+]
+"128
+[e E1377 . `uc
+SSD_STATE_OFF 0
+SSD_STATE_ON 1
+]
+[e E1381 . `ui
+SSD_BLINK_0MS 0
+SSD_BLINK_100MS 100
+SSD_BLINK_500MS 500
+SSD_BLINK_1000MS 1000
+SSD_BLINK_5000MS 5000
+]
+"130
+[e E1388 . `uc
+SSD_SYMBOL_MIN 0
+SSD_SYMBOL_MAX 9
+]
+"18 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
+[e E1172 . `uc
+GPIO_ID_A 0
+GPIO_ID_B 1
+GPIO_ID_C 2
+GPIO_ID_D 3
+GPIO_ID_E 4
+GPIO_ID_MAX 5
+]
+[e E1180 . `uc
+GPIO_PIN_0 0
+GPIO_PIN_1 1
+GPIO_PIN_2 2
+GPIO_PIN_3 3
+GPIO_PIN_4 4
+GPIO_PIN_5 5
+GPIO_PIN_6 6
+GPIO_PIN_7 7
+GPIO_PIN_MAX 255
+]
+[e E1191 . `uc
+GPIO_MODE_INPUT 1
+GPIO_MODE_OUTPUT_DHZ 0
+]
+[e E1195 . `uc
+GPIO_TYPE_ANALOG 1
+GPIO_TYPE_FLOATING 1
+GPIO_TYPE_PULLUP 0
+GPIO_TYPE_GP_PP 1
+GPIO_TYPE_AF_PP 1
+]
+"28
+[e E1202 . `uc
+GPIO_STATE_LOW 0
+GPIO_STATE_HIGH 1
+GPIO_STATE_MAX 255
+]
+"12 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempctrl.c
+[e E1172 . `uc
+GPIO_ID_A 0
+GPIO_ID_B 1
+GPIO_ID_C 2
+GPIO_ID_D 3
+GPIO_ID_E 4
+GPIO_ID_MAX 5
+]
+[e E1180 . `uc
+GPIO_PIN_0 0
+GPIO_PIN_1 1
+GPIO_PIN_2 2
+GPIO_PIN_3 3
+GPIO_PIN_4 4
+GPIO_PIN_5 5
+GPIO_PIN_6 6
+GPIO_PIN_7 7
+GPIO_PIN_MAX 255
+]
+[e E1230 . `uc
+TEMPCTRL_STATE_OFF 0
+TEMPCTRL_STATE_HEAT 1
+TEMPCTRL_STATE_COOL 2
+]
+"17
+[e E1226 . `uc
+TEMPCTRL_ID_1 0
+TEMPCTRL_ID_MAX 1
+]
+"40
+[e E1191 . `uc
+GPIO_MODE_INPUT 1
+GPIO_MODE_OUTPUT_DHZ 0
+]
+[e E1195 . `uc
+GPIO_TYPE_ANALOG 1
+GPIO_TYPE_FLOATING 1
+GPIO_TYPE_PULLUP 0
+GPIO_TYPE_GP_PP 1
+GPIO_TYPE_AF_PP 1
+]
+"48
+[e E1202 . `uc
+GPIO_STATE_LOW 0
+GPIO_STATE_HIGH 1
+GPIO_STATE_MAX 255
+]
+"17 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempsnsr.c
+[e E1172 . `uc
+GPIO_ID_A 0
+GPIO_ID_B 1
+GPIO_ID_C 2
+GPIO_ID_D 3
+GPIO_ID_E 4
+GPIO_ID_MAX 5
+]
+[e E1180 . `uc
+GPIO_PIN_0 0
+GPIO_PIN_1 1
+GPIO_PIN_2 2
+GPIO_PIN_3 3
+GPIO_PIN_4 4
+GPIO_PIN_5 5
+GPIO_PIN_6 6
+GPIO_PIN_7 7
+GPIO_PIN_MAX 255
+]
+[e E1226 . `uc
+ADC_ID_0 0
+]
+[e E1229 . `uc
+ADC_CHANNEL_1 0
+ADC_CHANNEL_2 1
+ADC_CHANNEL_3 2
+ADC_CHANNEL_4 3
+ADC_CHANNEL_5 4
+ADC_CHANNEL_6 5
+ADC_CHANNEL_7 6
+ADC_CHANNEL_8 7
+]
+[e E1248 . `uc
+TEMPSNSR_STATE_MIN 0
+TEMPSNSR_STATE_MAX 100
+]
+"23
+[e E1244 . `uc
+TEMPSNSR_ID_1 0
+TEMPSNSR_ID_MAX 1
+]
+"65
+[e E1191 . `uc
+GPIO_MODE_INPUT 1
+GPIO_MODE_OUTPUT_DHZ 0
+]
+[e E1195 . `uc
+GPIO_TYPE_ANALOG 1
+GPIO_TYPE_FLOATING 1
+GPIO_TYPE_PULLUP 0
+GPIO_TYPE_GP_PP 1
+GPIO_TYPE_AF_PP 1
 ]
 "3 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Adc.c
 [v _Adc_init Adc_init `(v  1 e 1 0 ]
@@ -98,11 +617,11 @@ ResetMode 4
 [v _Eeprom_readPage Eeprom_readPage `(v  1 e 1 0 ]
 "18 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
 [v _Gpio_initPin Gpio_initPin `(v  1 e 1 0 ]
-"23
-[v _Gpio_setPinState Gpio_setPinState `(v  1 e 1 0 ]
 "28
-[v _Gpio_getPinState Gpio_getPinState `(uc  1 e 1 0 ]
-"33
+[v _Gpio_setPinState Gpio_setPinState `(v  1 e 1 0 ]
+"34
+[v _Gpio_getPinState Gpio_getPinState `(E1202  1 e 1 0 ]
+"39
 [v _Gpio_setPortState Gpio_setPortState `(v  1 e 1 0 ]
 "3 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
 [v _I2c_initMaster I2c_initMaster `(v  1 e 1 0 ]
@@ -122,19 +641,19 @@ ResetMode 4
 [v _I2c_ack I2c_ack `(v  1 e 1 0 ]
 "60
 [v _I2c_nack I2c_nack `(v  1 e 1 0 ]
-"12 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
+"18 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
 [v _Led_init Led_init `(v  1 e 1 0 ]
-"20
+"29
+[v _Led_update Led_update `(v  1 e 1 0 ]
+"46
 [v _Led_setState Led_setState `(v  1 e 1 0 ]
-"13 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\LedTask.c
-[v _LedTask_init LedTask_init `(v  1 e 1 0 ]
-"22
-[v _LedTask_setState LedTask_setState `(v  1 e 1 0 ]
-"28
-[v _LedTask_update LedTask_update `(v  1 e 1 0 ]
-"24 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+"52
+[v _initLedHardware initLedHardware `(v  1 e 1 0 ]
+"57
+[v _setLedHardwareState setLedHardwareState `(v  1 e 1 0 ]
+"20 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
 [v _SysTick_Handler SysTick_Handler `II(v  1 e 1 0 ]
-"31
+"27
 [v _main main `(i  1 e 2 0 ]
 "21 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Scheduler.c
 [v _Scheduler_init Scheduler_init `(v  1 e 1 0 ]
@@ -154,64 +673,70 @@ ResetMode 4
 [v _Scheduler_dispatchTasks Scheduler_dispatchTasks `(v  1 e 1 0 ]
 "5 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
 [v _Scheduler_initSysTick Scheduler_initSysTick `(v  1 e 1 0 ]
-"12
+"11
 [v _Scheduler_displayError Scheduler_displayError `(v  1 e 1 0 ]
-"23
+"22
 [v _Scheduler_sleepHardware Scheduler_sleepHardware `(v  1 e 1 0 ]
-"38
-[v _Scheduler_delaySoftwareMs Scheduler_delaySoftwareMs `(v  1 e 1 0 ]
-"46
-[v _Scheduler_delaySoftwareUs Scheduler_delaySoftwareUs `(v  1 e 1 0 ]
-"14 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
-[v _Ssd_init Ssd_init `(v  1 e 1 0 ]
-"28
-[v _Ssd_setState Ssd_setState `(v  1 e 1 0 ]
-"33
-[v _Ssd_setSymbol Ssd_setSymbol `(v  1 e 1 0 ]
-"15 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SsdTask.c
-[v _SsdTask_init SsdTask_init `(v  1 e 1 0 ]
-"26
-[v _SsdTask_setState SsdTask_setState `(v  1 e 1 0 ]
-"32
-[v _SsdTask_setSymbol SsdTask_setSymbol `(v  1 e 1 0 ]
 "37
-[v _SsdTask_update SsdTask_update `(v  1 e 1 0 ]
-"11 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
+[v _Scheduler_delaySoftwareMs Scheduler_delaySoftwareMs `(v  1 e 1 0 ]
+"45
+[v _Scheduler_delaySoftwareUs Scheduler_delaySoftwareUs `(v  1 e 1 0 ]
+"24 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
+[v _Ssd_init Ssd_init `(v  1 e 1 0 ]
+"39
+[v _Ssd_update Ssd_update `(v  1 e 1 0 ]
+"66
+[v _Ssd_setState Ssd_setState `(v  1 e 1 0 ]
+"72
+[v _Ssd_setSymbol Ssd_setSymbol `(v  1 e 1 0 ]
+"77
+[v _initSsdHardware initSsdHardware `(v  1 e 1 0 ]
+"86
+[v _setSsdHardwareState setSsdHardwareState `(v  1 e 1 0 ]
+"100
+[v _setSsdHardwareSymbol setSsdHardwareSymbol `(v  1 e 1 0 ]
+"17 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
 [v _Switch_init Switch_init `(v  1 e 1 0 ]
-"18
-[v _Switch_getState Switch_getState `(uc  1 e 1 0 ]
-"12 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SwitchTask.c
-[v _SwitchTask_init SwitchTask_init `(v  1 e 1 0 ]
-"20
-[v _SwitchTask_getState SwitchTask_getState `(uc  1 e 1 0 ]
 "27
-[v _SwitchTask_update SwitchTask_update `(v  1 e 1 0 ]
-"13 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControl.c
-[v _TempControl_init TempControl_init `(v  1 e 1 0 ]
-"23
-[v _TempControl_setState TempControl_setState `(v  1 e 1 0 ]
-"10 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControlTask.c
-[v _TempControlTask_init TempControlTask_init `(v  1 e 1 0 ]
-"16
-[v _TempControlTask_setState TempControlTask_setState `(v  1 e 1 0 ]
-"21
-[v _TempControlTask_update TempControlTask_update `(v  1 e 1 0 ]
-"16 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempSensor.c
-[v _TempSensor_init TempSensor_init `(v  1 e 1 0 ]
-"29
-[v _TempSensor_getState TempSensor_getState `(uc  1 e 1 0 ]
-"13 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempSensorTask.c
-[v _TempSensorTask_init TempSensorTask_init `(v  1 e 1 0 ]
-"26
-[v _TempSensorTask_getAverage TempSensorTask_getAverage `(uc  1 e 1 0 ]
-"31
-[v _TempSensorTask_update TempSensorTask_update `(v  1 e 1 0 ]
-"16 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Timer.c
+[v _Switch_update Switch_update `(v  1 e 1 0 ]
+"48
+[v _Switch_getState Switch_getState `(E1232  1 e 1 0 ]
+"55
+[v _initSwitchHardware initSwitchHardware `(v  1 e 1 0 ]
+"60
+[v _getSwitchHardwareState getSwitchHardwareState `(E1232  1 e 1 0 ]
+"17 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempctrl.c
+[v _Tempctrl_init Tempctrl_init `(v  1 e 1 0 ]
+"27
+[v _Tempctrl_update Tempctrl_update `(v  1 e 1 0 ]
+"33
+[v _Tempctrl_setState Tempctrl_setState `(v  1 e 1 0 ]
+"38
+[v _initTempctrlHardware initTempctrlHardware `(v  1 e 1 0 ]
+"44
+[v _setTempctrlHardwareState setTempctrlHardwareState `(v  1 e 1 0 ]
+"23 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempsnsr.c
+[v _Tempsnsr_init Tempsnsr_init `(v  1 e 1 0 ]
+"42
+[v _Tempsnsr_update Tempsnsr_update `(v  1 e 1 0 ]
+"58
+[v _Tempsnsr_getState Tempsnsr_getState `(E1312  1 e 1 0 ]
+"63
+[v _initTempsnsrHardware initTempsnsrHardware `(v  1 e 1 0 ]
+"69
+[v _getTempsnsrHarwareState getTempsnsrHarwareState `(E1248  1 e 1 0 ]
+"75
+[v _getAvgTemp getAvgTemp `(E1248  1 e 1 0 ]
+"7 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Timer.c
+[v _Timer_init Timer_init `(v  1 e 1 0 ]
+"43
+[v _Timer0_init Timer0_init `(v  1 e 1 0 ]
+"52
 [v _Timer1_init Timer1_init `(v  1 e 1 0 ]
-"26 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-[v _HeaterTask_init HeaterTask_init `(v  1 e 1 0 ]
-"74
-[v _HeaterTask_update HeaterTask_update `(v  1 e 1 0 ]
+"34 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+[v _Heater_init Heater_init `(v  1 e 1 0 ]
+"91
+[v _Heater_update Heater_update `(v  1 e 1 0 ]
 "59 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
 "166
@@ -226,7 +751,7 @@ ResetMode 4
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
 "454
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
-[s S167 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S233 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -236,29 +761,23 @@ ResetMode 4
 `uc 1 GIE 1 0 :1:7 
 ]
 "477
-[s S176 . 1 `uc 1 . 1 0 :2:0 
+[s S242 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S181 . 1 `S167 1 . 1 0 `S176 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES181  1 e 1 @11 ]
+[u S247 . 1 `S233 1 . 1 0 `S242 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES247  1 e 1 @11 ]
 "532
 [v _PIR1 PIR1 `VEuc  1 e 1 @12 ]
-"641
-[v _TMR1L TMR1L `VEuc  1 e 1 @14 ]
-"648
-[v _TMR1H TMR1H `VEuc  1 e 1 @15 ]
 "655
 [v _T1CON T1CON `VEuc  1 e 1 @16 ]
 "808
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "815
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-"892
-[v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
-"899
-[v _CCPR1H CCPR1H `VEuc  1 e 1 @22 ]
+"885
+[v _CCPR1 CCPR1 `VEus  1 e 2 @21 ]
 "906
 [v _CCP1CON CCP1CON `VEuc  1 e 1 @23 ]
 "1152
@@ -279,160 +798,133 @@ ResetMode 4
 [v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
 "2229
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
-[s S756 . 129 `uc 1 PORT 1 0 `[127]uc 1 PAD 127 1 `uc 1 TRIS 1 128 ]
+[s S1003 . 129 `uc 1 PORT 1 0 `[127]uc 1 PAD 127 1 `uc 1 TRIS 1 128 ]
 "16 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
-[v _gpio gpio `[5]*.39S756  1 s 10 gpio ]
-[s S308 . 3 `uc 1 xGpioId 1 0 `uc 1 xPin 1 1 `uc 1 state 1 2 ]
-"10 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
-[v _led led `VE[2]S308  1 s 6 led ]
-[s S713 . 6 `uc 1 state 1 0 `uc 1 blink 1 1 `ui 1 period 2 2 `ui 1 delay 2 4 ]
-"11 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\LedTask.c
-[v _ledTask ledTask `[2]S713  1 s 12 ledTask ]
-[s S234 . 6 `*.27(v 1 pointer 1 0 `*.39v 1 paramter 2 1 `uc 1 delay 1 3 `uc 1 period 1 4 `uc 1 runMe 1 5 ]
+[v _gpio gpio `[5]*.39S1003  1 s 10 gpio ]
+[s S409 . 8 `E1172 1 gpioId 1 0 `E1180 1 gpioPin 1 1 `E1231 1 state 1 2 `E1231 1 blink 1 3 `E1235 1 period 2 4 `E1235 1 delay 2 6 ]
+"13 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
+[v _led led `[2]S409  1 s 16 led ]
+[s S309 . 6 `*.27(v 1 pointer 1 0 `*.39v 1 paramter 2 1 `uc 1 delay 1 3 `uc 1 period 1 4 `uc 1 runMe 1 5 ]
 "19 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Scheduler.c
-[s S244 . 62 `[10]S234 1 task 60 0 `uc 1 errorCode 1 60 `uc 1 interruptFlag 1 61 ]
-[v _scheduler scheduler `VES244  1 s 62 scheduler ]
-[s S356 . 4 `uc 1 cGpioId 1 0 `uc 1 cPin 1 1 `uc 1 dGpioId 1 2 `uc 1 dPin 1 3 ]
-"11 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
-[v _ssd ssd `[2]S356  1 s 8 ssd ]
-"12
+[s S319 . 62 `[10]S309 1 task 60 0 `uc 1 errorCode 1 60 `uc 1 interruptFlag 1 61 ]
+[v _scheduler scheduler `VES319  1 s 62 scheduler ]
+[s S594 . 12 `E1172 1 gpioIdC 1 0 `E1180 1 gpioPinC 1 1 `E1172 1 gpioIdD 1 2 `E1180 1 gpioPinD 1 3 `E1226 1 counter 1 4 `uc 1 symbol 1 5 `E1231 1 state 1 6 `E1231 1 blink 1 7 `E1235 1 period 2 8 `E1235 1 delay 2 10 ]
+"17 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
+[v _ssd ssd `[2]S594  1 s 24 ssd ]
+"18
 [v _ssdSymbolPattern ssdSymbolPattern `[10]uc  1 s 10 ssdSymbolPattern ]
-[s S562 . 8 `uc 1 counter 1 0 `uc 1 symbol 1 1 `uc 1 state 1 2 `uc 1 blink 1 3 `ui 1 period 2 4 `ui 1 delay 2 6 ]
-"13 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SsdTask.c
-[v _ssdTask ssdTask `[2]S562  1 s 16 ssdTask ]
-[s S337 . 2 `uc 1 xGpioId 1 0 `uc 1 xPin 1 1 ]
-"9 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
-[v _sw sw `[3]S337  1 s 6 sw ]
-[s S540 . 3 `uc 1 lock 1 0 `uc 1 counter 1 1 `uc 1 state 1 2 ]
-"10 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SwitchTask.c
-[v _switchTask switchTask `[3]S540  1 s 9 switchTask ]
-[s S692 . 4 `uc 1 hGpioId 1 0 `uc 1 hPin 1 1 `uc 1 cGpioId 1 2 `uc 1 cPin 1 3 ]
-"11 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControl.c
-[v _tempControl tempControl `[1]S692  1 s 4 tempControl ]
-[s S661 . 1 `uc 1 state 1 0 ]
-"8 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControlTask.c
-[v _tempControlTask tempControlTask `[1]S661  1 s 1 tempControlTask ]
-[s S633 . 13 `uc 1 xGpioId 1 0 `uc 1 xPin 1 1 `uc 1 xAdcId 1 2 `uc 1 channel 1 3 `ul 1 voltMulti 4 4 `ul 1 voltDivide 4 8 `uc 1 result 1 12 ]
-"14 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempSensor.c
-[v _tempSensor tempSensor `[1]S633  1 s 13 tempSensor ]
-[s S598 . 14 `[10]uc 1 array 10 0 `uc 1 index 1 10 `uc 1 avgFlag 1 11 `ui 1 avgTemp 2 12 ]
-"11 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempSensorTask.c
-[v _tempSensorTask tempSensorTask `[1]S598  1 s 14 tempSensorTask ]
-[s S474 . 23 `E1364 1 state 1 0 `E1364 1 preState 1 1 `uc 1 avgTemp 1 2 `uc 1 targetTemp 1 3 `ui 1 counter 2 4 `uc 1 passwordFlag 1 6 `[8]uc 1 passwordWrite 8 7 `[8]uc 1 passwordRead 8 15 ]
-"24 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-[v _heater heater `[1]S474  1 s 23 heater ]
-"31 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+[s S503 . 5 `E1172 1 gpioId 1 0 `E1180 1 gpioPin 1 1 `E1232 1 state 1 2 `uc 1 lock 1 3 `uc 1 counter 1 4 ]
+"12 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
+[v _sw sw `[3]S503  1 s 15 sw ]
+[s S1087 . 5 `E1172 1 gpioIdH 1 0 `E1180 1 gpioPinH 1 1 `E1172 1 gpioIdC 1 2 `E1180 1 gpioPinC 1 3 `E1230 1 state 1 4 ]
+"12 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempctrl.c
+[v _tempctrl tempctrl `[1]S1087  1 s 5 tempctrl ]
+[s S1176 . 25 `E1172 1 gpioId 1 0 `E1180 1 gpioPin 1 1 `E1226 1 adcId 1 2 `E1229 1 adcChannel 1 3 `ul 1 voltMulti 4 4 `ul 1 voltDivide 4 8 `[10]uc 1 array 10 12 `uc 1 index 1 22 `uc 1 avgFlag 1 23 `E1248 1 avgTemp 1 24 ]
+"17 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempsnsr.c
+[v _tempsnsr tempsnsr `[1]S1176  1 s 25 tempsnsr ]
+[s S872 . 31 `E1289 1 sSwId 1 0 `E1289 1 mSwId 1 1 `E1289 1 pSwId 1 2 `E1308 1 xTempsnsrId 1 3 `E1326 1 xTempctrlId 1 4 `E1346 1 xLedId 1 5 `E1372 1 aSsdId 1 6 `E1372 1 bSsdId 1 7 `E1454 1 state 1 8 `E1454 1 preState 1 9 `uc 1 avgTemp 1 10 `uc 1 targetTemp 1 11 `ui 1 counter 2 12 `uc 1 passwordFlag 1 14 `[8]uc 1 passwordWrite 8 15 `[8]uc 1 passwordRead 8 23 ]
+"32 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+[v _heater heater `[1]S872  1 s 31 heater ]
+"27 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"64
+"61
 } 0
-"13 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempSensorTask.c
-[v _TempSensorTask_init TempSensorTask_init `(v  1 e 1 0 ]
+"23 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempsnsr.c
+[v _Tempsnsr_init Tempsnsr_init `(v  1 e 1 0 ]
 {
-[v TempSensorTask_init@id id `uc  1 a 1 wreg ]
-"15
-[v TempSensorTask_init@index index `ui  1 a 2 26 ]
-"13
-[v TempSensorTask_init@id id `uc  1 a 1 wreg ]
-[v TempSensorTask_init@xGpioId xGpioId `uc  1 p 1 22 ]
-[v TempSensorTask_init@xPin xPin `uc  1 p 1 23 ]
-[v TempSensorTask_init@xAdcId xAdcId `uc  1 p 1 24 ]
-"15
-[v TempSensorTask_init@id id `uc  1 a 1 28 ]
-"24
+[v Tempsnsr_init@id id `E1244  1 a 1 wreg ]
+"25
+[v Tempsnsr_init@index index `ui  1 a 2 25 ]
+"23
+[v Tempsnsr_init@id id `E1244  1 a 1 wreg ]
+[v Tempsnsr_init@gpioId gpioId `E1172  1 p 1 20 ]
+[v Tempsnsr_init@gpioPin gpioPin `E1180  1 p 1 21 ]
+[v Tempsnsr_init@adcId adcId `E1226  1 p 1 22 ]
+[v Tempsnsr_init@adcChannel adcChannel `E1229  1 p 1 23 ]
+[v Tempsnsr_init@id id `E1244  1 a 1 27 ]
+"40
 } 0
-"16 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempSensor.c
-[v _TempSensor_init TempSensor_init `(v  1 e 1 0 ]
+"63
+[v _initTempsnsrHardware initTempsnsrHardware `(v  1 e 1 0 ]
 {
-[v TempSensor_init@id id `uc  1 a 1 wreg ]
-[v TempSensor_init@id id `uc  1 a 1 wreg ]
-[v TempSensor_init@xGpioId xGpioId `uc  1 p 1 18 ]
-[v TempSensor_init@xPin xPin `uc  1 p 1 19 ]
-[v TempSensor_init@xAdcId xAdcId `uc  1 p 1 20 ]
-"18
-[v TempSensor_init@id id `uc  1 a 1 21 ]
-"27
+[v initTempsnsrHardware@id id `E1244  1 a 1 wreg ]
+[v initTempsnsrHardware@id id `E1244  1 a 1 wreg ]
+"65
+[v initTempsnsrHardware@id id `E1244  1 a 1 19 ]
+"67
 } 0
 "3 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Adc.c
 [v _Adc_init Adc_init `(v  1 e 1 0 ]
 {
 "7
 } 0
-"10 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControlTask.c
-[v _TempControlTask_init TempControlTask_init `(v  1 e 1 0 ]
+"17 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempctrl.c
+[v _Tempctrl_init Tempctrl_init `(v  1 e 1 0 ]
 {
-[v TempControlTask_init@id id `uc  1 a 1 wreg ]
-[v TempControlTask_init@id id `uc  1 a 1 wreg ]
-[v TempControlTask_init@hGpioId hGpioId `uc  1 p 1 25 ]
-[v TempControlTask_init@hPin hPin `uc  1 p 1 26 ]
-[v TempControlTask_init@cGpioId cGpioId `uc  1 p 1 27 ]
-[v TempControlTask_init@cPin cPin `uc  1 p 1 28 ]
-"12
-[v TempControlTask_init@id id `uc  1 a 1 29 ]
-"14
+[v Tempctrl_init@id id `E1226  1 a 1 wreg ]
+[v Tempctrl_init@id id `E1226  1 a 1 wreg ]
+[v Tempctrl_init@gpioIdH gpioIdH `E1172  1 p 1 20 ]
+[v Tempctrl_init@gpioPinH gpioPinH `E1180  1 p 1 21 ]
+[v Tempctrl_init@gpioIdC gpioIdC `E1172  1 p 1 22 ]
+[v Tempctrl_init@gpioPinC gpioPinC `E1180  1 p 1 23 ]
+"19
+[v Tempctrl_init@id id `E1226  1 a 1 24 ]
+"25
 } 0
-"13 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControl.c
-[v _TempControl_init TempControl_init `(v  1 e 1 0 ]
+"38
+[v _initTempctrlHardware initTempctrlHardware `(v  1 e 1 0 ]
 {
-[v TempControl_init@id id `uc  1 a 1 wreg ]
-[v TempControl_init@id id `uc  1 a 1 wreg ]
-[v TempControl_init@hGpioId hGpioId `uc  1 p 1 18 ]
-[v TempControl_init@hPin hPin `uc  1 p 1 19 ]
-[v TempControl_init@cGpioId cGpioId `uc  1 p 1 20 ]
-[v TempControl_init@cPin cPin `uc  1 p 1 21 ]
-"15
-[v TempControl_init@id id `uc  1 a 1 24 ]
-"21
+[v initTempctrlHardware@id id `E1226  1 a 1 wreg ]
+[v initTempctrlHardware@id id `E1226  1 a 1 wreg ]
+"40
+[v initTempctrlHardware@id id `E1226  1 a 1 19 ]
+"42
 } 0
-"12 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SwitchTask.c
-[v _SwitchTask_init SwitchTask_init `(v  1 e 1 0 ]
-{
-[v SwitchTask_init@id id `uc  1 a 1 wreg ]
-[v SwitchTask_init@id id `uc  1 a 1 wreg ]
-[v SwitchTask_init@xGpioId xGpioId `uc  1 p 1 23 ]
-[v SwitchTask_init@xPin xPin `uc  1 p 1 24 ]
-"14
-[v SwitchTask_init@id id `uc  1 a 1 25 ]
-"18
-} 0
-"11 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
+"17 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
 [v _Switch_init Switch_init `(v  1 e 1 0 ]
 {
-[v Switch_init@id id `uc  1 a 1 wreg ]
-[v Switch_init@id id `uc  1 a 1 wreg ]
-[v Switch_init@xGpioId xGpioId `uc  1 p 1 18 ]
-[v Switch_init@xPin xPin `uc  1 p 1 19 ]
-"13
-[v Switch_init@id id `uc  1 a 1 22 ]
-"16
+[v Switch_init@id id `E1226  1 a 1 wreg ]
+[v Switch_init@id id `E1226  1 a 1 wreg ]
+[v Switch_init@gpioId gpioId `E1172  1 p 1 20 ]
+[v Switch_init@gpioPin gpioPin `E1180  1 p 1 21 ]
+"19
+[v Switch_init@id id `E1226  1 a 1 22 ]
+"25
 } 0
-"15 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SsdTask.c
-[v _SsdTask_init SsdTask_init `(v  1 e 1 0 ]
+"55
+[v _initSwitchHardware initSwitchHardware `(v  1 e 1 0 ]
 {
-[v SsdTask_init@id id `uc  1 a 1 wreg ]
-[v SsdTask_init@id id `uc  1 a 1 wreg ]
-[v SsdTask_init@cGpioId cGpioId `uc  1 p 1 28 ]
-[v SsdTask_init@cPin cPin `uc  1 p 1 29 ]
-[v SsdTask_init@dGpioId dGpioId `uc  1 p 1 30 ]
-[v SsdTask_init@dPin dPin `uc  1 p 1 31 ]
-"17
-[v SsdTask_init@id id `uc  1 a 1 33 ]
-"24
+[v initSwitchHardware@id id `E1226  1 a 1 wreg ]
+[v initSwitchHardware@id id `E1226  1 a 1 wreg ]
+"57
+[v initSwitchHardware@id id `E1226  1 a 1 19 ]
+"58
 } 0
-"14 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
+"24 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
 [v _Ssd_init Ssd_init `(v  1 e 1 0 ]
 {
-[v Ssd_init@id id `uc  1 a 1 wreg ]
-"16
-[v Ssd_init@pin pin `ui  1 a 2 25 ]
-"14
-[v Ssd_init@id id `uc  1 a 1 wreg ]
-[v Ssd_init@cGpioId cGpioId `uc  1 p 1 18 ]
-[v Ssd_init@cPin cPin `uc  1 p 1 19 ]
-[v Ssd_init@dGpioId dGpioId `uc  1 p 1 20 ]
-[v Ssd_init@dPin dPin `uc  1 p 1 21 ]
-[v Ssd_init@id id `uc  1 a 1 27 ]
+[v Ssd_init@id id `E1226  1 a 1 wreg ]
+[v Ssd_init@id id `E1226  1 a 1 wreg ]
+[v Ssd_init@gpioIdC gpioIdC `E1172  1 p 1 22 ]
+[v Ssd_init@gpioPinC gpioPinC `E1180  1 p 1 23 ]
+[v Ssd_init@gpioIdD gpioIdD `E1172  1 p 1 24 ]
+[v Ssd_init@gpioPinD gpioPinD `E1180  1 p 1 25 ]
 "26
+[v Ssd_init@id id `E1226  1 a 1 26 ]
+"37
+} 0
+"77
+[v _initSsdHardware initSsdHardware `(v  1 e 1 0 ]
+{
+[v initSsdHardware@id id `E1226  1 a 1 wreg ]
+"80
+[v initSsdHardware@i i `ui  1 a 2 19 ]
+"77
+[v initSsdHardware@id id `E1226  1 a 1 wreg ]
+"79
+[v initSsdHardware@id id `E1226  1 a 1 21 ]
+"84
 } 0
 "68 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Scheduler.c
 [v _Scheduler_start Scheduler_start `(v  1 e 1 0 ]
@@ -442,11 +934,28 @@ ResetMode 4
 "5 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
 [v _Scheduler_initSysTick Scheduler_initSysTick `(v  1 e 1 0 ]
 {
-"7
-[v Scheduler_initSysTick@tickNumber tickNumber `ui  1 a 2 8 ]
-"5
-[v Scheduler_initSysTick@msTickPeriod msTickPeriod `ui  1 p 2 6 ]
-"10
+[v Scheduler_initSysTick@systickPeriod systickPeriod `ui  1 p 2 20 ]
+"9
+} 0
+"7 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Timer.c
+[v _Timer_init Timer_init `(v  1 e 1 0 ]
+{
+[v Timer_init@id id `E1172  1 a 1 wreg ]
+[v Timer_init@id id `E1172  1 a 1 wreg ]
+[v Timer_init@mode mode `E1178  1 p 1 12 ]
+[v Timer_init@period period `E1197  1 p 2 13 ]
+[v Timer_init@channel channel `E1182  1 p 1 15 ]
+[v Timer_init@event event `E1186  1 p 1 16 ]
+[v Timer_init@id id `E1172  1 a 1 19 ]
+"22
+} 0
+"52
+[v _Timer1_init Timer1_init `(v  1 e 1 0 ]
+{
+[v Timer1_init@period period `E1197  1 p 2 6 ]
+[v Timer1_init@channel channel `E1182  1 p 1 8 ]
+[v Timer1_init@event event `E1186  1 p 1 9 ]
+"66
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -458,11 +967,13 @@ ResetMode 4
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
-"16 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Timer.c
-[v _Timer1_init Timer1_init `(v  1 e 1 0 ]
+"43 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Timer.c
+[v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 {
-[v Timer1_init@tickNumber tickNumber `ui  1 p 2 0 ]
-"35
+[v Timer0_init@period period `E1197  1 p 2 3 ]
+[v Timer0_init@channel channel `E1182  1 p 1 5 ]
+[v Timer0_init@event event `E1186  1 p 1 6 ]
+"50
 } 0
 "21 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Scheduler.c
 [v _Scheduler_init Scheduler_init `(v  1 e 1 0 ]
@@ -475,172 +986,184 @@ ResetMode 4
 [v _Scheduler_dispatchTasks Scheduler_dispatchTasks `(v  1 e 1 0 ]
 {
 "118
-[v Scheduler_dispatchTasks@index index `ui  1 a 2 47 ]
+[v Scheduler_dispatchTasks@index index `ui  1 a 2 58 ]
 "133
 } 0
-"37 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SsdTask.c
-[v _SsdTask_update SsdTask_update `(v  1 e 1 0 ]
+"39 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
+[v _Ssd_update Ssd_update `(v  1 e 1 0 ]
 {
+"41
+[v Ssd_update@id id `E1226  1 a 1 51 ]
 "39
-[v SsdTask_update@id id `uc  1 a 1 41 ]
-"37
-[v SsdTask_update@paramter paramter `*.39v  1 p 2 35 ]
-"62
+[v Ssd_update@paramter paramter `*.39v  1 p 2 45 ]
+"64
 } 0
-"28 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\LedTask.c
-[v _LedTask_update LedTask_update `(v  1 e 1 0 ]
+"29 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
+[v _Led_update Led_update `(v  1 e 1 0 ]
 {
-"30
-[v LedTask_update@id id `uc  1 a 1 40 ]
-"28
-[v LedTask_update@paramter paramter `*.39v  1 p 2 35 ]
-"43
+"31
+[v Led_update@id id `E1226  1 a 1 51 ]
+"29
+[v Led_update@paramter paramter `*.39v  1 p 2 45 ]
+"44
 } 0
-"21 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControlTask.c
-[v _TempControlTask_update TempControlTask_update `(v  1 e 1 0 ]
-{
-"23
-[v TempControlTask_update@id id `uc  1 a 1 37 ]
-"21
-[v TempControlTask_update@paramter paramter `*.39v  1 p 2 35 ]
-"25
-} 0
-"74 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-[v _HeaterTask_update HeaterTask_update `(v  1 e 1 0 ]
-{
-"76
-[v HeaterTask_update@id id `uc  1 a 1 40 ]
-"74
-[v HeaterTask_update@paramter paramter `*.39v  1 p 2 35 ]
-"172
-} 0
-"27 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SwitchTask.c
-[v _SwitchTask_update SwitchTask_update `(v  1 e 1 0 ]
+"27 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempctrl.c
+[v _Tempctrl_update Tempctrl_update `(v  1 e 1 0 ]
 {
 "29
-[v SwitchTask_update@id id `uc  1 a 1 37 ]
+[v Tempctrl_update@id id `E1226  1 a 1 48 ]
 "27
-[v SwitchTask_update@paramter paramter `*.39v  1 p 2 35 ]
+[v Tempctrl_update@paramter paramter `*.39v  1 p 2 45 ]
+"31
+} 0
+"91 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+[v _Heater_update Heater_update `(v  1 e 1 0 ]
+{
+"93
+[v Heater_update@id id `E1438  1 a 1 53 ]
+"91
+[v Heater_update@paramter paramter `*.39v  1 p 2 45 ]
+"189
+} 0
+"27 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
+[v _Switch_update Switch_update `(v  1 e 1 0 ]
+{
+"29
+[v Switch_update@id id `E1226  1 a 1 47 ]
+"27
+[v Switch_update@paramter paramter `*.39v  1 p 2 45 ]
 "46
 } 0
-"31 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempSensorTask.c
-[v _TempSensorTask_update TempSensorTask_update `(v  1 e 1 0 ]
+"42 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempsnsr.c
+[v _Tempsnsr_update Tempsnsr_update `(v  1 e 1 0 ]
 {
-"34
-[v TempSensorTask_update@index index `ui  1 a 2 40 ]
-"33
-[v TempSensorTask_update@id id `uc  1 a 1 42 ]
-"31
-[v TempSensorTask_update@paramter paramter `*.39v  1 p 2 35 ]
-"49
+"44
+[v Tempsnsr_update@id id `E1244  1 a 1 49 ]
+"42
+[v Tempsnsr_update@paramter paramter `*.39v  1 p 2 45 ]
+"56
 } 0
-"29 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempSensor.c
-[v _TempSensor_getState TempSensor_getState `(uc  1 e 1 0 ]
+"69
+[v _getTempsnsrHarwareState getTempsnsrHarwareState `(E1248  1 e 1 0 ]
 {
-[v TempSensor_getState@id id `uc  1 a 1 wreg ]
-[v TempSensor_getState@id id `uc  1 a 1 wreg ]
-"31
-[v TempSensor_getState@id id `uc  1 a 1 34 ]
-"32
+[v getTempsnsrHarwareState@id id `E1244  1 a 1 wreg ]
+[v getTempsnsrHarwareState@id id `E1244  1 a 1 wreg ]
+"71
+[v getTempsnsrHarwareState@id id `E1244  1 a 1 37 ]
+"73
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 {
 "17
-[v ___lmul@product product `ul  1 a 4 12 ]
+[v ___lmul@product product `ul  1 a 4 15 ]
 "15
-[v ___lmul@multiplier multiplier `ul  1 p 4 3 ]
-[v ___lmul@multiplicand multiplicand `ul  1 p 4 7 ]
+[v ___lmul@multiplier multiplier `ul  1 p 4 6 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 10 ]
 "129
 } 0
 "9 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Adc.c
 [v _Adc_getState Adc_getState `(ui  1 e 2 0 ]
 {
+[v Adc_getState@channel channel `E1175  1 p 1 3 ]
 "15
 } 0
-"23 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControl.c
-[v _TempControl_setState TempControl_setState `(v  1 e 1 0 ]
+"75 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempsnsr.c
+[v _getAvgTemp getAvgTemp `(E1248  1 e 1 0 ]
 {
-[v TempControl_setState@id id `uc  1 a 1 wreg ]
-[v TempControl_setState@id id `uc  1 a 1 wreg ]
-[v TempControl_setState@state state `uc  1 p 1 14 ]
-"25
-[v TempControl_setState@id id `uc  1 a 1 18 ]
-"27
+[v getAvgTemp@id id `E1244  1 a 1 wreg ]
+"78
+[v getAvgTemp@temp temp `ul  1 a 4 39 ]
+"77
+[v getAvgTemp@index index `ui  1 a 2 43 ]
+"75
+[v getAvgTemp@id id `E1244  1 a 1 wreg ]
+[v getAvgTemp@id id `E1244  1 a 1 38 ]
+"85
 } 0
-"18 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
-[v _Switch_getState Switch_getState `(uc  1 e 1 0 ]
+"44 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempctrl.c
+[v _setTempctrlHardwareState setTempctrlHardwareState `(v  1 e 1 0 ]
 {
-[v Switch_getState@id id `uc  1 a 1 wreg ]
-[v Switch_getState@id id `uc  1 a 1 wreg ]
-"20
-[v Switch_getState@id id `uc  1 a 1 9 ]
-"21
+[v setTempctrlHardwareState@id id `E1226  1 a 1 wreg ]
+[v setTempctrlHardwareState@id id `E1226  1 a 1 wreg ]
+[v setTempctrlHardwareState@state state `E1230  1 p 1 14 ]
+"46
+[v setTempctrlHardwareState@id id `E1226  1 a 1 15 ]
+"61
 } 0
-"28 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
-[v _Gpio_getPinState Gpio_getPinState `(uc  1 e 1 0 ]
+"60 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
+[v _getSwitchHardwareState getSwitchHardwareState `(E1232  1 e 1 0 ]
 {
-[v Gpio_getPinState@Id Id `uc  1 a 1 wreg ]
-[v Gpio_getPinState@Id Id `uc  1 a 1 wreg ]
-[v Gpio_getPinState@Pin Pin `uc  1 p 1 0 ]
-"30
-[v Gpio_getPinState@Id Id `uc  1 a 1 6 ]
-"31
+[v getSwitchHardwareState@id id `E1226  1 a 1 wreg ]
+[v getSwitchHardwareState@id id `E1226  1 a 1 wreg ]
+"62
+[v getSwitchHardwareState@id id `E1226  1 a 1 10 ]
+"72
 } 0
-"33 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
-[v _Ssd_setSymbol Ssd_setSymbol `(v  1 e 1 0 ]
+"34 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
+[v _Gpio_getPinState Gpio_getPinState `(E1202  1 e 1 0 ]
 {
-[v Ssd_setSymbol@id id `uc  1 a 1 wreg ]
-[v Ssd_setSymbol@id id `uc  1 a 1 wreg ]
-[v Ssd_setSymbol@symbol symbol `uc  1 p 1 10 ]
-"35
-[v Ssd_setSymbol@id id `uc  1 a 1 14 ]
+[v Gpio_getPinState@id id `E1172  1 a 1 wreg ]
+[v Gpio_getPinState@id id `E1172  1 a 1 wreg ]
+[v Gpio_getPinState@pin pin `E1180  1 p 1 3 ]
 "36
+[v Gpio_getPinState@id id `E1172  1 a 1 9 ]
+"37
 } 0
-"33 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
+"100 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
+[v _setSsdHardwareSymbol setSsdHardwareSymbol `(v  1 e 1 0 ]
+{
+[v setSsdHardwareSymbol@id id `E1226  1 a 1 wreg ]
+[v setSsdHardwareSymbol@id id `E1226  1 a 1 wreg ]
+[v setSsdHardwareSymbol@symbol symbol `E1242  1 p 1 12 ]
+"102
+[v setSsdHardwareSymbol@id id `E1226  1 a 1 14 ]
+"103
+} 0
+"39 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
 [v _Gpio_setPortState Gpio_setPortState `(v  1 e 1 0 ]
 {
-[v Gpio_setPortState@Id Id `uc  1 a 1 wreg ]
-[v Gpio_setPortState@Id Id `uc  1 a 1 wreg ]
-[v Gpio_setPortState@Pins Pins `uc  1 p 1 0 ]
-[v Gpio_setPortState@State State `uc  1 p 1 1 ]
-"35
-[v Gpio_setPortState@Id Id `uc  1 a 1 9 ]
-"36
+[v Gpio_setPortState@id id `E1172  1 a 1 wreg ]
+[v Gpio_setPortState@id id `E1172  1 a 1 wreg ]
+[v Gpio_setPortState@pins pins `E1180  1 p 1 3 ]
+[v Gpio_setPortState@state state `E1202  1 p 1 4 ]
+"41
+[v Gpio_setPortState@id id `E1172  1 a 1 11 ]
+"43
 } 0
-"28 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
-[v _Ssd_setState Ssd_setState `(v  1 e 1 0 ]
+"86 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
+[v _setSsdHardwareState setSsdHardwareState `(v  1 e 1 0 ]
 {
-[v Ssd_setState@id id `uc  1 a 1 wreg ]
-[v Ssd_setState@id id `uc  1 a 1 wreg ]
-[v Ssd_setState@state state `uc  1 p 1 14 ]
-"30
-[v Ssd_setState@id id `uc  1 a 1 17 ]
-"31
+[v setSsdHardwareState@id id `E1226  1 a 1 wreg ]
+[v setSsdHardwareState@id id `E1226  1 a 1 wreg ]
+[v setSsdHardwareState@state state `E1231  1 p 1 14 ]
+"88
+[v setSsdHardwareState@id id `E1226  1 a 1 15 ]
+"98
 } 0
 "73 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Scheduler.c
 [v _Scheduler_reportStatus Scheduler_reportStatus `(v  1 e 1 0 ]
 {
 "80
 } 0
-"12 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
+"11 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
 [v _Scheduler_displayError Scheduler_displayError `(v  1 e 1 0 ]
 {
 [v Scheduler_displayError@errorCode errorCode `uc  1 a 1 wreg ]
 [v Scheduler_displayError@errorCode errorCode `uc  1 a 1 wreg ]
-"14
-[v Scheduler_displayError@errorCode errorCode `uc  1 a 1 16 ]
-"21
+"13
+[v Scheduler_displayError@errorCode errorCode `uc  1 a 1 14 ]
+"20
 } 0
 "82 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Scheduler.c
 [v _Scheduler_goToSleep Scheduler_goToSleep `(v  1 e 1 0 ]
 {
 "93
 } 0
-"23 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
+"22 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
 [v _Scheduler_sleepHardware Scheduler_sleepHardware `(v  1 e 1 0 ]
 {
-"26
+"25
 } 0
 "54 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Scheduler.c
 [v _Scheduler_deleteTask Scheduler_deleteTask `(uc  1 e 1 0 ]
@@ -651,26 +1174,26 @@ ResetMode 4
 [v Scheduler_deleteTask@index index `uc  1 a 1 3 ]
 "66
 } 0
-"20 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
-[v _Led_setState Led_setState `(v  1 e 1 0 ]
+"57 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
+[v _setLedHardwareState setLedHardwareState `(v  1 e 1 0 ]
 {
-[v Led_setState@id id `uc  1 a 1 wreg ]
-[v Led_setState@id id `uc  1 a 1 wreg ]
-[v Led_setState@state state `uc  1 p 1 14 ]
-"22
-[v Led_setState@id id `uc  1 a 1 15 ]
-"24
+[v setLedHardwareState@id id `E1226  1 a 1 wreg ]
+[v setLedHardwareState@id id `E1226  1 a 1 wreg ]
+[v setLedHardwareState@state state `E1231  1 p 1 14 ]
+"59
+[v setLedHardwareState@id id `E1226  1 a 1 17 ]
+"68
 } 0
-"23 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
+"28 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
 [v _Gpio_setPinState Gpio_setPinState `(v  1 e 1 0 ]
 {
-[v Gpio_setPinState@Id Id `uc  1 a 1 wreg ]
-[v Gpio_setPinState@Id Id `uc  1 a 1 wreg ]
-[v Gpio_setPinState@Pin Pin `uc  1 p 1 3 ]
-[v Gpio_setPinState@State State `uc  1 p 1 4 ]
-"25
-[v Gpio_setPinState@Id Id `uc  1 a 1 13 ]
-"26
+[v Gpio_setPinState@id id `E1172  1 a 1 wreg ]
+[v Gpio_setPinState@id id `E1172  1 a 1 wreg ]
+[v Gpio_setPinState@pin pin `E1180  1 p 1 3 ]
+[v Gpio_setPinState@state state `E1202  1 p 1 4 ]
+"30
+[v Gpio_setPinState@id id `E1172  1 a 1 13 ]
+"32
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -696,79 +1219,79 @@ ResetMode 4
 [v ___awdiv@dividend dividend `i  1 p 2 5 ]
 "41
 } 0
-"26 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempSensorTask.c
-[v _TempSensorTask_getAverage TempSensorTask_getAverage `(uc  1 e 1 0 ]
+"58 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempsnsr.c
+[v _Tempsnsr_getState Tempsnsr_getState `(E1312  1 e 1 0 ]
 {
-[v TempSensorTask_getAverage@id id `uc  1 a 1 wreg ]
-[v TempSensorTask_getAverage@id id `uc  1 a 1 wreg ]
-"28
-[v TempSensorTask_getAverage@id id `uc  1 a 1 3 ]
-"29
+[v Tempsnsr_getState@id id `E1244  1 a 1 wreg ]
+[v Tempsnsr_getState@id id `E1244  1 a 1 wreg ]
+"60
+[v Tempsnsr_getState@id id `E1244  1 a 1 3 ]
+"61
 } 0
-"16 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\TempControlTask.c
-[v _TempControlTask_setState TempControlTask_setState `(v  1 e 1 0 ]
+"33 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Tempctrl.c
+[v _Tempctrl_setState Tempctrl_setState `(v  1 e 1 0 ]
 {
-[v TempControlTask_setState@id id `uc  1 a 1 wreg ]
-[v TempControlTask_setState@id id `uc  1 a 1 wreg ]
-[v TempControlTask_setState@state state `uc  1 p 1 0 ]
-"18
-[v TempControlTask_setState@id id `uc  1 a 1 1 ]
-"19
-} 0
-"20 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SwitchTask.c
-[v _SwitchTask_getState SwitchTask_getState `(uc  1 e 1 0 ]
-{
-[v SwitchTask_getState@id id `uc  1 a 1 wreg ]
-"22
-[v SwitchTask_getState@buffer buffer `uc  1 a 1 3 ]
-"20
-[v SwitchTask_getState@id id `uc  1 a 1 wreg ]
-"22
-[v SwitchTask_getState@id id `uc  1 a 1 4 ]
-"25
-} 0
-"32 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SsdTask.c
-[v _SsdTask_setSymbol SsdTask_setSymbol `(v  1 e 1 0 ]
-{
-[v SsdTask_setSymbol@id id `uc  1 a 1 wreg ]
-[v SsdTask_setSymbol@id id `uc  1 a 1 wreg ]
-[v SsdTask_setSymbol@symbol symbol `uc  1 p 1 17 ]
-"34
-[v SsdTask_setSymbol@id id `uc  1 a 1 19 ]
+[v Tempctrl_setState@id id `E1226  1 a 1 wreg ]
+[v Tempctrl_setState@id id `E1226  1 a 1 wreg ]
+[v Tempctrl_setState@state state `E1230  1 p 1 3 ]
 "35
+[v Tempctrl_setState@id id `E1226  1 a 1 4 ]
+"36
 } 0
-"26
-[v _SsdTask_setState SsdTask_setState `(v  1 e 1 0 ]
+"48 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Switch.c
+[v _Switch_getState Switch_getState `(E1232  1 e 1 0 ]
 {
-[v SsdTask_setState@id id `uc  1 a 1 wreg ]
-[v SsdTask_setState@id id `uc  1 a 1 wreg ]
-[v SsdTask_setState@state state `uc  1 p 1 10 ]
-[v SsdTask_setState@period period `ui  1 p 2 11 ]
-"28
-[v SsdTask_setState@id id `uc  1 a 1 14 ]
-"30
+[v Switch_getState@id id `E1226  1 a 1 wreg ]
+"50
+[v Switch_getState@buffer buffer `uc  1 a 1 3 ]
+"48
+[v Switch_getState@id id `E1226  1 a 1 wreg ]
+"50
+[v Switch_getState@id id `E1226  1 a 1 4 ]
+"53
 } 0
-"22 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\LedTask.c
-[v _LedTask_setState LedTask_setState `(v  1 e 1 0 ]
+"72 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Ssd.c
+[v _Ssd_setSymbol Ssd_setSymbol `(v  1 e 1 0 ]
 {
-[v LedTask_setState@id id `uc  1 a 1 wreg ]
-[v LedTask_setState@id id `uc  1 a 1 wreg ]
-[v LedTask_setState@state state `uc  1 p 1 10 ]
-[v LedTask_setState@period period `ui  1 p 2 11 ]
-"24
-[v LedTask_setState@id id `uc  1 a 1 15 ]
-"26
+[v Ssd_setSymbol@id id `E1226  1 a 1 wreg ]
+[v Ssd_setSymbol@id id `E1226  1 a 1 wreg ]
+[v Ssd_setSymbol@symbol symbol `E1242  1 p 1 17 ]
+"74
+[v Ssd_setSymbol@id id `E1226  1 a 1 18 ]
+"75
+} 0
+"66
+[v _Ssd_setState Ssd_setState `(v  1 e 1 0 ]
+{
+[v Ssd_setState@id id `E1226  1 a 1 wreg ]
+[v Ssd_setState@id id `E1226  1 a 1 wreg ]
+[v Ssd_setState@state state `E1231  1 p 1 7 ]
+[v Ssd_setState@period period `E1235  1 p 2 8 ]
+"68
+[v Ssd_setState@id id `E1226  1 a 1 10 ]
+"70
+} 0
+"46 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
+[v _Led_setState Led_setState `(v  1 e 1 0 ]
+{
+[v Led_setState@id id `E1226  1 a 1 wreg ]
+[v Led_setState@id id `E1226  1 a 1 wreg ]
+[v Led_setState@state state `E1231  1 p 1 7 ]
+[v Led_setState@period period `E1235  1 p 2 8 ]
+"48
+[v Led_setState@id id `E1226  1 a 1 13 ]
+"50
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwdiv@quotient quotient `ui  1 a 2 7 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
 "11
-[v ___lwdiv@counter counter `uc  1 a 1 9 ]
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
 "5
-[v ___lwdiv@divisor divisor `ui  1 p 2 3 ]
-[v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
 "32 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Scheduler.c
@@ -786,38 +1309,46 @@ ResetMode 4
 [v Scheduler_addTask@task task `*.27(v  1 a 1 7 ]
 "52
 } 0
-"13 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\LedTask.c
-[v _LedTask_init LedTask_init `(v  1 e 1 0 ]
-{
-[v LedTask_init@id id `uc  1 a 1 wreg ]
-[v LedTask_init@id id `uc  1 a 1 wreg ]
-[v LedTask_init@xGpioId xGpioId `uc  1 p 1 21 ]
-[v LedTask_init@xPin xPin `uc  1 p 1 22 ]
-"15
-[v LedTask_init@id id `uc  1 a 1 23 ]
-"20
-} 0
-"12 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
+"18 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Led.c
 [v _Led_init Led_init `(v  1 e 1 0 ]
 {
-[v Led_init@id id `uc  1 a 1 wreg ]
-[v Led_init@id id `uc  1 a 1 wreg ]
-[v Led_init@xGpioId xGpioId `uc  1 p 1 18 ]
-[v Led_init@xPin xPin `uc  1 p 1 19 ]
-"14
-[v Led_init@id id `uc  1 a 1 20 ]
-"18
+[v Led_init@id id `E1226  1 a 1 wreg ]
+[v Led_init@id id `E1226  1 a 1 wreg ]
+[v Led_init@gpioId gpioId `E1172  1 p 1 22 ]
+[v Led_init@gpioPin gpioPin `E1180  1 p 1 23 ]
+"20
+[v Led_init@id id `E1226  1 a 1 25 ]
+"27
 } 0
-"26 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
-[v _HeaterTask_init HeaterTask_init `(v  1 e 1 0 ]
+"52
+[v _initLedHardware initLedHardware `(v  1 e 1 0 ]
 {
-[v HeaterTask_init@id id `uc  1 a 1 wreg ]
-"28
-[v HeaterTask_init@index index `ui  1 a 2 37 ]
-"26
-[v HeaterTask_init@id id `uc  1 a 1 wreg ]
-[v HeaterTask_init@id id `uc  1 a 1 39 ]
-"72
+[v initLedHardware@id id `E1226  1 a 1 wreg ]
+[v initLedHardware@id id `E1226  1 a 1 wreg ]
+"54
+[v initLedHardware@id id `E1226  1 a 1 21 ]
+"55
+} 0
+"34 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\WaterHeater.c
+[v _Heater_init Heater_init `(v  1 e 1 0 ]
+{
+[v Heater_init@id id `E1438  1 a 1 wreg ]
+"37
+[v Heater_init@index index `ui  1 a 2 48 ]
+"34
+[v Heater_init@id id `E1438  1 a 1 wreg ]
+[v Heater_init@sSwId sSwId `E1289  1 p 1 37 ]
+[v Heater_init@mSwId mSwId `E1289  1 p 1 38 ]
+[v Heater_init@pSwId pSwId `E1289  1 p 1 39 ]
+[v Heater_init@xTempsnsrId xTempsnsrId `E1308  1 p 1 40 ]
+"35
+[v Heater_init@xTempctrlId xTempctrlId `E1326  1 p 1 41 ]
+[v Heater_init@xLedId xLedId `E1346  1 p 1 42 ]
+[v Heater_init@aSsdId aSsdId `E1372  1 p 1 43 ]
+[v Heater_init@bSsdId bSsdId `E1372  1 p 1 44 ]
+"34
+[v Heater_init@id id `E1438  1 a 1 50 ]
+"89
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
@@ -832,20 +1363,20 @@ ResetMode 4
 [v ___bmul@multiplier multiplier `uc  1 a 1 2 ]
 "51
 } 0
-"38 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
+"37 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\SchedulerConfig.c
 [v _Scheduler_delaySoftwareMs Scheduler_delaySoftwareMs `(v  1 e 1 0 ]
 {
 [v Scheduler_delaySoftwareMs@msDelay msDelay `VEul  1 p 4 9 ]
-"44
+"43
 } 0
-"46
+"45
 [v _Scheduler_delaySoftwareUs Scheduler_delaySoftwareUs `(v  1 e 1 0 ]
 {
-"48
+"47
 [v Scheduler_delaySoftwareUs@delay delay `VEuc  1 a 1 8 ]
-"46
+"45
 [v Scheduler_delaySoftwareUs@usDelay usDelay `VEul  1 p 4 0 ]
-"54
+"53
 } 0
 "26 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Eeprom.c
 [v _Eeprom_writePage Eeprom_writePage `(v  1 e 1 0 ]
@@ -949,36 +1480,37 @@ ResetMode 4
 "3 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\I2c.c
 [v _I2c_initMaster I2c_initMaster `(v  1 e 1 0 ]
 {
-[v I2c_initMaster@baudrate baudrate `ul  1 p 4 30 ]
+[v I2c_initMaster@baudrate baudrate `ul  1 p 4 33 ]
 "9
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "10
-[v ___lldiv@quotient quotient `ul  1 a 4 25 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 28 ]
 "11
-[v ___lldiv@counter counter `uc  1 a 1 29 ]
+[v ___lldiv@counter counter `uc  1 a 1 32 ]
 "5
-[v ___lldiv@divisor divisor `ul  1 p 4 16 ]
-[v ___lldiv@dividend dividend `ul  1 p 4 20 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 19 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 23 ]
 "30
 } 0
 "18 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Gpio.c
 [v _Gpio_initPin Gpio_initPin `(v  1 e 1 0 ]
 {
-[v Gpio_initPin@Id Id `uc  1 a 1 wreg ]
-[v Gpio_initPin@Id Id `uc  1 a 1 wreg ]
-[v Gpio_initPin@Pin Pin `uc  1 p 1 3 ]
-[v Gpio_initPin@Mode Mode `uc  1 p 1 4 ]
+[v Gpio_initPin@id id `E1172  1 a 1 wreg ]
+[v Gpio_initPin@id id `E1172  1 a 1 wreg ]
+[v Gpio_initPin@pin pin `E1180  1 p 1 3 ]
+[v Gpio_initPin@mode mode `E1191  1 p 1 4 ]
+[v Gpio_initPin@type type `E1195  1 p 1 5 ]
 "20
-[v Gpio_initPin@Id Id `uc  1 a 1 17 ]
-"21
+[v Gpio_initPin@id id `E1172  1 a 1 18 ]
+"26
 } 0
-"24 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
+"20 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\main.c
 [v _SysTick_Handler SysTick_Handler `II(v  1 e 1 0 ]
 {
-"29
+"25
 } 0
 "95 E:\Programs\ProgramsData\MPLABXProjects\WaterHeatingSystem.X\Scheduler.c
 [v _Scheduler_update Scheduler_update `(v  1 e 1 0 ]

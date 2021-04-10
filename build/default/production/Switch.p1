@@ -1,14 +1,42 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"4 Switch.c
+"12 Switch.c
+[; ;Switch.c: 12: static Switch_t sw[ SWITCH_ID_MAX ];
+[c E1172 0 1 2 3 4 5 .. ]
+[n E1172 . GPIO_ID_A GPIO_ID_B GPIO_ID_C GPIO_ID_D GPIO_ID_E GPIO_ID_MAX  ]
+[c E1180 0 1 2 3 4 5 6 7 255 .. ]
+[n E1180 . GPIO_PIN_0 GPIO_PIN_1 GPIO_PIN_2 GPIO_PIN_3 GPIO_PIN_4 GPIO_PIN_5 GPIO_PIN_6 GPIO_PIN_7 GPIO_PIN_MAX  ]
+[c E1232 0 1 2 .. ]
+[n E1232 . SWITCH_STATE_RELEASED SWITCH_STATE_PRESSED SWITCH_STATE_ERROR  ]
+"4
 [; ;Switch.c: 4: {
-[s S102 `uc 1 `uc 1 ]
-[n S102 . xGpioId xPin ]
-"21 ./Gpio.h
-[; ;./Gpio.h: 21: void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-[v _Gpio_initPin `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"23
-[; ;./Gpio.h: 23: UBaseType_t Gpio_getPinState( Id_t Id, UBaseType_t Pin );
-[v _Gpio_getPinState `(uc ~T0 @X0 0 ef2`uc`uc ]
+[s S102 `E1172 1 `E1180 1 `E1232 1 `uc 1 `uc 1 ]
+[n S102 . gpioId gpioPin state lock counter ]
+"17
+[; ;Switch.c: 17: void Switch_init( SW_ID_t id, GPIO_ID_t gpioId, GPIO_PIN_t gpioPin )
+[c E1226 0 1 2 3 .. ]
+[n E1226 . SWITCH_ID_1 SWITCH_ID_2 SWITCH_ID_3 SWITCH_ID_MAX  ]
+"14
+[; ;Switch.c: 14: void initSwitchHardware( SW_ID_t id );
+[v _initSwitchHardware `(v ~T0 @X0 0 ef1`E1226 ]
+"15
+[; ;Switch.c: 15: SW_STATE_t getSwitchHardwareState( SW_ID_t id );
+[v _getSwitchHardwareState `(E1232 ~T0 @X0 0 ef1`E1226 ]
+"57
+[; ;Switch.c: 57:     Gpio_initPin( sw[ id ].gpioId, sw[ id ].gpioPin, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
+[c E1191 1 0 .. ]
+[n E1191 . GPIO_MODE_INPUT GPIO_MODE_OUTPUT_DHZ  ]
+[c E1195 1 1 0 1 1 .. ]
+[n E1195 . GPIO_TYPE_ANALOG GPIO_TYPE_FLOATING GPIO_TYPE_PULLUP GPIO_TYPE_GP_PP GPIO_TYPE_AF_PP  ]
+"51 ./Gpio.h
+[; ;./Gpio.h: 51: void Gpio_initPin( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_MODE_t mode, GPIO_TYPE_t type );
+[v _Gpio_initPin `(v ~T0 @X0 0 ef4`E1172`E1180`E1191`E1195 ]
+"62 Switch.c
+[; ;Switch.c: 62:     if( Gpio_getPinState( sw[ id ].gpioId, sw[ id ].gpioPin ) == GPIO_STATE_HIGH )
+[c E1202 0 1 255 .. ]
+[n E1202 . GPIO_STATE_LOW GPIO_STATE_HIGH GPIO_STATE_MAX  ]
+"53 ./Gpio.h
+[; ;./Gpio.h: 53: GPIO_STATE_t Gpio_getPinState( GPIO_ID_t id, GPIO_PIN_t pin );
+[v _Gpio_getPinState `(E1202 ~T0 @X0 0 ef2`E1172`E1180 ]
 "13 ./Config.h
 [p x FOSC = HS ]
 "14
@@ -205,55 +233,225 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"9 Switch.c
-[; ;Switch.c: 9: static Switch_t sw[ ( 3 ) ];
+"12 Switch.c
+[; ;Switch.c: 12: static Switch_t sw[ SWITCH_ID_MAX ];
 [v _sw `S102 ~T0 @X0 -> 3 `i s ]
-"11
-[; ;Switch.c: 11: void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin )
-[v _Switch_init `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"12
-[; ;Switch.c: 12: {
+"17
+[; ;Switch.c: 17: void Switch_init( SW_ID_t id, GPIO_ID_t gpioId, GPIO_PIN_t gpioPin )
+[v _Switch_init `(v ~T0 @X0 1 ef3`E1226`E1172`E1180 ]
+"18
+[; ;Switch.c: 18: {
 {
 [e :U _Switch_init ]
-"11
-[; ;Switch.c: 11: void Switch_init( Id_t id, Id_t xGpioId, uint8_t xPin )
-[v _id `uc ~T0 @X0 1 r1 ]
-[v _xGpioId `uc ~T0 @X0 1 r2 ]
-[v _xPin `uc ~T0 @X0 1 r3 ]
-"12
-[; ;Switch.c: 12: {
+"17
+[; ;Switch.c: 17: void Switch_init( SW_ID_t id, GPIO_ID_t gpioId, GPIO_PIN_t gpioPin )
+[v _id `E1226 ~T0 @X0 1 r1 ]
+[v _gpioId `E1172 ~T0 @X0 1 r2 ]
+[v _gpioPin `E1180 ~T0 @X0 1 r3 ]
+"18
+[; ;Switch.c: 18: {
 [f ]
-"13
-[; ;Switch.c: 13:     sw[ id ].xGpioId = xGpioId;
-[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 0 _xGpioId ]
-"14
-[; ;Switch.c: 14:     sw[ id ].xPin = xPin;
-[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 1 _xPin ]
-"15
-[; ;Switch.c: 15:     Gpio_initPin( sw[ id ].xGpioId, sw[ id ].xPin, ( 1 ) );
-[e ( _Gpio_initPin (3 , , . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 0 . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 1 -> -> 1 `i `uc ]
-"16
-[; ;Switch.c: 16: }
+"19
+[; ;Switch.c: 19:     sw[ id ].gpioId = gpioId;
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 0 _gpioId ]
+"20
+[; ;Switch.c: 20:     sw[ id ].gpioPin = gpioPin;
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 1 _gpioPin ]
+"21
+[; ;Switch.c: 21:     sw[ id ].state = SWITCH_STATE_RELEASED;
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 2 . `E1232 0 ]
+"22
+[; ;Switch.c: 22:     sw[ id ].lock = 0;
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 3 -> -> 0 `i `uc ]
+"23
+[; ;Switch.c: 23:     sw[ id ].counter = 0;
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 4 -> -> 0 `i `uc ]
+"24
+[; ;Switch.c: 24:     initSwitchHardware( id );
+[e ( _initSwitchHardware (1 _id ]
+"25
+[; ;Switch.c: 25: }
 [e :UE 103 ]
 }
-"18
-[; ;Switch.c: 18: uint8_t Switch_getState( Id_t id )
-[v _Switch_getState `(uc ~T0 @X0 1 ef1`uc ]
-"19
-[; ;Switch.c: 19: {
+"27
+[; ;Switch.c: 27: void Switch_update( void *paramter )
+[v _Switch_update `(v ~T0 @X0 1 ef1`*v ]
+"28
+[; ;Switch.c: 28: {
+{
+[e :U _Switch_update ]
+"27
+[; ;Switch.c: 27: void Switch_update( void *paramter )
+[v _paramter `*v ~T0 @X0 1 r1 ]
+"28
+[; ;Switch.c: 28: {
+[f ]
+"29
+[; ;Switch.c: 29:     SW_ID_t id = (SW_ID_t) paramter;
+[v _id `E1226 ~T0 @X0 1 a ]
+[e = _id -> _paramter `E1226 ]
+"30
+[; ;Switch.c: 30:     if( sw[ id ].lock )
+[e $ ! != -> . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 3 `i -> 0 `i 105  ]
+"31
+[; ;Switch.c: 31:     {
+{
+"32
+[; ;Switch.c: 32:         sw[ id ].lock--;
+[e -- . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 3 -> -> 1 `i `uc ]
+"33
+[; ;Switch.c: 33:     }else if( getSwitchHardwareState( id ) == SWITCH_STATE_PRESSED )
+}
+[e $U 106  ]
+[e :U 105 ]
+[e $ ! == -> ( _getSwitchHardwareState (1 _id `ui -> . `E1232 1 `ui 107  ]
+"34
+[; ;Switch.c: 34:     {
+{
+"35
+[; ;Switch.c: 35:         sw[ id ].counter++;
+[e ++ . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 4 -> -> 1 `i `uc ]
+"36
+[; ;Switch.c: 36:         if( sw[ id ].counter == ( 20 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) ) )
+[e $ ! == -> . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 4 `ui / / -> -> 20 `i `ui -> -> 5 `i `ui / -> -> 10 `i `ui -> -> 5 `i `ui 108  ]
+"37
+[; ;Switch.c: 37:         {
+{
+"38
+[; ;Switch.c: 38:             sw[ id ].state = SWITCH_STATE_PRESSED;
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 2 . `E1232 1 ]
+"39
+[; ;Switch.c: 39:             sw[ id ].lock = ( 500 / ( ( TickType_t ) 5 ) ) / ( 10 / ( ( TickType_t ) 5 ) );
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 3 -> / / -> -> 500 `i `ui -> -> 5 `i `ui / -> -> 10 `i `ui -> -> 5 `i `ui `uc ]
+"40
+[; ;Switch.c: 40:             sw[ id ].counter = 0;
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 4 -> -> 0 `i `uc ]
+"41
+[; ;Switch.c: 41:         }
+}
+[e :U 108 ]
+"42
+[; ;Switch.c: 42:     }else
+}
+[e $U 109  ]
+[e :U 107 ]
+"43
+[; ;Switch.c: 43:     {
+{
+"44
+[; ;Switch.c: 44:         sw[ id ].counter = 0;
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 4 -> -> 0 `i `uc ]
+"45
+[; ;Switch.c: 45:     }
+}
+[e :U 109 ]
+[e :U 106 ]
+"46
+[; ;Switch.c: 46: }
+[e :UE 104 ]
+}
+"48
+[; ;Switch.c: 48: SW_STATE_t Switch_getState( SW_ID_t id )
+[v _Switch_getState `(E1232 ~T0 @X0 1 ef1`E1226 ]
+"49
+[; ;Switch.c: 49: {
 {
 [e :U _Switch_getState ]
-"18
-[; ;Switch.c: 18: uint8_t Switch_getState( Id_t id )
-[v _id `uc ~T0 @X0 1 r1 ]
-"19
-[; ;Switch.c: 19: {
+"48
+[; ;Switch.c: 48: SW_STATE_t Switch_getState( SW_ID_t id )
+[v _id `E1226 ~T0 @X0 1 r1 ]
+"49
+[; ;Switch.c: 49: {
 [f ]
-"20
-[; ;Switch.c: 20:     return Gpio_getPinState( sw[ id ].xGpioId, sw[ id ].xPin );
-[e ) ( _Gpio_getPinState (2 , . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 0 . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 1 ]
-[e $UE 104  ]
-"21
-[; ;Switch.c: 21: }
-[e :UE 104 ]
+"50
+[; ;Switch.c: 50:     uint8_t buffer = sw[ id ].state;
+[v _buffer `uc ~T0 @X0 1 a ]
+[e = _buffer -> . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 2 `uc ]
+"51
+[; ;Switch.c: 51:     sw[ id ].state = SWITCH_STATE_RELEASED;
+[e = . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 2 . `E1232 0 ]
+"52
+[; ;Switch.c: 52:     return buffer;
+[e ) -> _buffer `E1232 ]
+[e $UE 110  ]
+"53
+[; ;Switch.c: 53: }
+[e :UE 110 ]
+}
+"55
+[; ;Switch.c: 55: void initSwitchHardware( SW_ID_t id )
+[v _initSwitchHardware `(v ~T0 @X0 1 ef1`E1226 ]
+"56
+[; ;Switch.c: 56: {
+{
+[e :U _initSwitchHardware ]
+"55
+[; ;Switch.c: 55: void initSwitchHardware( SW_ID_t id )
+[v _id `E1226 ~T0 @X0 1 r1 ]
+"56
+[; ;Switch.c: 56: {
+[f ]
+"57
+[; ;Switch.c: 57:     Gpio_initPin( sw[ id ].gpioId, sw[ id ].gpioPin, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
+[e ( _Gpio_initPin (4 , , , . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 0 . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 1 . `E1191 0 . `E1195 1 ]
+"58
+[; ;Switch.c: 58: }
+[e :UE 111 ]
+}
+"60
+[; ;Switch.c: 60: SW_STATE_t getSwitchHardwareState( SW_ID_t id )
+[v _getSwitchHardwareState `(E1232 ~T0 @X0 1 ef1`E1226 ]
+"61
+[; ;Switch.c: 61: {
+{
+[e :U _getSwitchHardwareState ]
+"60
+[; ;Switch.c: 60: SW_STATE_t getSwitchHardwareState( SW_ID_t id )
+[v _id `E1226 ~T0 @X0 1 r1 ]
+"61
+[; ;Switch.c: 61: {
+[f ]
+"62
+[; ;Switch.c: 62:     if( Gpio_getPinState( sw[ id ].gpioId, sw[ id ].gpioPin ) == GPIO_STATE_HIGH )
+[e $ ! == -> ( _Gpio_getPinState (2 , . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 0 . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 1 `ui -> . `E1202 1 `ui 113  ]
+"63
+[; ;Switch.c: 63:     {
+{
+"64
+[; ;Switch.c: 64:         return SWITCH_STATE_RELEASED;
+[e ) . `E1232 0 ]
+[e $UE 112  ]
+"65
+[; ;Switch.c: 65:     }else if( Gpio_getPinState( sw[ id ].gpioId, sw[ id ].gpioPin ) == GPIO_STATE_LOW )
+}
+[e $U 114  ]
+[e :U 113 ]
+[e $ ! == -> ( _Gpio_getPinState (2 , . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 0 . *U + &U _sw * -> _id `ux -> -> # *U &U _sw `ui `ux 1 `ui -> . `E1202 0 `ui 115  ]
+"66
+[; ;Switch.c: 66:     {
+{
+"67
+[; ;Switch.c: 67:         return SWITCH_STATE_PRESSED;
+[e ) . `E1232 1 ]
+[e $UE 112  ]
+"68
+[; ;Switch.c: 68:     }else
+}
+[e $U 116  ]
+[e :U 115 ]
+"69
+[; ;Switch.c: 69:     {
+{
+"70
+[; ;Switch.c: 70:         return SWITCH_STATE_ERROR;
+[e ) . `E1232 2 ]
+[e $UE 112  ]
+"71
+[; ;Switch.c: 71:     }
+}
+[e :U 116 ]
+[e :U 114 ]
+"72
+[; ;Switch.c: 72: }
+[e :UE 112 ]
 }

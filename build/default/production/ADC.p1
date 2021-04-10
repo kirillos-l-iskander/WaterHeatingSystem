@@ -1,11 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"3 Adc.c
+[; ;Adc.c: 3: void Adc_init( ADC_ID_t id )
+[c E1172 0 .. ]
+[n E1172 . ADC_ID_0  ]
 "1159 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1159: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
 [v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
 "2229
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2229: extern volatile unsigned char ADCON1 __attribute__((address(0x09F)));
 [v _ADCON1 `Vuc ~T0 @X0 0 e@159 ]
-"1152
+"9 Adc.c
+[; ;Adc.c: 9: uint16_t Adc_getState( ADC_ID_t id, ADC_CHANNEL_t channel )
+[c E1175 0 1 2 3 4 5 6 7 .. ]
+[n E1175 . ADC_CHANNEL_1 ADC_CHANNEL_2 ADC_CHANNEL_3 ADC_CHANNEL_4 ADC_CHANNEL_5 ADC_CHANNEL_6 ADC_CHANNEL_7 ADC_CHANNEL_8  ]
+"1152 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1152: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
 "2222
@@ -208,15 +216,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "3 Adc.c
-[; ;Adc.c: 3: void Adc_init( Id_t id )
-[v _Adc_init `(v ~T0 @X0 1 ef1`uc ]
+[; ;Adc.c: 3: void Adc_init( ADC_ID_t id )
+[v _Adc_init `(v ~T0 @X0 1 ef1`E1172 ]
 "4
 [; ;Adc.c: 4: {
 {
 [e :U _Adc_init ]
 "3
-[; ;Adc.c: 3: void Adc_init( Id_t id )
-[v _id `uc ~T0 @X0 1 r1 ]
+[; ;Adc.c: 3: void Adc_init( ADC_ID_t id )
+[v _id `E1172 ~T0 @X0 1 r1 ]
 "4
 [; ;Adc.c: 4: {
 [f ]
@@ -231,15 +239,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 102 ]
 }
 "9
-[; ;Adc.c: 9: uint16_t Adc_getState( Id_t id )
-[v _Adc_getState `(ui ~T0 @X0 1 ef1`uc ]
+[; ;Adc.c: 9: uint16_t Adc_getState( ADC_ID_t id, ADC_CHANNEL_t channel )
+[v _Adc_getState `(ui ~T0 @X0 1 ef2`E1172`E1175 ]
 "10
 [; ;Adc.c: 10: {
 {
 [e :U _Adc_getState ]
 "9
-[; ;Adc.c: 9: uint16_t Adc_getState( Id_t id )
-[v _id `uc ~T0 @X0 1 r1 ]
+[; ;Adc.c: 9: uint16_t Adc_getState( ADC_ID_t id, ADC_CHANNEL_t channel )
+[v _id `E1172 ~T0 @X0 1 r1 ]
+[v _channel `E1175 ~T0 @X0 1 r2 ]
 "10
 [; ;Adc.c: 10: {
 [f ]

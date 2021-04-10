@@ -1,14 +1,42 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"4 TempSensorTask.c
-[; ;TempSensorTask.c: 4: {
-[s S102 `uc -> 10 `i `uc 1 `uc 1 `ui 1 ]
-[n S102 . array index avgFlag avgTemp ]
-"13 ./TempSensor.h
-[; ;./TempSensor.h: 13: void TempSensor_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId );
-[v _TempSensor_init `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
+"12 Tempctrl.c
+[; ;Tempctrl.c: 12: static TempControl_t tempctrl[ TEMPCTRL_ID_MAX ];
+[c E1172 0 1 2 3 4 5 .. ]
+[n E1172 . GPIO_ID_A GPIO_ID_B GPIO_ID_C GPIO_ID_D GPIO_ID_E GPIO_ID_MAX  ]
+[c E1180 0 1 2 3 4 5 6 7 255 .. ]
+[n E1180 . GPIO_PIN_0 GPIO_PIN_1 GPIO_PIN_2 GPIO_PIN_3 GPIO_PIN_4 GPIO_PIN_5 GPIO_PIN_6 GPIO_PIN_7 GPIO_PIN_MAX  ]
+[c E1230 0 1 2 .. ]
+[n E1230 . TEMPCTRL_STATE_OFF TEMPCTRL_STATE_HEAT TEMPCTRL_STATE_COOL  ]
+"4
+[; ;Tempctrl.c: 4: {
+[s S102 `E1172 1 `E1180 1 `E1172 1 `E1180 1 `E1230 1 ]
+[n S102 . gpioIdH gpioPinH gpioIdC gpioPinC state ]
+"17
+[; ;Tempctrl.c: 17: void Tempctrl_init( TEMPCTRL_ID_t id, GPIO_ID_t gpioIdH, GPIO_PIN_t gpioPinH, GPIO_ID_t gpioIdC, GPIO_PIN_t gpioPinC )
+[c E1226 0 1 .. ]
+[n E1226 . TEMPCTRL_ID_1 TEMPCTRL_ID_MAX  ]
 "14
-[; ;./TempSensor.h: 14: uint8_t TempSensor_getState( Id_t id );
-[v _TempSensor_getState `(uc ~T0 @X0 0 ef1`uc ]
+[; ;Tempctrl.c: 14: void initTempctrlHardware( TEMPCTRL_ID_t id );
+[v _initTempctrlHardware `(v ~T0 @X0 0 ef1`E1226 ]
+"15
+[; ;Tempctrl.c: 15: void setTempctrlHardwareState( TEMPCTRL_ID_t id, TEMPCTRL_STATE_t state );
+[v _setTempctrlHardwareState `(v ~T0 @X0 0 ef2`E1226`E1230 ]
+"40
+[; ;Tempctrl.c: 40:     Gpio_initPin( tempctrl[ id ].gpioIdH, tempctrl[ id ].gpioPinH, GPIO_MODE_OUTPUT_DHZ, GPIO_TYPE_GP_PP );
+[c E1191 1 0 .. ]
+[n E1191 . GPIO_MODE_INPUT GPIO_MODE_OUTPUT_DHZ  ]
+[c E1195 1 1 0 1 1 .. ]
+[n E1195 . GPIO_TYPE_ANALOG GPIO_TYPE_FLOATING GPIO_TYPE_PULLUP GPIO_TYPE_GP_PP GPIO_TYPE_AF_PP  ]
+"51 ./Gpio.h
+[; ;./Gpio.h: 51: void Gpio_initPin( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_MODE_t mode, GPIO_TYPE_t type );
+[v _Gpio_initPin `(v ~T0 @X0 0 ef4`E1172`E1180`E1191`E1195 ]
+"48 Tempctrl.c
+[; ;Tempctrl.c: 48:         Gpio_setPinState( tempctrl[ id ].gpioIdH, tempctrl[ id ].gpioPinH, GPIO_STATE_LOW );
+[c E1202 0 1 255 .. ]
+[n E1202 . GPIO_STATE_LOW GPIO_STATE_HIGH GPIO_STATE_MAX  ]
+"52 ./Gpio.h
+[; ;./Gpio.h: 52: void Gpio_setPinState( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_STATE_t state );
+[v _Gpio_setPinState `(v ~T0 @X0 0 ef3`E1172`E1180`E1202 ]
 "13 ./Config.h
 [p x FOSC = HS ]
 "14
@@ -205,160 +233,187 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"11 TempSensorTask.c
-[; ;TempSensorTask.c: 11: static TempSensorTask_t tempSensorTask[ ( 1 ) ];
-[v _tempSensorTask `S102 ~T0 @X0 -> -> 1 `i `ux s ]
-"13
-[; ;TempSensorTask.c: 13: void TempSensorTask_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId )
-[v _TempSensorTask_init `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
-"14
-[; ;TempSensorTask.c: 14: {
-{
-[e :U _TempSensorTask_init ]
-"13
-[; ;TempSensorTask.c: 13: void TempSensorTask_init( Id_t id, Id_t xGpioId, uint8_t xPin, Id_t xAdcId )
-[v _id `uc ~T0 @X0 1 r1 ]
-[v _xGpioId `uc ~T0 @X0 1 r2 ]
-[v _xPin `uc ~T0 @X0 1 r3 ]
-[v _xAdcId `uc ~T0 @X0 1 r4 ]
-"14
-[; ;TempSensorTask.c: 14: {
-[f ]
-"15
-[; ;TempSensorTask.c: 15:     size_t index = 0;
-[v _index `ui ~T0 @X0 1 a ]
-[e = _index -> -> 0 `i `ui ]
-"16
-[; ;TempSensorTask.c: 16:     for( index = 0; index < 10; index++ )
-{
-[e = _index -> -> 0 `i `ui ]
-[e $ < _index -> -> 10 `i `ui 104  ]
-[e $U 105  ]
-[e :U 104 ]
+"12 Tempctrl.c
+[; ;Tempctrl.c: 12: static TempControl_t tempctrl[ TEMPCTRL_ID_MAX ];
+[v _tempctrl `S102 ~T0 @X0 -> -> 1 `i `ux s ]
 "17
-[; ;TempSensorTask.c: 17:     {
-{
+[; ;Tempctrl.c: 17: void Tempctrl_init( TEMPCTRL_ID_t id, GPIO_ID_t gpioIdH, GPIO_PIN_t gpioPinH, GPIO_ID_t gpioIdC, GPIO_PIN_t gpioPinC )
+[v _Tempctrl_init `(v ~T0 @X0 1 ef5`E1226`E1172`E1180`E1172`E1180 ]
 "18
-[; ;TempSensorTask.c: 18:         tempSensorTask[ id ].array[ index ] = 0;
-[e = *U + &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 * -> _index `ux -> -> # *U &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 `ui `ux -> -> 0 `i `uc ]
+[; ;Tempctrl.c: 18: {
+{
+[e :U _Tempctrl_init ]
+"17
+[; ;Tempctrl.c: 17: void Tempctrl_init( TEMPCTRL_ID_t id, GPIO_ID_t gpioIdH, GPIO_PIN_t gpioPinH, GPIO_ID_t gpioIdC, GPIO_PIN_t gpioPinC )
+[v _id `E1226 ~T0 @X0 1 r1 ]
+[v _gpioIdH `E1172 ~T0 @X0 1 r2 ]
+[v _gpioPinH `E1180 ~T0 @X0 1 r3 ]
+[v _gpioIdC `E1172 ~T0 @X0 1 r4 ]
+[v _gpioPinC `E1180 ~T0 @X0 1 r5 ]
+"18
+[; ;Tempctrl.c: 18: {
+[f ]
 "19
-[; ;TempSensorTask.c: 19:     }
-}
-[e ++ _index -> -> 1 `i `ui ]
-[e $ < _index -> -> 10 `i `ui 104  ]
-[e :U 105 ]
-}
+[; ;Tempctrl.c: 19:     tempctrl[ id ].gpioIdH = gpioIdH;
+[e = . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 0 _gpioIdH ]
 "20
-[; ;TempSensorTask.c: 20:     tempSensorTask[ id ].index = 0;
-[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 1 -> -> 0 `i `uc ]
+[; ;Tempctrl.c: 20:     tempctrl[ id ].gpioPinH = gpioPinH;
+[e = . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 1 _gpioPinH ]
 "21
-[; ;TempSensorTask.c: 21:     tempSensorTask[ id ].avgFlag = 0;
-[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 2 -> -> 0 `i `uc ]
+[; ;Tempctrl.c: 21:     tempctrl[ id ].gpioIdC = gpioIdC;
+[e = . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 2 _gpioIdC ]
 "22
-[; ;TempSensorTask.c: 22:     tempSensorTask[ id ].avgTemp = 0;
-[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 3 -> -> 0 `i `ui ]
+[; ;Tempctrl.c: 22:     tempctrl[ id ].gpioPinC = gpioPinC;
+[e = . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 3 _gpioPinC ]
 "23
-[; ;TempSensorTask.c: 23:     TempSensor_init( id, xGpioId, xPin, xAdcId );
-[e ( _TempSensor_init (4 , , , _id _xGpioId _xPin _xAdcId ]
+[; ;Tempctrl.c: 23:     tempctrl[ id ].state = TEMPCTRL_STATE_OFF;
+[e = . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 4 . `E1230 0 ]
 "24
-[; ;TempSensorTask.c: 24: }
+[; ;Tempctrl.c: 24:     initTempctrlHardware( id );
+[e ( _initTempctrlHardware (1 _id ]
+"25
+[; ;Tempctrl.c: 25: }
 [e :UE 103 ]
 }
-"26
-[; ;TempSensorTask.c: 26: uint8_t TempSensorTask_getAverage( Id_t id )
-[v _TempSensorTask_getAverage `(uc ~T0 @X0 1 ef1`uc ]
 "27
-[; ;TempSensorTask.c: 27: {
-{
-[e :U _TempSensorTask_getAverage ]
-"26
-[; ;TempSensorTask.c: 26: uint8_t TempSensorTask_getAverage( Id_t id )
-[v _id `uc ~T0 @X0 1 r1 ]
-"27
-[; ;TempSensorTask.c: 27: {
-[f ]
+[; ;Tempctrl.c: 27: void Tempctrl_update( void *paramter )
+[v _Tempctrl_update `(v ~T0 @X0 1 ef1`*v ]
 "28
-[; ;TempSensorTask.c: 28:     return ( uint8_t ) tempSensorTask[ id ].avgTemp;
-[e ) -> . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 3 `uc ]
-[e $UE 107  ]
-"29
-[; ;TempSensorTask.c: 29: }
-[e :UE 107 ]
-}
-"31
-[; ;TempSensorTask.c: 31: void TempSensorTask_update( void *paramter )
-[v _TempSensorTask_update `(v ~T0 @X0 1 ef1`*v ]
-"32
-[; ;TempSensorTask.c: 32: {
+[; ;Tempctrl.c: 28: {
 {
-[e :U _TempSensorTask_update ]
-"31
-[; ;TempSensorTask.c: 31: void TempSensorTask_update( void *paramter )
+[e :U _Tempctrl_update ]
+"27
+[; ;Tempctrl.c: 27: void Tempctrl_update( void *paramter )
 [v _paramter `*v ~T0 @X0 1 r1 ]
-"32
-[; ;TempSensorTask.c: 32: {
+"28
+[; ;Tempctrl.c: 28: {
 [f ]
+"29
+[; ;Tempctrl.c: 29:     TEMPCTRL_ID_t id = (TEMPCTRL_ID_t) paramter;
+[v _id `E1226 ~T0 @X0 1 a ]
+[e = _id -> _paramter `E1226 ]
+"30
+[; ;Tempctrl.c: 30:     setTempctrlHardwareState( id, tempctrl[ id ].state );
+[e ( _setTempctrlHardwareState (2 , _id . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 4 ]
+"31
+[; ;Tempctrl.c: 31: }
+[e :UE 104 ]
+}
 "33
-[; ;TempSensorTask.c: 33:     Id_t id = (Id_t) paramter;
-[v _id `uc ~T0 @X0 1 a ]
-[e = _id -> _paramter `uc ]
+[; ;Tempctrl.c: 33: void Tempctrl_setState( TEMPCTRL_ID_t id, TEMPCTRL_STATE_t state )
+[v _Tempctrl_setState `(v ~T0 @X0 1 ef2`E1226`E1230 ]
 "34
-[; ;TempSensorTask.c: 34:     size_t index = 0;
-[v _index `ui ~T0 @X0 1 a ]
-[e = _index -> -> 0 `i `ui ]
+[; ;Tempctrl.c: 34: {
+{
+[e :U _Tempctrl_setState ]
+"33
+[; ;Tempctrl.c: 33: void Tempctrl_setState( TEMPCTRL_ID_t id, TEMPCTRL_STATE_t state )
+[v _id `E1226 ~T0 @X0 1 r1 ]
+[v _state `E1230 ~T0 @X0 1 r2 ]
+"34
+[; ;Tempctrl.c: 34: {
+[f ]
 "35
-[; ;TempSensorTask.c: 35:     tempSensorTask[ id ].array[ tempSensorTask[ id ].index++ ] = TempSensor_getState( id );
-[e = *U + &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 * -> ++ . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 1 -> -> 1 `i `uc `ux -> -> # *U &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 `ui `ux ( _TempSensor_getState (1 _id ]
+[; ;Tempctrl.c: 35:     tempctrl[ id ].state = state;
+[e = . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 4 _state ]
 "36
-[; ;TempSensorTask.c: 36:     if( tempSensorTask[ id ].index == 10 )
-[e $ ! == -> . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 1 `i -> 10 `i 109  ]
-"37
-[; ;TempSensorTask.c: 37:     {
-{
+[; ;Tempctrl.c: 36: }
+[e :UE 105 ]
+}
 "38
-[; ;TempSensorTask.c: 38:         tempSensorTask[ id ].index = 0;
-[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 1 -> -> 0 `i `uc ]
+[; ;Tempctrl.c: 38: void initTempctrlHardware( TEMPCTRL_ID_t id )
+[v _initTempctrlHardware `(v ~T0 @X0 1 ef1`E1226 ]
 "39
-[; ;TempSensorTask.c: 39:         tempSensorTask[ id ].avgFlag = 1;
-[e = . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 2 -> -> 1 `i `uc ]
+[; ;Tempctrl.c: 39: {
+{
+[e :U _initTempctrlHardware ]
+"38
+[; ;Tempctrl.c: 38: void initTempctrlHardware( TEMPCTRL_ID_t id )
+[v _id `E1226 ~T0 @X0 1 r1 ]
+"39
+[; ;Tempctrl.c: 39: {
+[f ]
 "40
-[; ;TempSensorTask.c: 40:     }
-}
-[e :U 109 ]
+[; ;Tempctrl.c: 40:     Gpio_initPin( tempctrl[ id ].gpioIdH, tempctrl[ id ].gpioPinH, GPIO_MODE_OUTPUT_DHZ, GPIO_TYPE_GP_PP );
+[e ( _Gpio_initPin (4 , , , . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 0 . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 1 . `E1191 1 . `E1195 3 ]
 "41
-[; ;TempSensorTask.c: 41:     if( tempSensorTask[ id ].avgFlag )
-[e $ ! != -> . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 2 `i -> 0 `i 110  ]
+[; ;Tempctrl.c: 41:     Gpio_initPin( tempctrl[ id ].gpioIdC, tempctrl[ id ].gpioPinC, GPIO_MODE_OUTPUT_DHZ, GPIO_TYPE_GP_PP );
+[e ( _Gpio_initPin (4 , , , . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 2 . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 3 . `E1191 1 . `E1195 3 ]
 "42
-[; ;TempSensorTask.c: 42:     {
-{
-"43
-[; ;TempSensorTask.c: 43:         for( index = 0; index < 10; index++ )
-{
-[e = _index -> -> 0 `i `ui ]
-[e $ < _index -> -> 10 `i `ui 111  ]
-[e $U 112  ]
-[e :U 111 ]
+[; ;Tempctrl.c: 42: }
+[e :UE 106 ]
+}
 "44
-[; ;TempSensorTask.c: 44:         {
-{
+[; ;Tempctrl.c: 44: void setTempctrlHardwareState( TEMPCTRL_ID_t id, TEMPCTRL_STATE_t state )
+[v _setTempctrlHardwareState `(v ~T0 @X0 1 ef2`E1226`E1230 ]
 "45
-[; ;TempSensorTask.c: 45:             tempSensorTask[ id ].avgTemp += tempSensorTask[ id ].array[ index ];
-[e =+ . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 3 -> *U + &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 * -> _index `ux -> -> # *U &U . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 0 `ui `ux `ui ]
+[; ;Tempctrl.c: 45: {
+{
+[e :U _setTempctrlHardwareState ]
+"44
+[; ;Tempctrl.c: 44: void setTempctrlHardwareState( TEMPCTRL_ID_t id, TEMPCTRL_STATE_t state )
+[v _id `E1226 ~T0 @X0 1 r1 ]
+[v _state `E1230 ~T0 @X0 1 r2 ]
+"45
+[; ;Tempctrl.c: 45: {
+[f ]
 "46
-[; ;TempSensorTask.c: 46:         }
-}
-[e ++ _index -> -> 1 `i `ui ]
-[e $ < _index -> -> 10 `i `ui 111  ]
-[e :U 112 ]
-}
+[; ;Tempctrl.c: 46:     if( state == TEMPCTRL_STATE_OFF )
+[e $ ! == -> _state `ui -> . `E1230 0 `ui 108  ]
 "47
-[; ;TempSensorTask.c: 47:         tempSensorTask[ id ].avgTemp /= 10;
-[e =/ . *U + &U _tempSensorTask * -> _id `ux -> -> # *U &U _tempSensorTask `ui `ux 3 -> -> 10 `i `ui ]
+[; ;Tempctrl.c: 47:     {
+{
 "48
-[; ;TempSensorTask.c: 48:     }
-}
-[e :U 110 ]
+[; ;Tempctrl.c: 48:         Gpio_setPinState( tempctrl[ id ].gpioIdH, tempctrl[ id ].gpioPinH, GPIO_STATE_LOW );
+[e ( _Gpio_setPinState (3 , , . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 0 . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 1 . `E1202 0 ]
 "49
-[; ;TempSensorTask.c: 49: }
-[e :UE 108 ]
+[; ;Tempctrl.c: 49:         Gpio_setPinState( tempctrl[ id ].gpioIdC, tempctrl[ id ].gpioPinC, GPIO_STATE_LOW );
+[e ( _Gpio_setPinState (3 , , . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 2 . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 3 . `E1202 0 ]
+"50
+[; ;Tempctrl.c: 50:     }else if( state == TEMPCTRL_STATE_HEAT )
+}
+[e $U 109  ]
+[e :U 108 ]
+[e $ ! == -> _state `ui -> . `E1230 1 `ui 110  ]
+"51
+[; ;Tempctrl.c: 51:     {
+{
+"52
+[; ;Tempctrl.c: 52:         Gpio_setPinState( tempctrl[ id ].gpioIdH, tempctrl[ id ].gpioPinH, GPIO_STATE_HIGH );
+[e ( _Gpio_setPinState (3 , , . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 0 . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 1 . `E1202 1 ]
+"53
+[; ;Tempctrl.c: 53:         Gpio_setPinState( tempctrl[ id ].gpioIdC, tempctrl[ id ].gpioPinC, GPIO_STATE_LOW );
+[e ( _Gpio_setPinState (3 , , . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 2 . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 3 . `E1202 0 ]
+"54
+[; ;Tempctrl.c: 54:     }else if( state == TEMPCTRL_STATE_COOL )
+}
+[e $U 111  ]
+[e :U 110 ]
+[e $ ! == -> _state `ui -> . `E1230 2 `ui 112  ]
+"55
+[; ;Tempctrl.c: 55:     {
+{
+"56
+[; ;Tempctrl.c: 56:         Gpio_setPinState( tempctrl[ id ].gpioIdH, tempctrl[ id ].gpioPinH, GPIO_STATE_LOW );
+[e ( _Gpio_setPinState (3 , , . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 0 . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 1 . `E1202 0 ]
+"57
+[; ;Tempctrl.c: 57:         Gpio_setPinState( tempctrl[ id ].gpioIdC, tempctrl[ id ].gpioPinC, GPIO_STATE_HIGH );
+[e ( _Gpio_setPinState (3 , , . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 2 . *U + &U _tempctrl * -> _id `ux -> -> # *U &U _tempctrl `ui `ux 3 . `E1202 1 ]
+"58
+[; ;Tempctrl.c: 58:     }else
+}
+[e $U 113  ]
+[e :U 112 ]
+"59
+[; ;Tempctrl.c: 59:     {
+{
+"60
+[; ;Tempctrl.c: 60:     }
+}
+[e :U 113 ]
+[e :U 111 ]
+[e :U 109 ]
+"61
+[; ;Tempctrl.c: 61: }
+[e :UE 107 ]
 }

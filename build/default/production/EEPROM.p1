@@ -2,13 +2,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 ./I2c.h
 [; ;./I2c.h: 12: void I2c_initMaster( uint32_t baudrate );
 [v _I2c_initMaster `(v ~T0 @X0 0 ef1`ul ]
-"21 ./Gpio.h
-[; ;./Gpio.h: 21: void Gpio_initPin( Id_t Id, UBaseType_t Pin, UBaseType_t Mode );
-[v _Gpio_initPin `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "9 Eeprom.c
-[; ;Eeprom.c: 9:     Gpio_initPin(( GPIOC_ID ), ( 4 ), ( 1 ));
-[c E1173 0 1 2 3 4 .. ]
-[n E1173 . GPIOA_ID GPIOB_ID GPIOC_ID GPIOD_ID GPIOE_ID  ]
+[; ;Eeprom.c: 9:     Gpio_initPin(GPIO_ID_C, GPIO_PIN_3, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
+[c E1172 0 1 2 3 4 5 .. ]
+[n E1172 . GPIO_ID_A GPIO_ID_B GPIO_ID_C GPIO_ID_D GPIO_ID_E GPIO_ID_MAX  ]
+[c E1180 0 1 2 3 4 5 6 7 255 .. ]
+[n E1180 . GPIO_PIN_0 GPIO_PIN_1 GPIO_PIN_2 GPIO_PIN_3 GPIO_PIN_4 GPIO_PIN_5 GPIO_PIN_6 GPIO_PIN_7 GPIO_PIN_MAX  ]
+[c E1191 1 0 .. ]
+[n E1191 . GPIO_MODE_INPUT GPIO_MODE_OUTPUT_DHZ  ]
+[c E1195 1 1 0 1 1 .. ]
+[n E1195 . GPIO_TYPE_ANALOG GPIO_TYPE_FLOATING GPIO_TYPE_PULLUP GPIO_TYPE_GP_PP GPIO_TYPE_AF_PP  ]
+"51 ./Gpio.h
+[; ;./Gpio.h: 51: void Gpio_initPin( GPIO_ID_t id, GPIO_PIN_t pin, GPIO_MODE_t mode, GPIO_TYPE_t type );
+[v _Gpio_initPin `(v ~T0 @X0 0 ef4`E1172`E1180`E1191`E1195 ]
 "14 ./I2c.h
 [; ;./I2c.h: 14: void I2c_startMaster( void );
 [v _I2c_startMaster `(v ~T0 @X0 0 ef ]
@@ -238,11 +244,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Eeprom.c: 8:     I2c_initMaster( 100000 );
 [e ( _I2c_initMaster (1 -> -> 100000 `l `ul ]
 "9
-[; ;Eeprom.c: 9:     Gpio_initPin(( GPIOC_ID ), ( 4 ), ( 1 ));
-[e ( _Gpio_initPin (3 , , -> . `E1173 2 `uc -> -> 4 `i `uc -> -> 1 `i `uc ]
+[; ;Eeprom.c: 9:     Gpio_initPin(GPIO_ID_C, GPIO_PIN_3, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
+[e ( _Gpio_initPin (4 , , , . `E1172 2 . `E1180 3 . `E1191 0 . `E1195 1 ]
 "10
-[; ;Eeprom.c: 10:     Gpio_initPin(( GPIOC_ID ), ( 3 ), ( 1 ));
-[e ( _Gpio_initPin (3 , , -> . `E1173 2 `uc -> -> 3 `i `uc -> -> 1 `i `uc ]
+[; ;Eeprom.c: 10:     Gpio_initPin(GPIO_ID_C, GPIO_PIN_4, GPIO_MODE_INPUT, GPIO_TYPE_FLOATING );
+[e ( _Gpio_initPin (4 , , , . `E1172 2 . `E1180 4 . `E1191 0 . `E1195 1 ]
 "11
 [; ;Eeprom.c: 11: }
 [e :UE 102 ]

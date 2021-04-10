@@ -1,34 +1,43 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1255 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1255: extern volatile unsigned char OPTION_REG __attribute__((address(0x081)));
-[v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
-"59
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 59: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
-[v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
-"454
+"7 Timer.c
+[; ;Timer.c: 7: void Timer_init( TIMER_ID_t id, TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
+[c E1172 0 1 2 3 .. ]
+[n E1172 . TIMER_ID_0 TIMER_ID_1 TIMER_ID_2 TIMER_ID_MAX  ]
+[c E1178 0 1 .. ]
+[n E1178 . TIMER_MODE_NORMAL TIMER_MODE_COUNTUP  ]
+[c E1197 0 1000 .. ]
+[n E1197 . TIMER_PERIOD_MIN TIMER_PERIOD_MAX  ]
+[c E1182 0 1 .. ]
+[n E1182 . TIMER_CHANNEL_NORMAL TIMER_CHANNEL_1  ]
+[c E1186 11 12 13 5 4 8 9 15 16 .. ]
+[n E1186 . TIMER_EVENT_NORMAL TIMER_EVENT_CLOCKIN_RISING TIMER_EVENT_CLOCKIN_FALLING TIMER_EVENT_CAPTURE_RISING TIMER_EVENT_CAPTURE_FALLING TIMER_EVENT_COMPARE_SET TIMER_EVENT_COMPARE_RESET TIMER_EVENT_PWM_NONINVERT TIMER_EVENT_PWM_INVERT  ]
+"3
+[; ;Timer.c: 3: void Timer0_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event );
+[v _Timer0_init `(v ~T0 @X0 0 ef4`E1178`E1197`E1182`E1186 ]
+"4
+[; ;Timer.c: 4: void Timer1_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event );
+[v _Timer1_init `(v ~T0 @X0 0 ef4`E1178`E1197`E1182`E1186 ]
+"454 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 454: extern volatile unsigned char INTCON __attribute__((address(0x00B)));
 [v _INTCON `Vuc ~T0 @X0 0 e@11 ]
-"648
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 648: extern volatile unsigned char TMR1H __attribute__((address(0x00F)));
-[v _TMR1H `Vuc ~T0 @X0 0 e@15 ]
-"641
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 641: extern volatile unsigned char TMR1L __attribute__((address(0x00E)));
-[v _TMR1L `Vuc ~T0 @X0 0 e@14 ]
-"655
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 655: extern volatile unsigned char T1CON __attribute__((address(0x010)));
-[v _T1CON `Vuc ~T0 @X0 0 e@16 ]
-"899
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 899: extern volatile unsigned char CCPR1H __attribute__((address(0x016)));
-[v _CCPR1H `Vuc ~T0 @X0 0 e@22 ]
-"892
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 892: extern volatile unsigned char CCPR1L __attribute__((address(0x015)));
-[v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
-"906
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 906: extern volatile unsigned char CCP1CON __attribute__((address(0x017)));
-[v _CCP1CON `Vuc ~T0 @X0 0 e@23 ]
 "1618
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1618: extern volatile unsigned char PIE1 __attribute__((address(0x08C)));
 [v _PIE1 `Vuc ~T0 @X0 0 e@140 ]
+"59
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 59: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
+[v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
+"1255
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1255: extern volatile unsigned char OPTION_REG __attribute__((address(0x081)));
+[v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
+"885
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 885: extern volatile unsigned short CCPR1 __attribute__((address(0x015)));
+[v _CCPR1 `Vus ~T0 @X0 0 e@21 ]
+"906
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 906: extern volatile unsigned char CCP1CON __attribute__((address(0x017)));
+[v _CCP1CON `Vuc ~T0 @X0 0 e@23 ]
+"655
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 655: extern volatile unsigned char T1CON __attribute__((address(0x010)));
+[v _T1CON `Vuc ~T0 @X0 0 e@16 ]
 "13 ./Config.h
 [p x FOSC = HS ]
 "14
@@ -225,65 +234,203 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"3 Timer.c
-[; ;Timer.c: 3: void Timer0_init( void )
-[v _Timer0_init `(v ~T0 @X0 1 ef ]
-"4
-[; ;Timer.c: 4: {
-{
-[e :U _Timer0_init ]
-[f ]
+"7 Timer.c
+[; ;Timer.c: 7: void Timer_init( TIMER_ID_t id, TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
+[v _Timer_init `(v ~T0 @X0 1 ef5`E1172`E1178`E1197`E1182`E1186 ]
 "8
-[; ;Timer.c: 8:     OPTION_REG = 0x03;
-[e = _OPTION_REG -> -> 3 `i `uc ]
+[; ;Timer.c: 8: {
+{
+[e :U _Timer_init ]
+"7
+[; ;Timer.c: 7: void Timer_init( TIMER_ID_t id, TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
+[v _id `E1172 ~T0 @X0 1 r1 ]
+[v _mode `E1178 ~T0 @X0 1 r2 ]
+[v _period `E1197 ~T0 @X0 1 r3 ]
+[v _channel `E1182 ~T0 @X0 1 r4 ]
+[v _event `E1186 ~T0 @X0 1 r5 ]
+"8
+[; ;Timer.c: 8: {
+[f ]
+"9
+[; ;Timer.c: 9:     switch( id )
+[e $U 104  ]
 "10
-[; ;Timer.c: 10:     TMR0 = 6;
-[e = _TMR0 -> -> 6 `i `uc ]
+[; ;Timer.c: 10:     {
+{
+"11
+[; ;Timer.c: 11:         case TIMER_ID_0:
+[e :U 105 ]
+"12
+[; ;Timer.c: 12:             Timer0_init( mode, period, channel, event );
+[e ( _Timer0_init (4 , , , _mode _period _channel _event ]
 "13
-[; ;Timer.c: 13:     INTCON = 0x60;
-[e = _INTCON -> -> 96 `i `uc ]
+[; ;Timer.c: 13:             break;
+[e $U 103  ]
 "14
-[; ;Timer.c: 14: }
+[; ;Timer.c: 14:         case TIMER_ID_1:
+[e :U 106 ]
+"15
+[; ;Timer.c: 15:             Timer1_init( mode, period, channel, event );
+[e ( _Timer1_init (4 , , , _mode _period _channel _event ]
+"16
+[; ;Timer.c: 16:             break;
+[e $U 103  ]
+"17
+[; ;Timer.c: 17:         case TIMER_ID_2:
+[e :U 107 ]
+"18
+[; ;Timer.c: 18:             break;
+[e $U 103  ]
+"19
+[; ;Timer.c: 19:         default:
+[e :U 108 ]
+"20
+[; ;Timer.c: 20:             break;
+[e $U 103  ]
+"21
+[; ;Timer.c: 21:     }
+}
+[e $U 103  ]
+[e :U 104 ]
+[e [\ -> _id `ui , $ -> . `E1172 0 `ui 105
+ , $ -> . `E1172 1 `ui 106
+ , $ -> . `E1172 2 `ui 107
+ 108 ]
+[e :U 103 ]
+"22
+[; ;Timer.c: 22: }
 [e :UE 102 ]
 }
-"16
-[; ;Timer.c: 16: void Timer1_init( uint16_t tickNumber )
-[v _Timer1_init `(v ~T0 @X0 1 ef1`ui ]
-"17
-[; ;Timer.c: 17: {
+"24
+[; ;Timer.c: 24: void Timer_enableInterrupt( TIMER_ID_t id )
+[v _Timer_enableInterrupt `(v ~T0 @X0 1 ef1`E1172 ]
+"25
+[; ;Timer.c: 25: {
+{
+[e :U _Timer_enableInterrupt ]
+"24
+[; ;Timer.c: 24: void Timer_enableInterrupt( TIMER_ID_t id )
+[v _id `E1172 ~T0 @X0 1 r1 ]
+"25
+[; ;Timer.c: 25: {
+[f ]
+"26
+[; ;Timer.c: 26:     switch( id )
+[e $U 111  ]
+"27
+[; ;Timer.c: 27:     {
+{
+"28
+[; ;Timer.c: 28:         case TIMER_ID_0:
+[e :U 112 ]
+"29
+[; ;Timer.c: 29:             INTCON |= 0x60;
+[e =| _INTCON -> -> 96 `i `Vuc ]
+"30
+[; ;Timer.c: 30:             break;
+[e $U 110  ]
+"31
+[; ;Timer.c: 31:         case TIMER_ID_1:
+[e :U 113 ]
+"32
+[; ;Timer.c: 32:             INTCON |= 0x40;
+[e =| _INTCON -> -> 64 `i `Vuc ]
+"33
+[; ;Timer.c: 33:             PIE1 |= 0x04;
+[e =| _PIE1 -> -> 4 `i `Vuc ]
+"34
+[; ;Timer.c: 34:             break;
+[e $U 110  ]
+"35
+[; ;Timer.c: 35:         case TIMER_ID_2:
+[e :U 114 ]
+"36
+[; ;Timer.c: 36:             INTCON |= 0x40;
+[e =| _INTCON -> -> 64 `i `Vuc ]
+"37
+[; ;Timer.c: 37:             PIE1 |= 0x02;
+[e =| _PIE1 -> -> 2 `i `Vuc ]
+"38
+[; ;Timer.c: 38:             break;
+[e $U 110  ]
+"39
+[; ;Timer.c: 39:         default:
+[e :U 115 ]
+"40
+[; ;Timer.c: 40:             break;
+[e $U 110  ]
+"41
+[; ;Timer.c: 41:     }
+}
+[e $U 110  ]
+[e :U 111 ]
+[e [\ -> _id `ui , $ -> . `E1172 0 `ui 112
+ , $ -> . `E1172 1 `ui 113
+ , $ -> . `E1172 2 `ui 114
+ 115 ]
+[e :U 110 ]
+"42
+[; ;Timer.c: 42: }
+[e :UE 109 ]
+}
+"43
+[; ;Timer.c: 43: void Timer0_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
+[v _Timer0_init `(v ~T0 @X0 1 ef4`E1178`E1197`E1182`E1186 ]
+"44
+[; ;Timer.c: 44: {
+{
+[e :U _Timer0_init ]
+"43
+[; ;Timer.c: 43: void Timer0_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
+[v _mode `E1178 ~T0 @X0 1 r1 ]
+[v _period `E1197 ~T0 @X0 1 r2 ]
+[v _channel `E1182 ~T0 @X0 1 r3 ]
+[v _event `E1186 ~T0 @X0 1 r4 ]
+"44
+[; ;Timer.c: 44: {
+[f ]
+"47
+[; ;Timer.c: 47:     TMR0 = ( uint8_t )( ( ( ( ( ( 16000000 ) / ( 4 ) ) / 256 ) / 1000 ) * period ) - 1 );
+[e = _TMR0 -> - * / / / -> 16000000 `l -> -> 4 `i `l -> -> 256 `i `l -> -> 1000 `i `l -> _period `l -> -> 1 `i `l `uc ]
+"49
+[; ;Timer.c: 49:     OPTION_REG |= 0x07;
+[e =| _OPTION_REG -> -> 7 `i `Vuc ]
+"50
+[; ;Timer.c: 50: }
+[e :UE 116 ]
+}
+"52
+[; ;Timer.c: 52: void Timer1_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
+[v _Timer1_init `(v ~T0 @X0 1 ef4`E1178`E1197`E1182`E1186 ]
+"53
+[; ;Timer.c: 53: {
 {
 [e :U _Timer1_init ]
-"16
-[; ;Timer.c: 16: void Timer1_init( uint16_t tickNumber )
-[v _tickNumber `ui ~T0 @X0 1 r1 ]
-"17
-[; ;Timer.c: 17: {
+"52
+[; ;Timer.c: 52: void Timer1_init( TIMER_MODE_t mode, TIMER_PERIOD_t period, TIMER_CHANNEL_t channel, TIMER_EVENT_t event )
+[v _mode `E1178 ~T0 @X0 1 r1 ]
+[v _period `E1197 ~T0 @X0 1 r2 ]
+[v _channel `E1182 ~T0 @X0 1 r3 ]
+[v _event `E1186 ~T0 @X0 1 r4 ]
+"53
+[; ;Timer.c: 53: {
 [f ]
-"19
-[; ;Timer.c: 19:     TMR1H = 0;
-[e = _TMR1H -> -> 0 `i `uc ]
-"20
-[; ;Timer.c: 20:     TMR1L = 0;
-[e = _TMR1L -> -> 0 `i `uc ]
-"23
-[; ;Timer.c: 23:     T1CON = 0x01;
-[e = _T1CON -> -> 1 `i `uc ]
-"26
-[; ;Timer.c: 26:     CCPR1H = tickNumber >> 8;
-[e = _CCPR1H -> >> _tickNumber -> 8 `i `uc ]
-"27
-[; ;Timer.c: 27:     CCPR1L = tickNumber;
-[e = _CCPR1L -> _tickNumber `uc ]
-"29
-[; ;Timer.c: 29:     CCP1CON = 0x0B;
-[e = _CCP1CON -> -> 11 `i `uc ]
-"32
-[; ;Timer.c: 32:     PIE1 = 0x04;
-[e = _PIE1 -> -> 4 `i `uc ]
-"34
-[; ;Timer.c: 34:     INTCON = 0x40;
-[e = _INTCON -> -> 64 `i `uc ]
-"35
-[; ;Timer.c: 35: }
-[e :UE 103 ]
+"57
+[; ;Timer.c: 57:     CCPR1 = ( uint16_t )( ( ( ( ( ( 16000000 ) / ( 4 ) ) / 1 ) / 1000 ) * period ) - 1 );
+[e = _CCPR1 -> -> - * / / / -> 16000000 `l -> -> 4 `i `l -> -> 1 `i `l -> -> 1000 `i `l -> _period `l -> -> 1 `i `l `ui `us ]
+"60
+[; ;Timer.c: 60:     CCP1CON |= event;
+[e =| _CCP1CON -> _event `Vuc ]
+"62
+[; ;Timer.c: 62:     T1CON |= 0x01;
+[e =| _T1CON -> -> 1 `i `Vuc ]
+"64
+[; ;Timer.c: 64:     INTCON |= 0x40;
+[e =| _INTCON -> -> 64 `i `Vuc ]
+"65
+[; ;Timer.c: 65:     PIE1 |= 0x04;
+[e =| _PIE1 -> -> 4 `i `Vuc ]
+"66
+[; ;Timer.c: 66: }
+[e :UE 117 ]
 }
